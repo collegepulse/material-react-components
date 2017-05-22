@@ -3,9 +3,9 @@
 
 # Except documentation-generated files
 !.gitignore
-!index.html
-!main.js
-!main.js.map
+!/index.html
+!/main.js
+!/main.js.map
 
 # And exclude all subdirectories
 !*/
