@@ -14,7 +14,7 @@ function FlatButtonDocs() {
         <div>
           <div>Complex Example</div>
           <br />
-          <img src={'http://lorempixel.com/400/200/'} alt={'Something Random'} />
+          <img src={'http://lorempixel.com/200/200/'} alt={'Something Random'} />
         </div>
       </FlatButton>
     </div>

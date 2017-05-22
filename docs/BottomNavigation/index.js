@@ -6,11 +6,10 @@ function BottomNavigationDocs() {
     <div>
       <h1>BottomNavigation</h1>
       <br />
-      <BottomNavigation style={{maxWidth: '500px'}}>
+      <BottomNavigation style={{maxWidth: '270px'}}>
         <BottomNavigationItem>Foo</BottomNavigationItem>
         <BottomNavigationItem>Bar</BottomNavigationItem>
         <BottomNavigationItem>Baz</BottomNavigationItem>
-        <BottomNavigationItem>Foo</BottomNavigationItem>
       </BottomNavigation>
     </div>
   );
