@@ -9,7 +9,7 @@ This is a collection of React components that implement Google's [material desig
 Demo
 ----
 
-This section will be updated once a link is available.
+[View the components](https://collegepulse.github.io/material-react-components/).
 
 Acknowlegements
 ---------------
