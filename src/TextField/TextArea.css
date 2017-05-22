@@ -1,0 +1,7 @@
+.textarea {
+  height: auto;
+  resize: none;
+  padding-left: 0;
+  padding-right: 0;
+  overflow-y: hidden;
+}

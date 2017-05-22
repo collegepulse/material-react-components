@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "document": true,
+    "window": true
+  },
+  "rules": {
+    "comma-dangle": 0,
+    "import/first": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-restricted-properties": 0,
+    "object-curly-spacing": 0,
+    "react/jsx-filename-extension": 0
+  }
+}
