@@ -56,7 +56,7 @@
 
 .label {
   position: absolute;
-  top: 36px;
+  top: 40px;
   pointer-events: none;
   animation-duration: 250ms;
   animation-timing-function: $easeOutFunction;
@@ -68,7 +68,7 @@
 .input.hasPlaceholder + .label,
 .input.hasValue + .label,
 .input:focus + .label {
-  transform: scale(0.75) translate(0, -20px);
+  transform: $textFieldLabelFloatTransform;
 }
 
 .input:focus + .label {

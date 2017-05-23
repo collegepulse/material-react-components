@@ -38,9 +38,9 @@ class TextFieldDocs extends React.Component {
         <br />
         <TextField onChange={e => (this.onChange(e, 'textField3'))} value={this.state.textField3} label={'Label'} helperText={'Helper text'} />
         <br />
-        <TextField onChange={e => (this.onChange(e, 'textField4'))} value={this.state.textField4} label={'Error'} helperText={'This field has an error.'} errorColor={Colors.red500} />
+        <TextField onChange={e => (this.onChange(e, 'textField4'))} value={this.state.textField4} label={'Error'} helperText={'This field has an error.'} errorColor={Colors.$red500} />
         <br />
-        <TextField onChange={e => (this.onChange(e, 'textField5'))} value={this.state.textField5} label={'Custom color'} helperText={'It\'s special.'} primaryColor={Colors.orange700} />
+        <TextField onChange={e => (this.onChange(e, 'textField5'))} value={this.state.textField5} label={'Custom color'} helperText={'It\'s special.'} primaryColor={Colors.$orange700} />
         <br />
         <TextField onChange={e => (this.onChange(e, 'textField6'))} value={this.state.textField6} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} />
         <br />
