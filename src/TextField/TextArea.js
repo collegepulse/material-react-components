@@ -7,16 +7,25 @@ class TextArea extends React.Component {
   constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
+    this.fixHeight = this.fixHeight.bind(this);
+  }
+
+  componentDidMount() {
+    this.fixHeight();
   }
 
   onChange(e) {
+    this.fixHeight();
+    this.props.onChange(e);
+  }
+
+  fixHeight() {
     if (window) {
       const fontSize = Number(window.getComputedStyle(this.textarea).fontSize.replace(/\D/g, ''));
       /* reset height to auto to ensure textfield height decreases when text is removed */
       this.textarea.style.height = 'auto';
       this.textarea.style.height = `${this.textarea.scrollHeight - fontSize}px`;
     }
-    this.props.onChange(e);
   }
 
   render() {

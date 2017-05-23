@@ -16,7 +16,8 @@ class TextFieldDocs extends React.Component {
       textField5: '',
       textField6: '',
       textField7: '',
-      textField8: ''
+      textField8: '',
+      textField9: 'This textfield should have the proper height on initial render.'
     };
   }
 
@@ -47,6 +48,8 @@ class TextFieldDocs extends React.Component {
         <TextField onChange={e => (this.onChange(e, 'textField7'))} value={this.state.textField7} label={'Label'} helperText={'Helper text'} multiline />
         <br />
         <TextField onChange={e => (this.onChange(e, 'textField8'))} value={this.state.textField8} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
+        <br />
+        <TextField onChange={e => (this.onChange(e, 'textField9'))} value={this.state.textField9} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
       </div>
     );
   }
