@@ -43,6 +43,8 @@ function getPlugins(env) {
 module.exports = function config(env = {}) {
   return {
     devServer: {
+      disableHostCheck: true,
+      host: '0.0.0.0',
       hot: true,
       publicPath: '/'
     },
