@@ -12,6 +12,12 @@
   text-transform: uppercase;
   font-weight: 600;
   font-size: 14px;
+  margin: 0;
+  color: inherit;
+}
+
+.root::-moz-focus-inner {
+  border: 0;
 }
 
 .root:hover {
