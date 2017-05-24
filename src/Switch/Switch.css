@@ -1,0 +1,89 @@
+.root {
+  cursor: pointer;
+  display: flex;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.switchWrapper {
+  height: 64px;
+  width: 64px;
+  position: relative;
+  display: flex;
+}
+
+.input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  outline: none;
+  margin: 0;
+  z-index: 10;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.track {
+  border-radius: 7px;
+  width: 34px;
+  height: 14px;
+  background-color: #000;
+  opacity: 0.5;
+  margin: auto;
+  position: relative;
+}
+
+.thumb {
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 22px;
+  left: 10px;
+  transition: all 250ms $easeOutFunction;
+}
+
+.input:checked ~ .thumb {
+  background-color: $primary;
+  transform: translate(25px, 0);
+}
+
+.input:checked ~ .track {
+  background-color: $primary;
+}
+
+.input:disabled ~ .thumb,
+.input:disabled ~ .track {
+  background-color: #bdbdbd;
+}
+
+.input:focus ~ .thumb.thumbKeyboardFocus::before {
+  background-color: #000;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  opacity: 0.15;
+  transform: scale(2);
+  content: ' ';
+}
+
+.input:not(:checked) ~ .thumb {
+  background-color: white;
+}
+
+.label {
+  line-height: 64px;
+  pointer-events: none;
+}
+

@@ -1,0 +1,9 @@
+.root {
+  background-color: $primary;
+  height: 64px;
+  max-height: 64px;
+  padding-left: 16px;
+  padding-right: 16px;
+  overflow: hidden;
+  line-height: 64px;
+}
