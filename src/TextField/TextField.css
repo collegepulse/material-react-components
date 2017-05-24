@@ -13,33 +13,37 @@
   min-width: 180px;
   padding: 8px 0;
   font-size: 16px;
+  font-family: inherit;
 }
 
-.input:focus ~ .inkbar::after {
-  display: none;
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.42);
 }
 
-.inkbar::after {
-  content: '';
-  background-color: $borderColor;
-  height: 1px;
-  position: absolute;
-  width: 100%;
-}
-
-.input ~ .inkbar {
-  top: -1px;
+.inkbar {
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(0, 0, 0, 0.42);
+  border-bottom-style: solid;
+  box-sizing: border-box;
   height: 2px;
-  background-color: $primary;
   animation-duration: 250ms;
   animation-timing-function: easeOutFunction;
   animation-fill-mode: forwards;
-  width: 100%;
-  max-width: 0%;
+}
+
+.input:disabled ~ .inkbar {
+  border-bottom-style: dashed;
+}
+
+.input:focus ~ .inkbar,
+.input:hover:not(:disabled) ~ .inkbar {
+  border-bottom-width: 2px;
 }
 
 .input:focus ~ .inkbar {
   animation-name: stretch;
+  border-bottom-color: $primary;
+  max-width: 70%;
 }
 
 @keyframes stretch {
@@ -55,6 +59,7 @@
 }
 
 .label {
+  color: rgba(0, 0, 0, 0.54);
   position: absolute;
   top: 40px;
   pointer-events: none;
@@ -79,5 +84,5 @@
   padding-top: 8px;
   font-size: 12px;
   line-height: 12px;
-  color: #8a8a8a;
+  color: rgba(0, 0, 0, 0.54);
 }

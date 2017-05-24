@@ -1,6 +1,7 @@
 import Animations from './TextFieldAnimations.css';
 import Input from './Input';
 import makeClass from 'classnames';
+import makeUuid from 'uuid/v4';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './TextField.css';
@@ -12,7 +13,8 @@ class TextField extends React.Component {
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
     this.state = {
-      focused: false
+      focused: false,
+      labelId: makeUuid()
     };
   }
 
@@ -33,9 +35,9 @@ class TextField extends React.Component {
   }
 
   render() {
-    const {errorColor, id, helperText, label, placeholder,
+    const {errorColor, helperText, label, placeholder,
       value, multiline, primaryColor, ...other} = this.props;
-    const {focused} = this.state;
+    const {focused, labelId} = this.state;
     const FormComponent = multiline ? TextArea : Input;
     return (
       <div className={Styles.root}>
@@ -49,13 +51,12 @@ class TextField extends React.Component {
           onBlur={this.onBlur}
           value={value}
           placeholder={placeholder}
-          aria-label={label}
-          id={id}
+          aria-labelledby={labelId}
           {...other}
         />
         <label
           className={Styles.label}
-          htmlFor={id}
+          id={labelId}
           ref={c => (this.label = c)}
           style={{
             color: errorColor || (focused && primaryColor)
@@ -63,7 +64,10 @@ class TextField extends React.Component {
         >
           {label}
         </label>
-        <div className={Styles.inkbar} style={{backgroundColor: errorColor || primaryColor}} />
+        <div
+          className={Styles.inkbar}
+          style={{borderBottomColor: errorColor || (focused && primaryColor)}}
+        />
         <div className={Styles.helper} style={{color: errorColor}}>{helperText}</div>
       </div>
     );
@@ -72,7 +76,6 @@ class TextField extends React.Component {
 
 TextField.defaultProps = {
   errorColor: null,
-  id: null,
   helperText: null,
   placeholder: null,
   primaryColor: null,
@@ -82,7 +85,6 @@ TextField.defaultProps = {
 TextField.propTypes = {
   errorColor: PropTypes.string,
   helperText: PropTypes.string,
-  id: PropTypes.string,
   label: PropTypes.string.isRequired,
   multiline: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
