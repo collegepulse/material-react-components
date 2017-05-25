@@ -7,7 +7,7 @@ function Paper({children, className, elevation, ...other}) {
   return (
     <div
       {...other}
-      className={makeClass(className, Styles[`elevation${elevation}`])}
+      className={makeClass(className, Styles.root, Styles[`elevation${elevation}`])}
     >
       {children}
     </div>
