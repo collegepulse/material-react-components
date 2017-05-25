@@ -1,0 +1,72 @@
+.root {
+  animation-duration: 225ms;
+  animation-timing-function: $rippleEaseOutFunction;
+  animation-fill-mode: forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2500;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.root.open {
+  pointer-events: auto;
+}
+
+.backdrop {
+  justify-content: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.52);
+}
+
+.dialog {
+  width: 75%;
+  max-width: 600px;
+  max-height: 90vh;
+  pointer-events: auto;
+  z-index: 2500;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 24px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.description {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 0 24px 24px 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 4px;
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
