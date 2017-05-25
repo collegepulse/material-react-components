@@ -32,7 +32,7 @@ class FlatButton extends React.Component {
 
   onKeyUp(e) {
     const key = keycode(e.keyCode);
-    if (key === 'space') {
+    if (key === 'space' || key === 'enter') {
       e.persist();
       this.ripple.add(e, {centered: true}, () => {
         this.ripple.remove(e);
