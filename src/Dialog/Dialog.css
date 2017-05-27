@@ -13,10 +13,12 @@
   z-index: 2500;
   pointer-events: none;
   opacity: 0;
+  animation-name: fadeout;
 }
 
 .root.open {
   pointer-events: auto;
+  animation-name: fadein;
 }
 
 .backdrop {

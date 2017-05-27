@@ -9,37 +9,49 @@ class FlatButton extends React.Component {
 
   constructor(props) {
     super(props);
+    this.onKeyDown = this.onKeyDown.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
-    this.onMouseUp = this.onMouseUp.bind(this);
-    this.onKeyUp = this.onKeyUp.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onBlur = this.onBlur.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+    this.state = {
+      mouseFocused: false
+    };
   }
 
   onMouseDown(e) {
-    e.persist();
-    this.ripple.remove(e, {}, () => (
-      this.ripple.add(e)
+    this.setState({mouseFocused: true});
+    this.ripple.add(e, {}, () => (
+      this.ripple.remove(e, {removeAll: true})
     ));
   }
 
-  onMouseUp(e) {
-    this.ripple.remove(e);
+  onMouseLeave(e) {
+    if (this.button !== document.activeElement) {
+      this.ripple.remove(e);
+    }
   }
 
-  onBlur(e) {
-    this.ripple.remove(e);
-  }
-
-  onKeyUp(e) {
+  onKeyDown(e) {
+    this.setState({mouseFocused: false});
     const key = keycode(e.keyCode);
     if (key === 'space' || key === 'enter') {
       e.persist();
       this.ripple.add(e, {centered: true}, () => {
         this.ripple.remove(e);
       });
-    } else if (key === 'tab') {
+    }
+  }
+
+  onFocus(e) {
+    if (!this.state.mouseFocused) {
       this.ripple.add(e, {centered: true});
     }
+  }
+
+  onBlur(e) {
+    this.ripple.remove(e);
+    this.setState({mouseFocused: false});
   }
 
   render() {
@@ -47,11 +59,12 @@ class FlatButton extends React.Component {
     return (
       <button
         className={makeClass(Styles.root, className)}
-        onMouseDown={this.onMouseDown}
-        onMouseUp={this.onMouseUp}
-        onMouseLeave={this.onMouseLeave}
-        onKeyUp={this.onKeyUp}
+        onKeyDown={this.onKeyDown}
         onBlur={this.onBlur}
+        onMouseDown={this.onMouseDown}
+        onMouseLeave={this.onMouseLeave}
+        tabIndex={0}
+        onFocus={this.onFocus}
         {...other}
         ref={c => (this.button = c)}
       >
@@ -63,6 +76,7 @@ class FlatButton extends React.Component {
 }
 
 FlatButton.defaultProps = {
+  elevation: 0,
   children: null,
   className: null
 };

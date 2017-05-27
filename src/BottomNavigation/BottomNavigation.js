@@ -4,7 +4,7 @@ import Styles from './BottomNavigation.css';
 
 function BottomNavigation({children, ...other}) {
   return (
-    <div className={Styles.root} {...other}>
+    <div {...other} className={Styles.root}>
       {children}
     </div>
   );

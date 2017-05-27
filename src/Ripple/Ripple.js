@@ -41,10 +41,10 @@ class Ripple extends React.Component {
     }, cb);
   }
 
-  remove(e, options, cb = () => {}) {
+  remove(e, opts, cb = () => {}) {
     const {ripples} = this.state;
     this.setState({
-      ripples: ripples.slice(1)
+      ripples: opts && opts.removeAll ? [] : ripples.slice(1)
     }, cb);
   }
 

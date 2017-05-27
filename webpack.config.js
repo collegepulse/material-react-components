@@ -19,7 +19,10 @@ function getPlugins(env) {
   let plugins = [];
   if (env.dev) {
     plugins = [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.DefinePlugin({
+        __TEST__: false
+      })
     ];
   }
   if (env.docs) {
@@ -28,6 +31,7 @@ function getPlugins(env) {
         template: 'docs/index.html'
       }),
       new webpack.DefinePlugin({
+        __TEST__: false,
         'process.env': {
           NODE_ENV: JSON.stringify('production')
         }

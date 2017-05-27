@@ -6,7 +6,7 @@ import Styles from './BottomNavigationItem.css';
 
 function BottomNavigationItem({children, className, ...other}) {
   return (
-    <FlatButton className={makeClass(Styles.root, className)} {...other}>
+    <FlatButton {...other} className={makeClass(Styles.root, className)}>
       {children}
     </FlatButton>
   );

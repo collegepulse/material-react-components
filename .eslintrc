@@ -2,7 +2,8 @@
   "extends": "airbnb",
   "globals": {
     "document": true,
-    "window": true
+    "window": true,
+    "__TEST__": true
   },
   "rules": {
     "comma-dangle": 0,
