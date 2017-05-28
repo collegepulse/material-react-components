@@ -5,6 +5,7 @@ import Dialog from './Dialog';
 import Paper from './Paper';
 import React from 'react';
 import Switch from './Switch';
+import Tabs from './Tabs';
 import TextField from './TextField';
 
 function Listing() {
@@ -16,6 +17,7 @@ function Listing() {
       <Dialog />
       <Paper />
       <Switch />
+      <Tabs />
       <TextField />
     </div>
   );

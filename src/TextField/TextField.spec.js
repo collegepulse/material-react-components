@@ -7,11 +7,24 @@ import {mount, shallow} from 'enzyme';
 import Styles from './TextField.css';
 import TextField from './TextField';
 import TextFieldAnimations from './TextFieldAnimations.css';
+import {unmountComponentAtNode} from 'react-dom';
 
 const shortText = 'Some text';
 const longText = 'A really,\n really,\n really,\n really,\n really long string.';
 
 describe('TextField', () => {
+  let element;
+
+  beforeEach(() => {
+    element = document.createElement('div');
+    document.body.appendChild(element);
+  });
+
+  afterEach(() => {
+    unmountComponentAtNode(element);
+    element.remove();
+  });
+
   it('should shallow render', () => {
     const wrapper = shallow(
       <TextField
@@ -89,8 +102,6 @@ describe('TextField', () => {
   });
 
   it('should increase the height of the textarea when there is more text', () => {
-    const element = document.createElement('div');
-    document.body.appendChild(element);
     const wrapper = mount(
       <TextField
         label="foo"
@@ -106,12 +117,9 @@ describe('TextField', () => {
     textarea.simulate('change', {target: {value: longText}});
     const height = parseInt(textarea.getDOMNode().style.height, 10);
     assert(beginningHeight < height);
-    element.remove();
   });
 
   it('should decrease the height of the textarea when there is less text', () => {
-    const element = document.createElement('div');
-    document.body.appendChild(element);
     const wrapper = mount(
       <TextField
         label="foo"

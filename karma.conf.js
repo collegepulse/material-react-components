@@ -17,19 +17,29 @@ module.exports = function (config) {
       level: 'log'
     },
     browsers: [
-      'PhantomJS'
+      'PhantomJSWithArgs'
     ],
     coverageReporter: {
-      type: 'lcov',
       dir: '.coverage/',
       reporters: [
         {
           type: 'lcov',
-          subdir: 'lcov-report'
+          subdir: '.'
         }
       ]
     },
     customContextFile: sourcemaps ? null : 'test/context.html',
+    customLaunchers: {
+      PhantomJSWithArgs: {
+        base: 'PhantomJS',
+        options: {
+          viewportSize: {
+            width: 1024,
+            height: 768
+          }
+        }
+      }
+    },
     files: [
       './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
       'test/test_index.js'
@@ -71,6 +81,7 @@ module.exports = function (config) {
                   [
                     'istanbul', {
                       exclude: [
+                        '**/index.js',
                         '**/*.spec.js',
                         'test/test_index.js'
                       ]

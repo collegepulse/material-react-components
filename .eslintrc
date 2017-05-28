@@ -2,6 +2,7 @@
   "extends": "airbnb",
   "globals": {
     "document": true,
+    "Event": true,
     "window": true,
     "__TEST__": true
   },
@@ -14,6 +15,7 @@
     "no-restricted-properties": 0,
     "object-curly-spacing": 0,
     "react/forbid-prop-types": 0,
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "react/prefer-stateless-function": 0
   }
 }

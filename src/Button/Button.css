@@ -14,6 +14,7 @@
   font-size: 14px;
   margin: 0;
   color: inherit;
+  border-radius: 2px;
 }
 
 .root.hasBackground {
@@ -36,7 +37,7 @@
 }
 
 .root.fab:active {
-  box-shadow: $elevation10; 
+  box-shadow: $elevation10;
 }
 
 .root::-moz-focus-inner {

@@ -1,0 +1,15 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.inkbar {
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  width: 0;
+  transition: all 250ms ease;
+}
