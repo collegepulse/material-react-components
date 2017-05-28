@@ -5,9 +5,9 @@ import Styles from './Tab.css';
 
 class Tab extends React.Component {
   render() {
-    const {label, ...props} = this.props;
+    const {label, ...other} = this.props;
     return (
-      <Button {...props} className={Styles.tab}>
+      <Button {...other} className={Styles.tab}>
         {label}
       </Button>
     );
