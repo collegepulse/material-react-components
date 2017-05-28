@@ -1,6 +1,8 @@
 material-react-components
 =========================
 
+[![Build Status](https://travis-ci.org/collegepulse/material-react-components.svg?branch=master)](https://travis-ci.org/collegepulse/material-react-components/)
+
 This is a collection of React components that implement Google's [material design specification](https://material.io/guidelines). The goals of this project include:
 
 - Minimal to zero configuration to consume components through carefully-crafted, lightweight implementations.
