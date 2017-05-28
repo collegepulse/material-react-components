@@ -2,6 +2,7 @@ material-react-components
 =========================
 
 [![Build Status](https://travis-ci.org/collegepulse/material-react-components.svg?branch=master)](https://travis-ci.org/collegepulse/material-react-components/)
+[![Coverage Status](https://coveralls.io/repos/github/collegepulse/material-react-components/badge.svg?branch=master)](https://coveralls.io/github/collegepulse/material-react-components?branch=master)
 
 This is a collection of React components that implement Google's [material design specification](https://material.io/guidelines). The goals of this project include:
 
