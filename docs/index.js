@@ -3,6 +3,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import Listing from './Listing';
 import React from 'react';
 import {render} from 'react-dom';
+import 'babel-polyfill';
 
 injectTapEventPlugin();
 

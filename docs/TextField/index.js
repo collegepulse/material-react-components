@@ -18,7 +18,7 @@ class TextFieldDocs extends React.Component {
       textFieldWithCustomColor: '',
       textFieldMultilineBaseline: '',
       textFieldMultilineBaselineWithPlaceholder: '',
-      textFieldMultilineWithInitialMultilineValue: 'This textfield should have the proper height on initial render.'
+      textFieldMultilineWithInitialMultilineValue: 'This textfield should have the proper height on initial render because it has extra content.'
     };
   }
 
@@ -30,7 +30,7 @@ class TextFieldDocs extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{width: '200px'}}>
         <h1>TextField</h1>
         <TextField onChange={e => (this.onChange(e, 'textFieldBaseline'))} value={this.state.textFieldBaseline} label={'Label'} />
         <br />

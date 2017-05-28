@@ -32,6 +32,7 @@ module.exports = function (config) {
     },
     customContextFile: sourcemaps ? null : 'test/context.html',
     files: [
+      './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
       'test/test_index.js'
     ],
     frameworks: [
@@ -39,6 +40,7 @@ module.exports = function (config) {
     ],
     preprocessors: getPreprocessors(),
     reporters: [
+      'mocha',
       'coverage-istanbul'
     ],
     singleRun: true,

@@ -1,7 +1,7 @@
 import AppBar from './AppBar';
 import BottomNavigation from './BottomNavigation';
+import Button from './Button';
 import Dialog from './Dialog';
-import FlatButton from './FlatButton';
 import Paper from './Paper';
 import React from 'react';
 import Switch from './Switch';
@@ -12,8 +12,8 @@ function Listing() {
     <div style={{padding: '10px'}}>
       <AppBar />
       <BottomNavigation />
+      <Button />
       <Dialog />
-      <FlatButton />
       <Paper />
       <Switch />
       <TextField />

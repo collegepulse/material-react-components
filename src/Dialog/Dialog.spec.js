@@ -2,7 +2,7 @@
 
 import assert from 'assert';
 import Dialog from './Dialog';
-import FlatButton from '../FlatButton';
+import Button from '../Button';
 import keycode from 'keycode';
 import React from 'react';
 import {mount, shallow} from 'enzyme';
@@ -38,8 +38,8 @@ describe('Dialog', () => {
           wrapper.setProps({open: false});
         }}
         actions={[
-          <FlatButton key={'one'}>Foo</FlatButton>,
-          <FlatButton key={'two'}>Bar</FlatButton>
+          <Button key={'one'}>Foo</Button>,
+          <Button key={'two'}>Bar</Button>
         ]}
       />
     );
@@ -64,8 +64,8 @@ describe('Dialog', () => {
           wrapper.setProps({open: false});
         }}
         actions={[
-          <FlatButton ref={c => (firstAction = c.button)} key={'one'}>Foo</FlatButton>,
-          <FlatButton ref={c => (lastAction = c.button)} key={'two'}>Bar</FlatButton>
+          <Button ref={c => (firstAction = c.button)} key={'one'}>Foo</Button>,
+          <Button ref={c => (lastAction = c.button)} key={'two'}>Bar</Button>
         ]}
       />
     , {attachTo: element});
@@ -84,8 +84,8 @@ describe('Dialog', () => {
       <Dialog
         open
         actions={[
-          <FlatButton ref={c => (firstAction = c.button)} key={'one'}>Foo</FlatButton>,
-          <FlatButton ref={c => (lastAction = c.button)} key={'two'}>Bar</FlatButton>
+          <Button ref={c => (firstAction = c.button)} key={'one'}>Foo</Button>,
+          <Button ref={c => (lastAction = c.button)} key={'two'}>Bar</Button>
         ]}
       />
     , {attachTo: element});

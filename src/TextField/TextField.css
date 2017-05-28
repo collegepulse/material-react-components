@@ -1,6 +1,7 @@
 .root {
   display: inline-block;
   position: relative;
+  width: 100%;
 }
 
 .input {
@@ -10,7 +11,6 @@
   margin-top: 32px;
   display: block;
   width: 100%;
-  min-width: 180px;
   padding: 8px 0;
   font-size: 16px;
   font-family: inherit;
@@ -85,4 +85,39 @@
   font-size: 12px;
   line-height: 12px;
   color: rgba(0, 0, 0, 0.54);
+}
+
+.shadow {
+  height: auto;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  visibility: hidden;
+  pointer-events: none;
+  margin-top: 40px;
+  margin-bottom: -40px;
+  position: absolute;
+  resize: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 20px;
+  width: 100%;
+}
+
+.textarea {
+  height: auto;
+  resize: none;
+  padding-left: 0;
+  padding-right: 0;
+  overflow-y: hidden;
+  transition: all 0.3s $easeOutFunction;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  margin-top: 40px;
+  position: relative;
+  margin-bottom: -20px;
+  line-height: 20px;
 }

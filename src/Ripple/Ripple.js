@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import ReactTransitionGroup from 'react-transition-group/TransitionGroup';
 import RippleItem from './RippleItem';
 import Styles from './Ripple.css';
-import ReactTransitionGroup from 'react-transition-group/TransitionGroup';
 
 /* Usage note: the parent DOM element must have relative positioning. */
 class Ripple extends React.Component {
@@ -27,6 +28,7 @@ class Ripple extends React.Component {
 
     ripples = [...ripples, (
       <RippleItem
+        color={this.props.color}
         key={this.state.nextKey}
         rippleX={rippleX}
         rippleY={rippleY}
@@ -63,3 +65,12 @@ class Ripple extends React.Component {
 }
 
 export default Ripple;
+
+Ripple.defaultProps = {
+  color: 'rgba(0, 0, 0, 0.87)'
+};
+
+Ripple.propTypes = {
+  color: PropTypes.string
+};
+

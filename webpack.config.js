@@ -1,3 +1,4 @@
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
@@ -16,7 +17,9 @@ function entry(env) {
 }
 
 function getPlugins(env) {
-  let plugins = [];
+  let plugins = [
+    new CaseSensitivePathsPlugin()
+  ];
   if (env.dev) {
     plugins = [
       new webpack.HotModuleReplacementPlugin(),

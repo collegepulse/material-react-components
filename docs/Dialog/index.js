@@ -1,5 +1,5 @@
+import Button from '../../src/Button';
 import Dialog from '../../src/Dialog';
-import FlatButton from '../../src/FlatButton';
 import React from 'react';
 
 class DialogDocs extends React.Component {
@@ -21,15 +21,15 @@ class DialogDocs extends React.Component {
     return (
       <div style={{maxWidth: '200px'}}>
         <h1>Dialog</h1>
-        <FlatButton onClick={this.toggleDialog}>Open Dialog</FlatButton>
+        <Button onClick={this.toggleDialog}>Open Dialog</Button>
         <Dialog
           open={this.state.dialog1Open}
           onClose={this.toggleDialog}
           title={'Use Google\'s location service?'}
           description={'Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.'}
           actions={[
-            <FlatButton key={'btn1'} onClick={this.toggleDialog}>Disagree</FlatButton>,
-            <FlatButton key={'btn2'} onClick={this.toggleDialog}>Agree</FlatButton>
+            <Button key={'btn1'} onClick={this.toggleDialog}>Disagree</Button>,
+            <Button key={'btn2'} onClick={this.toggleDialog}>Agree</Button>
           ]}
         />
       </div>

@@ -42,8 +42,9 @@ class RippleItem extends React.Component {
   }
 
   rippleStyles() {
-    const {rippleSize, rippleX, rippleY} = this.props;
+    const {color, rippleSize, rippleX, rippleY} = this.props;
     const rippleStyles = {
+      backgroundColor: color,
       width: rippleSize,
       height: rippleSize,
       top: -(rippleSize / 2) + rippleY,
@@ -75,6 +76,7 @@ class RippleItem extends React.Component {
 }
 
 RippleItem.defaultProps = {
+  color: 'rgba(0, 0, 0, 0.87)',
   rippleX: 0,
   rippleY: 0,
   rippleSize: 0,
@@ -82,6 +84,7 @@ RippleItem.defaultProps = {
 };
 
 RippleItem.propTypes = {
+  color: PropTypes.string,
   rippleX: PropTypes.number,
   rippleY: PropTypes.number,
   rippleSize: PropTypes.number,

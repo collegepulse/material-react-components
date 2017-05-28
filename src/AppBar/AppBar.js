@@ -3,22 +3,30 @@ import Paper from '../Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './AppBar.css';
+import Variables from '../variables';
 
-function AppBar({className, elevation, children, ...other}) {
+function AppBar({backgroundColor, className, elevation, children, ...other}) {
   return (
-    <Paper {...other} className={makeClass(className, Styles.root)} elevation={elevation}>
+    <Paper
+      {...other}
+      backgroundColor={backgroundColor}
+      className={makeClass(className, Styles.root)}
+      elevation={elevation}
+    >
       {children}
     </Paper>
   );
 }
 
 AppBar.defaultProps = {
+  backgroundColor: Variables.$primary,
   className: '',
   children: null,
   elevation: 4,
 };
 
 AppBar.propTypes = {
+  backgroundColor: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node,
   elevation: PropTypes.number,
