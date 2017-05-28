@@ -1,5 +1,6 @@
 .coverage
 node_modules
+.coveralls.yml
 
 # Documentation-generated files
 /index.html

@@ -19,16 +19,15 @@ module.exports = function (config) {
     browsers: [
       'PhantomJS'
     ],
-    coverageIstanbulReporter: {
+    coverageReporter: {
+      type: 'lcov',
       dir: '.coverage/',
-      includeAllSources: true,
-      type: 'html',
-      watermarks: {
-        statements: [80, 90],
-        functions: [80, 90],
-        branches: [80, 90],
-        lines: [80, 90]
-      }
+      reporters: [
+        {
+          type: 'lcov',
+          subdir: 'lcov-report'
+        }
+      ]
     },
     customContextFile: sourcemaps ? null : 'test/context.html',
     files: [
@@ -41,7 +40,8 @@ module.exports = function (config) {
     preprocessors: getPreprocessors(),
     reporters: [
       'mocha',
-      'coverage-istanbul'
+      'coverage',
+      'coveralls'
     ],
     singleRun: true,
     webpack: {
