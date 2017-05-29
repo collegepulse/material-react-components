@@ -7,6 +7,7 @@ import React from 'react';
 import Switch from './Switch';
 import Tabs from './Tabs';
 import TextField from './TextField';
+import Typography from './Typography';
 
 function Listing() {
   return (
@@ -19,6 +20,7 @@ function Listing() {
       <Switch />
       <Tabs />
       <TextField />
+      <Typography />
     </div>
   );
 }

@@ -1,0 +1,76 @@
+.display4 {
+  font-size: 112px;
+  font-weight: $typographyWeightLight;
+  letter-spacing: '-.04em';
+  line-height: 1;
+  color: $textSecondary;
+}
+
+.display3 {
+  font-size: 56px;
+  font-weight: $typographyWeightRegular;
+  letter-spacing: '-.02em';
+  line-height: 1.35;
+  color: $textSecondary;
+}
+
+.display2 {
+  font-size: 45px;
+  font-weight: $typographyWeightRegular;
+  line-height: '48px';
+  color: $textSecondary;
+}
+
+.display1 {
+  font-size: 34px;
+  font-weight: $typographyWeightRegular;
+  line-height: '40px';
+  color: $textSecondary;
+}
+
+.headline {
+  font-size: 24px;
+  font-weight: $typographyWeightRegular;
+  line-height: '32px';
+  color: $textPrimary;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: $typographyWeightMedium;
+  line-height: 1;
+  color: $textPrimary;
+}
+
+.subheading {
+  font-size: 16px;
+  font-weight: $typographyWeightRegular;
+  line-height: '24px';
+  color: $textPrimary;
+}
+
+.body2 {
+  font-size: 14px;
+  font-weight: $typographyWeightMedium;
+  line-height: '24px';
+  color: $textPrimary;
+}
+
+.body1 {
+  font-size: 14px;
+  font-weight: $typographyWeightRegular;
+  line-height: '20px';
+  color: $textPrimary;
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: $typographyWeightRegular;
+  line-height: 1;
+  color: $textSecondary;
+}
+
+.button {
+  text-transform: 'uppercase';
+  font-weight: $typographyWeightMedium;
+}

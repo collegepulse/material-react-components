@@ -31,5 +31,10 @@ module.exports = {
   $borderColor: '#e0e0e0',
   $red500: '#f44336',
   $orange700: '#F57C00',
-  $textFieldLabelFloatTransform: 'scale(0.75) translate(0, -25px)'
+  $textPrimary: 'rgba(0, 0, 0, 0.87)',
+  $textSecondary: 'rgba(0, 0, 0, 0.54)',
+  $textFieldLabelFloatTransform: 'scale(0.75) translate(0, -25px)',
+  $typographyWeightLight: '300',
+  $typographyWeightRegular: '400',
+  $typographyWeightMedium: '500'
 };
