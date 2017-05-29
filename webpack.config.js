@@ -76,6 +76,13 @@ module.exports = function config(env = {}) {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: 'babel-loader'
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            'babel-loader',
+            'react-svg-loader'
+          ]
         }
       ]
     },

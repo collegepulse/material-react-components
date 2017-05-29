@@ -34,6 +34,9 @@
   margin: 8px;
   padding: 0;
   box-shadow: $elevation5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .root.fab:active {
