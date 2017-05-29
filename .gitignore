@@ -7,5 +7,9 @@
 !/main.js
 !/main.js.map
 
+# And utility files needed for SPA support
+# See https://github.com/rafrex/spa-github-pages
+!/404.html
+
 # And exclude all subdirectories
 !*/
