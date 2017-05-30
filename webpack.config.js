@@ -31,7 +31,7 @@ function getPlugins(env) {
   if (env.docs) {
     plugins = [
       new HtmlWebpackPlugin({
-        template: 'docs/index.html'
+        template: 'docs/material-react-components/index.html'
       }),
       new webpack.DefinePlugin({
         __TEST__: false,
@@ -53,7 +53,7 @@ module.exports = function config(env = {}) {
       disableHostCheck: true,
       host: '0.0.0.0',
       hot: true,
-      publicPath: '/'
+      publicPath: '/material-react-components'
     },
     devtool: env.docs ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
     entry: entry(env),
