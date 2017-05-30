@@ -1,6 +1,7 @@
 import AppBar from './AppBar';
 import BottomNavigation from './BottomNavigation';
 import Button from './Button';
+import Collapse from './Collapse';
 import Dialog from './Dialog';
 import Paper from './Paper';
 import React from 'react';
@@ -14,6 +15,7 @@ function Listing() {
     <div style={{padding: '10px'}}>
       <AppBar />
       <BottomNavigation />
+      <Collapse />
       <Button />
       <Dialog />
       <Paper />
