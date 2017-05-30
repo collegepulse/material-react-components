@@ -21,7 +21,7 @@ class CollapseDocs extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{width: '300px'}}>
         <h1>Collapse</h1>
         <Switch checked={this.state.collapseBaseline} onChange={() => (this.onToggle('collapseBaseline'))} label={'Initially Closed'} />
         <Collapse open={this.state.collapseBaseline}>
