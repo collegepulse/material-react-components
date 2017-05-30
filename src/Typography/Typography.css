@@ -1,7 +1,7 @@
 .display4 {
   font-size: 112px;
   font-weight: $typographyWeightLight;
-  letter-spacing: -.04em;
+  letter-spacing: -0.04em;
   line-height: 1;
   color: $textSecondary;
 }
@@ -9,7 +9,7 @@
 .display3 {
   font-size: 56px;
   font-weight: $typographyWeightRegular;
-  letter-spacing: -.02em;
+  letter-spacing: -0.02em;
   line-height: 1.35;
   color: $textSecondary;
 }
