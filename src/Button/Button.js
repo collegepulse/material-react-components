@@ -118,7 +118,9 @@ class Button extends React.Component {
         }}
         style={this.getButtonStyles()}
       >
-        {children}
+        <span className={makeClass(Styles.label)}>
+          {children}
+        </span>
         <Ripple
           color={textColor || DEFAULT_TEXT_COLOR}
           ref={c => (this.ripple = c)}

@@ -3,6 +3,7 @@ import BottomNavigation from './BottomNavigation';
 import Button from './Button';
 import Collapse from './Collapse';
 import Dialog from './Dialog';
+import List from './List';
 import Paper from './Paper';
 import React from 'react';
 import Switch from './Switch';
@@ -18,6 +19,7 @@ function Listing() {
       <Collapse />
       <Button />
       <Dialog />
+      <List />
       <Paper />
       <Switch />
       <Tabs />

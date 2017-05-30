@@ -10,11 +10,13 @@
   background: none;
   outline: none;
   text-transform: uppercase;
+  font-family: inherit;
   font-weight: 500;
   font-size: 14px;
   margin: 0;
   color: inherit;
   border-radius: 2px;
+  user-select: none;
 }
 
 .root.hasBackground {
@@ -25,7 +27,11 @@
   box-shadow: $elevation5;
 }
 
-.root.fab {
+.root::-moz-focus-inner {
+  border: 0;
+}
+
+.fab {
   height: 56px;
   width: 56px;
   min-height: 56px;
@@ -39,10 +45,16 @@
   justify-content: center;
 }
 
-.root.fab:active {
+.fab:active {
   box-shadow: $elevation10;
 }
 
-.root::-moz-focus-inner {
-  border: 0;
+.label {
+  display: inherit;
+  pointer-events: none;
+}
+
+.fab > .label {
+  justify-content: center;
+  width: 100%;
 }
