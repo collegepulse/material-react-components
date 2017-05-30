@@ -106,6 +106,13 @@ module.exports = function (config) {
               'css-loader?modules&localIdentName=[name].[local]',
               'postcss-loader'
             ]
+          },
+          {
+            test: /\.svg$/,
+            use: [
+              'babel-loader',
+              'react-svg-loader'
+            ]
           }
         ]
       },
