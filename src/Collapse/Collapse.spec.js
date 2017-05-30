@@ -65,10 +65,10 @@ describe('Collapse', () => {
       </Collapse>,
       {attachTo: element}
     );
-    const initialHeight = window.getComputedStyle(wrapper.getDOMNode()).height;
+    const initialHeight = wrapper.getDOMNode().style.height;
     wrapper.setProps({open: true});
     setTimeout(() => {
-      const heightSometimeLater = window.getComputedStyle(wrapper.getDOMNode()).height;
+      const heightSometimeLater = wrapper.getDOMNode().style.height;
       assert(parseInt(initialHeight, 10) < parseInt(heightSometimeLater, 10));
       done();
     }, 100);
