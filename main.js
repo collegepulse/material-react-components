@@ -14224,11 +14224,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 (0, _reactTapEventPlugin2.default)();
 
-var app = document.createElement('div');
-app.id = 'app';
-app.style.height = '100%';
-document.body.appendChild(app);
-
 var _ref = _jsx(_DocNavigation2.default, {});
 
 var _ref2 = _jsx(_DocPageWrapper2.default, {});
