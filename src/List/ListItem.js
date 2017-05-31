@@ -19,7 +19,7 @@ function ListItem({action, avatar, className, primary, secondary, ...other}) {
             [Styles.textWithAvatarOrAction]: avatar || action
           })}
         >
-          <Typography type="subheading">{primary}</Typography>
+          {primary}
           {secondary && (
             <Typography type="body1">{secondary}</Typography>
           )}

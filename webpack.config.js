@@ -1,5 +1,4 @@
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -30,17 +29,11 @@ function getPlugins(env) {
   }
   if (env.docs) {
     plugins = [
-      new HtmlWebpackPlugin({
-        template: 'docs/material-react-components/index.html'
-      }),
       new webpack.DefinePlugin({
         __TEST__: false,
         'process.env': {
           NODE_ENV: JSON.stringify('production')
         }
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        sourceMap: true
       })
     ];
   }
@@ -50,6 +43,7 @@ function getPlugins(env) {
 module.exports = function config(env = {}) {
   return {
     devServer: {
+      historyApiFallback: true,
       disableHostCheck: true,
       host: '0.0.0.0',
       hot: true,
@@ -59,6 +53,7 @@ module.exports = function config(env = {}) {
     entry: entry(env),
     output: {
       path: path.resolve(__dirname, env.docs ? '.' : './dist'),
+      publicPath: '/',
       filename: '[name].js'
     },
     module: {

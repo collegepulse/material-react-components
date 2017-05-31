@@ -1,6 +1,7 @@
-import AppBar from '../src/AppBar';
+import {BrowserRouter} from 'react-router-dom';
+import DocNavigation from './DocNavigation';
+import DocPageWrapper from './DocPageWrapper';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Listing from './Listing';
 import React from 'react';
 import {render} from 'react-dom';
 import 'babel-polyfill';
@@ -13,21 +14,12 @@ document.body.appendChild(app);
 
 function Index() {
   return (
-    <div>
-      <AppBar
-        style={{
-          fontSize: '20px',
-          color: 'white',
-          position: 'fixed',
-          width: '100%',
-          zIndex: 2500
-        }}
-      >
-        material-react-components
-      </AppBar>
-      <div style={{height: '64px'}} />
-      <Listing />
-    </div>
+    <BrowserRouter>
+      <div style={{display: 'flex', flexDirection: 'row', height: '100%'}}>
+        <DocNavigation />
+        <DocPageWrapper />
+      </div>
+    </BrowserRouter>
   );
 }
 
