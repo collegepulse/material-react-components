@@ -3,6 +3,7 @@ import Paper from '../Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './AppBar.css';
+import Typography from '../Typography';
 import Variables from '../variables';
 
 function AppBar({backgroundColor, className, elevation, children, ...other}) {
@@ -13,7 +14,9 @@ function AppBar({backgroundColor, className, elevation, children, ...other}) {
       className={makeClass(className, Styles.root)}
       elevation={elevation}
     >
-      {children}
+      <Typography type="title" className={Styles.header}>
+        {children}
+      </Typography>
     </Paper>
   );
 }

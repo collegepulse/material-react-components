@@ -6,4 +6,11 @@
   padding-right: 16px;
   overflow: hidden;
   line-height: 64px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.header {
+  color: #fff;
+  line-height: 64px;
 }
