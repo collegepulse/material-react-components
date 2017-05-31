@@ -12,4 +12,4 @@
 !/404.html
 
 # And exclude all subdirectories
-!*/
+!.*/
