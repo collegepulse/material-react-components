@@ -35,7 +35,7 @@ class Switch extends React.Component {
   }
 
   render() {
-    const {checked, disabled, label, onChange, primaryColor, ...props} = this.props;
+    const {checked, disabled, label, onChange, primaryColor, style, ...props} = this.props;
     const {keyboardFocused, labelId} = this.state;
     return (
       <div
@@ -43,6 +43,7 @@ class Switch extends React.Component {
           [Styles.disabled]: disabled
         })}
         onMouseUp={this.onMouseUp}
+        style={style}
       >
         <div className={Styles.switchWrapper}>
           <input
@@ -82,7 +83,8 @@ Switch.defaultProps = {
   checked: false,
   disabled: false,
   label: null,
-  primaryColor: null
+  primaryColor: null,
+  style: {}
 };
 
 Switch.propTypes = {
@@ -90,7 +92,8 @@ Switch.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.node,
   onChange: PropTypes.func.isRequired,
-  primaryColor: PropTypes.string
+  primaryColor: PropTypes.string,
+  style: PropTypes.object
 };
 
 export default Switch;
