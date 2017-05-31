@@ -24,6 +24,14 @@ class TextField extends React.Component {
     }
   }
 
+  componentWillReceiveProps({value, placeholder}) {
+    if (!this.props.value && value && !placeholder) {
+      this.label.style.animationName = Animations.float;
+    } else if (this.props.value && !value && !placeholder) {
+      this.label.style.animationName = Animations.sink;
+    }
+  }
+
   onBlur() {
     const {value, placeholder} = this.props;
     if (!value && !placeholder) {
@@ -88,7 +96,7 @@ class TextField extends React.Component {
           placeholder={placeholder}
           aria-labelledby={labelId}
           ref={c => (this.formElement = c)}
-          style={{width: '100%'}}
+          style={Object.assign({}, {width: '100%'}, this.props.style)}
         />
         <label
           className={Styles.label}
@@ -115,7 +123,8 @@ TextField.defaultProps = {
   helperText: null,
   placeholder: null,
   primaryColor: null,
-  multiline: false
+  multiline: false,
+  style: {}
 };
 
 TextField.propTypes = {
@@ -126,7 +135,8 @@ TextField.propTypes = {
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   primaryColor: PropTypes.string,
-  value: PropTypes.string.isRequired
+  value: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired]),
+  style: PropTypes.object
 };
 
 export default TextField;
