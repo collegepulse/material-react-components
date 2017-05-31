@@ -135,7 +135,7 @@ TextField.propTypes = {
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   primaryColor: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   style: PropTypes.object
 };
 
