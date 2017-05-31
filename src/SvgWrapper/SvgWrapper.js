@@ -16,7 +16,7 @@ SvgWrapper.defaultProps = {
 };
 
 SvgWrapper.propTypes = {
-  component: PropTypes.node
+  component: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 export default SvgWrapper;
