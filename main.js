@@ -14224,6 +14224,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 (0, _reactTapEventPlugin2.default)();
 
+var app = document.createElement('div');
+app.id = 'app';
+app.style.height = '100%';
+document.body.appendChild(app);
+
 var _ref = _jsx(_DocNavigation2.default, {});
 
 var _ref2 = _jsx(_DocPageWrapper2.default, {});
@@ -15085,7 +15090,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function DocNavigation() {
   return _jsx('div', {
-    style: { backgroundColor: '#fff', height: '100%', maxHeight: '100vh', width: '250px', overflow: 'hidden', zIndex: 1, borderRight: '1px solid #ddd' }
+    style: { backgroundColor: '#fff', minHeight: '100vh', maxHeight: '100vh', width: '250px', overflow: 'hidden', zIndex: 1, borderRight: '1px solid #ddd' }
   }, void 0, _jsx('div', {
     style: { overflowY: 'scroll', height: '100%' }
   }, void 0, _jsx('div', {
