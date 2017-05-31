@@ -7,7 +7,7 @@ import Typography from '../src/Typography';
 
 function DocNavigation() {
   return (
-    <div style={{backgroundColor: '#fff', height: '100%', maxHeight: '100vh', width: '250px', overflow: 'hidden', zIndex: 1, borderRight: '1px solid #ddd'}}>
+    <div style={{backgroundColor: '#fff', minHeight: '100vh', maxHeight: '100vh', width: '250px', overflow: 'hidden', zIndex: 1, borderRight: '1px solid #ddd'}}>
       <div style={{overflowY: 'scroll', height: '100%'}}>
         <div style={{padding: '15px'}}>
           <Typography>
