@@ -96,15 +96,16 @@ class Button extends React.Component {
   }
 
   render() {
-    const {buttonColor, buttonRef, children, className,
+    const {buttonColor, buttonRef, children, className, component,
       fab, style, textColor, ...other} = this.props;
+    const Component = component;
     return (
-      <button
+      <Component
         {...other}
-        className={makeClass(Styles.root, className, {
+        className={makeClass(Styles.root, {
           [Styles.hasBackground]: buttonColor,
           [Styles.fab]: fab
-        })}
+        }, className)}
         onKeyDown={this.onKeyDown}
         onBlur={this.onBlur}
         onMouseDown={this.onMouseDown}
@@ -125,7 +126,7 @@ class Button extends React.Component {
           color={textColor || DEFAULT_TEXT_COLOR}
           ref={c => (this.ripple = c)}
         />
-      </button>
+      </Component>
     );
   }
 }
@@ -135,6 +136,7 @@ Button.defaultProps = {
   buttonRef: () => {},
   children: null,
   className: null,
+  component: 'button',
   fab: false,
   style: null,
   textColor: null
@@ -145,6 +147,7 @@ Button.propTypes = {
   buttonRef: PropTypes.func,
   children: PropTypes.node,
   className: PropTypes.string,
+  component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   fab: PropTypes.bool,
   style: PropTypes.object,
   textColor: PropTypes.string

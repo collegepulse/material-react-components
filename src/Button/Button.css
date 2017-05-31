@@ -17,6 +17,8 @@
   color: inherit;
   border-radius: 2px;
   user-select: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .root.hasBackground {
