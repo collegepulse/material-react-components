@@ -8,11 +8,14 @@
   },
   "scripts": {
     "build:docs": "NODE_ENV=production webpack --env.docs",
+    "build:ssr": "webpack --config webpack.config.ssr.js",
     "coverage:open": "open .coverage/lcov-report/index.html",
     "lint:css": "stylelint src/**/*.css",
     "lint:js": "eslint src/**/*.js",
     "start": "webpack-dev-server --env.dev --content-base docs",
-    "test": "karma start",
+    "test": "npm run test:unit && npm run build:ssr && npm run test:ssr",
+    "test:ssr": "mocha .tmp/main.js",
+    "test:unit": "karma start",
     "test:chrome": "SOURCEMAPS=false karma start --browsers Chrome --no-single-run"
   },
   "author": "Peter Mikitsh",
@@ -50,6 +53,7 @@
     "eslint-plugin-jsx-a11y": "5.0.3",
     "eslint-plugin-react": "7.0.1",
     "html-webpack-plugin": "2.28.0",
+    "isomorphic-style-loader": "2.0.0",
     "karma": "1.7.0",
     "karma-chrome-launcher": "2.1.1",
     "karma-coverage": "1.1.1",

@@ -1,4 +1,5 @@
 .coverage
+.tmp
 node_modules
 .coveralls.yml
 

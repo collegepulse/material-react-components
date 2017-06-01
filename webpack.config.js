@@ -62,7 +62,7 @@ module.exports = function config(env = {}) {
           test: /\.css$/,
           exclude: /node_modules/,
           use: [
-            'style-loader',
+            'isomorphic-style-loader',
             'css-loader?modules&localIdentName=[name].[local]',
             'postcss-loader'
           ]

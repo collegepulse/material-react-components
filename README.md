@@ -7,7 +7,7 @@ material-react-components
 This is a collection of React components that implement Google's [material design specification](https://material.io/guidelines). The goals of this project include:
 
 - Minimal to zero configuration to consume components through carefully-crafted, lightweight implementations.
-- Be fit for enterprise consumption: components are to be performant, accessible, unit tested, cross-browser supported, etc.
+- Be fit for enterprise consumption: components are to be performant, accessible, unit tested, cross-browser supported, support server-side rendering, etc.
 
 Demo
 ----
