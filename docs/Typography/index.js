@@ -10,7 +10,7 @@ class TypographyDocs extends React.Component {
     this.state = {
       component: 'div',
       type: 'body1',
-      value: 'Hello World'
+      children: 'Hello World'
     };
   }
 
@@ -19,16 +19,17 @@ class TypographyDocs extends React.Component {
   }
 
   render() {
+    const {component, type, children} = this.state;
     return (
       <DocPage
         componentName="Typography"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>
             <Typography
-              component={this.state.component}
-              type={this.state.type}
+              component={component}
+              type={type}
             >
-              {this.state.value}
+              {children}
             </Typography>
           </div>
         }
@@ -38,7 +39,7 @@ class TypographyDocs extends React.Component {
               <TextField
                 onChange={e => (this.onControlPanel('component', e.target.value))}
                 label="component"
-                value={this.state.component}
+                value={component}
                 helperText="HTML tag (div, span, etc)"
               />
             </div>
@@ -46,15 +47,15 @@ class TypographyDocs extends React.Component {
               <TextField
                 onChange={e => (this.onControlPanel('type', e.target.value))}
                 label="type"
-                value={this.state.type}
+                value={type}
                 helperText="display4, display3, display2, display1, headline, title, subheading, body2, body1, caption, button"
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
               <TextField
-                onChange={e => (this.onControlPanel('value', e.target.value))}
-                label="value"
-                value={this.state.value}
+                onChange={e => (this.onControlPanel('children', e.target.value))}
+                label="children"
+                value={children}
               />
             </div>
           </div>
