@@ -2,15 +2,32 @@
   background-color: $primary;
   height: 64px;
   max-height: 64px;
-  padding-left: 16px;
-  padding-right: 16px;
   overflow: hidden;
   line-height: 64px;
   box-sizing: border-box;
   width: 100%;
+  display: flex;
 }
 
 .header {
   color: #fff;
   line-height: 64px;
+}
+
+.headerNoPrimary {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.primary,
+.secondary {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.secondary {
+  margin-left: auto;
 }

@@ -6,17 +6,31 @@ import Styles from './AppBar.css';
 import Typography from '../Typography';
 import Variables from '../variables';
 
-function AppBar({backgroundColor, className, elevation, children, ...other}) {
+function AppBar({backgroundColor, className, elevation, children, primary, secondary, ...other}) {
   return (
     <Paper
       {...other}
       backgroundColor={backgroundColor}
-      className={makeClass(className, Styles.root)}
+      className={makeClass(Styles.root, className)}
       elevation={elevation}
     >
-      <Typography type="title" className={Styles.header}>
+      {primary && (
+        <span className={Styles.primary}>
+          {primary}
+        </span>
+      )}
+      <Typography
+        component="span"
+        className={makeClass(Styles.header, {[Styles.headerNoPrimary]: !primary})}
+        type="title"
+      >
         {children}
       </Typography>
+      {secondary && (
+        <span className={Styles.secondary}>
+          {secondary}
+        </span>
+      )}
     </Paper>
   );
 }
@@ -26,6 +40,8 @@ AppBar.defaultProps = {
   className: '',
   children: null,
   elevation: 4,
+  primary: null,
+  secondary: null
 };
 
 AppBar.propTypes = {
@@ -33,6 +49,8 @@ AppBar.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   elevation: PropTypes.number,
+  primary: PropTypes.node,
+  secondary: PropTypes.node
 };
 
 

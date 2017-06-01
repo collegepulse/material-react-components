@@ -1,7 +1,11 @@
 import AppBar from '../../src/AppBar';
 import Colors from '../../src/variables';
 import DocPage from '../DocPage';
+import Menu from 'material-design-icons/navigation/svg/production/ic_menu_24px.svg';
 import React from 'react';
+import Search from 'material-design-icons/action/svg/production/ic_search_24px.svg';
+import SvgWrapper from '../../src/SvgWrapper';
+import Switch from '../../src/Switch';
 import TextField from '../../src/TextField';
 
 class AppBarDocs extends React.Component {
@@ -12,7 +16,9 @@ class AppBarDocs extends React.Component {
       backgroundColor: Colors.$primary,
       children: 'AppBar',
       elevation: '2',
-      style: '{"color": "#fff"}'
+      style: '{"color": "#FFF", "fill": "#FFF"}',
+      primary: true,
+      secondary: true
     };
   }
 
@@ -21,7 +27,7 @@ class AppBarDocs extends React.Component {
   }
 
   render() {
-    const {backgroundColor, children, elevation, style} = this.state;
+    const {backgroundColor, children, elevation, primary, secondary, style} = this.state;
     let elevationNum;
     let styleObj;
     try {
@@ -32,20 +38,22 @@ class AppBarDocs extends React.Component {
     }
     return (
       <DocPage
-        componentName="Switch"
+        componentName="AppBar"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>
             <AppBar
               backgroundColor={backgroundColor}
               elevation={elevationNum}
               style={styleObj}
+              primary={primary && <SvgWrapper component={Menu} />}
+              secondary={secondary && <SvgWrapper component={Search} />}
             >
               {children}
             </AppBar>
           </div>
         }
         buildYourOwnControlPanel={
-          <div style={{display: 'flex', flexFlow: 'row wrap'}}>
+          <div style={{display: 'flex', flexFlow: 'row wrap', alignItems: 'center'}}>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
               <TextField
                 onChange={e => (this.onControlPanel('backgroundColor', e.target.value))}
@@ -68,12 +76,26 @@ class AppBarDocs extends React.Component {
                 value={elevation}
               />
             </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '100%'}}>
+            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
               <TextField
                 onChange={e => (this.onControlPanel('style', e.target.value))}
                 label="Style"
                 value={style}
                 helperText="JSON will be converted to a style object and applied to the <AppBar />"
+              />
+            </div>
+            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
+              <Switch
+                onChange={e => (this.onControlPanel('primary', e.target.checked))}
+                checked={primary}
+                label="primary"
+              />
+            </div>
+            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
+              <Switch
+                onChange={e => (this.onControlPanel('secondary', e.target.checked))}
+                checked={secondary}
+                label="secondary"
               />
             </div>
           </div>
