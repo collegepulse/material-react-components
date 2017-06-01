@@ -42,13 +42,13 @@ class ButtonDocs extends React.Component {
           </div>
         }
         buildYourOwnControlPanel={
-          <div style={{display: 'flex', flexFlow: 'row wrap'}}>
+          <div style={{display: 'flex', flexFlow: 'row wrap', alignItems: 'center'}}>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
               <TextField
                 onChange={e => (this.onControlPanel('children', e.target.value))}
                 label="children"
                 value={children}
-                helperText="For demo purposes, hidden when fab is enabled"
+                helperText="For demo, hidden when fab is enabled"
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
@@ -56,6 +56,7 @@ class ButtonDocs extends React.Component {
                 onChange={e => (this.onControlPanel('textColor', e.target.value))}
                 label="textColor"
                 value={textColor}
+                helperText="Button text color"
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
@@ -63,6 +64,7 @@ class ButtonDocs extends React.Component {
                 onChange={e => (this.onControlPanel('buttonColor', e.target.value))}
                 label="buttonColor"
                 value={buttonColor}
+                helperText="Button background color"
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
