@@ -12,7 +12,7 @@ class SwitchDocs extends React.Component {
       checked: true,
       disabled: false,
       label: 'Switch Label',
-      primaryColor: Colors.$orange700,
+      primaryColor: Colors.$primary,
       switch1: false,
       switch2: true,
       switch3: true,
@@ -26,6 +26,7 @@ class SwitchDocs extends React.Component {
   }
 
   render() {
+    const {checked, disabled, label, primaryColor} = this.state;
     return (
       <DocPage
         componentName="Switch"
@@ -33,42 +34,42 @@ class SwitchDocs extends React.Component {
           <div style={{flex: 1}}>
             <Switch
               onChange={e => (this.onControlPanel('checked', e.target.checked))}
-              disabled={this.state.disabled}
-              label={this.state.label}
-              checked={this.state.checked}
-              primaryColor={this.state.primaryColor}
+              disabled={disabled}
+              label={label}
+              checked={checked}
+              primaryColor={primaryColor}
               style={{justifyContent: 'center'}}
             />
           </div>
         }
         buildYourOwnControlPanel={
-          <div style={{display: 'flex'}}>
+          <div style={{display: 'flex', alignItems: 'center'}}>
             <div style={{flex: 1, padding: '20px'}}>
               <Switch
                 onChange={e => (this.onControlPanel('checked', e.target.checked))}
-                checked={this.state.checked}
-                label="Checked"
+                checked={checked}
+                label="checked"
               />
             </div>
             <div style={{flex: 1, padding: '20px'}}>
               <Switch
                 onChange={e => (this.onControlPanel('disabled', e.target.checked))}
-                checked={this.state.disabled}
-                label="Disabled"
+                checked={disabled}
+                label="disabled"
               />
             </div>
             <div style={{flex: 1, padding: '20px'}}>
               <TextField
                 onChange={e => (this.onControlPanel('label', e.target.value))}
-                label="Label"
-                value={this.state.label}
+                label="label"
+                value={label}
               />
             </div>
             <div style={{flex: 1, padding: '20px'}}>
               <TextField
                 onChange={e => (this.onControlPanel('primaryColor', e.target.value))}
                 label="primaryColor"
-                value={this.state.primaryColor}
+                value={primaryColor}
               />
             </div>
           </div>

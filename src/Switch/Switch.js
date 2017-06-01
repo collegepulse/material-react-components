@@ -61,7 +61,7 @@ class Switch extends React.Component {
           <div
             className={Styles.track}
             style={{
-              backgroundColor: checked && primaryColor
+              backgroundColor: checked && !disabled && primaryColor
             }}
           />
           <div
@@ -69,7 +69,7 @@ class Switch extends React.Component {
               [Styles.thumbKeyboardFocus]: keyboardFocused
             })}
             style={{
-              backgroundColor: checked && primaryColor
+              backgroundColor: checked && !disabled && primaryColor
             }}
           />
         </div>
