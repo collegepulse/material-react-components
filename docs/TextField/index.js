@@ -38,20 +38,22 @@ class TextFieldDocs extends React.Component {
   }
 
   render() {
+    const {label, helperText, placeholder, primaryColor,
+      errorColor, value, disabled, multiline} = this.state;
     return (
       <DocPage
         componentName="TextField"
         buildYourOwn={
           <TextField
             onChange={e => (this.onControlPanel('value', e.target.value))}
-            label={this.state.label}
-            value={this.state.value}
-            disabled={this.state.disabled}
-            placeholder={this.state.placeholder}
-            helperText={this.state.helperText}
-            primaryColor={this.state.primaryColor}
-            multiline={this.state.multiLine}
-            errorColor={this.state.errorColor}
+            label={label}
+            value={value}
+            disabled={disabled}
+            placeholder={placeholder}
+            helperText={helperText}
+            primaryColor={primaryColor}
+            multiline={multiline}
+            errorColor={errorColor}
           />
         }
         buildYourOwnControlPanel={
@@ -60,28 +62,28 @@ class TextFieldDocs extends React.Component {
               <TextField
                 onChange={e => (this.onControlPanel('label', e.target.value))}
                 label="label"
-                value={this.state.label}
+                value={label}
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
               <TextField
                 onChange={e => (this.onControlPanel('helperText', e.target.value))}
                 label="helperText"
-                value={this.state.helperText}
+                value={helperText}
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
               <TextField
                 onChange={e => (this.onControlPanel('placeholder', e.target.value))}
                 label="placeholder"
-                value={this.state.placeholder}
+                value={placeholder}
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
               <TextField
                 onChange={e => (this.onControlPanel('primaryColor', e.target.value))}
                 label="primaryColor"
-                value={this.state.primaryColor}
+                value={primaryColor}
                 helperText="Label and inkbar color on :focus and :active states"
               />
             </div>
@@ -89,7 +91,7 @@ class TextFieldDocs extends React.Component {
               <TextField
                 onChange={e => (this.onControlPanel('errorColor', e.target.value))}
                 label="errorColor"
-                value={this.state.errorColor}
+                value={errorColor}
                 helperText="Styles the label, inkbar, and helper text"
               />
             </div>
@@ -97,21 +99,21 @@ class TextFieldDocs extends React.Component {
               <TextField
                 onChange={e => (this.onControlPanel('value', e.target.value))}
                 label="value"
-                value={this.state.value}
+                value={value}
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
               <Switch
                 onChange={e => (this.onControlPanel('disabled', e.target.checked))}
-                checked={this.state.disabled}
+                checked={disabled}
                 label="disabled"
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
               <Switch
-                onChange={e => (this.onControlPanel('multiLine', e.target.checked))}
-                checked={this.state.multiLine}
-                label="multiLine"
+                onChange={e => (this.onControlPanel('multiline', e.target.checked))}
+                checked={multiline}
+                label="multiline"
               />
             </div>
           </div>
