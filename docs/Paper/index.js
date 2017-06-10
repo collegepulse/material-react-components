@@ -11,7 +11,7 @@ class PaperDocs extends React.Component {
     this.state = {
       children: 'Hello World',
       elevation: '10',
-      style: '{"padding": "20px"}'
+      style: '{"padding": "20px", "width": "300px"}'
     };
   }
 
@@ -32,9 +32,11 @@ class PaperDocs extends React.Component {
       <DocPage
         componentName="Paper"
         buildYourOwn={
-          <Paper elevation={elevation} style={style}>
-            {this.state.children}
-          </Paper>
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            <Paper elevation={elevation} style={style}>
+              {this.state.children}
+            </Paper>
+          </div>
         }
         buildYourOwnControlPanel={
           <div style={{display: 'flex'}}>
