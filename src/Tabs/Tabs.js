@@ -19,6 +19,9 @@ class Tabs extends React.Component {
 
   componentDidMount() {
     this.setInkbarStyles();
+    setTimeout(() => (
+      this.inkbar.style.transition = 'all 250ms ease'
+    ), 0);
     window.addEventListener('resize', this.setInkbarStyles);
   }
 
