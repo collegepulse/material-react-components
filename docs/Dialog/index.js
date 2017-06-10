@@ -30,6 +30,7 @@ class DialogDocs extends React.Component {
         componentName="Dialog"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>
+            <Button onClick={() => (this.onControlPanel('buildYourOwnDialogOpen'))}>Open Dialog</Button>
             <Dialog
               open={this.state.buildYourOwnDialogOpen}
               onClose={() => (this.onControlPanel('buildYourOwnDialogOpen'))}
@@ -40,7 +41,6 @@ class DialogDocs extends React.Component {
                 <Button key={'btn2'} onClick={() => (this.onControlPanel('buildYourOwnDialogOpen'))}>Agree</Button>
               ]}
             />
-            <Button onClick={() => (this.onControlPanel('buildYourOwnDialogOpen'))}>Open Dialog</Button>
           </div>
         }
         buildYourOwnControlPanel={
