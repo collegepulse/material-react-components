@@ -5,33 +5,40 @@ import React from 'react';
 import Styles from './ListItem.css';
 import Typography from '../Typography';
 
-function ListItem({action, avatar, className, primary, secondary, ...other}) {
-  return (
-    <div className={Styles.root}>
-      <Button {...other} className={makeClass(Styles.button, className)}>
-        {avatar && (
-          <div className={Styles.avatar}>
-            {avatar}
+class ListItem extends React.Component {
+  render() {
+    const {action, avatar, className, primary, secondary, ...other} = this.props;
+    return (
+      <div className={Styles.root}>
+        <Button
+          {...other}
+          className={makeClass(Styles.button, className)}
+          ref={c => (this.Button = c)}
+        >
+          {avatar && (
+            <div className={Styles.avatar}>
+              {avatar}
+            </div>
+          )}
+          <div
+            className={makeClass(Styles.text, {
+              [Styles.textWithAvatarOrAction]: avatar || action
+            })}
+          >
+            {primary}
+            {secondary && (
+              <Typography type="body1">{secondary}</Typography>
+            )}
+          </div>
+        </Button>
+        {action && (
+          <div className={Styles.action}>
+            {action}
           </div>
         )}
-        <div
-          className={makeClass(Styles.text, {
-            [Styles.textWithAvatarOrAction]: avatar || action
-          })}
-        >
-          {primary}
-          {secondary && (
-            <Typography type="body1">{secondary}</Typography>
-          )}
-        </div>
-      </Button>
-      {action && (
-        <div className={Styles.action}>
-          {action}
-        </div>
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 ListItem.defaultProps = {
