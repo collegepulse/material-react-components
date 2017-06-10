@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Paper.css';
 
-function Paper({backgroundColor, children, className, elevation, style, ...other}) {
-  return (
-    <div
-      {...other}
-      className={makeClass(className, Styles.root, Styles[`elevation${elevation}`])}
-      style={Object.assign({}, style, {backgroundColor})}
-    >
-      {children}
-    </div>
-  );
+class Paper extends React.Component {
+  render() {
+    const {backgroundColor, children, className, elevation, style, ...other} = this.props;
+    return (
+      <div
+        {...other}
+        className={makeClass(className, Styles.root, Styles[`elevation${elevation}`])}
+        style={Object.assign({}, style, {backgroundColor})}
+      >
+        {children}
+      </div>
+    );
+  }
 }
 
 Paper.defaultProps = {
