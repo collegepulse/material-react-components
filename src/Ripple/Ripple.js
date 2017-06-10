@@ -18,11 +18,14 @@ class Ripple extends React.Component {
 
   add(e, options, cb = () => {}) {
     const centered = options && options.centered ? options.centered : false;
+    const pulsate = options && options.pulsate ? options.pulsate : false;
     const {clientX, clientY} = e;
     const {left, top, bottom, right, height, width} = e.target.getBoundingClientRect();
     const rippleX = centered ? width / 2 : clientX - left;
     const rippleY = centered ? height / 2 : clientY - top;
-    const rippleSize = Math.sqrt(Math.pow(right - left, 2) + Math.pow(bottom - top, 2)) * 2;
+    const rippleSize = centered ?
+     Math.sqrt(((2 * Math.pow(width, 2)) + Math.pow(height, 2)) / 3) :
+     Math.sqrt(Math.pow(right - left, 2) + Math.pow(bottom - top, 2)) * 2;
 
     let {ripples} = this.state;
 
@@ -33,7 +36,7 @@ class Ripple extends React.Component {
         rippleX={rippleX}
         rippleY={rippleY}
         rippleSize={rippleSize}
-        pulsate={centered}
+        pulsate={pulsate}
       />
     )];
 
@@ -73,4 +76,3 @@ Ripple.defaultProps = {
 Ripple.propTypes = {
   color: PropTypes.string
 };
-

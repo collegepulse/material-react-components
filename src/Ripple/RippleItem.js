@@ -59,7 +59,7 @@ class RippleItem extends React.Component {
 
     const containerClasses = makeClass(Styles.container, {
       [Styles.containerLeaving]: rippleLeaving,
-      [Styles.containerPulsating]: pulsate
+      [Styles.containerPulsating]: pulsate && !rippleLeaving
     });
 
     const rippleClasses = makeClass(Styles.ripple, {

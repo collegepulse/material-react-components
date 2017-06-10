@@ -3,8 +3,12 @@
 }
 
 .containerLeaving {
-  opacity: 0;
-  animation: exit 550ms $rippleEaseOutFunction;
+  animation-name: exit;
+  max-height: 100%;
+  max-width: 100%;
+  animation-duration: 550ms;
+  animation-timing-function: $rippleEaseOutFunction;
+  animation-fill-mode: forwards;
 }
 
 .containerPulsating {
@@ -25,7 +29,6 @@
   height: 50px;
   left: 0;
   top: 0;
-  opacity: 0;
   position: absolute;
   border-radius: 50%;
   background-color: rgba(153, 153, 153, 0.6);
@@ -33,10 +36,10 @@
 
 .rippleVisible {
   opacity: 0.3;
-  transform: scale(1);
   animation-name: enter;
   animation-duration: 550ms;
   animation-timing-function: $rippleEaseOutFunction;
+  animation-fill-mode: forwards;
 }
 
 .rippleFast {
@@ -54,7 +57,7 @@
 }
 
 @keyframes pulsate {
-  0% { transform: scale(0.3); }
-  50% { transform: scale(0.4); }
-  100% { transform: scale(0.3); }
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
 }
