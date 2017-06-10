@@ -12,7 +12,7 @@ class CollapseDocs extends React.Component {
     this.state = {
       collapseBaseline: false,
       collapsedOpenOnInitialRender: true,
-      open: false,
+      open: true,
       children: 'The\nCollapse\nComponent\nInner\nText'
     };
   }
