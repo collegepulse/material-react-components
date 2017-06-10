@@ -84,13 +84,11 @@ describe('Button', () => {
 
   it('should add and remove ripples through the keyboard interaction lifecyle', (done) => {
     const wrapper = mount(<Button />, {attachTo: element});
-    assert(wrapper.find(`.${Styles.container}`).length === 0);
-    wrapper.find('button').node.focus();
     wrapper.simulate('focus');
     assert(wrapper.find(`.${Styles.container}`).length === 1);
     wrapper.simulate('keydown', {keyCode: keycode('space')});
     assert(wrapper.find(`.${Styles.container}`).length === 2);
-    // sometime later the space keypress ripple is removed
+    // sometime later, the space keypress ripple is removed
     setTimeout(() => {
       assert(wrapper.find(`.${Styles.container}`).length === 1);
       done();
@@ -99,14 +97,10 @@ describe('Button', () => {
 
   it('should add and remove ripples through the click interaction lifecycle', (done) => {
     const wrapper = mount(<Button />, {attachTo: element});
-    assert(wrapper.find(`.${Styles.container}`).length === 0);
     wrapper.find('button').node.focus();
-    wrapper.simulate('focus');
-    assert(wrapper.find(`.${Styles.container}`).length === 1);
     wrapper.simulate('mousedown');
-    assert(wrapper.find(`.${Styles.container}`).length === 2);
     wrapper.simulate('mouseup');
-    // sometime later all ripples are removed
+    // sometime later, the mouseup ripple is removed
     setTimeout(() => {
       assert(wrapper.find(`.${Styles.container}`).length === 0);
       done();

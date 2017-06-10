@@ -16,7 +16,7 @@
     "test": "npm run test:unit && npm run build:ssr && npm run test:ssr",
     "test:ssr": "mocha .tmp/main.js",
     "test:unit": "karma start",
-    "test:chrome": "SOURCEMAPS=false karma start --browsers Chrome --no-single-run"
+    "test:unit:chrome": "SOURCEMAPS=false karma start --browsers Chrome --no-single-run"
   },
   "author": "Peter Mikitsh",
   "license": "MIT",
