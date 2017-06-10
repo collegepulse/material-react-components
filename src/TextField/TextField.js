@@ -25,10 +25,17 @@ class TextField extends React.Component {
   }
 
   componentWillReceiveProps({value, placeholder}) {
-    if (!this.props.value && value && !placeholder) {
-      this.label.style.animationName = Animations.float;
-    } else if (this.props.value && !value && !placeholder) {
-      this.label.style.animationName = Animations.sink;
+    const oldValue = this.props.value;
+    const oldPlaceholder = this.props.placeholder;
+
+    if (document.activeElement !== this.formElement) {
+      if ((!oldValue && value && !placeholder) ||
+        (!oldPlaceholder && placeholder)) {
+        this.label.style.animationName = Animations.float;
+      } else if ((oldValue && !value && !placeholder) ||
+        (!value && oldPlaceholder && !placeholder)) {
+        this.label.style.animationName = Animations.sink;
+      }
     }
   }
 
@@ -66,12 +73,12 @@ class TextField extends React.Component {
 
   render() {
     const {errorColor, helperText, label, placeholder,
-      value, multiline, primaryColor, ...other} = this.props;
+      value, multiline, primaryColor, width, ...other} = this.props;
     const {focused, labelId} = this.state;
     const FormComponent = multiline ? 'textarea' : 'input';
     const notEmpty = value.length > 0;
     return (
-      <div className={Styles.root}>
+      <div className={Styles.root} style={{width}}>
         {/* Shadow <textarea> is used to compute real textarea height. */}
         {multiline && (
           <textarea
@@ -96,7 +103,6 @@ class TextField extends React.Component {
           placeholder={placeholder}
           aria-labelledby={labelId}
           ref={c => (this.formElement = c)}
-          style={Object.assign({}, {width: '100%'}, this.props.style)}
         />
         <label
           className={Styles.label}
@@ -124,7 +130,7 @@ TextField.defaultProps = {
   placeholder: null,
   primaryColor: null,
   multiline: false,
-  style: {}
+  width: '100%'
 };
 
 TextField.propTypes = {
@@ -136,7 +142,7 @@ TextField.propTypes = {
   placeholder: PropTypes.string,
   primaryColor: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  style: PropTypes.object
+  width: PropTypes.string
 };
 
 export default TextField;
