@@ -3,7 +3,6 @@ import Button from '../../src/Button';
 import DocPage from '../DocPage';
 import Edit from 'material-design-icons/editor/svg/production/ic_mode_edit_24px.svg';
 import React from 'react';
-import SvgWrapper from '../../src/SvgWrapper';
 import Switch from '../../src/Switch';
 import TextField from '../../src/TextField';
 import Variables from '../../src/variables';
@@ -37,7 +36,7 @@ class ButtonDocs extends React.Component {
               buttonColor={buttonColor}
               fab={fab}
             >
-              {fab ? <SvgWrapper component={Add} fill={fill} /> : children}
+              {fab ? <Add fill={fill} focusable={false} /> : children}
             </Button>
           </div>
         }
@@ -95,10 +94,10 @@ class ButtonDocs extends React.Component {
             <Button buttonColor={Variables.$primary} textColor={'#FFF'}>Custom Button Color</Button>
             <br />
             <Button fab buttonColor={Variables.$primary} textColor="#FFF">
-              <SvgWrapper component={Add} fill="#FFF" />
+              <Add fill="#FFF" focusable={false} />
             </Button>
             <Button fab buttonColor={Variables.$accent} textColor="#FFF">
-              <SvgWrapper component={Edit} fill="#FFF" />
+              <Edit fill="#FFF" focusable={false} />
             </Button>
           </div>
         }

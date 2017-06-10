@@ -4,7 +4,7 @@ import List, {ListItem} from '../../src/List';
 import MoreVert from 'material-design-icons/navigation/svg/production/ic_more_vert_24px.svg';
 import React from 'react';
 import Switch from '../../src/Switch';
-import SvgWrapper from '../../src/SvgWrapper';
+import SvgIcon from '../../src/SvgIcon';
 import TextField from '../../src/TextField';
 
 class ListDocs extends React.Component {
@@ -16,7 +16,8 @@ class ListDocs extends React.Component {
       primary: 'Primary',
       secondary: 'Secondary',
       avatar: true,
-      action: true
+      action: true,
+      style: '{"width": "300px"}'
     };
   }
 
@@ -25,16 +26,20 @@ class ListDocs extends React.Component {
   }
 
   render() {
-    const {primary, secondary, avatar, action} = this.state;
+    const {primary, secondary, avatar, action, style} = this.state;
+    let styleObj = {};
+    try {
+      styleObj = JSON.parse(style);
+    } catch (e) { }
     return (
       <DocPage
         componentName="List"
         buildYourOwn={
-          <div style={{flex: 1}}>
-            <List>
-              <ListItem primary={primary} secondary={secondary} avatar={avatar && <SvgWrapper component={Folder} />} action={action && <SvgWrapper component={MoreVert} />} />
-              <ListItem primary={primary} secondary={secondary} avatar={avatar && <SvgWrapper component={Folder} />} action={action && <SvgWrapper component={MoreVert} />} />
-              <ListItem primary={primary} secondary={secondary} avatar={avatar && <SvgWrapper component={Folder} />} action={action && <SvgWrapper component={MoreVert} />} />
+          <div style={{flex: 1, display: 'flex', justifyContent: 'center'}}>
+            <List style={styleObj}>
+              <ListItem primary={primary} secondary={secondary} avatar={avatar && <Folder />} action={action && <SvgIcon component={MoreVert} />} />
+              <ListItem primary={primary} secondary={secondary} avatar={avatar && <Folder />} action={action && <SvgIcon component={MoreVert} />} />
+              <ListItem primary={primary} secondary={secondary} avatar={avatar && <Folder />} action={action && <SvgIcon component={MoreVert} />} />
             </List>
           </div>
         }
@@ -68,6 +73,14 @@ class ListDocs extends React.Component {
                 label="action"
               />
             </div>
+            <div style={{flex: 1, padding: '20px', flexBasis: '33%'}}>
+              <TextField
+                onChange={e => (this.onControlPanel('style', e.target.value))}
+                label="style"
+                value={style}
+                helperText="JSON will be converted to a style object"
+              />
+            </div>
           </div>
         }
         examples={
@@ -85,15 +98,15 @@ class ListDocs extends React.Component {
             </List>
             <br />
             <List>
-              <ListItem avatar={<SvgWrapper component={Folder} />} primary={'Primary'} />
-              <ListItem avatar={<SvgWrapper component={Folder} />} primary={'Primary'} />
-              <ListItem avatar={<SvgWrapper component={Folder} />} primary={'Primary'} />
+              <ListItem avatar={<Folder />} primary={'Primary'} />
+              <ListItem avatar={<Folder />} primary={'Primary'} />
+              <ListItem avatar={<Folder />} primary={'Primary'} />
             </List>
             <br />
             <List>
-              <ListItem avatar={<SvgWrapper component={Folder} />} primary={'Primary'} secondary={'Secondary'} action={<SvgWrapper component={MoreVert} />} />
-              <ListItem avatar={<SvgWrapper component={Folder} />} primary={'Primary'} secondary={'Secondary'} action={<SvgWrapper component={MoreVert} />} />
-              <ListItem avatar={<SvgWrapper component={Folder} />} primary={'Primary'} secondary={'Secondary'} action={<SvgWrapper component={MoreVert} />} />
+              <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
+              <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
+              <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
             </List>
           </div>
         }

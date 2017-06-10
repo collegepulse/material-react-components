@@ -1,10 +1,11 @@
 import AppBar from '../../src/AppBar';
 import Colors from '../../src/variables';
+import CodeFormatter from '../utils/CodeFormatter';
 import DocPage from '../DocPage';
 import Menu from 'material-design-icons/navigation/svg/production/ic_menu_24px.svg';
 import React from 'react';
 import Search from 'material-design-icons/action/svg/production/ic_search_24px.svg';
-import SvgWrapper from '../../src/SvgWrapper';
+import SvgIcon from '../../src/SvgIcon';
 import Switch from '../../src/Switch';
 import TextField from '../../src/TextField';
 
@@ -16,7 +17,7 @@ class AppBarDocs extends React.Component {
       backgroundColor: Colors.$primary,
       children: 'AppBar',
       elevation: '2',
-      style: '{"color": "#FFF", "fill": "#FFF"}',
+      style: '{"fill": "#FFF"}',
       primary: true,
       secondary: true
     };
@@ -45,12 +46,32 @@ class AppBarDocs extends React.Component {
               backgroundColor={backgroundColor}
               elevation={elevationNum}
               style={styleObj}
-              primary={primary && <SvgWrapper component={Menu} />}
-              secondary={secondary && <SvgWrapper component={Search} />}
+              primary={primary && <SvgIcon component={Menu} />}
+              secondary={secondary && <SvgIcon component={Search} />}
             >
               {children}
             </AppBar>
           </div>
+        }
+        buildYourOwnCode={
+          <CodeFormatter
+            code={`
+              import AppBar from 'material-react-components/AppBar';
+              import Menu from 'material-design-icons/navigation/svg/production/ic_menu_24px.svg';
+              import Search from 'material-design-icons/action/svg/production/ic_search_24px.svg';
+              import SvgIcon from 'material-react-components/SvgIcon';
+
+              <AppBar
+                backgroundColor="${backgroundColor}"
+                elevation={${elevation}}
+                style={${style}}
+                primary={${primary ? '<SvgIcon component={Menu} />' : null}}
+                secondary={${secondary ? '<SvgIcon component={Search} />' : null}}
+              >
+                ${children}
+              </AppBar>
+            `}
+          />
         }
         buildYourOwnControlPanel={
           <div style={{display: 'flex', flexFlow: 'row wrap', alignItems: 'center'}}>

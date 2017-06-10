@@ -1,0 +1,12 @@
+.root {
+  display: flex; 
+  padding: 0;
+  height: 48px;
+  width: 48px;
+  justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  position: relative;
+  min-width: 0;
+}

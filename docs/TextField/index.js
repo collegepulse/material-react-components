@@ -18,7 +18,7 @@ class TextFieldDocs extends React.Component {
       primaryColor: Colors.$primary,
       multiline: false,
       errorColor: '',
-
+      width: '300px',
       textFieldBaseline: '',
       textFieldWithInitialValue: 'Value',
       textFieldWithLongInitialValue: 'This is a lot of text and it should overflow appropriately.',
@@ -39,22 +39,25 @@ class TextFieldDocs extends React.Component {
 
   render() {
     const {label, helperText, placeholder, primaryColor,
-      errorColor, value, disabled, multiline} = this.state;
+      errorColor, value, disabled, multiline, width} = this.state;
     return (
       <DocPage
         componentName="TextField"
         buildYourOwn={
-          <TextField
-            onChange={e => (this.onControlPanel('value', e.target.value))}
-            label={label}
-            value={value}
-            disabled={disabled}
-            placeholder={placeholder}
-            helperText={helperText}
-            primaryColor={primaryColor}
-            multiline={multiline}
-            errorColor={errorColor}
-          />
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            <TextField
+              onChange={e => (this.onControlPanel('value', e.target.value))}
+              label={label}
+              value={value}
+              disabled={disabled}
+              placeholder={placeholder}
+              helperText={helperText}
+              primaryColor={primaryColor}
+              multiline={multiline}
+              errorColor={errorColor}
+              width={width}
+            />
+          </div>
         }
         buildYourOwnControlPanel={
           <div style={{display: 'flex', flexFlow: 'row wrap'}}>
@@ -116,31 +119,38 @@ class TextFieldDocs extends React.Component {
                 label="multiline"
               />
             </div>
+            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
+              <TextField
+                onChange={e => (this.onControlPanel('width', e.target.value))}
+                label="width"
+                value={width}
+              />
+            </div>
           </div>
         }
         examples={
           <div>
-            <TextField onChange={e => (this.onChange('textFieldBaseline', e.target.value))} value={this.state.textFieldBaseline} label={'Label'} />
+            <TextField onChange={e => (this.onControlPanel('textFieldBaseline', e.target.value))} value={this.state.textFieldBaseline} label={'Label'} />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldWithInitialValue', e.target.value))} value={this.state.textFieldWithInitialValue} label={'Label'} />
+            <TextField onChange={e => (this.onControlPanel('textFieldWithInitialValue', e.target.value))} value={this.state.textFieldWithInitialValue} label={'Label'} />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldWithLongInitialValue', e.target.value))} value={this.state.textFieldWithLongInitialValue} label={'Label'} />
+            <TextField onChange={e => (this.onControlPanel('textFieldWithLongInitialValue', e.target.value))} value={this.state.textFieldWithLongInitialValue} label={'Label'} />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldDisabled', e.target.value))} value={this.state.textFieldDisabled} label={'Disabled'} disabled />
+            <TextField onChange={e => (this.onControlPanel('textFieldDisabled', e.target.value))} value={this.state.textFieldDisabled} label={'Disabled'} disabled />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldWithPlaceholder', e.target.value))} value={this.state.textFieldWithPlaceholder} label={'Label'} placeholder={'Placeholder'} />
+            <TextField onChange={e => (this.onControlPanel('textFieldWithPlaceholder', e.target.value))} value={this.state.textFieldWithPlaceholder} label={'Label'} placeholder={'Placeholder'} />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldWithHelper', e.target.value))} value={this.state.textFieldWithHelper} label={'Label'} helperText={'Helper text'} />
+            <TextField onChange={e => (this.onControlPanel('textFieldWithHelper', e.target.value))} value={this.state.textFieldWithHelper} label={'Label'} helperText={'Helper text'} />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldWithError', e.target.value))} value={this.state.textFieldWithError} label={'Error'} helperText={'This field has an error.'} errorColor={Colors.$red500} />
+            <TextField onChange={e => (this.onControlPanel('textFieldWithError', e.target.value))} value={this.state.textFieldWithError} label={'Error'} helperText={'This field has an error.'} errorColor={Colors.$red500} />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldWithCustomColor', e.target.value))} value={this.state.textFieldWithCustomColor} label={'Custom color'} helperText={'It\'s special.'} primaryColor={Colors.$orange700} />
+            <TextField onChange={e => (this.onControlPanel('textFieldWithCustomColor', e.target.value))} value={this.state.textFieldWithCustomColor} label={'Custom color'} helperText={'It\'s special.'} primaryColor={Colors.$orange700} />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldMultilineBaseline', e.target.value))} value={this.state.textFieldMultilineBaseline} label={'Label'} helperText={'Helper text'} multiline />
+            <TextField onChange={e => (this.onControlPanel('textFieldMultilineBaseline', e.target.value))} value={this.state.textFieldMultilineBaseline} label={'Label'} helperText={'Helper text'} multiline />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldMultilineBaselineWithPlaceholder', e.target.value))} value={this.state.textFieldMultilineBaselineWithPlaceholder} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
+            <TextField onChange={e => (this.onControlPanel('textFieldMultilineBaselineWithPlaceholder', e.target.value))} value={this.state.textFieldMultilineBaselineWithPlaceholder} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
             <br />
-            <TextField onChange={e => (this.onChange('textFieldMultilineWithInitialMultilineValue', e.target.value))} value={this.state.textFieldMultilineWithInitialMultilineValue} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
+            <TextField onChange={e => (this.onControlPanel('textFieldMultilineWithInitialMultilineValue', e.target.value))} value={this.state.textFieldMultilineWithInitialMultilineValue} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
           </div>
         }
       />
