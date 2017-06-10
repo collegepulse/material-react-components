@@ -60,3 +60,8 @@
   justify-content: center;
   width: 100%;
 }
+
+.isIcon {
+  border-radius: 50%;
+}
+
