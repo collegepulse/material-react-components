@@ -15,12 +15,10 @@ class Tab extends React.Component {
 }
 
 Tab.defaultProps = {
-  buttonRef: () => {},
   label: null
 };
 
 Tab.propTypes = {
-  buttonRef: PropTypes.func,
   label: PropTypes.string
 };
 

@@ -1,3 +1,4 @@
+import {findDOMNode} from 'react-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Tabs.css';
@@ -35,8 +36,9 @@ class Tabs extends React.Component {
     this.props.onChange(e, index);
   }
 
-  setInkbarStyles(index) {
-    const currentTab = this.tabs[typeof index === 'number' ? index : this.props.index];
+  setInkbarStyles(nextIndex) {
+    const index = typeof nextIndex === 'number' ? nextIndex : this.props.index;
+    const currentTab = findDOMNode(this.tabs[index]);
     if (currentTab) {
       const {width, left} = currentTab.getBoundingClientRect();
       const tabBarLeft = this.tabBar.getBoundingClientRect().left;
@@ -55,7 +57,7 @@ class Tabs extends React.Component {
       const other = {};
       return React.cloneElement(tab, {
         onClick: e => (this.onClick(e, i)),
-        buttonRef: (c) => {
+        ref: (c) => {
           this.tabs[i] = c;
         },
         style: {
@@ -97,7 +99,7 @@ class Tabs extends React.Component {
 Tabs.defaultProps = {
   barColor: Variables.$primary,
   children: null,
-  index: null,
+  index: 0,
   inkBarColor: Variables.$accent,
   onChange: () => {},
   textColor: '#fff'
