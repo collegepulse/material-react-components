@@ -2,7 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Typography from '../src/Typography';
 
-function DocPage({componentName, buildYourOwn, buildYourOwnControlPanel, examples}) {
+function DocPage({
+  componentName,
+  buildYourOwn,
+  buildYourOwnCode,
+  buildYourOwnControlPanel,
+  examples
+}) {
   return (
     <div>
       <Typography component="p" type="display1">{componentName}</Typography>
@@ -10,10 +16,13 @@ function DocPage({componentName, buildYourOwn, buildYourOwnControlPanel, example
       <div style={{padding: '40px 100px 40px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
         {buildYourOwn}
       </div>
-      <div style={{padding: '0 20px 20px', backgroundColor: 'rgba(0, 0, 0, 0.1)'}}>
+      <div style={{backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
+        {buildYourOwnCode}
+      </div>
+      <div style={{padding: '0 20px 20px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
         {buildYourOwnControlPanel}
       </div>
-      <Typography component="p" type="headline">Examples</Typography>
+      {examples && <Typography component="p" type="headline">More Examples</Typography>}
       {examples}
     </div>
   );
@@ -22,6 +31,7 @@ function DocPage({componentName, buildYourOwn, buildYourOwnControlPanel, example
 DocPage.defaultProps = {
   componentName: null,
   buildYourOwn: null,
+  buildYourOwnCode: null,
   buildYourOwnControlPanel: null,
   examples: null
 };
@@ -29,6 +39,7 @@ DocPage.defaultProps = {
 DocPage.propTypes = {
   componentName: PropTypes.node,
   buildYourOwn: PropTypes.node,
+  buildYourOwnCode: PropTypes.node,
   buildYourOwnControlPanel: PropTypes.node,
   examples: PropTypes.node
 };
