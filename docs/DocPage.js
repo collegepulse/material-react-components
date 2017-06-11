@@ -4,6 +4,7 @@ import Typography from '../src/Typography';
 
 function DocPage({
   componentName,
+  description,
   buildYourOwn,
   buildYourOwnCode,
   buildYourOwnControlPanel,
@@ -12,6 +13,7 @@ function DocPage({
   return (
     <div>
       <Typography component="p" type="display1">{componentName}</Typography>
+      {description}
       <Typography component="p" type="headline">Build your own</Typography>
       <div style={{padding: '40px 100px 40px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
         {buildYourOwn}
@@ -30,6 +32,7 @@ function DocPage({
 
 DocPage.defaultProps = {
   componentName: null,
+  description: null,
   buildYourOwn: null,
   buildYourOwnCode: null,
   buildYourOwnControlPanel: null,
@@ -38,6 +41,7 @@ DocPage.defaultProps = {
 
 DocPage.propTypes = {
   componentName: PropTypes.node,
+  description: PropTypes.node,
   buildYourOwn: PropTypes.node,
   buildYourOwnCode: PropTypes.node,
   buildYourOwnControlPanel: PropTypes.node,

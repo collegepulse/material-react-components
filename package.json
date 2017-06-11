@@ -10,6 +10,7 @@
     "build:docs": "NODE_ENV=production webpack --env.docs",
     "build:ssr": "webpack --config webpack.config.ssr.js",
     "coverage:open": "open .coverage/lcov-report/index.html",
+    "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint src/**/*.css",
     "lint:js": "eslint src/**/*.js",
     "start": "webpack-dev-server --env.dev --content-base docs",

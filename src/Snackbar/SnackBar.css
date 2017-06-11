@@ -1,0 +1,61 @@
+.root {
+  display: flex;
+  justify-content: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.snackbar {
+  background-color: #323232;
+  position: fixed;
+  bottom: -48px;
+  z-index: 1;
+  color: white;
+  max-width: 550px;
+  margin: 0 auto;
+  height: 48px;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: space-between;
+  animation-name: show;
+  animation-duration: 550ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  0% {
+    bottom: -48px;
+  }
+
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes hide {
+  0% {
+    bottom: 0;
+  }
+
+  100% {
+    bottom: -48px;
+  }
+}
+
+.message {
+  padding: 14px 24px;
+}
+
+.button {
+  margin-top: 0;
+}
+
+.delay {
+  animation-delay: 550ms;
+}
