@@ -19,7 +19,7 @@ class Tabs extends React.Component {
 
   componentDidMount() {
     this.setInkbarStyles();
-    setTimeout(() => (
+    this.timeout = setTimeout(() => (
       this.inkbar.style.transition = 'all 250ms ease'
     ), 0);
     window.addEventListener('resize', this.setInkbarStyles);
@@ -33,6 +33,7 @@ class Tabs extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.setInkbarStyles);
+    clearTimeout(this.timeout);
   }
 
   onClick(e, index) {
