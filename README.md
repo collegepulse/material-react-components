@@ -17,4 +17,8 @@ Demo
 Acknowlegements
 ---------------
 
-In some places, implementations have been influenced by [material-ui](https://github.com/callemall/material-ui). We are appreciative of the effort and contributions happening over there.
+[<img src="https://www.browserstack.com/images/mail/browserstack-logo-footer.png">](https://www.browserstack.com/)
+
+[BrowserStack](https://www.browserstack.com/) has provided us with the tools and infrastructure necessary to build a high quality component library by testing our components on an array of browsers. Thank you.
+
+[material-ui](https://github.com/callemall/material-ui) has been an influence in some of our component implementations. We are appreciative of the effort and contributions happening over there.
