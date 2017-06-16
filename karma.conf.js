@@ -54,6 +54,14 @@ function getBrowserStackConfig() {
       os_version: '8.3',
       browser_version: null,
       browser: 'Mobile Safari'
+    },
+    bs_android_nexus_9: {
+      base: 'BrowserStack',
+      os: 'android',
+      os_version: '5.0',
+      browser: 'Android Browser',
+      browser_version: null,
+      device: 'Google Nexus 9'
     }
   };
 
