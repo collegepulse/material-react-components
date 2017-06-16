@@ -3,6 +3,7 @@
   "globals": {
     "document": true,
     "Event": true,
+    "navigator": true,
     "window": true,
     "__TEST__": true
   },

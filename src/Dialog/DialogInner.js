@@ -55,7 +55,9 @@ class DialogInner extends React.Component {
   componentWillLeave(callback) {
     this.root.style.animationName = Styles.fadeout;
     window.removeEventListener('keydown', this.onKeyDown);
-    this.lastFocusBeforeDialog.focus();
+    if (this.lastFocusBeforeDialog.focus) {
+      this.lastFocusBeforeDialog.focus();
+    }
     setTimeout(() => {
       document.body.style.overflow = '';
       callback();

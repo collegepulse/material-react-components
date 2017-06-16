@@ -18,7 +18,7 @@ describe('Tabs', () => {
 
   afterEach(() => {
     unmountComponentAtNode(element);
-    element.remove();
+    element.parentNode.removeChild(element);
   });
 
   it('should shallow render', () => {
@@ -73,8 +73,15 @@ describe('Tabs', () => {
       {attachTo: element}
     );
     const beginLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
-    wrapper.getDOMNode().style.width = '400px';
-    window.dispatchEvent(new Event('resize'));
+    wrapper.getDOMNode().style.width = '200px';
+
+    if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+      const event = document.createEvent('UIEvents');
+      event.initUIEvent('resize', true, false, window, 0);
+      window.dispatchEvent(event);
+    } else {
+      window.dispatchEvent(new Event('resize'));
+    }
     const endLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
     assert(parseInt(beginLeftOffset, 10) > parseInt(endLeftOffset, 10));
   });

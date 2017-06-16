@@ -28,7 +28,7 @@ describe('Button', () => {
 
   afterEach(() => {
     unmountComponentAtNode(element);
-    element.remove();
+    element.parentNode.removeChild(element);
   });
 
   it('should shallow render', () => {

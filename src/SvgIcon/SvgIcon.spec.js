@@ -17,7 +17,7 @@ describe('SvgIcon', () => {
 
   afterEach(() => {
     unmountComponentAtNode(element);
-    element.remove();
+    element.parentNode.removeChild(element);
   });
 
   it('should accept an SVG as a component', () => {

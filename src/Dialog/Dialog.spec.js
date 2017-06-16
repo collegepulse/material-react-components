@@ -72,7 +72,7 @@ describe('Dialog', () => {
     lastAction.focus();
     wrapper.find(`.${Styles.root}`).simulate('keydown', {keyCode: keycode('tab')});
     assert(document.activeElement === firstAction);
-    element.remove();
+    element.parentNode.removeChild(element);
   });
 
   it('should focus the last action on shift+tab key press when first action has current focus', () => {
@@ -92,6 +92,6 @@ describe('Dialog', () => {
     firstAction.focus();
     wrapper.find(`.${Styles.root}`).simulate('keydown', {keyCode: keycode('tab'), shiftKey: true});
     assert(document.activeElement === lastAction);
-    element.remove();
+    element.parentNode.removeChild(element);
   });
 });

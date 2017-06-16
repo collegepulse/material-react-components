@@ -17,7 +17,7 @@ describe('Snackbar', () => {
 
   afterEach(() => {
     unmountComponentAtNode(element);
-    element.remove();
+    element.parentNode.removeChild(element);
     const elements = document.getElementsByTagName('div');
     while (elements[0]) {
       elements[0].parentNode.removeChild(elements[0]);
