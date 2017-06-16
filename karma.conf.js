@@ -11,14 +11,74 @@ function getPreprocessors() {
   };
 }
 
+function getBrowserStackConfig() {
+  const username = process.env.BROWSER_STACK_USERNAME;
+  const accessKey = process.env.BROWSER_STACK_ACCESS_KEY;
+  if (!username && !accessKey) {
+    return {};
+  }
+
+  const customLaunchers = {
+    bs_firefox_mac: {
+      base: 'BrowserStack',
+      browser: 'firefox',
+      browser_version: '30',
+      os: 'OS X',
+      os_version: 'Yosemite'
+    },
+    bs_chrome_mac: {
+      base: 'BrowserStack',
+      browser: 'chrome',
+      browser_version: '30',
+      os: 'OS X',
+      os_version: 'Yosemite'
+    },
+    bs_safari_mac: {
+      base: 'BrowserStack',
+      browser: 'safari',
+      browser_version: '8',
+      os: 'OS X',
+      os_version: 'Yosemite'
+    },
+    bs_windows_ie: {
+      base: 'BrowserStack',
+      browser: 'ie',
+      browser_version: '11',
+      os: 'Windows',
+      os_version: '8.1'
+    },
+    bs_iphone_5s: {
+      base: 'BrowserStack',
+      device: 'iPhone 6',
+      os: 'ios',
+      os_version: '8.3',
+      browser_version: null,
+      browser: 'Mobile Safari'
+    }
+  };
+
+  return {
+    browserStack: {
+      username,
+      accessKey
+    },
+    customLaunchers,
+    browsers: Object.keys(customLaunchers)
+  };
+}
+
 module.exports = function (config) {
-  config.set({
+  const initialConfig = {
     browserConsoleLogOptions: {
       level: 'log'
     },
     browsers: [
       'PhantomJSWithArgs'
     ],
+    browserNoActivityTimeout: 3e5,
+    browserDisconnectTimeout: 3e5,
+    browserDisconnectTolerance: 3,
+    captureTimeout: 120000,
     coverageReporter: {
       dir: '.coverage/',
       reporters: [
@@ -125,5 +185,7 @@ module.exports = function (config) {
     webpackServer: {
       noInfo: true
     }
-  });
+  };
+
+  config.set(Object.assign({}, initialConfig, getBrowserStackConfig()));
 };
