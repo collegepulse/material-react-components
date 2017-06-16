@@ -55,13 +55,14 @@ function getBrowserStackConfig() {
       browser_version: null,
       browser: 'Mobile Safari'
     },
-    bs_android_nexus_9: {
+    bs_android_nexus_7: {
       base: 'BrowserStack',
+      realMobile: true,
       os: 'android',
-      os_version: '5.0',
+      os_version: '4.1',
       browser: 'Android Browser',
       browser_version: null,
-      device: 'Google Nexus 9'
+      device: 'Google Nexus 7'
     }
   };
 
@@ -87,6 +88,11 @@ module.exports = function (config) {
     browserDisconnectTimeout: 3e5,
     browserDisconnectTolerance: 3,
     captureTimeout: 120000,
+    client: {
+      mocha: {
+        timeout: 10000
+      }
+    },
     coverageReporter: {
       dir: '.coverage/',
       reporters: [

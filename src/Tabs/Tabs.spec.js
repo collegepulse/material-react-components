@@ -75,13 +75,10 @@ describe('Tabs', () => {
     const beginLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
     wrapper.getDOMNode().style.width = '200px';
 
-    if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
-      const event = document.createEvent('UIEvents');
-      event.initUIEvent('resize', true, false, window, 0);
-      window.dispatchEvent(event);
-    } else {
-      window.dispatchEvent(new Event('resize'));
-    }
+    const event = document.createEvent('UIEvents');
+    event.initUIEvent('resize', true, false, window, 0);
+    window.dispatchEvent(event);
+
     const endLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
     assert(parseInt(beginLeftOffset, 10) > parseInt(endLeftOffset, 10));
   });

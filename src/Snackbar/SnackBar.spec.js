@@ -80,5 +80,5 @@ describe('Snackbar', () => {
         done();
       }, 1000);
     }, 1000);
-  }).timeout(5000);
+  });
 });
