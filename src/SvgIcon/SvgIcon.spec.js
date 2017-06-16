@@ -2,26 +2,24 @@
 
 import Add from 'material-design-icons/content/svg/production/ic_add_24px.svg';
 import assert from 'assert';
+import {createMount} from '../../test/utils';
 import SvgIcon from './SvgIcon';
-import {mount} from 'enzyme';
 import React from 'react';
-import {unmountComponentAtNode} from 'react-dom';
 
 describe('SvgIcon', () => {
-  let element;
+  let mount;
 
   beforeEach(() => {
-    element = document.createElement('div');
-    document.body.appendChild(element);
+    mount = createMount();
   });
 
   afterEach(() => {
-    unmountComponentAtNode(element);
-    element.parentNode.removeChild(element);
+    mount.cleanUp();
   });
 
+
   it('should accept an SVG as a component', () => {
-    const wrapper = mount(<SvgIcon component={Add} />, {attachTo: element});
+    const wrapper = mount(<SvgIcon component={Add} />);
     assert(wrapper.find(Add).length === 1);
     assert(!wrapper.find(Add).props().focusable);
   });

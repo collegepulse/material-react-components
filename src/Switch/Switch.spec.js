@@ -1,14 +1,27 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
+import {createShallow, createMount} from '../../test/utils';
 import keycode from 'keycode';
 import noop from 'lodash';
 import React from 'react';
 import Styles from './Switch.css';
 import Switch from './Switch';
-import {mount, shallow} from 'enzyme';
 
 describe('Switch', () => {
+  let shallow;
+  let mount;
+
+  beforeEach(() => {
+    shallow = createShallow();
+    mount = createMount();
+  });
+
+  afterEach(() => {
+    shallow.cleanUp();
+    mount.cleanUp();
+  });
+
   it('should shallow render', () => {
     const wrapper = shallow(<Switch onChange={noop} />);
     assert(wrapper);

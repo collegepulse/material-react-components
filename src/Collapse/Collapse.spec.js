@@ -2,9 +2,8 @@
 
 import assert from 'assert';
 import Collapse from './Collapse';
-import {mount, shallow} from 'enzyme';
+import {createShallow, createMount} from '../../test/utils';
 import React from 'react';
-import {unmountComponentAtNode} from 'react-dom';
 
 const longDiv = (
   <div style={{backgroundColor: 'red'}}>
@@ -20,25 +19,26 @@ const longDiv = (
 );
 
 describe('Collapse', () => {
-  let element;
+  let shallow;
+  let mount;
 
   beforeEach(() => {
-    element = document.createElement('div');
-    document.body.appendChild(element);
+    shallow = createShallow();
+    mount = createMount();
   });
 
   afterEach(() => {
-    unmountComponentAtNode(element);
-    element.parentNode.removeChild(element);
+    shallow.cleanUp();
+    mount.cleanUp();
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<Collapse />, {attachTo: element});
+    const wrapper = shallow(<Collapse />);
     assert(wrapper);
   });
 
   it('should deep render', () => {
-    const wrapper = mount(<Collapse />, {attachTo: element});
+    const wrapper = mount(<Collapse />);
     assert(wrapper);
   });
 
@@ -47,7 +47,6 @@ describe('Collapse', () => {
       <Collapse open>
         {longDiv}
       </Collapse>,
-      {attachTo: element}
     );
     const initialHeight = wrapper.getDOMNode().style.height;
     assert(parseInt(initialHeight, 10) > '0');
@@ -62,8 +61,7 @@ describe('Collapse', () => {
     const wrapper = mount(
       <Collapse open={false}>
         {longDiv}
-      </Collapse>,
-      {attachTo: element}
+      </Collapse>
     );
     const initialHeight = wrapper.getDOMNode().style.height;
     wrapper.setProps({open: true});
@@ -78,8 +76,7 @@ describe('Collapse', () => {
     const wrapper = mount(
       <Collapse open>
         {longDiv}
-      </Collapse>,
-      {attachTo: element}
+      </Collapse>
     );
     const initialHeight = wrapper.getDOMNode().style.height;
     wrapper.setProps({open: false});

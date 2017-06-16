@@ -1,28 +1,28 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
+import {createShallow, createMount} from '../../test/utils';
 import {noop} from 'lodash';
 import React from 'react';
-import {mount, shallow} from 'enzyme';
 import Styles from './TextField.css';
 import TextField from './TextField';
 import TextFieldAnimations from './TextFieldAnimations.css';
-import {unmountComponentAtNode} from 'react-dom';
 
 const shortText = 'Some text';
 const longText = 'A really,\n really,\n really,\n really,\n really long string.';
 
 describe('TextField', () => {
-  let element;
+  let shallow;
+  let mount;
 
   beforeEach(() => {
-    element = document.createElement('div');
-    document.body.appendChild(element);
+    shallow = createShallow();
+    mount = createMount();
   });
 
   afterEach(() => {
-    unmountComponentAtNode(element);
-    element.parentNode.removeChild(element);
+    shallow.cleanUp();
+    mount.cleanUp();
   });
 
   it('should shallow render', () => {
@@ -109,7 +109,7 @@ describe('TextField', () => {
         value={shortText}
         style={{width: '150px'}}
         multiline
-      />, {attachTo: element}
+      />
     );
     const textarea = wrapper.find(`.${Styles.textarea}`);
     const beginningHeight = parseInt(textarea.getDOMNode().style.height, 10);
@@ -127,7 +127,7 @@ describe('TextField', () => {
         value={longText}
         style={{width: '150px'}}
         multiline
-      />, {attachTo: element}
+      />
     );
     const textarea = wrapper.find(`.${Styles.textarea}`);
     const heightWithLongText = parseInt(textarea.getDOMNode().style.height, 10);

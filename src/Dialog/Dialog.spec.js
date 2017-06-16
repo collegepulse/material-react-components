@@ -1,14 +1,27 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
+import {createShallow, createMount} from '../../test/utils';
 import Dialog from './Dialog';
 import Button from '../Button';
 import keycode from 'keycode';
 import React from 'react';
-import {mount, shallow} from 'enzyme';
 import Styles from './Dialog.css';
 
 describe('Dialog', () => {
+  let shallow;
+  let mount;
+
+  beforeEach(() => {
+    shallow = createShallow();
+    mount = createMount();
+  });
+
+  afterEach(() => {
+    shallow.cleanUp();
+    mount.cleanUp();
+  });
+
   it('should shallow render', () => {
     const wrapper = shallow(<Dialog />);
     assert(wrapper);
@@ -53,10 +66,6 @@ describe('Dialog', () => {
 
 
   it('should focus the first action on tab key press when last button has current focus', () => {
-    let firstAction;
-    let lastAction;
-    const element = document.createElement('div');
-    document.body.appendChild(element);
     const wrapper = mount(
       <Dialog
         open
@@ -64,34 +73,28 @@ describe('Dialog', () => {
           wrapper.setProps({open: false});
         }}
         actions={[
-          <Button ref={c => (firstAction = c.button)} key={'one'}>Foo</Button>,
-          <Button ref={c => (lastAction = c.button)} key={'two'}>Bar</Button>
+          <Button key={'one'}>Foo</Button>,
+          <Button key={'two'}>Bar</Button>
         ]}
       />
-    , {attachTo: element});
-    lastAction.focus();
+    );
+    wrapper.find('button').nodes[1].focus();
     wrapper.find(`.${Styles.root}`).simulate('keydown', {keyCode: keycode('tab')});
-    assert(document.activeElement === firstAction);
-    element.parentNode.removeChild(element);
+    assert(document.activeElement === wrapper.find('button').nodes[0]);
   });
 
   it('should focus the last action on shift+tab key press when first action has current focus', () => {
-    let firstAction;
-    let lastAction;
-    const element = document.createElement('div');
-    document.body.appendChild(element);
     const wrapper = mount(
       <Dialog
         open
         actions={[
-          <Button ref={c => (firstAction = c.button)} key={'one'}>Foo</Button>,
-          <Button ref={c => (lastAction = c.button)} key={'two'}>Bar</Button>
+          <Button key={'one'}>Foo</Button>,
+          <Button key={'two'}>Bar</Button>
         ]}
       />
-    , {attachTo: element});
-    firstAction.focus();
+    );
+    wrapper.find('button').nodes[0].focus();
     wrapper.find(`.${Styles.root}`).simulate('keydown', {keyCode: keycode('tab'), shiftKey: true});
-    assert(document.activeElement === lastAction);
-    element.parentNode.removeChild(element);
+    assert(document.activeElement === wrapper.find('button').nodes[1]);
   });
 });

@@ -1,11 +1,24 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {shallow, mount} from 'enzyme';
+import {createShallow, createMount} from '../../test/utils';
 import React from 'react';
 import Tab from './Tab';
 
 describe('Tab', () => {
+  let shallow;
+  let mount;
+
+  beforeEach(() => {
+    shallow = createShallow();
+    mount = createMount();
+  });
+
+  afterEach(() => {
+    shallow.cleanUp();
+    mount.cleanUp();
+  });
+
   it('should shallow render', () => {
     const wrapper = shallow(<Tab />);
     assert(wrapper);

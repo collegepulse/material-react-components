@@ -1,11 +1,21 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
+import {createShallow} from '../../test/utils';
 import Paper from './Paper';
 import React from 'react';
-import {shallow} from 'enzyme';
 
 describe('Paper', () => {
+  let shallow;
+
+  beforeEach(() => {
+    shallow = createShallow();
+  });
+
+  afterEach(() => {
+    shallow.cleanUp();
+  });
+
   it('should shallow render', () => {
     const wrapper = shallow(<Paper />);
     assert(wrapper);

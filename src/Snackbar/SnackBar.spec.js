@@ -2,35 +2,31 @@
 
 import assert from 'assert';
 import Button from '../Button';
-import {mount, shallow} from 'enzyme';
+import {createShallow, createMount} from '../../test/utils';
 import React from 'react';
 import SnackBar, {SnackBarItem} from './index';
-import {unmountComponentAtNode} from 'react-dom';
 
 describe('Snackbar', () => {
-  let element;
+  let shallow;
+  let mount;
 
   beforeEach(() => {
-    element = document.createElement('div');
-    document.body.appendChild(element);
+    shallow = createShallow();
+    mount = createMount();
   });
 
   afterEach(() => {
-    unmountComponentAtNode(element);
-    element.parentNode.removeChild(element);
-    const elements = document.getElementsByTagName('div');
-    while (elements[0]) {
-      elements[0].parentNode.removeChild(elements[0]);
-    }
+    shallow.cleanUp();
+    mount.cleanUp();
   });
 
   it('should shallow render a SnackBar', () => {
-    const wrapper = shallow(<SnackBar />, {attachTo: element});
+    const wrapper = shallow(<SnackBar />);
     assert(wrapper);
   });
 
   it('should deep render a SnackBar', () => {
-    const wrapper = mount(<SnackBar />, {attachTo: element});
+    const wrapper = mount(<SnackBar />);
     assert(wrapper);
   });
 
@@ -41,7 +37,7 @@ describe('Snackbar', () => {
         action={<Button textColor="#FFF">Test</Button>}
       />
     );
-    const wrapper = mount(<SnackBar />, {attachTo: element});
+    const wrapper = mount(<SnackBar />);
     wrapper.find('SnackBar').node.queue(snackbaritem);
     setTimeout(() => {
       assert(document.body.innerHTML.indexOf('Hello World') > -1);

@@ -1,22 +1,19 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
+import {createMount} from '../../test/utils';
 import DOMBodyRender from './DOMBodyRender';
 import React from 'react';
-import {mount} from 'enzyme';
-import {unmountComponentAtNode} from 'react-dom';
 
 describe('DOMBodyRender', () => {
-  let element;
+  let mount;
 
   beforeEach(() => {
-    element = document.createElement('div');
-    document.body.appendChild(element);
+    mount = createMount();
   });
 
   afterEach(() => {
-    unmountComponentAtNode(element);
-    element.parentNode.removeChild(element);
+    mount.cleanUp();
   });
 
   it('should deep render', () => {
@@ -24,8 +21,7 @@ describe('DOMBodyRender', () => {
     const wrapper = mount(
       <DOMBodyRender>
         <div>{text}</div>
-      </DOMBodyRender>,
-      {attachTo: element}
+      </DOMBodyRender>
     );
     const node = wrapper.instance().node;
     assert(node.innerHTML.indexOf(text) > -1);
@@ -36,8 +32,7 @@ describe('DOMBodyRender', () => {
     const wrapper = mount(
       <DOMBodyRender>
         <div>{oldText}</div>
-      </DOMBodyRender>,
-      {attachTo: element}
+      </DOMBodyRender>
     );
     const node = wrapper.instance().node;
     assert(node.innerHTML.indexOf(oldText) > -1);

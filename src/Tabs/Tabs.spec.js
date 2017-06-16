@@ -1,24 +1,24 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {shallow, mount} from 'enzyme';
+import {createShallow, createMount} from '../../test/utils';
 import React from 'react';
 import sinon from 'sinon';
 import Styles from './Tabs.css';
 import Tabs, {Tab} from './index';
-import {unmountComponentAtNode} from 'react-dom';
 
 describe('Tabs', () => {
-  let element;
+  let shallow;
+  let mount;
 
   beforeEach(() => {
-    element = document.createElement('div');
-    document.body.appendChild(element);
+    shallow = createShallow();
+    mount = createMount();
   });
 
   afterEach(() => {
-    unmountComponentAtNode(element);
-    element.parentNode.removeChild(element);
+    shallow.cleanUp();
+    mount.cleanUp();
   });
 
   it('should shallow render', () => {
@@ -54,8 +54,7 @@ describe('Tabs', () => {
         <Tab label="foo" />
         <Tab label="bar" />
         <Tab label="baz" />
-      </Tabs>,
-      {attachTo: element}
+      </Tabs>
     );
     const oldLeft = parseInt(wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left, 10);
     wrapper.setProps({index: 1});
@@ -69,8 +68,7 @@ describe('Tabs', () => {
         <Tab label="foo" />
         <Tab label="bar" />
         <Tab label="baz" />
-      </Tabs>,
-      {attachTo: element}
+      </Tabs>
     );
     const beginLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
     wrapper.getDOMNode().style.width = '200px';

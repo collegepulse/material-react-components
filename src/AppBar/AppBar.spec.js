@@ -1,11 +1,24 @@
 /* eslint-env mocha */
 
 import AppBar from './AppBar';
+import {createShallow, createMount} from '../../test/utils';
 import assert from 'assert';
 import React from 'react';
-import {mount, shallow} from 'enzyme';
 
 describe('Appbar', () => {
+  let shallow;
+  let mount;
+
+  beforeEach(() => {
+    shallow = createShallow();
+    mount = createMount();
+  });
+
+  afterEach(() => {
+    shallow.cleanUp();
+    mount.cleanUp();
+  });
+
   it('should shallow render', () => {
     const wrapper = shallow(<AppBar />);
     assert(wrapper);

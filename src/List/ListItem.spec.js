@@ -1,34 +1,34 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
+import {createShallow, createMount} from '../../test/utils';
 import Folder from 'material-design-icons/file/svg/design/ic_folder_24px.svg';
 import ListItem from './ListItem';
-import {mount, shallow} from 'enzyme';
 import MoreVert from 'material-design-icons/navigation/svg/production/ic_more_vert_24px.svg';
 import React from 'react';
 import Styles from './ListItem.css';
-import {unmountComponentAtNode} from 'react-dom';
 
 describe('ListItem', () => {
-  let element;
+  let shallow;
+  let mount;
 
   beforeEach(() => {
-    element = document.createElement('div');
-    document.body.appendChild(element);
+    shallow = createShallow();
+    mount = createMount();
   });
 
   afterEach(() => {
-    unmountComponentAtNode(element);
-    element.parentNode.removeChild(element);
+    shallow.cleanUp();
+    mount.cleanUp();
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<ListItem />, {attachTo: element});
+    const wrapper = shallow(<ListItem />);
     assert(wrapper);
   });
 
   it('should deep render', () => {
-    const wrapper = mount(<ListItem />, {attachTo: element});
+    const wrapper = mount(<ListItem />);
     assert(wrapper);
   });
 
@@ -36,8 +36,7 @@ describe('ListItem', () => {
     const wrapper = mount(
       <ListItem
         primary="primary"
-      />,
-      {attachTo: element}
+      />
     );
     assert(wrapper.find(`.${Styles.text}`).length === 1);
   });
@@ -47,8 +46,7 @@ describe('ListItem', () => {
       <ListItem
         primary="primary"
         secondary="secondary"
-      />,
-      {attachTo: element}
+      />
     );
     assert(wrapper.find(`.${Styles.text}`).length === 1);
   });
@@ -59,8 +57,7 @@ describe('ListItem', () => {
         avatar={<Folder />}
         primary="primary"
         secondary="secondary"
-      />,
-      {attachTo: element}
+      />
     );
     assert(wrapper.find(`.${Styles.avatar}`).length === 1);
   });
@@ -72,8 +69,7 @@ describe('ListItem', () => {
         primary="primary"
         secondary="secondary"
         action={<MoreVert />}
-      />,
-      {attachTo: element}
+      />
     );
     assert(wrapper.find(`.${Styles.action}`).length === 1);
   });
