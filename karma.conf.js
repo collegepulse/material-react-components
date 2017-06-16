@@ -22,14 +22,14 @@ function getBrowserStackConfig() {
     bs_firefox_mac: {
       base: 'BrowserStack',
       browser: 'firefox',
-      browser_version: '30',
+      browser_version: '45',
       os: 'OS X',
       os_version: 'Yosemite'
     },
     bs_chrome_mac: {
       base: 'BrowserStack',
       browser: 'chrome',
-      browser_version: '30',
+      browser_version: '49',
       os: 'OS X',
       os_version: 'Yosemite'
     },
@@ -40,12 +40,19 @@ function getBrowserStackConfig() {
       os: 'OS X',
       os_version: 'Yosemite'
     },
-    bs_windows_ie: {
+    bs_ie_windows: {
       base: 'BrowserStack',
       browser: 'ie',
       browser_version: '11',
       os: 'Windows',
       os_version: '8.1'
+    },
+    bs_edge_windows: {
+      base: 'BrowserStack',
+      browser: 'edge',
+      browser_version: '14',
+      os: 'Windows',
+      os_version: '10'
     },
     bs_iphone_5s: {
       base: 'BrowserStack',
