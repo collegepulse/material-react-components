@@ -91,6 +91,9 @@ module.exports = function (config) {
     browsers: [
       'PhantomJSWithArgs'
     ],
+    browserNoActivityTimeout: 3e5,
+    browserDisconnectTimeout: 3e5,
+    browserDisconnectTolerance: 3,
     captureTimeout: 120000,
     client: {
       mocha: {
