@@ -4,9 +4,10 @@ import assert from 'assert';
 import Collapse from './Collapse';
 import {createShallow, createMount} from '../../test/utils';
 import React from 'react';
+import variables from '../../src/variables';
 
 const longDiv = (
-  <div style={{backgroundColor: 'red'}}>
+  <div style={{backgroundColor: variables.$black54, padding: 10}}>
     Foo<br />
     Bar<br />
     Foo<br />
@@ -54,7 +55,7 @@ describe('Collapse', () => {
       const heightSometimeLater = wrapper.getDOMNode().style.height;
       assert(initialHeight === heightSometimeLater);
       done();
-    }, 100);
+    }, 1000);
   });
 
   it('should animate when open changes from false to true', (done) => {
@@ -69,7 +70,7 @@ describe('Collapse', () => {
       const heightSometimeLater = wrapper.getDOMNode().style.height;
       assert(parseInt(initialHeight, 10) < parseInt(heightSometimeLater, 10));
       done();
-    }, 100);
+    }, 1000);
   });
 
   it('should animate when open changes from true to false', (done) => {
@@ -79,11 +80,13 @@ describe('Collapse', () => {
       </Collapse>
     );
     const initialHeight = wrapper.getDOMNode().style.height;
-    wrapper.setProps({open: false});
+    setTimeout(() => {
+      wrapper.setProps({open: false});
+    }, 100);
     setTimeout(() => {
       const heightSometimeLater = wrapper.getDOMNode().style.height;
       assert(parseInt(initialHeight, 10) > parseInt(heightSometimeLater, 10));
       done();
-    }, 100);
+    }, 1000);
   });
 });

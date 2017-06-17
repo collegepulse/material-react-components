@@ -34,8 +34,19 @@
 }
 
 .action {
-  position: absolute;
-  right: 20px;
-  top: 8px;
+  align-items: center;
+  display: flex;
   fill: rgba(0, 0, 0, 0.54);
+  height: 100%;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.primary.primaryText {
+  color: #000;
+}
+
+.secondary.secondaryText {
+  color: $black54;
 }

@@ -2,7 +2,7 @@
 
 import assert from 'assert';
 import Button from './Button';
-import {createShallow, createMount} from '../../test/utils';
+import {createShallow, createMount, createTest} from '../../test/utils';
 import keycode from 'keycode';
 import React from 'react';
 import Styles from '../Ripple/RippleItem.css';
@@ -83,7 +83,7 @@ describe('Button', () => {
   });
 
   it('should add and remove ripples through the keyboard interaction lifecyle', (done) => {
-    const wrapper = mount(<Button />);
+    const wrapper = mount(<Button>Label</Button>);
     wrapper.simulate('focus');
     assert(wrapper.find(`.${Styles.container}`).length === 1);
     wrapper.simulate('keydown', {keyCode: keycode('space')});
@@ -96,7 +96,7 @@ describe('Button', () => {
   });
 
   it('should add and remove ripples through the click interaction lifecycle', (done) => {
-    const wrapper = mount(<Button />);
+    const wrapper = mount(<Button>Label</Button>);
     wrapper.find('button').node.focus();
     wrapper.simulate('mousedown');
     wrapper.simulate('mouseup');
@@ -113,28 +113,28 @@ describe('Button', () => {
     assert(!wrapper.state('mouseFocused'));
   });
 
-  it('should set most readable text color when only a buttonColor is provided', () => {
-    const wrapper = mount(<Button buttonColor={Variables.$primary} />);
+  it('should set most readable text color when only a buttonColor is provided', createTest(() => {
+    const wrapper = mount(<Button buttonColor={Variables.$primary}>Label</Button>);
     const actual = wrapper.getDOMNode().style.color;
     const actualFixed = tinycolor(actual).toString();
     const expected = 'rgba(0, 0, 0, 0.87)';
     assert(actualFixed === expected);
-  });
+  }));
 
-  it('should set the background color to a darkened button color when hovering', () => {
-    const wrapper = mount(<Button buttonColor={Variables.$primary} />);
+  it('should set the background color to a darkened button color when hovering', createTest(() => {
+    const wrapper = mount(<Button buttonColor={Variables.$primary}>Label</Button>);
     wrapper.simulate('mouseenter');
     const actual = wrapper.getDOMNode().style.backgroundColor;
     const expected = 'rgb(13, 138, 238)';
     assert(actual === expected);
-  });
+  }));
 
-  it('should set the background color to a transparent text color on hover if no button color is present', () => {
-    const wrapper = mount(<Button textColor={Variables.$primary} />);
+  it('should set the background color to a transparent text color on hover if no button color is present', createTest(() => {
+    const wrapper = mount(<Button textColor={Variables.$primary}>Label</Button>);
     wrapper.simulate('mouseenter');
     const actual = wrapper.getDOMNode().style.backgroundColor;
     const actualFixed = tinycolor(actual).toString();
     const expected = 'rgba(33, 150, 243, 0.15)';
     assert(actualFixed === expected);
-  });
+  }));
 });

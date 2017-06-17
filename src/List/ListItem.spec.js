@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createShallow, createMount} from '../../test/utils';
+import {createShallow, createMount, createTest} from '../../test/utils';
 import Folder from 'material-design-icons/file/svg/design/ic_folder_24px.svg';
 import ListItem from './ListItem';
 import MoreVert from 'material-design-icons/navigation/svg/production/ic_more_vert_24px.svg';
@@ -32,16 +32,16 @@ describe('ListItem', () => {
     assert(wrapper);
   });
 
-  it('should render with just a primary label', () => {
+  it('should render with just a primary label', createTest(() => {
     const wrapper = mount(
       <ListItem
         primary="primary"
       />
     );
     assert(wrapper.find(`.${Styles.text}`).length === 1);
-  });
+  }));
 
-  it('should render with a primary and secondary label', () => {
+  it('should render with a primary and secondary label', createTest(() => {
     const wrapper = mount(
       <ListItem
         primary="primary"
@@ -49,9 +49,9 @@ describe('ListItem', () => {
       />
     );
     assert(wrapper.find(`.${Styles.text}`).length === 1);
-  });
+  }));
 
-  it('should render with an avatar, primary + secondary label', () => {
+  it('should render with an avatar, primary + secondary label', createTest(() => {
     const wrapper = mount(
       <ListItem
         avatar={<Folder />}
@@ -60,9 +60,9 @@ describe('ListItem', () => {
       />
     );
     assert(wrapper.find(`.${Styles.avatar}`).length === 1);
-  });
+  }));
 
-  it('should render with an avatar, primary + secondary labels, + an action', () => {
+  it('should render with an avatar, primary + secondary labels, + an action', createTest(() => {
     const wrapper = mount(
       <ListItem
         avatar={<Folder />}
@@ -72,5 +72,5 @@ describe('ListItem', () => {
       />
     );
     assert(wrapper.find(`.${Styles.action}`).length === 1);
-  });
+  }));
 });

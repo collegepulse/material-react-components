@@ -11,10 +11,10 @@ function getPreprocessors() {
   };
 }
 
-function getBrowserStackConfig() {
+function getBrowserStackConfig(config) {
   const username = process.env.BROWSER_STACK_USERNAME;
   const accessKey = process.env.BROWSER_STACK_ACCESS_KEY;
-  if (!username && !accessKey) {
+  if (config.browsers.length || (!username && !accessKey)) {
     return {};
   }
 
@@ -91,9 +91,6 @@ module.exports = function (config) {
     browsers: [
       'PhantomJSWithArgs'
     ],
-    browserNoActivityTimeout: 3e5,
-    browserDisconnectTimeout: 3e5,
-    browserDisconnectTolerance: 3,
     captureTimeout: 120000,
     client: {
       mocha: {
@@ -208,5 +205,5 @@ module.exports = function (config) {
     }
   };
 
-  config.set(Object.assign({}, initialConfig, getBrowserStackConfig()));
+  config.set(Object.assign({}, initialConfig, getBrowserStackConfig(config)));
 };

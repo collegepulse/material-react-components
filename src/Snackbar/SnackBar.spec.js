@@ -2,9 +2,10 @@
 
 import assert from 'assert';
 import Button from '../Button';
-import {createShallow, createMount} from '../../test/utils';
+import {createShallow, createMount, createTest} from '../../test/utils';
 import React from 'react';
 import SnackBar, {SnackBarItem} from './index';
+import Styles from './SnackBar.css';
 
 describe('Snackbar', () => {
   let shallow;
@@ -30,7 +31,7 @@ describe('Snackbar', () => {
     assert(wrapper);
   });
 
-  it('should render a snackbar with a single snackbaritem', (done) => {
+  it('should render a snackbar with a single snackbaritem', createTest(() => {
     const snackbaritem = (
       <SnackBarItem
         message="Hello World"
@@ -41,11 +42,10 @@ describe('Snackbar', () => {
     wrapper.find('SnackBar').node.queue(snackbaritem);
     setTimeout(() => {
       assert(document.body.innerHTML.indexOf('Hello World') > -1);
-      done();
     }, 550);
-  });
+  }));
 
-  it('should queue multiple SnackBarItem', (done) => {
+  it('should queue multiple SnackBarItem', createTest(() => {
     const wrapper = mount(<SnackBar />);
     const first = (
       <SnackBarItem
@@ -56,25 +56,42 @@ describe('Snackbar', () => {
             textColor="#FFF"
             onClick={() => {}}
           >
-            Test
+            First
+          </Button>
+        }
+      />
+    );
+    const second = (
+      <SnackBarItem
+        message="Second"
+        action={
+          <Button
+            textColor="#FFF"
+            onClick={() => {}}
+          >
+            Second
           </Button>
         }
       />
     );
     wrapper.find('SnackBar').node.queue(first);
-    const second = (
-      <SnackBarItem
-        message="Second"
-      />
-    );
     wrapper.find('SnackBar').node.queue(second);
+
     setTimeout(() => {
       assert(wrapper.state('SnackBarItems').length === 2);
       document.getElementById('firstBtn').click();
-      setTimeout(() => {
-        assert(wrapper.state('SnackBarItems').length === 1);
-        done();
-      }, 1000);
+    }, 500);
+
+    setTimeout(() => {
+      assert(wrapper.state('SnackBarItems').length === 1);
     }, 1000);
-  });
+
+    setTimeout(() => {
+      document.getElementsByClassName(Styles.overlay)[0].click();
+    }, 1500);
+
+    setTimeout(() => {
+      assert(wrapper.state('SnackBarItems').length === 0);
+    }, 1750);
+  }, 2000));
 });

@@ -17,7 +17,7 @@ class ListItem extends React.Component {
         >
           {avatar && (
             <div className={Styles.avatar}>
-              {avatar}
+              {React.cloneElement(avatar, {focusable: false})}
             </div>
           )}
           <div
@@ -25,9 +25,21 @@ class ListItem extends React.Component {
               [Styles.textWithAvatarOrAction]: avatar || action
             })}
           >
-            {primary}
+            {primary && (
+              <Typography
+                className={makeClass(Styles.primary, Styles.primaryText)}
+                type="subheading"
+              >
+                {primary}
+              </Typography>
+            )}
             {secondary && (
-              <Typography type="body1">{secondary}</Typography>
+              <Typography
+                className={makeClass(Styles.secondary, Styles.secondaryText)}
+                type="body1"
+              >
+                {secondary}
+              </Typography>
             )}
           </div>
         </Button>

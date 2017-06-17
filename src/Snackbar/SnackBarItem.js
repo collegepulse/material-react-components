@@ -1,9 +1,10 @@
 import DOMBodyRender from '../utils/DOMBodyRender';
+import {findDOMNode} from 'react-dom';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './SnackBar.css';
-import {findDOMNode} from 'react-dom';
+import Typography from '../Typography';
 
 class SnackBarItem extends React.Component {
   constructor(props) {
@@ -64,13 +65,13 @@ class SnackBarItem extends React.Component {
   render() {
     const {action, delay, message} = this.props;
     return (
-      <div>
-        <DOMBodyRender>
-          <div className={Styles.root}>
-            <div
-              className={Styles.overlay}
-              onClick={this.handleOverlayClick}
-            />
+      <DOMBodyRender>
+        <div className={Styles.root}>
+          <div
+            className={Styles.overlay}
+            onClick={this.handleOverlayClick}
+          />
+          <div className={Styles.snackbarWrapper}>
             <div
               className={
                 makeClass(Styles.snackbar, {
@@ -79,14 +80,14 @@ class SnackBarItem extends React.Component {
               )}
               ref={c => (this.snackbar = c)}
             >
-              <div className={Styles.message}>
+              <Typography type="body1" className={Styles.message}>
                 {message}
-              </div>
+              </Typography>
               {action && this.makeAction()}
             </div>
           </div>
-        </DOMBodyRender>
-      </div>
+        </div>
+      </DOMBodyRender>
     );
   }
 }

@@ -1,6 +1,5 @@
 .root {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .overlay {
@@ -28,6 +27,11 @@
   animation-fill-mode: forwards;
 }
 
+.snackbarWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 @keyframes show {
   0% {
     bottom: -48px;
@@ -50,6 +54,7 @@
 
 .message {
   padding: 14px 24px;
+  color: #FFF;
 }
 
 .button {

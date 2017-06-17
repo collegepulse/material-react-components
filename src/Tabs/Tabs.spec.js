@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createShallow, createMount} from '../../test/utils';
+import {createShallow, createMount, createTest} from '../../test/utils';
 import React from 'react';
 import sinon from 'sinon';
 import Styles from './Tabs.css';
@@ -31,7 +31,7 @@ describe('Tabs', () => {
     assert(wrapper);
   });
 
-  it('should call onChange function with new index when a tab is clicked', () => {
+  it('should call onChange function with new index when a tab is clicked', createTest(() => {
     const onChange = sinon.spy();
     const wrapper = mount(
       <Tabs index={0} onChange={onChange}>
@@ -46,9 +46,9 @@ describe('Tabs', () => {
     assert(onChange.calledOnce);
     // second parameter should be index
     assert(onChange.args[0][1] === newIndex);
-  });
+  }));
 
-  it('should repaint the inkbar when the index changes', () => {
+  it('should repaint the inkbar when the index changes', createTest(() => {
     const wrapper = mount(
       <Tabs index={0} onChange={() => {}}>
         <Tab label="foo" />
@@ -60,9 +60,9 @@ describe('Tabs', () => {
     wrapper.setProps({index: 1});
     const newLeft = parseInt(wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left, 10);
     assert(oldLeft !== newLeft);
-  });
+  }));
 
-  it('should repaint the inkbar on window resize', () => {
+  it('should repaint the inkbar on window resize', createTest(() => {
     const wrapper = mount(
       <Tabs index={1} onChange={() => {}}>
         <Tab label="foo" />
@@ -79,5 +79,5 @@ describe('Tabs', () => {
 
     const endLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
     assert(parseInt(beginLeftOffset, 10) > parseInt(endLeftOffset, 10));
-  });
+  }));
 });

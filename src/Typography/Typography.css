@@ -1,76 +1,87 @@
+/* The Material spec describes tracking/kerning in units of thousandths of an em.
+ *
+ * For more information on converting tracking/kerning to letter-spacing, see:
+ * https://stackoverflow.com/questions/2760784/how-to-calculate-css-letter-spacing-v-s-tracking-in-typography
+ */
+
 .display4 {
   font-size: 112px;
   font-weight: $typographyWeightLight;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: $textSecondary;
+  color: $black54;
+  letter-spacing: -0.01em;
 }
 
 .display3 {
   font-size: 56px;
   font-weight: $typographyWeightRegular;
-  letter-spacing: -0.02em;
   line-height: 1.35;
-  color: $textSecondary;
+  color: $black54;
+  letter-spacing: -0.005em;
 }
 
 .display2 {
   font-size: 45px;
   font-weight: $typographyWeightRegular;
   line-height: 48px;
-  color: $textSecondary;
+  color: $black54;
 }
 
 .display1 {
   font-size: 34px;
   font-weight: $typographyWeightRegular;
   line-height: 40px;
-  color: $textSecondary;
+  color: $black54;
 }
 
 .headline {
   font-size: 24px;
   font-weight: $typographyWeightRegular;
   line-height: 32px;
-  color: $textPrimary;
+  color: $black87;
 }
 
 .title {
   font-size: 21px;
   font-weight: $typographyWeightMedium;
-  line-height: 1;
-  color: $textPrimary;
+  color: $black87;
+  letter-spacing: 0.005em;
 }
 
 .subheading {
   font-size: 16px;
   font-weight: $typographyWeightRegular;
   line-height: 24px;
-  color: $textPrimary;
+  color: $black87;
+  letter-spacing: 0.01em;
 }
 
 .body2 {
   font-size: 14px;
   font-weight: $typographyWeightMedium;
   line-height: 24px;
-  color: $textPrimary;
+  color: $black87;
+  letter-spacing: 0.01em;
 }
 
 .body1 {
   font-size: 14px;
   font-weight: $typographyWeightRegular;
   line-height: 20px;
-  color: $textPrimary;
+  color: $black87;
+  letter-spacing: 0.01em;
 }
 
 .caption {
   font-size: 12px;
   font-weight: $typographyWeightRegular;
   line-height: 1;
-  color: $textSecondary;
+  color: $black54;
+  letter-spacing: 0.02em;
 }
 
 .button {
-  text-transform: 'uppercase';
+  text-transform: uppercase;
   font-weight: $typographyWeightMedium;
+  color: $black87;
+  letter-spacing: 0.01em;
 }

@@ -3,7 +3,9 @@ import {unmountComponentAtNode} from 'react-dom';
 
 export function createWrapper(fn) {
   const attachTo = window.document.createElement('div');
-  window.document.body.insertBefore(attachTo, window.document.body.firstChild);
+  const firstChild = window.document.body.firstChild;
+
+  window.document.body.insertBefore(attachTo, firstChild);
 
   const wrapper = function enzymeWrapper(node) {
     return fn(node, { attachTo });
@@ -23,4 +25,16 @@ export function createMount() {
 
 export function createShallow() {
   return createWrapper(shallow);
+}
+
+/* Slow tests down a little so we can view
+ * the visual renders in BrowserStack
+ */
+export function createTest(test, timeout) {
+  return function (done) {
+    test.bind(this)();
+    setTimeout(() => {
+      done();
+    }, timeout || 1000);
+  };
 }

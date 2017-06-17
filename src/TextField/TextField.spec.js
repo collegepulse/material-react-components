@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createShallow, createMount} from '../../test/utils';
+import {createShallow, createMount, createTest} from '../../test/utils';
 import {noop} from 'lodash';
 import React from 'react';
 import Styles from './TextField.css';
@@ -36,8 +36,8 @@ describe('TextField', () => {
     assert(wrapper);
   });
 
-  it('should render a TextArea if multiline', () => {
-    const wrapper = shallow(
+  it('should render a TextArea if multiline', createTest(() => {
+    const wrapper = mount(
       <TextField
         label={'label'}
         onChange={noop}
@@ -46,9 +46,9 @@ describe('TextField', () => {
       />
     );
     assert(wrapper.find('textarea').length === 2);
-  });
+  }));
 
-  it('should set the interal state to focused on focus', () => {
+  it('should set the interal state to focused on focus', createTest(() => {
     const wrapper = mount(
       <TextField
         label={'label'}
@@ -60,9 +60,9 @@ describe('TextField', () => {
     wrapper.find('input').simulate('focus');
     assert(wrapper.state('focused'));
     assert(wrapper.find('label').getDOMNode().style.animationName !== TextFieldAnimations.float);
-  });
+  }));
 
-  it('should add the float animation on focus when there is no placeholder and value is empty', () => {
+  it('should add the float animation on focus when there is no placeholder and value is empty', createTest(() => {
     const wrapper = mount(
       <TextField
         label={'label'}
@@ -72,9 +72,9 @@ describe('TextField', () => {
     );
     wrapper.find('input').simulate('focus');
     assert(wrapper.find('label').getDOMNode().style.animationName === TextFieldAnimations.float);
-  });
+  }));
 
-  it('should set the interal state to not focused on blur', () => {
+  it('should set the interal state to not focused on blur', createTest(() => {
     const wrapper = mount(
       <TextField
         label={'label'}
@@ -86,9 +86,9 @@ describe('TextField', () => {
     wrapper.find('input').simulate('blur');
     assert(!wrapper.state('focused'));
     assert(wrapper.find('label').getDOMNode().style.animationName !== TextFieldAnimations.sink);
-  });
+  }));
 
-  it('should add the sink animation class on blur when there is no placeholder and value is empty', () => {
+  it('should add the sink animation class on blur when there is no placeholder and value is empty', createTest(() => {
     const wrapper = mount(
       <TextField
         label={'label'}
@@ -99,9 +99,9 @@ describe('TextField', () => {
     wrapper.find('input').simulate('blur');
     assert(!wrapper.state('focused'));
     assert(wrapper.find('label').getDOMNode().style.animationName === TextFieldAnimations.sink);
-  });
+  }));
 
-  it('should increase the height of the textarea when there is more text', () => {
+  it('should increase the height of the textarea when there is more text', createTest(() => {
     const wrapper = mount(
       <TextField
         label="foo"
@@ -117,9 +117,9 @@ describe('TextField', () => {
     textarea.simulate('change', {target: {value: longText}});
     const height = parseInt(textarea.getDOMNode().style.height, 10);
     assert(beginningHeight < height);
-  });
+  }));
 
-  it('should decrease the height of the textarea when there is less text', () => {
+  it('should decrease the height of the textarea when there is less text', createTest(() => {
     const wrapper = mount(
       <TextField
         label="foo"
@@ -135,5 +135,5 @@ describe('TextField', () => {
     textarea.simulate('change', {target: {value: shortText}});
     const heightWithShortText = parseInt(textarea.getDOMNode().style.height, 10);
     assert(heightWithLongText > heightWithShortText);
-  });
+  }));
 });

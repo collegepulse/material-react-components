@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 import AppBar from './AppBar';
-import {createShallow, createMount} from '../../test/utils';
+import {createShallow, createMount, createTest} from '../../test/utils';
 import assert from 'assert';
 import React from 'react';
 
@@ -24,13 +24,13 @@ describe('Appbar', () => {
     assert(wrapper);
   });
 
-  it('should deep render', () => {
-    const wrapper = mount(<AppBar />);
+  it('should deep render primary', createTest(() => {
+    const wrapper = mount(<AppBar primary="X" />);
     assert(wrapper);
-  });
+  }));
 
-  it('should deep render primary and secondary', () => {
-    const wrapper = mount(<AppBar primary={'X'} secondary={'X'} />);
+  it('should deep render children', createTest(() => {
+    const wrapper = mount(<AppBar>Header</AppBar>);
     assert(wrapper);
-  });
+  }));
 });
