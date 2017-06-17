@@ -25,6 +25,6 @@ describe('Paper', () => {
   });
 
   it('should deep render', createTest(() => {
-    const wrapper = mount(<Paper elevation={25}>Paper!!!</Paper>);
+    mount(<Paper elevation={25}>Paper!!!</Paper>);
   }));
 });

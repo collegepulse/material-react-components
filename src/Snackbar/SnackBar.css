@@ -54,7 +54,7 @@
 
 .message {
   padding: 14px 24px;
-  color: #FFF;
+  color: $white;
 }
 
 .button {
