@@ -1,9 +1,9 @@
-import DocPage from '../DocPage';
-import Paper from '../../src/Paper';
+import Page from '../Page';
+import Paper from '../../../src/Paper';
 import React from 'react';
-import Tabs, {Tab} from '../../src/Tabs';
-import TextField from '../../src/TextField';
-import Variables from '../../src/variables';
+import Tabs, {Tab} from '../../../src/Tabs';
+import TextField from '../../../src/TextField';
+import Variables from '../../../src/variables';
 
 class TabsDocs extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class TabsDocs extends React.Component {
 
   render() {
     return (
-      <DocPage
+      <Page
         componentName="Tabs"
         buildYourOwn={
           <div style={{flex: 1}}>

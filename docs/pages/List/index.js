@@ -1,11 +1,11 @@
-import DocPage from '../DocPage';
 import Folder from 'material-design-icons/file/svg/design/ic_folder_24px.svg';
-import List, {ListItem} from '../../src/List';
+import List, {ListItem} from '../../../src/List';
 import MoreVert from 'material-design-icons/navigation/svg/production/ic_more_vert_24px.svg';
+import Page from '../Page';
 import React from 'react';
-import Switch from '../../src/Switch';
-import SvgIcon from '../../src/SvgIcon';
-import TextField from '../../src/TextField';
+import Switch from '../../../src/Switch';
+import SvgIcon from '../../../src/SvgIcon';
+import TextField from '../../../src/TextField';
 
 class ListDocs extends React.Component {
 
@@ -32,7 +32,7 @@ class ListDocs extends React.Component {
       styleObj = JSON.parse(style);
     } catch (e) { }
     return (
-      <DocPage
+      <Page
         componentName="List"
         buildYourOwn={
           <div style={{flex: 1, display: 'flex', justifyContent: 'center'}}>

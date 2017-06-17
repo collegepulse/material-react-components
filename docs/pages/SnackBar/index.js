@@ -1,10 +1,10 @@
-import Button from '../../src/Button';
-import CodeFormatter from '../utils/CodeFormatter';
-import DocPage from '../DocPage';
+import Button from '../../../src/Button';
+import CodeFormatter from '../../components/CodeFormatter';
+import Page from '../Page';
 import React from 'react';
-import SnackBar, {SnackBarItem} from '../../src/SnackBar';
-import TextField from '../../src/TextField';
-import Variables from '../../src/variables';
+import SnackBar, {SnackBarItem} from '../../../src/SnackBar';
+import TextField from '../../../src/TextField';
+import Variables from '../../../src/variables';
 
 class SnackBarDocs extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class SnackBarDocs extends React.Component {
 
   render() {
     return (
-      <DocPage
+      <Page
         componentName="SnackBar"
         description={
           <div>

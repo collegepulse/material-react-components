@@ -1,9 +1,10 @@
 import {BrowserRouter} from 'react-router-dom';
-import DocNavigation from './DocNavigation';
-import DocPageWrapper from './DocPageWrapper';
+import Navigation from './components/Navigation';
+import PageWrapper from './components/PageWrapper';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import React from 'react';
 import {render} from 'react-dom';
+import Styles from './index.css';
 import 'babel-polyfill';
 
 injectTapEventPlugin();
@@ -16,12 +17,12 @@ document.body.appendChild(app);
 function Index() {
   return (
     <BrowserRouter>
-      <div style={{display: 'flex', flexDirection: 'row', height: '100%'}}>
-        <DocNavigation />
-        <DocPageWrapper />
+      <div className={Styles.index}>
+        <Navigation />
+        <PageWrapper />
       </div>
     </BrowserRouter>
   );
 }
 
-render(<Index />, document.getElementById('app'));
+render(<Index />, app);

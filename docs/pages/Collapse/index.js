@@ -1,9 +1,9 @@
-import Collapse from '../../src/Collapse';
-import DocPage from '../DocPage';
-import Paper from '../../src/Paper';
+import Collapse from '../../../src/Collapse';
+import Page from '../Page';
+import Paper from '../../../src/Paper';
 import React from 'react';
-import Switch from '../../src/Switch';
-import TextField from '../../src/TextField';
+import Switch from '../../../src/Switch';
+import TextField from '../../../src/TextField';
 
 class CollapseDocs extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class CollapseDocs extends React.Component {
 
   render() {
     return (
-      <DocPage
+      <Page
         componentName="Collapse"
         buildYourOwn={
           <div style={{flex: 1}}>

@@ -1,10 +1,10 @@
 import {Link, NavLink} from 'react-router-dom';
-import List, {ListItem} from '../src/List';
-import {makeURL} from './globals';
-import Paper from '../src/Paper';
+import List, {ListItem} from '../../../src/List';
+import {makeURL} from '../../utils/globals';
+import Paper from '../../../src/Paper';
 import React from 'react';
 import Styles from './DocNavigation.css';
-import Typography from '../src/Typography';
+import Typography from '../../../src/Typography';
 
 const items = [
   {
@@ -61,10 +61,10 @@ const items = [
   }
 ];
 
-function DocNavigation() {
+function Navigation() {
   return (
-    <div style={{flex: '0 0 auto', width: '200px'}}>
-      <Paper style={{borderRight: '1px solid #ddd', flex: '1 0 auto', height: '100vh', position: 'fixed', overflowY: 'scroll', zIndex: 1}}>
+    <div style={{flex: '0 0 auto', width: '250px'}}>
+      <Paper style={{borderRight: '1px solid #ddd', flex: '1 0 auto', height: '100vh', position: 'fixed', width: '250px', boxSizing: 'border-box', overflowY: 'auto', zIndex: 1}}>
         <Typography style={{padding: '15px'}}>
           <Link to={makeURL()}>material-react-components</Link>
           <div style={{marginTop: '5px'}}>By CollegePulse</div>
@@ -90,4 +90,4 @@ function DocNavigation() {
   );
 }
 
-export default DocNavigation;
+export default Navigation;

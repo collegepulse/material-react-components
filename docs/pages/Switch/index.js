@@ -1,8 +1,8 @@
-import Colors from '../../src/variables';
-import DocPage from '../DocPage';
+import Colors from '../../../src/variables';
+import Page from '../Page';
 import React from 'react';
-import Switch from '../../src/Switch';
-import TextField from '../../src/TextField';
+import Switch from '../../../src/Switch';
+import TextField from '../../../src/TextField';
 
 class SwitchDocs extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class SwitchDocs extends React.Component {
   render() {
     const {checked, disabled, label, primaryColor} = this.state;
     return (
-      <DocPage
+      <Page
         componentName="Switch"
         buildYourOwn={
           <div style={{flex: 1}}>

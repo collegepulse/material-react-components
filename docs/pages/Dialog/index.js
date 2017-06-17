@@ -1,8 +1,8 @@
-import DocPage from '../DocPage';
-import Button from '../../src/Button';
-import Dialog from '../../src/Dialog';
+import Button from '../../../src/Button';
+import Dialog from '../../../src/Dialog';
+import Page from '../Page';
 import React from 'react';
-import TextField from '../../src/TextField';
+import TextField from '../../../src/TextField';
 
 class DialogDocs extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class DialogDocs extends React.Component {
 
   render() {
     return (
-      <DocPage
+      <Page
         componentName="Dialog"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>

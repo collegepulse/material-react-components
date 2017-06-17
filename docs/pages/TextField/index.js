@@ -1,8 +1,8 @@
-import Colors from '../../src/variables';
-import DocPage from '../DocPage';
+import Colors from '../../../src/variables';
+import Page from '../Page';
 import React from 'react';
-import Switch from '../../src/Switch';
-import TextField from '../../src/TextField';
+import Switch from '../../../src/Switch';
+import TextField from '../../../src/TextField';
 
 class TextFieldDocs extends React.Component {
 
@@ -41,7 +41,7 @@ class TextFieldDocs extends React.Component {
     const {label, helperText, placeholder, primaryColor,
       errorColor, value, disabled, multiline, width} = this.state;
     return (
-      <DocPage
+      <Page
         componentName="TextField"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>

@@ -1,7 +1,8 @@
-import DocPage from '../DocPage';
+import Page from '../Page';
 import React from 'react';
-import TextField from '../../src/TextField';
-import Typography from '../../src/Typography';
+import SelectField from '../../../src/SelectField';
+import TextField from '../../../src/TextField';
+import Typography from '../../../src/Typography';
 
 class TypographyDocs extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class TypographyDocs extends React.Component {
     this.onControlPanel = this.onControlPanel.bind(this);
     this.state = {
       component: 'div',
-      type: 'body1',
+      type: {id: 'body1', value: 'body1'},
       children: 'Hello World'
     };
   }
@@ -21,13 +22,13 @@ class TypographyDocs extends React.Component {
   render() {
     const {component, type, children} = this.state;
     return (
-      <DocPage
+      <Page
         componentName="Typography"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>
             <Typography
               component={component}
-              type={type}
+              type={type.value}
             >
               {children}
             </Typography>
@@ -44,10 +45,57 @@ class TypographyDocs extends React.Component {
               />
             </div>
             <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('type', e.target.value))}
+              <SelectField
+                data={[
+                  {
+                    id: 'display4',
+                    value: 'display4'
+                  },
+                  {
+                    id: 'display3',
+                    value: 'display3'
+                  },
+                  {
+                    id: 'display2',
+                    value: 'display2'
+                  },
+                  {
+                    id: 'display1',
+                    value: 'display1'
+                  },
+                  {
+                    id: 'headline',
+                    value: 'headline'
+                  },
+                  {
+                    id: 'title',
+                    value: 'title'
+                  },
+                  {
+                    id: 'subheading',
+                    value: 'subheading'
+                  },
+                  {
+                    id: 'body2',
+                    value: 'body2'
+                  },
+                  {
+                    id: 'body1',
+                    value: 'body1'
+                  },
+                  {
+                    id: 'caption',
+                    value: 'caption'
+                  },
+                  {
+                    id: 'button',
+                    value: 'button'
+                  }
+                ]}
                 label="type"
+                helperText="foo"
                 value={type}
+                onChange={(e, index, obj) => (this.onControlPanel('type', obj))}
                 helperText="display4, display3, display2, display1, headline, title, subheading, body2, body1, caption, button"
               />
             </div>

@@ -1,13 +1,13 @@
-import AppBar from '../../src/AppBar';
-import Colors from '../../src/variables';
-import CodeFormatter from '../utils/CodeFormatter';
-import DocPage from '../DocPage';
+import AppBar from '../../../src/AppBar';
+import Colors from '../../../src/variables';
+import CodeFormatter from '../../components/CodeFormatter';
 import Menu from 'material-design-icons/navigation/svg/production/ic_menu_24px.svg';
+import Page from '../Page';
 import React from 'react';
 import Search from 'material-design-icons/action/svg/production/ic_search_24px.svg';
-import SvgIcon from '../../src/SvgIcon';
-import Switch from '../../src/Switch';
-import TextField from '../../src/TextField';
+import SvgIcon from '../../../src/SvgIcon';
+import Switch from '../../../src/Switch';
+import TextField from '../../../src/TextField';
 
 class AppBarDocs extends React.Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class AppBarDocs extends React.Component {
       styleObj = {};
     }
     return (
-      <DocPage
+      <Page
         componentName="AppBar"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>

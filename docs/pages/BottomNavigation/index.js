@@ -1,7 +1,7 @@
-import BottomNavigation, {BottomNavigationItem} from '../../src/BottomNavigation';
-import DocPage from '../DocPage';
+import BottomNavigation, {BottomNavigationItem} from '../../../src/BottomNavigation';
+import Page from '../Page';
 import React from 'react';
-import TextField from '../../src/TextField';
+import TextField from '../../../src/TextField';
 
 class BottomNavigationDocs extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class BottomNavigationDocs extends React.Component {
       styleObj = {};
     }
     return (
-      <DocPage
+      <Page
         componentName="BottomNavigation"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>

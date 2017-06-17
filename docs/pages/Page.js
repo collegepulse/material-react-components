@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Typography from '../src/Typography';
+import Typography from '../../src/Typography';
 
 function DocPage({
   componentName,

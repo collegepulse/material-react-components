@@ -1,11 +1,11 @@
 import Add from 'material-design-icons/content/svg/production/ic_add_24px.svg';
-import Button from '../../src/Button';
-import DocPage from '../DocPage';
+import Button from '../../../src/Button';
 import Edit from 'material-design-icons/editor/svg/production/ic_mode_edit_24px.svg';
+import Page from '../Page';
 import React from 'react';
-import Switch from '../../src/Switch';
-import TextField from '../../src/TextField';
-import Variables from '../../src/variables';
+import Switch from '../../../src/Switch';
+import TextField from '../../../src/TextField';
+import Variables from '../../../src/variables';
 
 class ButtonDocs extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class ButtonDocs extends React.Component {
   render() {
     const {children, textColor, buttonColor, fill, fab} = this.state;
     return (
-      <DocPage
+      <Page
         componentName="Button"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>

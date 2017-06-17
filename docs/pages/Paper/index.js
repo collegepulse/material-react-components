@@ -1,7 +1,7 @@
-import DocPage from '../DocPage';
-import Paper from '../../src/Paper';
+import Page from '../Page';
+import Paper from '../../../src/Paper';
 import React from 'react';
-import TextField from '../../src/TextField';
+import TextField from '../../../src/TextField';
 
 class PaperDocs extends React.Component {
 
@@ -29,7 +29,7 @@ class PaperDocs extends React.Component {
       style = {};
     }
     return (
-      <DocPage
+      <Page
         componentName="Paper"
         buildYourOwn={
           <div style={{display: 'flex', justifyContent: 'center'}}>
