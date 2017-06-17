@@ -1,7 +1,7 @@
-.inactive {
-  color: rgba(0, 0, 0, 0.4) !important;
+.inactive .primary {
+  color: $black54;
 }
 
-.active {
-  color: rgba(0, 0, 0, 1.0) !important;
+.active .primary {
+  color: $black;
 }
