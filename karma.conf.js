@@ -62,14 +62,14 @@ function getBrowserStackConfig(config) {
       browser_version: null,
       browser: 'Mobile Safari'
     },
-    bs_android_nexus_7: {
+    bs_android_galaxy_s5_mini: {
       base: 'BrowserStack',
       realMobile: true,
       os: 'android',
-      os_version: '4.1',
+      os_version: '4.4',
       browser: 'Android Browser',
       browser_version: null,
-      device: 'Google Nexus 7'
+      device: 'Samsung Galaxy S5 Mini'
     }
   };
 
@@ -86,18 +86,21 @@ function getBrowserStackConfig(config) {
 module.exports = function (config) {
   const initialConfig = {
     browserConsoleLogOptions: {
-      level: 'log'
+      level: '',
+      format: '%b %T: %m',
+      terminal: true
     },
     browsers: [
       'PhantomJSWithArgs'
     ],
-    browserNoActivityTimeout: 3e5,
-    browserDisconnectTimeout: 3e5,
+    browserNoActivityTimeout: 300e3,
+    browserDisconnectTimeout: 300e3,
     browserDisconnectTolerance: 3,
-    captureTimeout: 120000,
+    captureTimeout: 300e3,
     client: {
+      captureConsole: true,
       mocha: {
-        timeout: 10000
+        timeout: 1000000e3
       }
     },
     coverageReporter: {

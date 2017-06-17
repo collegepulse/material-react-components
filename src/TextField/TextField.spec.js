@@ -96,9 +96,15 @@ describe('TextField', () => {
         value={''}
       />
     );
-    wrapper.find('input').simulate('blur');
-    assert(!wrapper.state('focused'));
-    assert(wrapper.find('label').getDOMNode().style.animationName === TextFieldAnimations.sink);
+
+    setTimeout(() => {
+      wrapper.find('input').simulate('blur');
+    }, 250);
+
+    setTimeout(() => {
+      assert(!wrapper.state('focused'));
+      assert(wrapper.find('label').getDOMNode().style.animationName === TextFieldAnimations.sink);
+    }, 500);
   }));
 
   it('should increase the height of the textarea when there is more text', createTest(() => {
@@ -113,10 +119,15 @@ describe('TextField', () => {
     );
     const textarea = wrapper.find(`.${Styles.textarea}`);
     const beginningHeight = parseInt(textarea.getDOMNode().style.height, 10);
-    wrapper.setProps({value: longText});
-    textarea.simulate('change', {target: {value: longText}});
-    const height = parseInt(textarea.getDOMNode().style.height, 10);
-    assert(beginningHeight < height);
+    setTimeout(() => {
+      wrapper.setProps({value: longText});
+      textarea.simulate('change', {target: {value: longText}});
+    }, 500);
+
+    setTimeout(() => {
+      const height = parseInt(textarea.getDOMNode().style.height, 10);
+      assert(beginningHeight < height);
+    }, 750);
   }));
 
   it('should decrease the height of the textarea when there is less text', createTest(() => {
