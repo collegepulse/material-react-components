@@ -1,0 +1,11 @@
+.root {
+  display: none;
+  flex: 0 0 auto;
+  width: 250px;
+}
+
+@media (min-width: $screenMd) {
+  .root {
+    display: initial;
+  }
+}
