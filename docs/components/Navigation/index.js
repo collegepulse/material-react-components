@@ -3,6 +3,7 @@ import List, {ListItem} from '../../../src/List';
 import {makeURL} from '../../utils/globals';
 import Paper from '../../../src/Paper';
 import React from 'react';
+import Scrollable from '../../../src/Scrollable';
 import Styles from './DocNavigation.css';
 import Typography from '../../../src/Typography';
 
@@ -64,28 +65,30 @@ const items = [
 function Navigation() {
   return (
     <div style={{flex: '0 0 auto', width: '250px'}}>
-      <Paper style={{borderRight: '1px solid #ddd', flex: '1 0 auto', height: '100vh', position: 'fixed', width: '250px', boxSizing: 'border-box', overflowY: 'auto', zIndex: 1}}>
-        <Typography style={{padding: '15px'}}>
-          <Link to={makeURL()}>material-react-components</Link>
-          <div style={{marginTop: '5px'}}>By CollegePulse</div>
-        </Typography>
-        <List>
-          {items.map(item => (
-            <ListItem
-              key={item.url}
-              component={NavLink}
-              activeClassName={Styles.active}
-              className={Styles.inactive}
-              primary={(
-                <div className={Styles.primary}>
-                  {item.label}
-                </div>
-              )}
-              to={item.url}
-            />
-          ))}
-        </List>
-      </Paper>
+      <Scrollable>
+        <Paper style={{borderRight: '1px solid #ddd', flex: '1 0 auto', height: '100vh', position: 'fixed', width: '250px', boxSizing: 'border-box', overflowY: 'auto', zIndex: 1}}>
+          <Typography style={{padding: '15px'}}>
+            <Link to={makeURL()}>material-react-components</Link>
+            <div style={{marginTop: '5px'}}>By CollegePulse</div>
+          </Typography>
+          <List>
+            {items.map(item => (
+              <ListItem
+                key={item.url}
+                component={NavLink}
+                activeClassName={Styles.active}
+                className={Styles.inactive}
+                primary={(
+                  <div className={Styles.primary}>
+                    {item.label}
+                  </div>
+                )}
+                to={item.url}
+              />
+            ))}
+          </List>
+        </Paper>
+      </Scrollable>
     </div>
   );
 }

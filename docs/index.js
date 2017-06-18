@@ -10,7 +10,6 @@ import 'babel-polyfill';
 injectTapEventPlugin();
 
 const app = document.createElement('div');
-app.id = 'app';
 app.style.height = '100%';
 document.body.appendChild(app);
 
