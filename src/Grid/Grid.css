@@ -1,0 +1,64 @@
+.margin-0 {
+  margin: 0;
+}
+
+.margin-8 {
+  margin: auto 8px;
+}
+
+.margin-16 {
+  margin: auto 16px;
+}
+
+.margin-24 {
+  margin: auto 20px;
+}
+
+.margin-40 {
+  margin: auto 40px;
+}
+
+.gutter {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gutter-8 {
+  width: calc(100% + 8px);
+  margin: -4px;
+}
+
+.gutterChild {
+  padding: 0;
+}
+
+.gutter-8 > .gutterChild {
+  padding: 4px;
+}
+
+.gutter-16 {
+  width: calc(100% + 16px);
+  margin: -8px;
+}
+
+.gutter-16 > .gutterChild {
+  padding: 8px;
+}
+
+.gutter-24 {
+  width: calc(100% + 24px);
+  margin: -12px;
+}
+
+.gutter-24 > .gutterChild {
+  padding: 12px;
+}
+
+.gutter-40 {
+  width: calc(100% + 40px);
+  margin: -20px;
+}
+
+.gutter-40 > .gutterChild {
+  padding: 20px;
+}

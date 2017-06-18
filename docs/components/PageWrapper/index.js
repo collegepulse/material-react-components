@@ -4,6 +4,7 @@ import BottomNavigation from '../../pages/BottomNavigation';
 import Button from '../../pages/Button';
 import Collapse from '../../pages/Collapse';
 import Dialog from '../../pages/Dialog';
+import Grid from '../../pages/Grid';
 import List from '../../pages/List';
 import Menu from 'material-design-icons/navigation/svg/production/ic_menu_24px.svg';
 import {makeURL} from '../../utils/globals';
@@ -56,6 +57,7 @@ class PageWrapper extends React.Component {
               <Route path={makeURL('/Button')} component={Button} />
               <Route path={makeURL('/Collapse')} component={Collapse} />
               <Route path={makeURL('/Dialog')} component={Dialog} />
+              <Route path={makeURL('/Grid')} component={Grid} />
               <Route path={makeURL('/List')} component={List} />
               <Route path={makeURL('/Paper')} component={Paper} />
               <Route path={makeURL('/SelectField')} component={SelectField} />

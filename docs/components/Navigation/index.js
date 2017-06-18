@@ -29,6 +29,10 @@ const items = [
     url: makeURL('/Dialog')
   },
   {
+    label: 'Grid',
+    url: makeURL('/Grid')
+  },
+  {
     label: 'List',
     url: makeURL('/List')
   },

@@ -38,5 +38,9 @@ module.exports = {
   $textFieldLabelFloatTransform: 'scale(0.75) translate(0, -25px)',
   $typographyWeightLight: '300',
   $typographyWeightRegular: '400',
-  $typographyWeightMedium: '500'
+  $typographyWeightMedium: '500',
+  $screenSm: '600px',
+  $screenMd: '960px',
+  $screenLg: '1280px',
+  $screenXl: '1920px'
 };
