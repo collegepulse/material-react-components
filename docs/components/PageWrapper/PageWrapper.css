@@ -3,13 +3,49 @@
 }
 
 .rootInner {
-  flex: 1 1 100%;
-  width: calc(100vw - 250px);
+  width: 100%;
   overflow-y: auto;
   height: 100%;
   position: absolute;
 }
 
+@media (min-width: $screenMd) {
+  .rootInner {
+    width: calc(100vw - 250px);
+  }
+}
+
+.appBar {
+  position: fixed;
+  z-index: 1;
+}
+
+@media (min-width: $screenMd) {
+  .appBar {
+    position: initial;
+  }
+}
+
+.iconWrapper {
+  display: inherit;
+}
+
+@media (min-width: $screenMd) {
+  .iconWrapper {
+    display: none;
+  }
+}
+
 .icon {
   fill: $white;  
+}
+
+.content {
+  margin: 100px 20px 20px;
+}
+
+@media (min-width: $screenMd) {
+  .content {
+    margin: 50px;
+  }
 }

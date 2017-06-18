@@ -1,4 +1,5 @@
 import Folder from 'material-design-icons/file/svg/design/ic_folder_24px.svg';
+import Grid, {GridItem} from '../../../src/Grid';
 import List, {ListItem} from '../../../src/List';
 import MoreVert from 'material-design-icons/navigation/svg/production/ic_more_vert_24px.svg';
 import Page from '../Page';
@@ -74,31 +75,35 @@ class ListDocs extends React.Component {
           />
         ]}
         examples={
-          <div style={{}}>
-            <List>
-              <ListItem primary={'Primary'} />
-              <ListItem primary={'Primary'} />
-              <ListItem primary={'Primary'} />
-            </List>
-            <br />
-            <List>
-              <ListItem primary={'Primary'} secondary={'Secondary'} />
-              <ListItem primary={'Primary'} secondary={'Secondary'} />
-              <ListItem primary={'Primary'} secondary={'Secondary'} />
-            </List>
-            <br />
-            <List>
-              <ListItem avatar={<Folder />} primary={'Primary'} />
-              <ListItem avatar={<Folder />} primary={'Primary'} />
-              <ListItem avatar={<Folder />} primary={'Primary'} />
-            </List>
-            <br />
-            <List>
-              <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
-              <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
-              <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
-            </List>
-          </div>
+          <Grid gutter={8}>
+            <GridItem xs={12} sm={6}>
+              <List>
+                <ListItem primary={'Primary'} />
+                <ListItem primary={'Primary'} />
+                <ListItem primary={'Primary'} />
+              </List>
+            </GridItem>
+            <GridItem xs={12} sm={6}>
+              <List>
+                <ListItem primary={'Primary'} secondary={'Secondary'} />
+                <ListItem primary={'Primary'} secondary={'Secondary'} />
+              </List>
+            </GridItem>
+            <GridItem xs={12} sm={6}>
+              <List>
+                <ListItem avatar={<Folder />} primary={'Primary'} />
+                <ListItem avatar={<Folder />} primary={'Primary'} />
+                <ListItem avatar={<Folder />} primary={'Primary'} />
+              </List>
+            </GridItem>
+            <GridItem xs={12} sm={6}>
+              <List>
+                <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
+                <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
+                <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
+              </List>
+            </GridItem>
+          </Grid>
         }
       />
     );

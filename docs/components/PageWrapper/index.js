@@ -7,6 +7,7 @@ import Dialog from '../../pages/Dialog';
 import Grid from '../../pages/Grid';
 import HomePage from '../HomePage';
 import List from '../../pages/List';
+import Mobile from '../Navigation/Mobile';
 import Menu from 'material-design-icons/navigation/svg/production/ic_menu_24px.svg';
 import {makeURL} from '../../utils/globals';
 import Paper from '../../pages/Paper';
@@ -23,6 +24,20 @@ import TextField from '../../pages/TextField';
 import TypographyDocs from '../../pages/Typography';
 
 class PageWrapper extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.state = {
+      open: false
+    };
+  }
+
+  onClick() {
+    this.setState({
+      open: !this.state.open
+    });
+  }
   render() {
     const pageName = window.location.pathname.split('/').pop();
     return (
@@ -30,12 +45,22 @@ class PageWrapper extends React.Component {
         <Scrollable>
           <div className={Styles.rootInner}>
             <AppBar
-              primary={<SvgIcon className={Styles.icon} component={Menu} />}
+              className={Styles.appBar}
+              primary={
+                <span className={Styles.iconWrapper}>
+                  <SvgIcon
+                    className={Styles.icon}
+                    component={Menu}
+                    onClick={this.onClick}
+                  />
+                </span>
+              }
               style={{width: '100%', color: '#fff'}}
             >
               {`<${pageName} />`}
             </AppBar>
-            <div style={{margin: '50px'}}>
+            <Mobile open={this.state.open} onClose={this.onClick} />
+            <div className={Styles.content}>
               <Route exact path={makeURL()} component={HomePage} />
               <Route path={makeURL('/AppBar')} component={AppBarDocs} />
               <Route path={makeURL('/BottomNavigation')} component={BottomNavigation} />

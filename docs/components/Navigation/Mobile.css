@@ -1,0 +1,68 @@
+.root {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2500;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $black54;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+  animation-name: fade-in;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.content {
+  transition: all 250ms;
+  position: fixed;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+  animation-name: slide-in;
+}
+
+@keyframes slide-in {
+  0% {
+    left: -250px;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -250px;
+  }
+}

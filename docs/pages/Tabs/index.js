@@ -1,3 +1,4 @@
+import Grid, {GridItem} from '../../../src/Grid';
 import Page from '../Page';
 import Paper from '../../../src/Paper';
 import React from 'react';
@@ -73,39 +74,42 @@ class TabsDocs extends React.Component {
           />
         ]}
         examples={
-          <div style={{display: 'flex'}}>
-            <Paper elevation={3} style={{margin: '30px', flex: 1}}>
-              <Tabs
-                index={this.state.tabsBaseline}
-                onChange={(e, index) => (this.onChange(e, index, 'tabsBaseline'))}
-              >
-                <Tab label="Tab #0" />
-                <Tab label="Tab #1" />
-                <Tab label="Tab #2" />
-              </Tabs>
-              <div style={{padding: '10px'}}>
-                Tab example with default styles. The tab index is {this.state.tabsBaseline}.
-              </div>
-            </Paper>
-            <br />
-            <Paper elevation={3} style={{margin: '30px', flex: 1}}>
-              <Tabs
-                barColor={'#f5f5f5'}
-                inkBarColor={Variables.$orange700}
-                textColor={'rgba(0, 0, 0, 0.54)'}
-                index={this.state.tabsNoBackground}
-                onChange={(e, index) => (this.onChange(e, index, 'tabsNoBackground'))}
-              >
-                <Tab label="Tab #0" />
-                <Tab label="Tab #1" />
-                <Tab label="Tab #2" />
-              </Tabs>
-              <div style={{padding: '10px'}}>
-                These tabs use a custom bar color, ink bar color, and text color.
-                The tab index is {this.state.tabsNoBackground}.
-              </div>
-            </Paper>
-          </div>
+          <Grid gutter={16}>
+            <GridItem xs={12} sm={6}>
+              <Paper elevation={3}>
+                <Tabs
+                  index={this.state.tabsBaseline}
+                  onChange={(e, index) => (this.onChange(e, index, 'tabsBaseline'))}
+                >
+                  <Tab label="Tab #0" />
+                  <Tab label="Tab #1" />
+                  <Tab label="Tab #2" />
+                </Tabs>
+                <div style={{padding: '10px'}}>
+                  Tab example with default styles. The tab index is {this.state.tabsBaseline}.
+                </div>
+              </Paper>
+            </GridItem>
+            <GridItem xs={12} sm={6}>
+              <Paper elevation={3}>
+                <Tabs
+                  barColor={'#f5f5f5'}
+                  inkBarColor={Variables.$orange700}
+                  textColor={'rgba(0, 0, 0, 0.54)'}
+                  index={this.state.tabsNoBackground}
+                  onChange={(e, index) => (this.onChange(e, index, 'tabsNoBackground'))}
+                >
+                  <Tab label="Tab #0" />
+                  <Tab label="Tab #1" />
+                  <Tab label="Tab #2" />
+                </Tabs>
+                <div style={{padding: '10px'}}>
+                  These tabs use a custom bar color, ink bar color, and text color.
+                  The tab index is {this.state.tabsNoBackground}.
+                </div>
+              </Paper>
+            </GridItem>
+          </Grid>
         }
       />
     );

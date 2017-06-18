@@ -15,7 +15,7 @@ class GridDocs extends React.Component {
               <Typography component="span" type="body2">Full-width </Typography>
               grids use fluid columns.
             </Typography>
-            <Grid margin={40} gutter={8}>
+            <Grid margin={24} gutter={8}>
               {[1, 2, 3, 4, 5, 6, 7, 8].map(item => (
                 <GridItem xs={12} sm={6} md={4} lg={3} key={item}>
                   <Paper
@@ -37,7 +37,7 @@ class GridDocs extends React.Component {
               <Typography component="span" type="body2">Centered </Typography>
               grids use fixed columns.
             </Typography>
-            <Grid margin={40} gutter={8} style={{marginTop: '10px'}}>
+            <Grid margin={24} gutter={8} style={{marginTop: '10px'}}>
               {[1, 2, 3, 4, 5, 6, 7].map((item) => {
                 let xs;
                 if (item === 1) {

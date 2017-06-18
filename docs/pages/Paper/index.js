@@ -1,3 +1,4 @@
+import Grid, {GridItem} from '../../../src/Grid';
 import Page from '../Page';
 import Paper from '../../../src/Paper';
 import React from 'react';
@@ -60,23 +61,28 @@ class PaperDocs extends React.Component {
           />
         ]}
         examples={
-          <div style={{display: 'flex'}}>
-            <div style={{flex: 1}}>
-              <Paper elevation={2} style={{height: '100px', width: '80%', padding: '10px', background: 'white'}}>
-                Paper with elevation of 2.
-              </Paper>
-            </div>
-            <div style={{flex: 1}}>
-              <Paper elevation={12} style={{height: '100px', width: '80%', padding: '10px', background: 'white'}}>
-                Paper with elevation of 12.
-              </Paper>
-            </div>
-            <div style={{flex: 1}}>
-              <Paper elevation={25} style={{height: '100px', width: '80%', padding: '10px', background: 'white'}}>
-                Paper with elevation of 25.
-              </Paper>
-            </div>
-          </div>
+          <Grid gutter={24}>
+            {[1, 2, 3].map((value) => {
+              let elevationDemo;
+              if (value === 1) {
+                elevationDemo = 2;
+              } else if (value === 2) {
+                elevationDemo = 12;
+              } else {
+                elevationDemo = 25;
+              }
+              return (
+                <GridItem xs={12} sm={4} key={value}>
+                  <Paper
+                    elevation={elevationDemo}
+                    style={{height: '100px', padding: '10px', background: 'white'}}
+                  >
+                    Paper with elevation of {elevationDemo}.
+                  </Paper>
+                </GridItem>
+              );
+            })}
+          </Grid>
         }
       />
     );

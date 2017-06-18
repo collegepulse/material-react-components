@@ -1,6 +1,10 @@
 .buildYourOwn {
-  padding: 40px 100px 40px;
+  padding: 20px;
   background-color: rgba(0, 0, 0, 0.025);
+}
+
+@media (min-width: $screenMd) {
+  padding: 40px 100px 40px;
 }
 
 .buildYourOwnCode {

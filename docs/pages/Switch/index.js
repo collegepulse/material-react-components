@@ -1,4 +1,5 @@
 import Colors from '../../../src/variables';
+import Grid, {GridItem} from '../../../src/Grid';
 import Page from '../Page';
 import React from 'react';
 import Switch from '../../../src/Switch';
@@ -65,13 +66,46 @@ class SwitchDocs extends React.Component {
           />
         ]}
         examples={
-          <div style={{display: 'flex'}}>
-            <Switch onChange={e => (this.onControlPanel('switch1', e.target.checked))} checked={this.state.switch1} label={'Switch #1'} />
-            <Switch onChange={e => (this.onControlPanel('switch2', e.target.checked))} checked={this.state.switch2} label={'Switch #2'} />
-            <Switch onChange={e => (this.onControlPanel('switch3', e.target.checked))} checked={this.state.switch3} label={'Custom Color'} primaryColor={Colors.$orange700} />
-            <Switch onChange={e => (this.onControlPanel('switch4', e.target.checked))} checked={this.state.switch4} label={'Disabled off'} disabled />
-            <Switch onChange={e => (this.onControlPanel('switch5', e.target.checked))} checked={this.state.switch5} label={'Disabled on'} disabled />
-          </div>
+          <Grid>
+            <GridItem xs={6} md={3}>
+              <Switch
+                onChange={e => (this.onControlPanel('switch1', e.target.checked))}
+                checked={this.state.switch1}
+                label={'Switch #1'}
+              />
+            </GridItem>
+            <GridItem xs={6} md={3}>
+              <Switch
+                onChange={e => (this.onControlPanel('switch2', e.target.checked))}
+                checked={this.state.switch2}
+                label={'Switch #2'}
+              />
+            </GridItem>
+            <GridItem xs={6} md={3}>
+              <Switch
+                onChange={e => (this.onControlPanel('switch3', e.target.checked))}
+                checked={this.state.switch3}
+                label={'Custom Color'}
+                primaryColor={Colors.$orange700}
+              />
+            </GridItem>
+            <GridItem xs={6} md={3}>
+              <Switch
+                onChange={e => (this.onControlPanel('switch4', e.target.checked))}
+                checked={this.state.switch4}
+                label={'Disabled off'}
+                disabled
+              />
+            </GridItem>
+            <GridItem xs={6} md={3}>
+              <Switch
+                onChange={e => (this.onControlPanel('switch5', e.target.checked))}
+                checked={this.state.switch5}
+                label={'Disabled on'}
+                disabled
+              />
+            </GridItem>
+          </Grid>
         }
       />
     );

@@ -2,7 +2,9 @@ import {Link, NavLink} from 'react-router-dom';
 import List, {ListItem} from '../../../src/List';
 import {makeURL} from '../../utils/globals';
 import Paper from '../../../src/Paper';
+import PropTypes from 'prop-types';
 import React from 'react';
+import Scrollable from '../../../src/Scrollable';
 import Styles from './Shared.css';
 import Typography from '../../../src/Typography';
 
@@ -65,32 +67,43 @@ const items = [
   }
 ];
 
-function Shared() {
+function Shared({onClick}) {
   return (
-    <Paper className={Styles.root}>
-      <Typography className={Styles.title}>
-        <Link to={makeURL()}>material-react-components</Link>
-        <div className={Styles.subtitle}>By CollegePulse</div>
-      </Typography>
-      <List>
-        {items.map(item => (
-          <ListItem
-            key={item.url}
-            component={NavLink}
-            activeClassName={Styles.active}
-            className={Styles.inactive}
-            to={item.url}
-            primary={(
-              <div className={Styles.primary}>
-                {item.label}
-              </div>
-            )}
-          />
-        ))}
-      </List>
-    </Paper>
+    <Scrollable>
+      <Paper className={Styles.root}>
+        <Typography className={Styles.title}>
+          <Link to={makeURL()}>material-react-components</Link>
+          <div className={Styles.subtitle}>By CollegePulse</div>
+        </Typography>
+        <List>
+          {items.map(item => (
+            <ListItem
+              key={item.url}
+              component={NavLink}
+              activeClassName={Styles.active}
+              className={Styles.inactive}
+              to={item.url}
+              onClick={onClick}
+              primary={(
+                <div className={Styles.primary}>
+                  {item.label}
+                </div>
+              )}
+            />
+          ))}
+        </List>
+      </Paper>
+    </Scrollable>
   );
 }
+
+Shared.defaultProps = {
+  onClick: () => {}
+};
+
+Shared.propTypes = {
+  onClick: PropTypes.func
+};
 
 export default Shared;
 
