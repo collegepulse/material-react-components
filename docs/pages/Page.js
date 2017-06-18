@@ -1,6 +1,7 @@
 import Grid, {GridItem} from '../../src/Grid';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Styles from './Page.css';
 import Typography from '../../src/Typography';
 
 function DocPage({
@@ -13,21 +14,35 @@ function DocPage({
 }) {
   return (
     <div>
-      <Typography component="p" type="display1">{componentName}</Typography>
+      <Typography
+        component="p"
+        type="display1"
+      >
+        {componentName}
+      </Typography>
+
       {description}
-      {buildYourOwn && <Typography component="p" type="headline">Build your own</Typography>}
+
       {buildYourOwn && (
-        <div style={{padding: '40px 100px 40px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
+        <Typography
+          component="p"
+          type="headline"
+        >
+          Build your own
+        </Typography>
+      )}
+      {buildYourOwn && (
+        <div className={Styles.buildYourOwn}>
           {buildYourOwn}
         </div>
       )}
       {buildYourOwnCode && (
-        <div style={{backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
+        <div className={Styles.buildYourOwnCode}>
           {buildYourOwnCode}
         </div>
       )}
       {buildYourOwnControlPanel && (
-        <div style={{padding: '0 20px 20px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
+        <div className={Styles.buildYourOwnControlPanel}>
           <Grid gutter={24} style={{alignItems: 'center'}}>
             {/* eslint-disable react/no-array-index-key */}
             {buildYourOwnControlPanel.map((item, index) => {
@@ -56,7 +71,14 @@ function DocPage({
           </Grid>
         </div>
       )}
-      {examples && <Typography component="p" type="headline">Examples</Typography>}
+      {examples && (
+        <Typography
+          component="p"
+          type="headline"
+        >
+          Examples
+        </Typography>
+      )}
       {examples}
     </div>
   );

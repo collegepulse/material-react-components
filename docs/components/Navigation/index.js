@@ -68,12 +68,12 @@ const items = [
 
 function Navigation() {
   return (
-    <div style={{flex: '0 0 auto', width: '250px'}}>
+    <div className={Styles.root}>
       <Scrollable>
-        <Paper style={{borderRight: '1px solid #ddd', flex: '1 0 auto', height: '100vh', position: 'fixed', width: '250px', boxSizing: 'border-box', overflowY: 'auto', zIndex: 1}}>
-          <Typography style={{padding: '15px'}}>
+        <Paper className={Styles.rootInner}>
+          <Typography className={Styles.title}>
             <Link to={makeURL()}>material-react-components</Link>
-            <div style={{marginTop: '5px'}}>By CollegePulse</div>
+            <div className={Styles.subtitle}>By CollegePulse</div>
           </Typography>
           <List>
             {items.map(item => (
@@ -82,12 +82,12 @@ function Navigation() {
                 component={NavLink}
                 activeClassName={Styles.active}
                 className={Styles.inactive}
+                to={item.url}
                 primary={(
                   <div className={Styles.primary}>
                     {item.label}
                   </div>
                 )}
-                to={item.url}
               />
             ))}
           </List>

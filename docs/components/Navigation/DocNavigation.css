@@ -1,3 +1,27 @@
+.root {
+  flex: 0 0 auto;
+  width: 250px;
+}
+
+.rootInner {
+  border-right: 1px solid #ddd;
+  flex: 1 0 auto;
+  height: 100vh;
+  position: fixed;
+  width: 250px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  zindex: 1;
+}
+
+.title {
+  padding: 15px;
+}
+
+.subtitle {
+  margin-top: 5px;
+}
+
 .inactive .primary {
   color: $black54;
 }

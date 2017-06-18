@@ -1,3 +1,15 @@
+.root {
+  overflow: hidden;
+}
+
+.rootInner {
+  flex: 1 1 100%;
+  width: calc(100vw - 250px);
+  overflow-y: auto;
+  height: 100%;
+  position: absolute;
+}
+
 .icon {
   fill: $white;  
 }
