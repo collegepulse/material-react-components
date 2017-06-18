@@ -14,17 +14,23 @@ function DocPage({
     <div>
       <Typography component="p" type="display1">{componentName}</Typography>
       {description}
-      <Typography component="p" type="headline">Build your own</Typography>
-      <div style={{padding: '40px 100px 40px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
-        {buildYourOwn}
-      </div>
-      <div style={{backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
-        {buildYourOwnCode}
-      </div>
-      <div style={{padding: '0 20px 20px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
-        {buildYourOwnControlPanel}
-      </div>
-      {examples && <Typography component="p" type="headline">More Examples</Typography>}
+      {buildYourOwn && <Typography component="p" type="headline">Build your own</Typography>}
+      {buildYourOwn && (
+        <div style={{padding: '40px 100px 40px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
+          {buildYourOwn}
+        </div>
+      )}
+      {buildYourOwnCode && (
+        <div style={{backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
+          {buildYourOwnCode}
+        </div>
+      )}
+      {buildYourOwnControlPanel && (
+        <div style={{padding: '0 20px 20px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
+          {buildYourOwnControlPanel}
+        </div>
+      )}
+      {examples && <Typography component="p" type="headline">Examples</Typography>}
       {examples}
     </div>
   );
