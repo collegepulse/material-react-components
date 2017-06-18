@@ -19,7 +19,7 @@ describe('Scrollable', () => {
   it('should render a custom scrollbar on WebKit browsers', createTest(() => {
     const wrapper = mount(
       <Scrollable>
-        <div style={{height: '200px', width: '200px', whiteSpace: 'pre-wrap', overflow: 'scroll'}}>
+        <div style={{height: '200px', width: '200px', whiteSpace: 'pre', overflow: 'scroll'}}>
           Line 1{'\n'}
           Line 2{'\n'}
           Line 3{'\n'}
@@ -34,7 +34,7 @@ describe('Scrollable', () => {
           Line 12{'\n'}
           Line 13{'\n'}
           Line 14{'\n'}
-          Line 15{'\n'}
+          Line 15 should cause a horizontal scrollbar to be present
         </div>
       </Scrollable>
     );
