@@ -16,7 +16,7 @@ describe('Scrollable', () => {
     mount.cleanUp();
   });
 
-  it.only('should render a custom scrollbar on WebKit browsers', createTest(() => {
+  it('should render a custom scrollbar on WebKit browsers', createTest(() => {
     const wrapper = mount(
       <Scrollable>
         <div style={{height: '200px', width: '200px', whiteSpace: 'pre-wrap', overflow: 'scroll'}}>
