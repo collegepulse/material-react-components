@@ -1,6 +1,7 @@
 .code {
   font-family: monospace;
   white-space: pre;
+  overflow-y: scroll;
 }
 
 :global(.token) {

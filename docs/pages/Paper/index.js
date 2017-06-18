@@ -38,35 +38,27 @@ class PaperDocs extends React.Component {
             </Paper>
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex'}}>
-            <div style={{flex: 1, padding: '20px'}}>
-              <TextField
-                type="number"
-                onChange={e => (this.onControlPanel('elevation', e.target.value))}
-                label="Elevation"
-                value={this.state.elevation}
-                helperText="Pick a value between 1 and 25"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('children', e.target.value))}
-                label="Children"
-                value={this.state.children}
-                helperText="For demonstration purposes, limited to plaintext"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('style', e.target.value))}
-                label="Style"
-                value={this.state.style}
-                helperText="JSON will be converted to a style object"
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <TextField
+            type="number"
+            onChange={e => (this.onControlPanel('elevation', e.target.value))}
+            label="Elevation"
+            value={this.state.elevation}
+            helperText="Pick a value between 1 and 25"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('children', e.target.value))}
+            label="Children"
+            value={this.state.children}
+            helperText="For demonstration purposes, limited to plaintext"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('style', e.target.value))}
+            label="Style"
+            value={this.state.style}
+            helperText="JSON will be converted to a style object"
+          />
+        ]}
         examples={
           <div style={{display: 'flex'}}>
             <div style={{flex: 1}}>

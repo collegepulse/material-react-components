@@ -43,46 +43,36 @@ class ListDocs extends React.Component {
             </List>
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex', flexFlow: 'row wrap'}}>
-            <div style={{flex: 1, padding: '20px', flexBasis: '33%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('primary', e.target.value))}
-                label="primary"
-                value={primary}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '33%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('secondary', e.target.value))}
-                label="secondary"
-                value={secondary}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '33%'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('avatar', e.target.checked))}
-                checked={avatar}
-                label="avatar"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '33%'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('action', e.target.checked))}
-                checked={action}
-                label="action"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '33%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('style', e.target.value))}
-                label="style"
-                value={style}
-                helperText="JSON will be converted to a style object"
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <TextField
+            onChange={e => (this.onControlPanel('primary', e.target.value))}
+            label="primary"
+            value={primary}
+            helperText="&nbsp;"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('secondary', e.target.value))}
+            label="secondary"
+            value={secondary}
+            helperText="&nbsp;"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('style', e.target.value))}
+            label="style"
+            value={style}
+            helperText="JSON will be converted to a style object"
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('avatar', e.target.checked))}
+            checked={avatar}
+            label="avatar"
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('action', e.target.checked))}
+            checked={action}
+            label="action"
+          />
+        ]}
         examples={
           <div style={{}}>
             <List>

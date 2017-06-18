@@ -40,49 +40,37 @@ class ButtonDocs extends React.Component {
             </Button>
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex', flexFlow: 'row wrap', alignItems: 'center'}}>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('children', e.target.value))}
-                label="children"
-                value={children}
-                helperText="For demo, hidden when fab is enabled"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('textColor', e.target.value))}
-                label="textColor"
-                value={textColor}
-                helperText="Button text color"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('buttonColor', e.target.value))}
-                label="buttonColor"
-                value={buttonColor}
-                helperText="Button background color"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('fill', e.target.value))}
-                label="fill"
-                value={fill}
-                helperText="SVG icon color (applicable when fab mode is enabled)"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('fab', e.target.checked))}
-                checked={fab}
-                label="fab"
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <TextField
+            onChange={e => (this.onControlPanel('children', e.target.value))}
+            label="children"
+            value={children}
+            helperText="For demo, hidden when fab is enabled"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('textColor', e.target.value))}
+            label="textColor"
+            value={textColor}
+            helperText="Button text color"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('buttonColor', e.target.value))}
+            label="buttonColor"
+            value={buttonColor}
+            helperText="Button background color"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('fill', e.target.value))}
+            label="fill"
+            value={fill}
+            helperText="SVG icon color (applicable when fab mode is enabled)"
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('fab', e.target.checked))}
+            checked={fab}
+            label="fab"
+          />
+        ]}
         examples={
           <div>
             <Button>Default</Button>

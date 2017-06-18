@@ -73,54 +73,35 @@ class AppBarDocs extends React.Component {
             `}
           />
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex', flexFlow: 'row wrap', alignItems: 'center'}}>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('backgroundColor', e.target.value))}
-                label="backgroundColor"
-                value={backgroundColor}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('children', e.target.value))}
-                label="children"
-                value={children}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                type="number"
-                onChange={e => (this.onControlPanel('elevation', e.target.value))}
-                label="elevation"
-                value={elevation}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('style', e.target.value))}
-                label="Style"
-                value={style}
-                helperText="JSON will be converted to a style object and applied to the <AppBar />"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('primary', e.target.checked))}
-                checked={primary}
-                label="primary"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('secondary', e.target.checked))}
-                checked={secondary}
-                label="secondary"
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <TextField
+            onChange={e => (this.onControlPanel('children', e.target.value))}
+            label="children"
+            value={children}
+          />,
+          <TextField
+            type="number"
+            onChange={e => (this.onControlPanel('elevation', e.target.value))}
+            label="elevation"
+            value={elevation}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('style', e.target.value))}
+            label="Style"
+            value={style}
+            helperText="JSON will be converted to a style object and applied to the <AppBar />"
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('primary', e.target.checked))}
+            checked={primary}
+            label="primary"
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('secondary', e.target.checked))}
+            checked={secondary}
+            label="secondary"
+          />
+        ]}
         examples={
           <div>
             <AppBar elevation={2} style={{color: 'white'}}>

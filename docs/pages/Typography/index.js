@@ -34,80 +34,72 @@ class TypographyDocs extends React.Component {
             </Typography>
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex', flexFlow: 'row wrap'}}>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('component', e.target.value))}
-                label="component"
-                value={component}
-                helperText="HTML tag (div, span, etc)"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <SelectField
-                data={[
-                  {
-                    id: 'display4',
-                    value: 'display4'
-                  },
-                  {
-                    id: 'display3',
-                    value: 'display3'
-                  },
-                  {
-                    id: 'display2',
-                    value: 'display2'
-                  },
-                  {
-                    id: 'display1',
-                    value: 'display1'
-                  },
-                  {
-                    id: 'headline',
-                    value: 'headline'
-                  },
-                  {
-                    id: 'title',
-                    value: 'title'
-                  },
-                  {
-                    id: 'subheading',
-                    value: 'subheading'
-                  },
-                  {
-                    id: 'body2',
-                    value: 'body2'
-                  },
-                  {
-                    id: 'body1',
-                    value: 'body1'
-                  },
-                  {
-                    id: 'caption',
-                    value: 'caption'
-                  },
-                  {
-                    id: 'button',
-                    value: 'button'
-                  }
-                ]}
-                label="type"
-                helperText="foo"
-                value={type}
-                onChange={(e, index, obj) => (this.onControlPanel('type', obj))}
-                helperText="display4, display3, display2, display1, headline, title, subheading, body2, body1, caption, button"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('children', e.target.value))}
-                label="children"
-                value={children}
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <TextField
+            onChange={e => (this.onControlPanel('component', e.target.value))}
+            label="component"
+            value={component}
+            helperText="HTML tag (div, span, etc)"
+          />,
+          <SelectField
+            data={[
+              {
+                id: 'display4',
+                value: 'display4'
+              },
+              {
+                id: 'display3',
+                value: 'display3'
+              },
+              {
+                id: 'display2',
+                value: 'display2'
+              },
+              {
+                id: 'display1',
+                value: 'display1'
+              },
+              {
+                id: 'headline',
+                value: 'headline'
+              },
+              {
+                id: 'title',
+                value: 'title'
+              },
+              {
+                id: 'subheading',
+                value: 'subheading'
+              },
+              {
+                id: 'body2',
+                value: 'body2'
+              },
+              {
+                id: 'body1',
+                value: 'body1'
+              },
+              {
+                id: 'caption',
+                value: 'caption'
+              },
+              {
+                id: 'button',
+                value: 'button'
+              }
+            ]}
+            label="type"
+            helperText="foo"
+            value={type}
+            onChange={(e, index, obj) => (this.onControlPanel('type', obj))}
+            helperText="display4, display3, display2, display1, headline, title, subheading, body2, body1, caption, button"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('children', e.target.value))}
+            label="children"
+            value={children}
+          />
+        ]}
         examples={
           <div>
             <Typography type="display4">display4</Typography>

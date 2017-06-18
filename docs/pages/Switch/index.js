@@ -42,38 +42,28 @@ class SwitchDocs extends React.Component {
             />
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <div style={{flex: 1, padding: '20px'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('checked', e.target.checked))}
-                checked={checked}
-                label="checked"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('disabled', e.target.checked))}
-                checked={disabled}
-                label="disabled"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('label', e.target.value))}
-                label="label"
-                value={label}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('primaryColor', e.target.value))}
-                label="primaryColor"
-                value={primaryColor}
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <Switch
+            onChange={e => (this.onControlPanel('checked', e.target.checked))}
+            checked={checked}
+            label="checked"
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('disabled', e.target.checked))}
+            checked={disabled}
+            label="disabled"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('label', e.target.value))}
+            label="label"
+            value={label}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('primaryColor', e.target.value))}
+            label="primaryColor"
+            value={primaryColor}
+          />
+        ]}
         examples={
           <div style={{display: 'flex'}}>
             <Switch onChange={e => (this.onControlPanel('switch1', e.target.checked))} checked={this.state.switch1} label={'Switch #1'} />

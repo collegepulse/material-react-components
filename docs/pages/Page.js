@@ -1,3 +1,4 @@
+import Grid, {GridItem} from '../../src/Grid';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Typography from '../../src/Typography';
@@ -27,7 +28,32 @@ function DocPage({
       )}
       {buildYourOwnControlPanel && (
         <div style={{padding: '0 20px 20px', backgroundColor: 'rgba(0, 0, 0, 0.025)'}}>
-          {buildYourOwnControlPanel}
+          <Grid gutter={24} style={{alignItems: 'center'}}>
+            {/* eslint-disable react/no-array-index-key */}
+            {buildYourOwnControlPanel.map((item, index) => {
+              const grid = {};
+              if (buildYourOwnControlPanel.length >= 2) {
+                grid.sm = 6;
+              }
+              if (buildYourOwnControlPanel.length >= 3) {
+                grid.md = 4;
+              }
+              return (
+                <GridItem
+                  key={index}
+                  xs={12}
+                  {...grid}
+                  style={{
+                    justifyContent: 'center',
+                    display: 'flex'
+                  }}
+                >
+                  {item}
+                </GridItem>
+              );
+            })}
+            {/* eslint-enable react/no-array-index-key */}
+          </Grid>
         </div>
       )}
       {examples && <Typography component="p" type="headline">Examples</Typography>}
@@ -50,7 +76,7 @@ DocPage.propTypes = {
   description: PropTypes.node,
   buildYourOwn: PropTypes.node,
   buildYourOwnCode: PropTypes.node,
-  buildYourOwnControlPanel: PropTypes.node,
+  buildYourOwnControlPanel: PropTypes.arrayOf(PropTypes.node),
   examples: PropTypes.node
 };
 

@@ -44,40 +44,9 @@ class SnackBarDocs extends React.Component {
             <p>Snackbar's are managed like a first-in, first-out queue. Once a SnackBarItem is dismissed, the next scheduled one will show.</p>
           </div>
         }
-        buildYourOwnCode={
-          <CodeFormatter
-            code={`
-              import SnackBar, {SnackBarItem} from 'material-react-components/SnackBar';
-
-              <SnackBar ref={c => (this.snackbar = c)} />
-
-              this.snackbar.queue(
-                <SnackBarItem
-                  message="${this.state.message}"
-                  action={<Button textColor="${Variables.$accent}">${this.state.actionText}</Button>}
-                />
-              );
-            `}
-          />
-        }
-        buildYourOwnControlPanel={
+        buildYourOwn={
           <div>
-            <div>
-              <div style={{flex: 1, padding: '20px'}}>
-                <TextField
-                  onChange={e => (this.onControlPanel('message', e.target.value))}
-                  label="message"
-                  value={this.state.message}
-                />
-              </div>
-              <div style={{flex: 1, padding: '20px'}}>
-                <TextField
-                  onChange={e => (this.onControlPanel('actionText', e.target.value))}
-                  label="actionText"
-                  value={this.state.actionText}
-                />
-              </div>
-            </div>
+            <SnackBar ref={c => (this.snackbar = c)} />
             <Button
               buttonColor={Variables.$primary}
               textColor="#FFF"
@@ -94,9 +63,36 @@ class SnackBarDocs extends React.Component {
             >
                 Schedule 2 SnackBarItem
             </Button>
-            <SnackBar ref={c => (this.snackbar = c)} />
           </div>
         }
+        buildYourOwnCode={
+          <CodeFormatter
+            code={`
+              import SnackBar, {SnackBarItem} from 'material-react-components/SnackBar';
+
+              <SnackBar ref={c => (this.snackbar = c)} />
+
+              this.snackbar.queue(
+                <SnackBarItem
+                  message="${this.state.message}"
+                  action={<Button textColor="${Variables.$accent}">${this.state.actionText}</Button>}
+                />
+              );
+            `}
+          />
+        }
+        buildYourOwnControlPanel={[
+          <TextField
+            onChange={e => (this.onControlPanel('message', e.target.value))}
+            label="message"
+            value={this.state.message}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('actionText', e.target.value))}
+            label="actionText"
+            value={this.state.actionText}
+          />
+        ]}
       />
     );
   }

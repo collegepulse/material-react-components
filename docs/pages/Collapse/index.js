@@ -37,26 +37,20 @@ class CollapseDocs extends React.Component {
             </Collapse>
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex', flexFlow: 'row wrap'}}>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('open', e.target.checked))}
-                checked={this.state.open}
-                label="open"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('children', e.target.value))}
-                label="children"
-                value={this.state.children}
-                multiline
-                helperText="Wrapped in a <Paper /> element with white-space: pre-wrap; and 10px padding."
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <Switch
+            onChange={e => (this.onControlPanel('open', e.target.checked))}
+            checked={this.state.open}
+            label="open"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('children', e.target.value))}
+            label="children"
+            value={this.state.children}
+            multiline
+            helperText="Wrapped in a <Paper /> element with white-space: pre-wrap; and 10px padding."
+          />
+        ]}
         examples={
           <div>
             <Switch checked={this.state.collapseBaseline} onChange={() => (this.onControlPanel('collapseBaseline'))} label={'Initially Closed'} />

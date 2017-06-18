@@ -49,40 +49,29 @@ class TabsDocs extends React.Component {
             </Tabs>
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex'}}>
-            <div style={{flex: 1, padding: '20px'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('barColor', e.target.value))}
-                label="barColor"
-                value={this.state.barColor}
-                helperText="Tab bar background color"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('inkBarColor', e.target.value))}
-                label="inkBarColor"
-                value={this.state.inkBarColor}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('textColor', e.target.value))}
-                label="textColor"
-                value={this.state.textColor}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px'}}>
-              <TextField
-                type="number"
-                onChange={e => (this.onControlPanel('index', Number(e.target.value)))}
-                label="index"
-                value={String(this.state.index)}
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <TextField
+            onChange={e => (this.onControlPanel('barColor', e.target.value))}
+            label="barColor"
+            value={this.state.barColor}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('inkBarColor', e.target.value))}
+            label="inkBarColor"
+            value={this.state.inkBarColor}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('textColor', e.target.value))}
+            label="textColor"
+            value={this.state.textColor}
+          />,
+          <TextField
+            type="number"
+            onChange={e => (this.onControlPanel('index', Number(e.target.value)))}
+            label="index"
+            value={String(this.state.index)}
+          />
+        ]}
         examples={
           <div style={{display: 'flex'}}>
             <Paper elevation={3} style={{margin: '30px', flex: 1}}>

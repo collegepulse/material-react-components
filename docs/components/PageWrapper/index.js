@@ -43,7 +43,7 @@ class PageWrapper extends React.Component {
     return (
       <div style={{overflow: 'hidden'}}>
         <Scrollable>
-          <div style={{flex: '1 1 100%', width: 'calc(100vw - 250px)', overflowY: 'auto', height: '100%'}}>
+          <div style={{flex: '1 1 100%', width: 'calc(100vw - 250px)', overflowY: 'auto', height: '100%', position: 'absolute'}}>
             <AppBar
               primary={<SvgIcon className={Styles.icon} component={Menu} />}
               style={{width: '100%', color: '#fff'}}

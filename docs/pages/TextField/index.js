@@ -59,75 +59,55 @@ class TextFieldDocs extends React.Component {
             />
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex', flexFlow: 'row wrap'}}>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('label', e.target.value))}
-                label="label"
-                value={label}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('helperText', e.target.value))}
-                label="helperText"
-                value={helperText}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('placeholder', e.target.value))}
-                label="placeholder"
-                value={placeholder}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('primaryColor', e.target.value))}
-                label="primaryColor"
-                value={primaryColor}
-                helperText="Label and inkbar color on :focus and :active states"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('errorColor', e.target.value))}
-                label="errorColor"
-                value={errorColor}
-                helperText="Styles the label, inkbar, and helper text"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('value', e.target.value))}
-                label="value"
-                value={value}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('disabled', e.target.checked))}
-                checked={disabled}
-                label="disabled"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <Switch
-                onChange={e => (this.onControlPanel('multiline', e.target.checked))}
-                checked={multiline}
-                label="multiline"
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('width', e.target.value))}
-                label="width"
-                value={width}
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <TextField
+            onChange={e => (this.onControlPanel('label', e.target.value))}
+            label="label"
+            value={label}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('helperText', e.target.value))}
+            label="helperText"
+            value={helperText}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('placeholder', e.target.value))}
+            label="placeholder"
+            value={placeholder}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('primaryColor', e.target.value))}
+            label="primaryColor"
+            value={primaryColor}
+            helperText="Label and inkbar color on :focus and :active states"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('errorColor', e.target.value))}
+            label="errorColor"
+            value={errorColor}
+            helperText="Styles the label, inkbar, and helper text"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('value', e.target.value))}
+            label="value"
+            value={value}
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('disabled', e.target.checked))}
+            checked={disabled}
+            label="disabled"
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('multiline', e.target.checked))}
+            checked={multiline}
+            label="multiline"
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('width', e.target.value))}
+            label="width"
+            value={width}
+          />
+        ]}
         examples={
           <div>
             <TextField onChange={e => (this.onControlPanel('textFieldBaseline', e.target.value))} value={this.state.textFieldBaseline} label={'Label'} />

@@ -6,6 +6,7 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-jsx';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Scrollable from '../../../src/Scrollable';
 import Styles from './CodeFormatter.css';
 
 const styleNode = window.document.createElement('style');
@@ -17,11 +18,13 @@ class CodeFormatter extends React.Component {
     const {code, ...other} = this.props;
     const highlightedCode = prism.highlight(code, prism.languages.jsx);
     return (
-      <div
-        className={Styles.code}
-        dangerouslySetInnerHTML={{__html: highlightedCode}}
-        {...other}
-      />
+      <Scrollable>
+        <div
+          className={Styles.code}
+          dangerouslySetInnerHTML={{__html: highlightedCode}}
+          {...other}
+        />
+      </Scrollable>
     );
   }
 }

@@ -39,39 +39,29 @@ class BottomNavigationDocs extends React.Component {
             </BottomNavigation>
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex', flexFlow: 'row wrap'}}>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('label1', e.target.value))}
-                label="label1"
-                value={label1}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('label2', e.target.value))}
-                label="label2"
-                value={label2}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('label3', e.target.value))}
-                label="label3"
-                value={label3}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '100%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('style', e.target.value))}
-                label="Style"
-                value={style}
-                helperText="JSON will be converted to a style object"
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <TextField
+            onChange={e => (this.onControlPanel('label1', e.target.value))}
+            label="label1"
+            value={label1}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('label2', e.target.value))}
+            label="label2"
+            value={label2}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('label3', e.target.value))}
+            label="label3"
+            value={label3}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('style', e.target.value))}
+            label="Style"
+            value={style}
+            helperText="JSON will be converted to a style object"
+          />
+        ]}
         examples={
           <div>
             <BottomNavigation style={{maxWidth: '270px'}}>

@@ -43,24 +43,18 @@ class DialogDocs extends React.Component {
             />
           </div>
         }
-        buildYourOwnControlPanel={
-          <div style={{display: 'flex'}}>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('title', e.target.value))}
-                label="title"
-                value={this.state.title}
-              />
-            </div>
-            <div style={{flex: 1, padding: '20px', flexBasis: '25%'}}>
-              <TextField
-                onChange={e => (this.onControlPanel('description', e.target.value))}
-                label="description"
-                value={this.state.description}
-              />
-            </div>
-          </div>
-        }
+        buildYourOwnControlPanel={[
+          <TextField
+            onChange={e => (this.onControlPanel('title', e.target.value))}
+            label="title"
+            value={this.state.title}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('description', e.target.value))}
+            label="description"
+            value={this.state.description}
+          />
+        ]}
         examples={
           <div style={{display: 'flex'}}>
             <Button onClick={() => (this.onControlPanel('dialog1Open'))}>Open Dialog</Button>

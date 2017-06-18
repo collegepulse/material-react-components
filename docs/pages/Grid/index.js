@@ -24,7 +24,8 @@ class GridDocs extends React.Component {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      height: '100px'
+                      height: '100px',
+                      padding: '10px'
                     }}
                   >
                     xs=12, sm=6, md=4, lg=3
@@ -54,7 +55,8 @@ class GridDocs extends React.Component {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        height: '100px'
+                        height: '100px',
+                        padding: '10px'
                       }}
                     >
                       {`xs=${xs}`}
