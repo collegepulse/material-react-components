@@ -19,6 +19,7 @@ class TextField extends React.Component {
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.fixHeight);
     if (this.props.multiline) {
       this.fixHeight();
     }
@@ -39,6 +40,16 @@ class TextField extends React.Component {
     }
   }
 
+  componentDidUpdate({multiline}) {
+    if (!multiline && this.props.multiline) {
+      this.fixHeight();
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.fixHeight);
+  }
+
   onBlur() {
     const {value, placeholder} = this.props;
     if (!value && !placeholder) {
@@ -48,9 +59,7 @@ class TextField extends React.Component {
   }
 
   onChange(e) {
-    if (this.props.multiline) {
-      this.fixHeight(e);
-    }
+    this.fixHeight(e);
     this.props.onChange(e);
   }
 
@@ -64,11 +73,13 @@ class TextField extends React.Component {
 
   fixHeight(e) {
     /* reset height to auto to ensure textfield height decreases when text is removed */
-    if (e) {
-      this.shadow.value = e.target.value;
+    if (this.props.multiline) {
+      if (e && e.target && e.target.value) {
+        this.shadow.value = e.target.value;
+      }
+      const newHeight = this.shadow.scrollHeight + 20;
+      this.formElement.style.height = `${newHeight}px`;
     }
-    const newHeight = this.shadow.scrollHeight + 20;
-    this.formElement.style.height = `${newHeight}px`;
   }
 
   render() {
