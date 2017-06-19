@@ -1,6 +1,7 @@
 import Add from 'material-design-icons/content/svg/production/ic_add_24px.svg';
 import Button from '../../../src/Button';
 import Edit from 'material-design-icons/editor/svg/production/ic_mode_edit_24px.svg';
+import Grid, {GridItem} from '../../../src/Grid';
 import Page from '../Page';
 import React from 'react';
 import Switch from '../../../src/Switch';
@@ -72,22 +73,30 @@ class ButtonDocs extends React.Component {
           />
         ]}
         examples={
-          <div>
-            <Button>Default</Button>
-            <br />
-            <Button textColor={Variables.$orange700}>Custom Text Color</Button>
-            <br />
-            <Button buttonColor={Variables.$accent} textColor={'#FFF'}>Custom Button Color</Button>
-            <br />
-            <Button buttonColor={Variables.$primary} textColor={'#FFF'}>Custom Button Color</Button>
-            <br />
-            <Button fab buttonColor={Variables.$primary} textColor="#FFF">
-              <Add fill="#FFF" focusable={false} />
-            </Button>
-            <Button fab buttonColor={Variables.$accent} textColor="#FFF">
-              <Edit fill="#FFF" focusable={false} />
-            </Button>
-          </div>
+          <Grid style={{alignItems: 'center'}}>
+            <GridItem xs={12} sm={4}>
+              <Button>Default</Button>
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <Button textColor={Variables.$orange700}>Custom Text Color</Button>
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <Button buttonColor={Variables.$accent} textColor={'#FFF'}>Custom Button Color</Button>
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <Button buttonColor={Variables.$primary} textColor={'#FFF'}>Custom Button Color</Button>
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <Button fab buttonColor={Variables.$primary} textColor="#FFF">
+                <Add fill="#FFF" focusable={false} />
+              </Button>
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <Button fab buttonColor={Variables.$accent} textColor="#FFF">
+                <Edit fill="#FFF" focusable={false} />
+              </Button>
+            </GridItem>
+          </Grid>
         }
       />
     );

@@ -40,7 +40,6 @@ class TypographyDocs extends React.Component {
             onChange={e => (this.onControlPanel('component', e.target.value))}
             label="component"
             value={component}
-            helperText="HTML tag (div, span, etc)"
           />,
           <SelectField
             data={[
@@ -90,10 +89,8 @@ class TypographyDocs extends React.Component {
               }
             ]}
             label="type"
-            helperText="foo"
             value={type}
             onChange={(e, index, obj) => (this.onControlPanel('type', obj))}
-            helperText="display4, display3, display2, display1, headline, title, subheading, body2, body1, caption, button"
           />,
           <TextField
             onChange={e => (this.onControlPanel('children', e.target.value))}

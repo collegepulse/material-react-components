@@ -1,4 +1,5 @@
 import Colors from '../../../src/variables';
+import Grid, {GridItem} from '../../../src/Grid';
 import Page from '../Page';
 import React from 'react';
 import Switch from '../../../src/Switch';
@@ -92,6 +93,11 @@ class TextFieldDocs extends React.Component {
             label="value"
             value={value}
           />,
+          <TextField
+            onChange={e => (this.onControlPanel('width', e.target.value))}
+            label="width"
+            value={width}
+          />,
           <Switch
             onChange={e => (this.onControlPanel('disabled', e.target.checked))}
             checked={disabled}
@@ -101,37 +107,44 @@ class TextFieldDocs extends React.Component {
             onChange={e => (this.onControlPanel('multiline', e.target.checked))}
             checked={multiline}
             label="multiline"
-          />,
-          <TextField
-            onChange={e => (this.onControlPanel('width', e.target.value))}
-            label="width"
-            value={width}
           />
         ]}
         examples={
-          <div>
-            <TextField onChange={e => (this.onControlPanel('textFieldBaseline', e.target.value))} value={this.state.textFieldBaseline} label={'Label'} />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldWithInitialValue', e.target.value))} value={this.state.textFieldWithInitialValue} label={'Label'} />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldWithLongInitialValue', e.target.value))} value={this.state.textFieldWithLongInitialValue} label={'Label'} />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldDisabled', e.target.value))} value={this.state.textFieldDisabled} label={'Disabled'} disabled />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldWithPlaceholder', e.target.value))} value={this.state.textFieldWithPlaceholder} label={'Label'} placeholder={'Placeholder'} />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldWithHelper', e.target.value))} value={this.state.textFieldWithHelper} label={'Label'} helperText={'Helper text'} />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldWithError', e.target.value))} value={this.state.textFieldWithError} label={'Error'} helperText={'This field has an error.'} errorColor={Colors.$red500} />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldWithCustomColor', e.target.value))} value={this.state.textFieldWithCustomColor} label={'Custom color'} helperText={'It\'s special.'} primaryColor={Colors.$orange700} />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldMultilineBaseline', e.target.value))} value={this.state.textFieldMultilineBaseline} label={'Label'} helperText={'Helper text'} multiline />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldMultilineBaselineWithPlaceholder', e.target.value))} value={this.state.textFieldMultilineBaselineWithPlaceholder} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
-            <br />
-            <TextField onChange={e => (this.onControlPanel('textFieldMultilineWithInitialMultilineValue', e.target.value))} value={this.state.textFieldMultilineWithInitialMultilineValue} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
-          </div>
+          <Grid gutter={24}>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldBaseline', e.target.value))} value={this.state.textFieldBaseline} label={'Label'} />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldWithInitialValue', e.target.value))} value={this.state.textFieldWithInitialValue} label={'Label'} />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldWithLongInitialValue', e.target.value))} value={this.state.textFieldWithLongInitialValue} label={'Label'} />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldDisabled', e.target.value))} value={this.state.textFieldDisabled} label={'Disabled'} disabled />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldWithPlaceholder', e.target.value))} value={this.state.textFieldWithPlaceholder} label={'Label'} placeholder={'Placeholder'} />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldWithHelper', e.target.value))} value={this.state.textFieldWithHelper} label={'Label'} helperText={'Helper text'} />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldWithError', e.target.value))} value={this.state.textFieldWithError} label={'Error'} helperText={'This field has an error.'} errorColor={Colors.$red500} />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldWithCustomColor', e.target.value))} value={this.state.textFieldWithCustomColor} label={'Custom color'} helperText={'It\'s special.'} primaryColor={Colors.$orange700} />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldMultilineBaseline', e.target.value))} value={this.state.textFieldMultilineBaseline} label={'Label'} placeholder={'Placeholder'} helperText={'Helper text'} />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldMultilineBaselineWithPlaceholder', e.target.value))} value={this.state.textFieldMultilineBaselineWithPlaceholder} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
+            </GridItem>
+            <GridItem xs={12} sm={4}>
+              <TextField onChange={e => (this.onControlPanel('textFieldMultilineWithInitialMultilineValue', e.target.value))} value={this.state.textFieldMultilineWithInitialMultilineValue} label={'Label'} helperText={'Helper text'} placeholder={'Placeholder'} multiline />
+            </GridItem>
+          </Grid>
         }
       />
     );

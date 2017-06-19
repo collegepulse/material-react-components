@@ -38,9 +38,15 @@ class ListDocs extends React.Component {
         buildYourOwn={
           <div style={{flex: 1, display: 'flex', justifyContent: 'center'}}>
             <List style={styleObj}>
-              <ListItem primary={primary} secondary={secondary} avatar={avatar && <Folder />} action={action && <SvgIcon component={MoreVert} />} />
-              <ListItem primary={primary} secondary={secondary} avatar={avatar && <Folder />} action={action && <SvgIcon component={MoreVert} />} />
-              <ListItem primary={primary} secondary={secondary} avatar={avatar && <Folder />} action={action && <SvgIcon component={MoreVert} />} />
+              {[1, 2, 3].map(key => (
+                <ListItem
+                  key={key}
+                  primary={primary}
+                  secondary={secondary}
+                  avatar={avatar && <Folder />}
+                  action={action && <SvgIcon component={MoreVert} />}
+                />
+              ))}
             </List>
           </div>
         }
@@ -78,29 +84,45 @@ class ListDocs extends React.Component {
           <Grid gutter={8}>
             <GridItem xs={12} sm={6}>
               <List>
-                <ListItem primary={'Primary'} />
-                <ListItem primary={'Primary'} />
-                <ListItem primary={'Primary'} />
+                {[1, 2, 3].map(key => (
+                  <ListItem key={key} primary={'Primary'} />
+                ))}
               </List>
             </GridItem>
             <GridItem xs={12} sm={6}>
               <List>
-                <ListItem primary={'Primary'} secondary={'Secondary'} />
-                <ListItem primary={'Primary'} secondary={'Secondary'} />
+                {[1, 2, 3].map(key => (
+                  <ListItem
+                    key={key}
+                    primary={'Primary'}
+                    action={<SvgIcon component={MoreVert} />}
+                  />
+                ))}
               </List>
             </GridItem>
             <GridItem xs={12} sm={6}>
               <List>
-                <ListItem avatar={<Folder />} primary={'Primary'} />
-                <ListItem avatar={<Folder />} primary={'Primary'} />
-                <ListItem avatar={<Folder />} primary={'Primary'} />
+                {[1, 2, 3].map(key => (
+                  <ListItem
+                    key={key}
+                    avatar={<Folder />}
+                    primary={'Primary'}
+                    secondary={'Secondary'}
+                  />
+                ))}
               </List>
             </GridItem>
             <GridItem xs={12} sm={6}>
               <List>
-                <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
-                <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
-                <ListItem avatar={<Folder />} primary={'Primary'} secondary={'Secondary'} action={<SvgIcon component={MoreVert} />} />
+                {[1, 2, 3].map(key => (
+                  <ListItem
+                    key={key}
+                    avatar={<Folder />}
+                    primary={'Primary'}
+                    secondary={'Secondary'}
+                    action={<SvgIcon component={MoreVert} />}
+                  />
+                ))}
               </List>
             </GridItem>
           </Grid>

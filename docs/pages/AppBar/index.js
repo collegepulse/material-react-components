@@ -89,7 +89,6 @@ class AppBarDocs extends React.Component {
             onChange={e => (this.onControlPanel('style', e.target.value))}
             label="Style"
             value={style}
-            helperText="JSON will be converted to a style object and applied to the <AppBar />"
           />,
           <Switch
             onChange={e => (this.onControlPanel('primary', e.target.checked))}
