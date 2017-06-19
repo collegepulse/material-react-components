@@ -15,10 +15,12 @@ class Tab extends React.Component {
 }
 
 Tab.defaultProps = {
+  domRef: () => {},
   label: null
 };
 
 Tab.propTypes = {
+  domRef: PropTypes.func,
   label: PropTypes.string
 };
 
