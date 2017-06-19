@@ -5,7 +5,7 @@ import Styles from './GridItem.css';
 
 class GridItem extends React.Component {
   render() {
-    const {children, className, xs, sm, md, lg} = this.props;
+    const {children, className, xs, sm, md, lg, ...other} = this.props;
     const classes = makeClass(
       Styles.root,
       Styles[`xs-${xs}`],
@@ -14,7 +14,7 @@ class GridItem extends React.Component {
       Styles[`lg-${lg}`]
     );
     return (
-      <div className={makeClass(className, classes)}>
+      <div {...other} className={makeClass(className, classes)}>
         {children}
       </div>
     );
@@ -24,7 +24,7 @@ class GridItem extends React.Component {
 GridItem.defaultProps = {
   children: null,
   className: null,
-  xs: 0,
+  xs: 12,
   sm: 0,
   md: 0,
   lg: 0
