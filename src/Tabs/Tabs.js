@@ -1,4 +1,3 @@
-import {findDOMNode} from 'react-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Tabs.css';
@@ -10,6 +9,8 @@ class Tabs extends React.Component {
     this.onClick = this.onClick.bind(this);
     this.setInkbarStyles = this.setInkbarStyles.bind(this);
     this.makeTabs = this.makeTabs.bind(this);
+    this.registerInkBar = this.registerInkBar.bind(this);
+    this.registerTabBar = this.registerTabBar.bind(this);
     this.tabs = {};
     this.state = {
       inkBarLeft: 0,
@@ -42,7 +43,7 @@ class Tabs extends React.Component {
 
   setInkbarStyles(nextIndex) {
     const index = typeof nextIndex === 'number' ? nextIndex : this.props.index;
-    const currentTab = findDOMNode(this.tabs[index]);
+    const currentTab = this.tabs[index];
     if (currentTab) {
       const {width, left} = currentTab.getBoundingClientRect();
       const tabBarLeft = this.tabBar.getBoundingClientRect().left;
@@ -61,7 +62,7 @@ class Tabs extends React.Component {
       const other = {};
       return React.cloneElement(tab, {
         onClick: e => (this.onClick(e, i)),
-        ref: (c) => {
+        domRef: (c) => {
           this.tabs[i] = c;
         },
         style: {
@@ -73,13 +74,21 @@ class Tabs extends React.Component {
     });
   }
 
+  registerTabBar(c) {
+    this.tabBar = c;
+  }
+
+  registerInkBar(c) {
+    this.inkbar = c;
+  }
+
   render() {
     const {barColor} = this.props;
     return (
       <div>
         <div
           className={Styles.tabs}
-          ref={c => (this.tabBar = c)}
+          ref={this.registerTabBar}
           style={{
             backgroundColor: barColor
           }}
@@ -92,7 +101,7 @@ class Tabs extends React.Component {
               width: this.state.inkBarWidth,
               backgroundColor: this.props.inkBarColor
             }}
-            ref={c => (this.inkbar = c)}
+            ref={this.registerInkBar}
           />
         </div>
       </div>
