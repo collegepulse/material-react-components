@@ -6,13 +6,7 @@ import React from 'react';
 import Ripple from '../Ripple';
 import Styles from './Button.css';
 import tinycolor from 'tinycolor2';
-
-const DEFAULT_TEXT_COLOR = 'rgba(0, 0, 0, 0.87)';
-
-const DEFAULT_TEXT_COLORS = [
-  DEFAULT_TEXT_COLOR,
-  'rgba(255, 255, 255, 1)'
-];
+import variables from '../variables';
 
 class Button extends React.Component {
 
@@ -26,6 +20,8 @@ class Button extends React.Component {
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
+    this.readableTextColor = this.readableTextColor.bind(this);
+    this.registerButton = this.registerButton.bind(this);
     this.state = {
       hover: false,
       mouseFocused: false
@@ -86,15 +82,15 @@ class Button extends React.Component {
   getButtonStyles() {
     const {buttonColor, icon, style, textColor} = this.props;
     const {hover} = this.state;
+    let backgroundColor = buttonColor;
+    let color = variables.$black87;
 
-    let color = DEFAULT_TEXT_COLOR;
     if (buttonColor && !textColor) {
-      color = tinycolor.mostReadable(buttonColor, DEFAULT_TEXT_COLORS).toString();
+      color = this.readableTextColor();
     } else if (textColor) {
       color = textColor;
     }
 
-    let backgroundColor = buttonColor;
     if (hover && !icon) {
       if (buttonColor) {
         backgroundColor = tinycolor(buttonColor).darken(5).toString();
@@ -108,17 +104,31 @@ class Button extends React.Component {
     return Object.assign({}, style, {backgroundColor, color});
   }
 
+  readableTextColor() {
+    const {buttonColor} = this.props;
+    const colors = [variables.$white, variables.$black87];
+    return tinycolor.mostReadable(buttonColor, colors).toString();
+  }
+
+  registerButton(c) {
+    this.button = c;
+    this.props.domRef(c);
+  }
+
   render() {
-    const {buttonColor, children, className, component,
+    const {buttonColor, children, className, component, domRef,
       icon, fab, style, textColor, ...other} = this.props;
     const Component = component;
+    const readableTextColor = this.readableTextColor();
     return (
       <Component
         {...other}
         className={makeClass(Styles.root, {
           [Styles.hasBackground]: buttonColor,
           [Styles.isIcon]: icon,
-          [Styles.fab]: fab
+          [Styles.fab]: fab,
+          [Styles.lightText]: readableTextColor === variables.$white,
+          [Styles.darkText]: readableTextColor !== variables.$black87
         }, className)}
         onKeyDown={this.onKeyDown}
         onBlur={this.onBlur}
@@ -129,13 +139,13 @@ class Button extends React.Component {
         tabIndex={0}
         onFocus={this.onFocus}
         style={this.getButtonStyles()}
-        ref={c => (this.button = c)}
+        ref={this.registerButton}
       >
         <span className={makeClass(Styles.label)}>
           {children}
         </span>
         <Ripple
-          color={icon ? 'rgba(0,0,0,0.8)' : textColor || DEFAULT_TEXT_COLOR}
+          color={icon ? variables.$black87 : textColor}
           ref={c => (this.ripple = c)}
         />
       </Component>
@@ -148,6 +158,7 @@ Button.defaultProps = {
   children: null,
   className: null,
   component: 'button',
+  domRef: () => {},
   fab: false,
   icon: false,
   onKeyDown: () => {},
@@ -160,6 +171,7 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  domRef: PropTypes.func,
   fab: PropTypes.bool,
   icon: PropTypes.bool,
   onKeyDown: PropTypes.func,

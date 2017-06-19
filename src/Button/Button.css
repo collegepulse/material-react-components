@@ -68,3 +68,11 @@
   border-radius: 50%;
 }
 
+.lightText {
+  color: $white;
+}
+
+.darkText {
+  color: $black87;
+}
+
