@@ -44,7 +44,7 @@ Grid.defaultProps = {
 Grid.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  gutter: PropTypes.oneOf([8, 16, 24, 40]),
+  gutter: PropTypes.oneOf([0, 8, 16, 24, 40]),
   margin: PropTypes.oneOf([0, 8, 16, 24, 40])
 };
 
