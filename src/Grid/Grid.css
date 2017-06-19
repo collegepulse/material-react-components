@@ -25,11 +25,7 @@
 
 .gutter-8 {
   width: calc(100% + 8px);
-  margin: -4px;
-}
-
-.gutterChild {
-  padding: 0;
+  margin: auto -4px;
 }
 
 .gutter-8 > .gutterChild {
@@ -38,7 +34,7 @@
 
 .gutter-16 {
   width: calc(100% + 16px);
-  margin: -8px;
+  margin: auto -8px;
 }
 
 .gutter-16 > .gutterChild {
@@ -47,7 +43,7 @@
 
 .gutter-24 {
   width: calc(100% + 24px);
-  margin: -12px;
+  margin: auto -12px;
 }
 
 .gutter-24 > .gutterChild {
@@ -56,7 +52,7 @@
 
 .gutter-40 {
   width: calc(100% + 40px);
-  margin: -20px;
+  margin: auto -20px;
 }
 
 .gutter-40 > .gutterChild {
