@@ -54,6 +54,9 @@
 .label {
   display: inherit;
   pointer-events: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .fab > .label {
