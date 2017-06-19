@@ -79,10 +79,22 @@ class DialogInner extends React.Component {
           onClick={this.props.onClose}
           className={Styles.backdrop}
         />
-        <Paper elevation={25} className={Styles.dialog}>
-          <div className={Styles.title}>{title}</div>
-          <div className={Styles.description}>{description}</div>
-          <div className={Styles.actions} ref={c => (this.actions = c)}>{actions}</div>
+        <Paper
+          elevation={25}
+          className={Styles.dialog}
+        >
+          <div className={Styles.title}>
+            {title}
+          </div>
+          <div className={Styles.description}>
+            {description}
+          </div>
+          <div
+            className={Styles.actions}
+            ref={c => (this.actions = c)}
+          >
+            {actions}
+          </div>
         </Paper>
       </div>
     );
