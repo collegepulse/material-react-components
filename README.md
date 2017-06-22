@@ -14,6 +14,11 @@ Demo
 
 [View the components](https://collegepulse.github.io/material-react-components/).
 
+Examples
+--------
+
+See our [material-react-components-examples](https://github.com/collegepulse/material-react-components-examples) repo for examples of small projects that demonstrate how to import the ES5 or ES6 components with Webpack.
+
 Acknowlegements
 ---------------
 
