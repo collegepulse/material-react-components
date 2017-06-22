@@ -7,6 +7,7 @@
     "node": ">=5.0.0"
   },
   "scripts": {
+    "build:components": "webpack --config webpack.release.config.js -p",
     "build:docs": "NODE_ENV=production webpack --env.docs",
     "build:ssr": "webpack --config webpack.config.ssr.js",
     "coverage:open": "open .coverage/lcov-report/index.html",
