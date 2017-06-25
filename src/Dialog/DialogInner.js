@@ -1,6 +1,6 @@
 import keycode from 'keycode';
 import makeClass from 'classnames';
-import Paper from '../../src/Paper';
+import Paper from '../Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Dialog.css';

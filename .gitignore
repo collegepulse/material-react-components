@@ -1,8 +1,10 @@
 .coverage
 .tmp
 dist
+es
 node_modules
 .coveralls.yml
+npm-debug.log
 
 # Documentation-generated files
 /index.html

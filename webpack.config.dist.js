@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const webpack = require('webpack');
 
 function getDirectories(srcpath) {
   return fs.readdirSync(srcpath)
@@ -11,7 +10,7 @@ function getEntryPoints() {
   const components = getDirectories(path.join(__dirname, '/src'));
   return components.reduce((acc, currentVal) => {
     if (currentVal !== 'utils') {
-      acc[currentVal] = path.join(__dirname, '/src/', currentVal);
+      acc[`${currentVal}/index`] = path.join(__dirname, `/src/${currentVal}`);
     }
     return acc;
   }, {});
@@ -53,10 +52,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common'
-    })
-  ]
+  }
 };

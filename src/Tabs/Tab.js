@@ -1,4 +1,4 @@
-import Button from '../../src/Button';
+import Button from '../Button';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Tab.css';
