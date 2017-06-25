@@ -13,7 +13,8 @@
 .snackbar {
   background-color: #323232;
   position: fixed;
-  bottom: -48px;
+  bottom: 0;
+  transform: translateY(48px);
   z-index: 1;
   color: white;
   max-width: 550px;
@@ -28,33 +29,39 @@
 }
 
 .snackbarWrapper {
+  bottom: 0;
   display: flex;
   justify-content: center;
+  position: fixed;
+  width: 100%;
 }
 
 @keyframes show {
   0% {
-    bottom: -48px;
+    transform: translateY(48px);
   }
 
   100% {
-    bottom: 0;
+    transform: translateY(0);
   }
 }
 
 @keyframes hide {
   0% {
-    bottom: 0;
+    transform: translateY(0);
   }
 
   100% {
-    bottom: -48px;
+    transform: translateY(48px);
   }
 }
 
 .message {
   padding: 14px 24px;
   color: $white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .button {
