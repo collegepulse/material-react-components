@@ -27,9 +27,12 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
+  width: inherit;
 }
 
 .textWithAvatarOrAction {
+  max-width: calc(100% - 100px);
+  overflow: hidden;  
   padding: 0 16px;
 }
 
@@ -41,6 +44,13 @@
   position: absolute;
   right: 10px;
   top: 0;
+}
+
+.primary.primaryText,
+.secondary.secondaryText {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .primary.primaryText {
