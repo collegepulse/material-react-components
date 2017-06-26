@@ -56,10 +56,10 @@ class AppBarDocs extends React.Component {
         buildYourOwnCode={
           <CodeFormatter
             code={`
-              import AppBar from 'material-react-components/AppBar';
+              import { AppBar } from 'material-react-components';
               import Menu from 'material-design-icons/navigation/svg/production/ic_menu_24px.svg';
               import Search from 'material-design-icons/action/svg/production/ic_search_24px.svg';
-              import SvgIcon from 'material-react-components/SvgIcon';
+              import { SvgIcon } from 'material-react-components';
 
               <AppBar
                 backgroundColor="${backgroundColor}"

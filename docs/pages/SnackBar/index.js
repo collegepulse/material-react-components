@@ -73,7 +73,7 @@ class SnackBarDocs extends React.Component {
         buildYourOwnCode={
           <CodeFormatter
             code={`
-              import SnackBar, {SnackBarItem} from 'material-react-components/SnackBar';
+              import { SnackBar, SnackBarItem } from 'material-react-components';
 
               <SnackBar ref={c => (this.snackbar = c)} />
 
