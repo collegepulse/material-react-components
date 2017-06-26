@@ -4,6 +4,7 @@ import BottomNavigation from '../../pages/BottomNavigation';
 import Button from '../../pages/Button';
 import Collapse from '../../pages/Collapse';
 import Dialog from '../../pages/Dialog';
+import GitHub from './GitHub.svg';
 import Grid from '../../pages/Grid';
 import HomePage from '../HomePage';
 import List from '../../pages/List';
@@ -54,6 +55,17 @@ class PageWrapper extends React.Component {
                     onClick={this.onClick}
                   />
                 </span>
+              }
+              secondary={
+                <a
+                  tabIndex={-1}
+                  className={Styles.iconLink}
+                  href="https://github.com/collegepulse/material-react-components"
+                >
+                  <SvgIcon
+                    component={GitHub}
+                  />
+                </a>
               }
               style={{width: '100%', color: '#fff'}}
             >

@@ -30,6 +30,10 @@
   display: inherit;
 }
 
+.iconLink {
+  display: flex;
+}
+
 @media (min-width: $screenMd) {
   .iconWrapper {
     display: none;
