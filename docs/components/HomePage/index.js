@@ -39,16 +39,16 @@ function Base() {
           module: {
             rules: [
               {
-                test: /\.css$/,
-                exclude: /node_modules\/(?!material-react-components)/,
+                test: /\\.css$/,
+                exclude: /node_modules\\/(?!material-react-components)/,
                 use: [
                   'style-loader',
                   'css-loader?modules'
                 ]
               },
               {
-                test: /\.js$/,
-                exclude: /node_modules\/(?!material-react-components)/,
+                test: /\\.js$/,
+                exclude: /node_modules\\/(?!material-react-components)/,
                 loader: 'babel-loader'
               }
             ]
@@ -61,8 +61,8 @@ function Base() {
           module: {
             rules: [
               {
-                test: /\.svg$/,
-                exclude: /node_modules\/(?!material-design-icons)/,
+                test: /\\.svg$/,
+                exclude: /node_modules\\/(?!material-design-icons)/,
                 use: [
                   'babel-loader',
                   'react-svg-loader'

@@ -69,8 +69,8 @@ class AppBarDocs extends React.Component {
                 secondary={${secondary ? '<SvgIcon component={Search} />' : null}}
               >
                 ${children}
-              </AppBar>
-            `}
+              </AppBar>`
+            }
           />
         }
         buildYourOwnControlPanel={[

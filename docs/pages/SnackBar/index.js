@@ -82,8 +82,8 @@ class SnackBarDocs extends React.Component {
                   message="${this.state.message}"
                   action={<Button textColor="${Variables.$accent}">${this.state.actionText}</Button>}
                 />
-              );
-            `}
+              );`
+            }
           />
         }
         buildYourOwnControlPanel={[
