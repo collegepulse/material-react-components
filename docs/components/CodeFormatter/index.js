@@ -13,10 +13,28 @@ const styleNode = window.document.createElement('style');
 window.document.head.appendChild(styleNode);
 styleNode.textContent = lightTheme;
 
+/* Removes the fewest number of spaces present in front of every line. */
+function formatCode(str) {
+  if (!str) {
+    return '';
+  }
+  const lines = str.split('\n');
+  let fewestStartingSpaces = Infinity;
+  lines.map((line) => {
+    if (line) {
+      fewestStartingSpaces = Math.min(fewestStartingSpaces, line.search(/\S/));
+    }
+  });
+  return lines.reduce((acc, val) => (
+    `${acc}${val.substring(fewestStartingSpaces)}\n`
+  ), '');
+}
+
 class CodeFormatter extends React.Component {
   render() {
     const {code, ...other} = this.props;
-    const highlightedCode = prism.highlight(code, prism.languages.jsx);
+    const formattedCode = formatCode(code);
+    const highlightedCode = prism.highlight(formattedCode, prism.languages.jsx);
     return (
       <Scrollable>
         <div
