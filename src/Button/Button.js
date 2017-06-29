@@ -20,6 +20,8 @@ class Button extends React.Component {
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
+    this.onTouchStart = this.onTouchStart.bind(this);
+    this.onTouchEnd = this.onTouchEnd.bind(this);
     this.readableTextColor = this.readableTextColor.bind(this);
     this.registerButton = this.registerButton.bind(this);
     this.state = {
@@ -79,6 +81,14 @@ class Button extends React.Component {
     this.setState({mouseFocused: false});
   }
 
+  onTouchStart(e) {
+    this.ripple.add(e);
+  }
+
+  onTouchEnd(e) {
+    this.ripple.remove(e);
+  }
+
   getButtonStyles() {
     const {buttonColor, icon, style, textColor} = this.props;
     const {hover} = this.state;
@@ -136,6 +146,8 @@ class Button extends React.Component {
         onMouseUp={this.onMouseUp}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
+        onTouchStart={this.onTouchStart}
+        onTouchEnd={this.onTouchEnd}
         tabIndex={0}
         onFocus={this.onFocus}
         style={this.getButtonStyles()}

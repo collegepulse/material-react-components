@@ -10,6 +10,7 @@ class Ripple extends React.Component {
     super(props);
     this.add = this.add.bind(this);
     this.remove = this.remove.bind(this);
+    this.ignoringMouseDown = false;
     this.state = {
       nextKey: 0,
       ripples: []
@@ -17,12 +18,31 @@ class Ripple extends React.Component {
   }
 
   add(e, options, cb = () => {}) {
+    if (e.type === 'mousedown' && this.ignoringMouseDown) {
+      this.ignoringMouseDown = false;
+      return;
+    }
+
+    if (e.type === 'touchstart') {
+      this.ignoringMouseDown = true;
+    }
+
     const centered = options && options.centered ? options.centered : false;
     const pulsate = options && options.pulsate ? options.pulsate : false;
-    const {clientX, clientY} = e;
     const {left, top, bottom, right, height, width} = e.target.getBoundingClientRect();
-    const rippleX = centered ? width / 2 : clientX - left;
-    const rippleY = centered ? height / 2 : clientY - top;
+
+    const props = {};
+
+    if (centered) {
+      props.rippleX = width / 2;
+      props.rippleY = height / 2;
+    } else {
+      const clientX = e.clientX ? e.clientX : e.touches[0].clientX;
+      const clientY = e.clientY ? e.clientY : e.touches[0].clientY;
+      props.rippleX = clientX - left;
+      props.rippleY = clientY - top;
+    }
+
     const rippleSize = centered ?
      Math.sqrt(((2 * Math.pow(width, 2)) + Math.pow(height, 2)) / 3) :
      Math.sqrt(Math.pow(right - left, 2) + Math.pow(bottom - top, 2)) * 2;
@@ -33,10 +53,9 @@ class Ripple extends React.Component {
       <RippleItem
         color={this.props.color}
         key={this.state.nextKey}
-        rippleX={rippleX}
-        rippleY={rippleY}
         rippleSize={rippleSize}
         pulsate={pulsate}
+        {...props}
       />
     )];
 
