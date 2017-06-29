@@ -8,16 +8,16 @@
   left: 0;
   right: 0;
   bottom: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .snackbar {
   background-color: #323232;
-  position: fixed;
   bottom: 0;
   transform: translateY(48px);
   z-index: 1;
   color: white;
-  max-width: 550px;
+  width: 100%;
   margin: 0 auto;
   height: 48px;
   box-sizing: border-box;
@@ -26,6 +26,12 @@
   animation-name: show;
   animation-duration: 550ms;
   animation-fill-mode: forwards;
+}
+
+@media (min-width: $screenSm) {
+  width: auto;
+  max-width: 550px;
+  position: fixed;
 }
 
 .snackbarWrapper {
@@ -65,7 +71,7 @@
 }
 
 .button {
-  margin-top: 0;
+  margin: 0;
 }
 
 .delay {
