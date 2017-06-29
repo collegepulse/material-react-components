@@ -1,4 +1,6 @@
 .root {
   flex: 1;
   border-radius: 0;
+  justify-content: center;
+  margin: 0;
 }
