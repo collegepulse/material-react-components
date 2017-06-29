@@ -1,21 +1,29 @@
+.root {
+  width: 100%;
+}
+
 .margin-0 {
   margin: 0;
 }
 
 .margin-8 {
   margin: auto 8px;
+  max-width: calc(100% - 16px);
 }
 
 .margin-16 {
   margin: auto 16px;
+  max-width: calc(100% - 32px);
 }
 
 .margin-24 {
-  margin: auto 20px;
+  margin: auto 24px;
+  max-width: calc(100% - 48px);
 }
 
 .margin-40 {
   margin: auto 40px;
+  max-width: calc(100% - 80px);
 }
 
 .gutter {

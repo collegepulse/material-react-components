@@ -8,6 +8,7 @@ class Grid extends React.Component {
     const {children, className, margin, gutter, ...other} = this.props;
 
     const rootClasses = makeClass(
+      Styles.root,
       Styles[`margin-${margin}`],
       className
     );
