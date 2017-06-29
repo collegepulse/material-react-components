@@ -39,6 +39,7 @@
   max-height: 90vh;
   pointer-events: auto;
   z-index: 2500;
+  position: relative;
 }
 
 .title {
