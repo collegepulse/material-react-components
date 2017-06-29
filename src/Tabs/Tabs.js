@@ -85,25 +85,23 @@ class Tabs extends React.Component {
   render() {
     const {barColor} = this.props;
     return (
-      <div>
+      <div
+        className={Styles.tabs}
+        ref={this.registerTabBar}
+        style={{
+          backgroundColor: barColor
+        }}
+      >
+        {this.makeTabs()}
         <div
-          className={Styles.tabs}
-          ref={this.registerTabBar}
+          className={Styles.inkbar}
           style={{
-            backgroundColor: barColor
+            left: this.state.inkBarLeft,
+            width: this.state.inkBarWidth,
+            backgroundColor: this.props.inkBarColor
           }}
-        >
-          {this.makeTabs()}
-          <div
-            className={Styles.inkbar}
-            style={{
-              left: this.state.inkBarLeft,
-              width: this.state.inkBarWidth,
-              backgroundColor: this.props.inkBarColor
-            }}
-            ref={this.registerInkBar}
-          />
-        </div>
+          ref={this.registerInkBar}
+        />
       </div>
     );
   }
