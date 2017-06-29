@@ -1,5 +1,7 @@
 .container {
   opacity: 1;
+  position: absolute;
+  left: 0;
 }
 
 .containerLeaving {
