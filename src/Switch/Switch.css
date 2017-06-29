@@ -1,6 +1,7 @@
 .root {
   cursor: pointer;
   display: flex;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .disabled {
