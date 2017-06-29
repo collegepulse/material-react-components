@@ -2,60 +2,248 @@
   box-sizing: border-box;
 }
 
-.xs-1 { flex-basis: 8.33333%; max-width: 8.33333%\0; }
-.xs-2 { flex-basis: 16.66666%; max-width: 16.66666%\0; }
-.xs-3 { flex-basis: 25%; max-width: 25%\0; }
-.xs-4 { flex-basis: 33.33333%; max-width: 33.33333%\0; }
-.xs-5 { flex-basis: 41.66666%; max-width: 41.66666%\0; }
-.xs-6 { flex-basis: 50%; max-width: 50%\0; }
-.xs-7 { flex-basis: 58.33333%; max-width: 58.33333%\0; }
-.xs-8 { flex-basis: 66.66666%; max-width: 66.66666%\0; }
-.xs-9 { flex-basis: 75%; max-width: 75%\0; }
-.xs-10 { flex-basis: 83.33333%; max-width: 83.33333%\0; }
-.xs-11 { flex-basis: 91.66666%; max-width: 91.66666%\0; }
-.xs-12 { flex-basis: 100%; max-width: 100%\0; }
+.xs-1 {
+  flex-basis: 8.33333%;
+  max-width: 8.33333%\0;
+}
+
+.xs-2 {
+  flex-basis: 16.66666%;
+  max-width: 16.66666%\0;
+}
+
+.xs-3 {
+  flex-basis: 25%;
+  max-width: 25%\0;
+}
+
+.xs-4 {
+  flex-basis: 33.33333%;
+  max-width: 33.33333%\0;
+}
+
+.xs-5 {
+  flex-basis: 41.66666%;
+  max-width: 41.66666%\0;
+}
+
+.xs-6 {
+  flex-basis: 50%;
+  max-width: 50%\0;
+}
+
+.xs-7 {
+  flex-basis: 58.33333%;
+  max-width: 58.33333%\0;
+}
+
+.xs-8 {
+  flex-basis: 66.66666%;
+  max-width: 66.66666%\0;
+}
+
+.xs-9 {
+  flex-basis: 75%;
+  max-width: 75%\0;
+}
+
+.xs-10 {
+  flex-basis: 83.33333%;
+  max-width: 83.33333%\0;
+}
+
+.xs-11 {
+  flex-basis: 91.66666%;
+  max-width: 91.66666%\0;
+}
+
+.xs-12 {
+  flex-basis: 100%;
+  max-width: 100%\0;
+}
 
 @media (min-width: $screenSm) {
-  .sm-1 { flex-basis: 8.33333%; max-width: 8.33333%\0; }
-  .sm-2 { flex-basis: 16.66666%; max-width: 16.66666%\0; }
-  .sm-3 { flex-basis: 25%; max-width: 25%\0; }
-  .sm-4 { flex-basis: 33.33333%; max-width: 33.33333%\0; }
-  .sm-5 { flex-basis: 41.66666%; max-width: 41.66666%\0; }
-  .sm-6 { flex-basis: 50%; max-width: 50%\0; }
-  .sm-7 { flex-basis: 58.33333%; max-width: 58.33333%\0; }
-  .sm-8 { flex-basis: 66.66666%; max-width: 66.66666%\0; }
-  .sm-9 { flex-basis: 75%; max-width: 75%\0; }
-  .sm-10 { flex-basis: 83.33333%; max-width: 83.33333%\0; }
-  .sm-11 { flex-basis: 91.66666%; max-width: 91.66666%\0; }
-  .sm-12 { flex-basis: 100%; max-width: 100%\0; }
+  .sm-1 {
+    flex-basis: 8.33333%;
+    max-width: 8.33333%\0;
+  }
+
+  .sm-2 {
+    flex-basis: 16.66666%;
+    max-width: 16.66666%\0;
+  }
+
+  .sm-3 {
+    flex-basis: 25%;
+    max-width: 25%\0;
+  }
+
+  .sm-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%\0;
+  }
+
+  .sm-5 {
+    flex-basis: 41.66666%;
+    max-width: 41.66666%\0;
+  }
+
+  .sm-6 {
+    flex-basis: 50%;
+    max-width: 50%\0;
+  }
+
+  .sm-7 {
+    flex-basis: 58.33333%;
+    max-width: 58.33333%\0;
+  }
+
+  .sm-8 {
+    flex-basis: 66.66666%;
+    max-width: 66.66666%\0;
+  }
+
+  .sm-9 {
+    flex-basis: 75%;
+    max-width: 75%\0;
+  }
+
+  .sm-10 {
+    flex-basis: 83.33333%;
+    max-width: 83.33333%\0;
+  }
+
+  .sm-11 {
+    flex-basis: 91.66666%;
+    max-width: 91.66666%\0;
+  }
+
+  .sm-12 {
+    flex-basis: 100%;
+    max-width: 100%\0;
+  }
 }
 
 @media (min-width: $screenMd) {
-  .md-1 { flex-basis: 8.33333%; max-width: 8.33333%\0; }
-  .md-2 { flex-basis: 16.66666%; max-width: 16.66666%\0; }
-  .md-3 { flex-basis: 25%; max-width: 25%\0; }
-  .md-4 { flex-basis: 33.33333%; max-width: 33.33333%\0; }
-  .md-5 { flex-basis: 41.66666%; max-width: 41.66666%\0; }
-  .md-6 { flex-basis: 50%; max-width: 50%\0; }
-  .md-7 { flex-basis: 58.33333%; max-width: 58.33333%\0; }
-  .md-8 { flex-basis: 66.66666%; max-width: 66.66666%\0; }
-  .md-9 { flex-basis: 75%; max-width: 75%\0; }
-  .md-10 { flex-basis: 83.33333%; max-width: 83.33333%\0; }
-  .md-11 { flex-basis: 91.66666%; max-width: 91.66666%\0; }
-  .md-12 { flex-basis: 100%; max-width: 100%\0; }
+  .md-1 {
+    flex-basis: 8.33333%;
+    max-width: 8.33333%\0;
+  }
+
+  .md-2 {
+    flex-basis: 16.66666%;
+    max-width: 16.66666%\0;
+  }
+
+  .md-3 {
+    flex-basis: 25%;
+    max-width: 25%\0;
+  }
+
+  .md-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%\0;
+  }
+
+  .md-5 {
+    flex-basis: 41.66666%;
+    max-width: 41.66666%\0;
+  }
+
+  .md-6 {
+    flex-basis: 50%;
+    max-width: 50%\0;
+  }
+
+  .md-7 {
+    flex-basis: 58.33333%;
+    max-width: 58.33333%\0;
+  }
+
+  .md-8 {
+    flex-basis: 66.66666%;
+    max-width: 66.66666%\0;
+  }
+
+  .md-9 {
+    flex-basis: 75%;
+    max-width: 75%\0;
+  }
+
+  .md-10 {
+    flex-basis: 83.33333%;
+    max-width: 83.33333%\0;
+  }
+
+  .md-11 {
+    flex-basis: 91.66666%;
+    max-width: 91.66666%\0;
+  }
+
+  .md-12 {
+    flex-basis: 100%;
+    max-width: 100%\0;
+  }
 }
 
 @media (min-width: $screenLg) {
-  .lg-1 { flex-basis: 8.33333%; max-width: 8.33333%\0; }
-  .lg-2 { flex-basis: 16.66666%; max-width: 16.66666%\0; }
-  .lg-3 { flex-basis: 25%; max-width: 25%\0; }
-  .lg-4 { flex-basis: 33.33333%; max-width: 33.33333%\0; }
-  .lg-5 { flex-basis: 41.66666%; max-width: 41.66666%\0; }
-  .lg-6 { flex-basis: 50%; max-width: 50%\0; }
-  .lg-7 { flex-basis: 58.33333%; max-width: 58.33333%\0; }
-  .lg-8 { flex-basis: 66.66666%; max-width: 66.66666%\0; }
-  .lg-9 { flex-basis: 75%; max-width: 75%\0; }
-  .lg-10 { flex-basis: 83.33333%; max-width: 83.33333%\0; }
-  .lg-11 { flex-basis: 91.66666%; max-width: 91.66666%\0; }
-  .lg-12 { flex-basis: 100%; max-width: 100%\0; }
+  .lg-1 {
+    flex-basis: 8.33333%;
+    max-width: 8.33333%\0;
+  }
+
+  .lg-2 {
+    flex-basis: 16.66666%;
+    max-width: 16.66666%\0;
+  }
+
+  .lg-3 {
+    flex-basis: 25%;
+    max-width: 25%\0;
+  }
+
+  .lg-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%\0;
+  }
+
+  .lg-5 {
+    flex-basis: 41.66666%;
+    max-width: 41.66666%\0;
+  }
+
+  .lg-6 {
+    flex-basis: 50%;
+    max-width: 50%\0;
+  }
+
+  .lg-7 {
+    flex-basis: 58.33333%;
+    max-width: 58.33333%\0;
+  }
+
+  .lg-8 {
+    flex-basis: 66.66666%;
+    max-width: 66.66666%\0;
+  }
+
+  .lg-9 {
+    flex-basis: 75%;
+    max-width: 75%\0;
+  }
+
+  .lg-10 {
+    flex-basis: 83.33333%;
+    max-width: 83.33333%\0;
+  }
+
+  .lg-11 {
+    flex-basis: 91.66666%;
+    max-width: 91.66666%\0;
+  }
+
+  .lg-12 {
+    flex-basis: 100%;
+    max-width: 100%\0;
+  }
 }
