@@ -1,9 +1,9 @@
 import Add from 'material-design-icons/content/svg/production/ic_add_24px.svg';
 import Button from '../../../src/Button';
 import Edit from 'material-design-icons/editor/svg/production/ic_mode_edit_24px.svg';
-import Grid, {GridItem} from '../../../src/Grid';
 import Page from '../Page';
 import React from 'react';
+import Styles from './Button.css';
 import Switch from '../../../src/Switch';
 import TextField from '../../../src/TextField';
 import Variables from '../../../src/variables';
@@ -31,15 +31,13 @@ class ButtonDocs extends React.Component {
       <Page
         componentName="Button"
         buildYourOwn={
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Button
-              textColor={textColor}
-              buttonColor={buttonColor}
-              fab={fab}
-            >
-              {fab ? <Add fill={fill} focusable={false} /> : children}
-            </Button>
-          </div>
+          <Button
+            textColor={textColor}
+            buttonColor={buttonColor}
+            fab={fab}
+          >
+            {fab ? <Add fill={fill} focusable={false} /> : children}
+          </Button>
         }
         buildYourOwnControlPanel={[
           <TextField
@@ -73,30 +71,22 @@ class ButtonDocs extends React.Component {
           />
         ]}
         examples={
-          <Grid style={{alignItems: 'center'}}>
-            <GridItem xs={12} sm={4}>
+          <div>
+            <div className={Styles.flex}>
               <Button>Default</Button>
-            </GridItem>
-            <GridItem xs={12} sm={4}>
               <Button textColor={Variables.$orange700}>Custom Text Color</Button>
-            </GridItem>
-            <GridItem xs={12} sm={4}>
               <Button buttonColor={Variables.$accent} textColor={'#FFF'}>Custom Button Color</Button>
-            </GridItem>
-            <GridItem xs={12} sm={4}>
               <Button buttonColor={Variables.$primary} textColor={'#FFF'}>Custom Button Color</Button>
-            </GridItem>
-            <GridItem xs={12} sm={4}>
+            </div>
+            <div className={Styles.flex}>
               <Button fab buttonColor={Variables.$primary} textColor="#FFF">
                 <Add fill="#FFF" focusable={false} />
               </Button>
-            </GridItem>
-            <GridItem xs={12} sm={4}>
               <Button fab buttonColor={Variables.$accent} textColor="#FFF">
                 <Edit fill="#FFF" focusable={false} />
               </Button>
-            </GridItem>
-          </Grid>
+            </div>
+          </div>
         }
       />
     );

@@ -39,58 +39,58 @@ class PageWrapper extends React.Component {
       open: !this.state.open
     });
   }
+
   render() {
-    const pageName = window.location.pathname.split('/').pop();
+    const pageName = window.location.pathname.split('/').pop() || 'material-react-components';
     return (
-      <div className={Styles.root}>
-        <Scrollable>
-          <div className={Styles.rootInner}>
-            <AppBar
-              className={Styles.appBar}
-              primary={
-                <span className={Styles.iconWrapper}>
-                  <SvgIcon
-                    className={Styles.icon}
-                    component={Menu}
-                    onClick={this.onClick}
-                  />
-                </span>
-              }
-              secondary={
-                <a
-                  tabIndex={-1}
-                  className={Styles.iconLink}
-                  href="https://github.com/collegepulse/material-react-components"
-                >
-                  <SvgIcon
-                    component={GitHub}
-                  />
-                </a>
-              }
-              style={{width: '100%', color: '#fff'}}
+      <div className={Styles.rootInner}>
+        <AppBar
+          className={Styles.appBar}
+          primary={
+            <span className={Styles.iconWrapper}>
+              <SvgIcon
+                className={Styles.icon}
+                component={Menu}
+                buttonProps={{onClick: this.onClick}}
+                style={{fill: '#FFF'}}
+              />
+            </span>
+          }
+          secondary={
+            <a
+              tabIndex={-1}
+              className={Styles.iconLink}
+              href="https://github.com/collegepulse/material-react-components"
             >
-              {`<${pageName} />`}
-            </AppBar>
-            <Mobile open={this.state.open} onClose={this.onClick} />
-            <div className={Styles.content}>
-              <Route exact path={makeURL()} component={HomePage} />
-              <Route path={makeURL('/AppBar')} component={AppBarDocs} />
-              <Route path={makeURL('/BottomNavigation')} component={BottomNavigation} />
-              <Route path={makeURL('/Button')} component={Button} />
-              <Route path={makeURL('/Collapse')} component={Collapse} />
-              <Route path={makeURL('/Dialog')} component={Dialog} />
-              <Route path={makeURL('/Grid')} component={Grid} />
-              <Route path={makeURL('/List')} component={List} />
-              <Route path={makeURL('/Paper')} component={Paper} />
-              <Route path={makeURL('/SelectField')} component={SelectField} />
-              <Route path={makeURL('/SnackBar')} component={SnackBar} />
-              <Route path={makeURL('/Switch')} component={Switch} />
-              <Route path={makeURL('/Tabs')} component={Tabs} />
-              <Route path={makeURL('/TextField')} component={TextField} />
-              <Route path={makeURL('/Typography')} component={TypographyDocs} />
-            </div>
-          </div>
-        </Scrollable>
+              <SvgIcon
+                component={GitHub}
+                height="48px"
+                width="48px"
+              />
+            </a>
+          }
+          style={{width: '100%', color: '#fff'}}
+        >
+          {`<${pageName} />`}
+        </AppBar>
+        <Mobile open={this.state.open} onClose={this.onClick} />
+        <div className={Styles.content}>
+          <Route exact path={makeURL()} component={HomePage} />
+          <Route path={makeURL('/AppBar')} component={AppBarDocs} />
+          <Route path={makeURL('/BottomNavigation')} component={BottomNavigation} />
+          <Route path={makeURL('/Button')} component={Button} />
+          <Route path={makeURL('/Collapse')} component={Collapse} />
+          <Route path={makeURL('/Dialog')} component={Dialog} />
+          <Route path={makeURL('/Grid')} component={Grid} />
+          <Route path={makeURL('/List')} component={List} />
+          <Route path={makeURL('/Paper')} component={Paper} />
+          <Route path={makeURL('/SelectField')} component={SelectField} />
+          <Route path={makeURL('/SnackBar')} component={SnackBar} />
+          <Route path={makeURL('/Switch')} component={Switch} />
+          <Route path={makeURL('/Tabs')} component={Tabs} />
+          <Route path={makeURL('/TextField')} component={TextField} />
+          <Route path={makeURL('/Typography')} component={TypographyDocs} />
+        </div>
       </div>
     );
   }

@@ -45,20 +45,18 @@ class TextFieldDocs extends React.Component {
       <Page
         componentName="TextField"
         buildYourOwn={
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-            <TextField
-              onChange={e => (this.onControlPanel('value', e.target.value))}
-              label={label}
-              value={value}
-              disabled={disabled}
-              placeholder={placeholder}
-              helperText={helperText}
-              primaryColor={primaryColor}
-              multiline={multiline}
-              errorColor={errorColor}
-              width={width}
-            />
-          </div>
+          <TextField
+            onChange={e => (this.onControlPanel('value', e.target.value))}
+            label={label}
+            value={value}
+            disabled={disabled}
+            placeholder={placeholder}
+            helperText={helperText}
+            primaryColor={primaryColor}
+            multiline={multiline}
+            errorColor={errorColor}
+            width={width}
+          />
         }
         buildYourOwnControlPanel={[
           <TextField

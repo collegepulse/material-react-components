@@ -2,6 +2,7 @@ import Collapse from '../../../src/Collapse';
 import Page from '../Page';
 import Paper from '../../../src/Paper';
 import React from 'react';
+import Styles from './Collapse.css';
 import Switch from '../../../src/Switch';
 import TextField from '../../../src/TextField';
 
@@ -29,13 +30,11 @@ class CollapseDocs extends React.Component {
       <Page
         componentName="Collapse"
         buildYourOwn={
-          <div style={{flex: 1}}>
-            <Collapse open={this.state.open}>
-              <Paper style={{whiteSpace: 'pre-wrap', padding: '10px'}}>
-                {this.state.children}
-              </Paper>
-            </Collapse>
-          </div>
+          <Collapse open={this.state.open} className={Styles.collapse}>
+            <Paper style={{whiteSpace: 'pre-wrap', padding: '10px'}}>
+              {this.state.children}
+            </Paper>
+          </Collapse>
         }
         buildYourOwnControlPanel={[
           <Switch

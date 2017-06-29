@@ -26,14 +26,12 @@ class TypographyDocs extends React.Component {
       <Page
         componentName="Typography"
         buildYourOwn={
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Typography
-              component={component}
-              type={type.value}
-            >
-              {children}
-            </Typography>
-          </div>
+          <Typography
+            component={component}
+            type={type.value}
+          >
+            {children}
+          </Typography>
         }
         buildYourOwnControlPanel={[
           <TextField

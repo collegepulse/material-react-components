@@ -22,13 +22,11 @@ class BottomNavigationDocs extends React.Component {
       <Page
         componentName="BottomNavigation"
         buildYourOwn={
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-            <BottomNavigation>
-              {[1, 2, 3].map(key => (
-                <BottomNavigationItem key={key}>{label}</BottomNavigationItem>
-              ))}
-            </BottomNavigation>
-          </div>
+          <BottomNavigation>
+            {[1, 2, 3].map(key => (
+              <BottomNavigationItem key={key}>{label}</BottomNavigationItem>
+            ))}
+          </BottomNavigation>
         }
         buildYourOwnControlPanel={[
           <TextField

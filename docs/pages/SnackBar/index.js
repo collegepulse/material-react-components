@@ -1,6 +1,5 @@
 import Button from '../../../src/Button';
 import CodeFormatter from '../../components/CodeFormatter';
-import Grid, {GridItem} from '../../../src/Grid';
 import Page from '../Page';
 import React from 'react';
 import SnackBar, {SnackBarItem} from '../../../src/SnackBar';
@@ -48,31 +47,26 @@ class SnackBarDocs extends React.Component {
         buildYourOwn={
           <div>
             <SnackBar ref={c => (this.snackbar = c)} />
-            <Grid gutter={8}>
-              <GridItem xs={6} md={3}>
-                <Button
-                  buttonColor={Variables.$primary}
-                  textColor="#FFF"
-                  onClick={this.addSnackBarItem}
-                >
-                    Queue 1 SnackBarItem
-                </Button>
-              </GridItem>
-              <GridItem xs={6} md={3}>
-                <Button
-                  buttonColor={Variables.$primary}
-                  textColor="#FFF"
-                  onClick={() => (this.addSnackBarItem({addTwo: true}))}
-                >
-                    Queue 2 SnackBarItem
-                </Button>
-              </GridItem>
-            </Grid>
+            <Button
+              buttonColor={Variables.$primary}
+              textColor="#FFF"
+              onClick={this.addSnackBarItem}
+            >
+                Queue 1 SnackBarItem
+            </Button>
+            <Button
+              buttonColor={Variables.$primary}
+              textColor="#FFF"
+              onClick={() => (this.addSnackBarItem({addTwo: true}))}
+            >
+                Queue 2 SnackBarItem
+            </Button>
           </div>
         }
         buildYourOwnCode={
           <CodeFormatter
             code={`
+              import { Button } from 'material-react-components';
               import { SnackBar, SnackBarItem } from 'material-react-components';
 
               <SnackBar ref={c => (this.snackbar = c)} />

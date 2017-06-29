@@ -41,17 +41,15 @@ class AppBarDocs extends React.Component {
       <Page
         componentName="AppBar"
         buildYourOwn={
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-            <AppBar
-              backgroundColor={backgroundColor}
-              elevation={elevationNum}
-              style={styleObj}
-              primary={primary && <SvgIcon component={Menu} />}
-              secondary={secondary && <SvgIcon component={Search} />}
-            >
-              {children}
-            </AppBar>
-          </div>
+          <AppBar
+            backgroundColor={backgroundColor}
+            elevation={elevationNum}
+            style={styleObj}
+            primary={primary && <SvgIcon component={Menu} />}
+            secondary={secondary && <SvgIcon component={Search} />}
+          >
+            {children}
+          </AppBar>
         }
         buildYourOwnCode={
           <CodeFormatter

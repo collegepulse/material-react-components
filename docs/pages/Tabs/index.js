@@ -36,19 +36,17 @@ class TabsDocs extends React.Component {
       <Page
         componentName="Tabs"
         buildYourOwn={
-          <div style={{flex: 1}}>
-            <Tabs
-              barColor={this.state.barColor}
-              inkBarColor={this.state.inkBarColor}
-              textColor={this.state.textColor}
-              index={this.state.index}
-              onChange={(e, index) => (this.onChange(e, index, 'index'))}
-            >
-              <Tab label="Tab #0" />
-              <Tab label="Tab #1" />
-              <Tab label="Tab #2" />
-            </Tabs>
-          </div>
+          <Tabs
+            barColor={this.state.barColor}
+            inkBarColor={this.state.inkBarColor}
+            textColor={this.state.textColor}
+            index={this.state.index}
+            onChange={(e, index) => (this.onChange(e, index, 'index'))}
+          >
+            <Tab label="Tab #0" />
+            <Tab label="Tab #1" />
+            <Tab label="Tab #2" />
+          </Tabs>
         }
         buildYourOwnControlPanel={[
           <TextField
