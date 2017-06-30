@@ -98,9 +98,8 @@ describe('Button', () => {
     }, 1000);
   });
 
-  it('should add and remove ripples through the touch interaction lifecycle', (done) => {
+  it.only('should add and remove ripples through the touch interaction lifecycle', (done) => {
     const wrapper = mount(<Button>Label</Button>);
-    wrapper.find('button').node.focus();
     wrapper.simulate('touchstart', fakeEventProps);
     wrapper.simulate('touchend', fakeEventProps);
     // sometime later, the mouseup ripple is removed
