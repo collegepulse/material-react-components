@@ -9,6 +9,11 @@ import Styles from '../Ripple/RippleItem.css';
 import tinycolor from 'tinycolor2';
 import Variables from '../../src/variables';
 
+const fakeEventProps = {
+  clientX: 1,
+  clientY: 1
+};
+
 /* In some tests, we augment the actual results to prevent false negatives raised
  * by targeting multiple browsers, which have different behaviors for
  * handling floating point numbers. For example:
@@ -38,21 +43,7 @@ describe('Button', () => {
 
   it('should set mouseFocused to true onMouseDown', () => {
     const wrapper = mount(<Button label={'Label'} />);
-    const event = {
-      clientX: 0,
-      clientY: 0,
-      getClientBoundingRect: () => (
-        {
-          left: 0,
-          top: 0,
-          bottom: 0,
-          right: 0,
-          height: 0,
-          width: 0
-        }
-      )
-    };
-    wrapper.simulate('mousedown', event);
+    wrapper.simulate('mousedown', fakeEventProps);
     assert(wrapper.state('mouseFocused'));
   });
 
@@ -84,9 +75,9 @@ describe('Button', () => {
 
   it('should add and remove ripples through the keyboard interaction lifecyle', (done) => {
     const wrapper = mount(<Button>Label</Button>);
-    wrapper.simulate('focus');
+    wrapper.simulate('focus', fakeEventProps);
     assert(wrapper.find(`.${Styles.container}`).length === 1);
-    wrapper.simulate('keydown', {keyCode: keycode('space')});
+    wrapper.simulate('keydown', {keyCode: keycode('space'), ...fakeEventProps});
     assert(wrapper.find(`.${Styles.container}`).length === 2);
     // sometime later, the space keypress ripple is removed
     setTimeout(() => {
@@ -98,8 +89,21 @@ describe('Button', () => {
   it('should add and remove ripples through the click interaction lifecycle', (done) => {
     const wrapper = mount(<Button>Label</Button>);
     wrapper.find('button').node.focus();
-    wrapper.simulate('mousedown');
-    wrapper.simulate('mouseup');
+    wrapper.simulate('mousedown', fakeEventProps);
+    wrapper.simulate('mouseup', fakeEventProps);
+    // sometime later, the mouseup ripple is removed
+    setTimeout(() => {
+      assert(wrapper.find(`.${Styles.container}`).length === 0);
+      done();
+    }, 1000);
+  });
+
+  it('should add and remove ripples through the touch interaction lifecycle', (done) => {
+    const wrapper = mount(<Button>Label</Button>);
+    wrapper.find('button').node.focus();
+    wrapper.simulate('touchstart', fakeEventProps);
+    assert(wrapper.find(`.${Styles.container}`).length === 1);
+    wrapper.simulate('touchend', fakeEventProps);
     // sometime later, the mouseup ripple is removed
     setTimeout(() => {
       assert(wrapper.find(`.${Styles.container}`).length === 0);
