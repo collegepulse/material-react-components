@@ -102,7 +102,6 @@ describe('Button', () => {
     const wrapper = mount(<Button>Label</Button>);
     wrapper.find('button').node.focus();
     wrapper.simulate('touchstart', fakeEventProps);
-    assert(wrapper.find(`.${Styles.container}`).length === 1);
     wrapper.simulate('touchend', fakeEventProps);
     // sometime later, the mouseup ripple is removed
     setTimeout(() => {
