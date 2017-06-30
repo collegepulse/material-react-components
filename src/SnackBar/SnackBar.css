@@ -29,9 +29,11 @@
 }
 
 @media (min-width: $screenSm) {
-  width: auto;
-  max-width: 550px;
-  position: fixed;
+  .snackbar {
+    width: auto;
+    max-width: 550px;
+    position: fixed;
+  }
 }
 
 .snackbarWrapper {
