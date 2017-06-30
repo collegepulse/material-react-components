@@ -2,6 +2,7 @@ import Button from '../../../src/Button';
 import Dialog from '../../../src/Dialog';
 import Page from '../Page';
 import React from 'react';
+import Styles from './Dialog.css';
 import TextField from '../../../src/TextField';
 
 class DialogDocs extends React.Component {
@@ -29,7 +30,7 @@ class DialogDocs extends React.Component {
       <Page
         componentName="Dialog"
         buildYourOwn={
-          <div style={{display: 'flex', justifyContent: 'center'}}>
+          <div className={Styles.flex}>
             <Button onClick={() => (this.onControlPanel('buildYourOwnDialogOpen'))}>Open Dialog</Button>
             <Dialog
               open={this.state.buildYourOwnDialogOpen}

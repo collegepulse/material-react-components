@@ -3,6 +3,7 @@ import CodeFormatter from '../../components/CodeFormatter';
 import Page from '../Page';
 import React from 'react';
 import SnackBar, {SnackBarItem} from '../../../src/SnackBar';
+import Styles from './SnackBar.css';
 import TextField from '../../../src/TextField';
 import Variables from '../../../src/variables';
 
@@ -45,7 +46,7 @@ class SnackBarDocs extends React.Component {
           </div>
         }
         buildYourOwn={
-          <div>
+          <div className={Styles.flex}>
             <SnackBar ref={c => (this.snackbar = c)} />
             <Button
               buttonColor={Variables.$primary}
