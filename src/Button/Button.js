@@ -82,7 +82,7 @@ class Button extends React.Component {
   }
 
   onTouchStart(e) {
-    this.ripple.add(e);
+    this.ripple.add(e, {centered: this.props.icon});
   }
 
   onTouchEnd(e) {
