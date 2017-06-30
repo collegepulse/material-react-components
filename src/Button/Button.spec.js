@@ -98,7 +98,7 @@ describe('Button', () => {
     }, 1000);
   });
 
-  it.only('should add and remove ripples through the touch interaction lifecycle', (done) => {
+  it('should add and remove ripples through the touch interaction lifecycle', (done) => {
     const wrapper = mount(<Button>Label</Button>);
     wrapper.simulate('touchstart', fakeEventProps);
     wrapper.simulate('touchend', fakeEventProps);
