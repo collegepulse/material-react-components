@@ -77,6 +77,7 @@
     "lodash": "4.17.4",
     "mocha": "3.4.2",
     "npm-run-all": "4.0.2",
+    "phantomjs-polyfill-object-assign": "0.0.2",
     "postcss-cli": "4.1.0",
     "postcss-loader": "2.0.6",
     "postcss-simple-vars": "4.0.0",

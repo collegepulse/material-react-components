@@ -125,6 +125,7 @@ module.exports = function (config) {
       }
     },
     files: [
+      './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
       'test/test_index.js'
     ],
     frameworks: [
