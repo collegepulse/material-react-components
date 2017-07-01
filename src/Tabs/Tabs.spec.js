@@ -74,15 +74,20 @@ describe('Tabs', () => {
       </Tabs>
     );
     const beginLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
-    wrapper.getDOMNode().style.width = '200px';
 
-    const event = document.createEvent('UIEvents');
-    event.initUIEvent('resize', true, false, window, 0);
-    window.dispatchEvent(event);
+    setTimeout(() => {
+      wrapper.getDOMNode().style.width = '200px';
+    }, 400);
+
+    setTimeout(() => {
+      const event = document.createEvent('UIEvents');
+      event.initUIEvent('resize', true, false, window, 0);
+      window.dispatchEvent(event);
+    }, 700);
 
     setTimeout(() => {
       const endLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
       assert(parseInt(beginLeftOffset, 10) > parseInt(endLeftOffset, 10));
-    }, 100);
+    }, 1000);
   }));
 });
