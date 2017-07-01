@@ -79,7 +79,7 @@ module.exports = __webpack_require__(55);
 
 var global    = __webpack_require__(8)
   , core      = __webpack_require__(86)
-  , hide      = __webpack_require__(26)
+  , hide      = __webpack_require__(27)
   , redefine  = __webpack_require__(41)
   , ctx       = __webpack_require__(35)
   , PROTOTYPE = 'prototype';
@@ -1275,7 +1275,7 @@ var _Page = __webpack_require__(429);
 
 var _Page2 = _interopRequireDefault(_Page);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -1513,6 +1513,28 @@ module.exports = { debugTool: debugTool };
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Typography = __webpack_require__(398);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Typography).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var dP         = __webpack_require__(16)
   , createDesc = __webpack_require__(40);
 module.exports = __webpack_require__(24) ? function(object, key, value){
@@ -1523,7 +1545,7 @@ module.exports = __webpack_require__(24) ? function(object, key, value){
 };
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1777,28 +1799,6 @@ var ReactUpdates = {
 };
 
 module.exports = ReactUpdates;
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Typography = __webpack_require__(400);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Typography).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 /* 29 */
@@ -2285,7 +2285,7 @@ if(__webpack_require__(24)){
     , ctx                 = __webpack_require__(35)
     , anInstance          = __webpack_require__(69)
     , propertyDesc        = __webpack_require__(40)
-    , hide                = __webpack_require__(26)
+    , hide                = __webpack_require__(27)
     , redefineAll         = __webpack_require__(68)
     , toInteger           = __webpack_require__(70)
     , toLength            = __webpack_require__(21)
@@ -2834,7 +2834,7 @@ module.exports = function(bitmap, value){
 /***/ (function(module, exports, __webpack_require__) {
 
 var global    = __webpack_require__(8)
-  , hide      = __webpack_require__(26)
+  , hide      = __webpack_require__(27)
   , has       = __webpack_require__(20)
   , SRC       = __webpack_require__(52)('src')
   , TO_STRING = 'toString'
@@ -4822,7 +4822,7 @@ module.exports = Object.keys || function keys(O){
 // 22.1.3.31 Array.prototype[@@unscopables]
 var UNSCOPABLES = __webpack_require__(14)('unscopables')
   , ArrayProto  = Array.prototype;
-if(ArrayProto[UNSCOPABLES] == undefined)__webpack_require__(26)(ArrayProto, UNSCOPABLES, {});
+if(ArrayProto[UNSCOPABLES] == undefined)__webpack_require__(27)(ArrayProto, UNSCOPABLES, {});
 module.exports = function(key){
   ArrayProto[UNSCOPABLES][key] = true;
 };
@@ -7199,7 +7199,7 @@ module.exports = function(fn, args, that){
 
 "use strict";
 
-var hide     = __webpack_require__(26)
+var hide     = __webpack_require__(27)
   , redefine = __webpack_require__(41)
   , fails    = __webpack_require__(15)
   , defined  = __webpack_require__(42)
@@ -8811,7 +8811,7 @@ var _prodInvariant = __webpack_require__(7);
 var ReactCurrentOwner = __webpack_require__(31);
 var ReactInstanceMap = __webpack_require__(82);
 var ReactInstrumentation = __webpack_require__(25);
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 
 var invariant = __webpack_require__(3);
 var warning = __webpack_require__(6);
@@ -9875,7 +9875,7 @@ module.exports = function(it){
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(8)
-  , hide   = __webpack_require__(26)
+  , hide   = __webpack_require__(27)
   , uid    = __webpack_require__(52)
   , TYPED  = uid('typed_array')
   , VIEW   = uid('view')
@@ -10975,7 +10975,7 @@ var _Shared = __webpack_require__(406);
 
 var _Shared2 = _interopRequireDefault(_Shared);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -12060,7 +12060,7 @@ var _assign = __webpack_require__(9);
 
 var LinkedValueUtils = __webpack_require__(130);
 var ReactDOMComponentTree = __webpack_require__(11);
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 
 var warning = __webpack_require__(6);
 
@@ -13580,7 +13580,7 @@ var ReactInstrumentation = __webpack_require__(25);
 var ReactMarkupChecksum = __webpack_require__(381);
 var ReactReconciler = __webpack_require__(60);
 var ReactUpdateQueue = __webpack_require__(134);
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 
 var emptyObject = __webpack_require__(94);
 var instantiateReactComponent = __webpack_require__(200);
@@ -14726,7 +14726,7 @@ var global         = __webpack_require__(8)
   , DESCRIPTORS    = __webpack_require__(24)
   , LIBRARY        = __webpack_require__(67)
   , $typed         = __webpack_require__(157)
-  , hide           = __webpack_require__(26)
+  , hide           = __webpack_require__(27)
   , redefineAll    = __webpack_require__(68)
   , fails          = __webpack_require__(15)
   , anInstance     = __webpack_require__(69)
@@ -15059,7 +15059,7 @@ module.exports = function(done, value){
 var LIBRARY        = __webpack_require__(67)
   , $export        = __webpack_require__(1)
   , redefine       = __webpack_require__(41)
-  , hide           = __webpack_require__(26)
+  , hide           = __webpack_require__(27)
   , has            = __webpack_require__(20)
   , Iterators      = __webpack_require__(74)
   , $iterCreate    = __webpack_require__(585)
@@ -20992,11 +20992,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ListItem = __webpack_require__(398);
+var _ListItem = __webpack_require__(401);
 
 var _ListItem2 = _interopRequireDefault(_ListItem);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -21086,9 +21086,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _jsx = function () { var REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 0xeac7; return function createRawReactElement(type, props, key, children) { var defaultProps = type && type.defaultProps; var childrenLength = arguments.length - 3; if (!props && childrenLength !== 0) { props = {}; } if (props && defaultProps) { for (var propName in defaultProps) { if (props[propName] === void 0) { props[propName] = defaultProps[propName]; } } } else if (!props) { props = defaultProps || {}; } if (childrenLength === 1) { props.children = children; } else if (childrenLength > 1) { var childArray = Array(childrenLength); for (var i = 0; i < childrenLength; i++) { childArray[i] = arguments[i + 3]; } props.children = childArray; } return { $$typeof: REACT_ELEMENT_TYPE, type: type, key: key === undefined ? null : '' + key, ref: null, props: props, _owner: null }; }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -21126,6 +21126,10 @@ var _variables = __webpack_require__(34);
 
 var _variables2 = _interopRequireDefault(_variables);
 
+var _Typography = __webpack_require__(26);
+
+var _Typography2 = _interopRequireDefault(_Typography);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -21146,7 +21150,8 @@ var Button = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
 
-    _this.getButtonStyles = _this.getButtonStyles.bind(_this);
+    _this.getTextColor = _this.getTextColor.bind(_this);
+    _this.getBackgroundColor = _this.getBackgroundColor.bind(_this);
     _this.onKeyDown = _this.onKeyDown.bind(_this);
     _this.onMouseDown = _this.onMouseDown.bind(_this);
     _this.onMouseUp = _this.onMouseUp.bind(_this);
@@ -21244,35 +21249,41 @@ var Button = function (_React$Component) {
       this.ripple.remove(e);
     }
   }, {
-    key: 'getButtonStyles',
-    value: function getButtonStyles() {
+    key: 'getTextColor',
+    value: function getTextColor() {
       var _props2 = this.props,
           buttonColor = _props2.buttonColor,
-          icon = _props2.icon,
-          style = _props2.style,
           textColor = _props2.textColor;
-      var hover = this.state.hover;
 
-      var backgroundColor = buttonColor;
-      var color = _variables2.default.$black87;
 
       if (buttonColor && !textColor) {
-        color = this.readableTextColor();
+        return this.readableTextColor();
       } else if (textColor) {
-        color = textColor;
+        return textColor;
       }
+
+      return _variables2.default.$black87;
+    }
+  }, {
+    key: 'getBackgroundColor',
+    value: function getBackgroundColor() {
+      var _props3 = this.props,
+          buttonColor = _props3.buttonColor,
+          icon = _props3.icon,
+          textColor = _props3.textColor;
+      var hover = this.state.hover;
+
 
       if (hover && !icon) {
         if (buttonColor) {
-          backgroundColor = (0, _tinycolor2.default)(buttonColor).darken(5).toString();
+          return (0, _tinycolor2.default)(buttonColor).darken(5).toString();
         } else if (textColor) {
-          backgroundColor = (0, _tinycolor2.default)(textColor).setAlpha(0.15).toString();
-        } else {
-          backgroundColor = (0, _tinycolor2.default)('rgba(0, 0, 0, 0.12)').toString();
+          return (0, _tinycolor2.default)(textColor).setAlpha(0.15).toString();
         }
+        return (0, _tinycolor2.default)('rgba(0, 0, 0, 0.12)').toString();
       }
 
-      return Object.assign({}, style, { backgroundColor: backgroundColor, color: color });
+      return buttonColor;
     }
   }, {
     key: 'readableTextColor',
@@ -21294,17 +21305,17 @@ var Button = function (_React$Component) {
       var _makeClass,
           _this4 = this;
 
-      var _props3 = this.props,
-          buttonColor = _props3.buttonColor,
-          children = _props3.children,
-          className = _props3.className,
-          component = _props3.component,
-          domRef = _props3.domRef,
-          icon = _props3.icon,
-          fab = _props3.fab,
-          style = _props3.style,
-          textColor = _props3.textColor,
-          other = _objectWithoutProperties(_props3, ['buttonColor', 'children', 'className', 'component', 'domRef', 'icon', 'fab', 'style', 'textColor']);
+      var _props4 = this.props,
+          buttonColor = _props4.buttonColor,
+          children = _props4.children,
+          className = _props4.className,
+          component = _props4.component,
+          domRef = _props4.domRef,
+          icon = _props4.icon,
+          fab = _props4.fab,
+          style = _props4.style,
+          textColor = _props4.textColor,
+          other = _objectWithoutProperties(_props4, ['buttonColor', 'children', 'className', 'component', 'domRef', 'icon', 'fab', 'style', 'textColor']);
 
       var Component = component;
       var readableTextColor = this.readableTextColor();
@@ -21322,11 +21333,15 @@ var Button = function (_React$Component) {
           onTouchEnd: this.onTouchEnd,
           tabIndex: 0,
           onFocus: this.onFocus,
-          style: this.getButtonStyles(),
+          style: _extends({
+            backgroundColor: this.getBackgroundColor()
+          }, style),
           ref: this.registerButton
         }),
-        _jsx('span', {
-          className: (0, _classnames2.default)(_Button2.default.label)
+        _jsx(_Typography2.default, {
+          type: 'button',
+          className: (0, _classnames2.default)(_Button2.default.label),
+          style: { color: this.getTextColor() }
         }, void 0, children),
         _react2.default.createElement(_Ripple2.default, {
           color: icon ? _variables2.default.$black87 : textColor,
@@ -21379,7 +21394,7 @@ var ReactDOMComponentTree = __webpack_require__(11);
 var ReactDefaultInjection = __webpack_require__(311);
 var ReactMount = __webpack_require__(209);
 var ReactReconciler = __webpack_require__(60);
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 var ReactVersion = __webpack_require__(383);
 
 var findDOMNode = __webpack_require__(384);
@@ -22235,7 +22250,7 @@ var EventPluginHub = __webpack_require__(59);
 var EventPropagators = __webpack_require__(58);
 var ExecutionEnvironment = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(11);
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 var SyntheticEvent = __webpack_require__(33);
 
 var inputValueTracking = __webpack_require__(192);
@@ -25285,7 +25300,7 @@ var _prodInvariant = __webpack_require__(7),
 var DOMPropertyOperations = __webpack_require__(197);
 var LinkedValueUtils = __webpack_require__(130);
 var ReactDOMComponentTree = __webpack_require__(11);
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 
 var invariant = __webpack_require__(3);
 var warning = __webpack_require__(6);
@@ -25725,7 +25740,7 @@ var _prodInvariant = __webpack_require__(7),
 
 var LinkedValueUtils = __webpack_require__(130);
 var ReactDOMComponentTree = __webpack_require__(11);
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 
 var invariant = __webpack_require__(3);
 var warning = __webpack_require__(6);
@@ -28193,7 +28208,7 @@ module.exports = ReactDOMTextComponent;
 
 var _assign = __webpack_require__(9);
 
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 var Transaction = __webpack_require__(97);
 
 var emptyFunction = __webpack_require__(22);
@@ -28270,7 +28285,7 @@ var EventListener = __webpack_require__(206);
 var ExecutionEnvironment = __webpack_require__(17);
 var PooledClass = __webpack_require__(45);
 var ReactDOMComponentTree = __webpack_require__(11);
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 
 var getEventTarget = __webpack_require__(123);
 var getUnboundedScrollPosition = __webpack_require__(359);
@@ -28475,7 +28490,7 @@ var ReactComponentEnvironment = __webpack_require__(131);
 var ReactEmptyComponent = __webpack_require__(202);
 var ReactBrowserEventEmitter = __webpack_require__(101);
 var ReactHostComponent = __webpack_require__(203);
-var ReactUpdates = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(28);
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -32403,62 +32418,6 @@ else {
 /* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(399);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(5)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js?modules&localIdentName=[name].[local]!../../node_modules/postcss-loader/lib/index.js!./ListItem.css", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js?modules&localIdentName=[name].[local]!../../node_modules/postcss-loader/lib/index.js!./ListItem.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 399 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".ListItem-root {\n  position: relative;\n}\n\n.ListItem-button {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border-radius: 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin: 0;\n  padding: 12px 16px;\n  text-align: left;\n  text-transform: none;\n  width: 100%;\n}\n\n.ListItem-avatar {\n  height: 40px;\n  width: 40px;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  fill: rgba(0, 0, 0, 0.54);\n}\n\n.ListItem-text {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: inherit;\n}\n\n.ListItem-textWithAvatarOrAction {\n  max-width: calc(100% - 100px);\n  overflow: hidden;\n  padding: 0 16px;\n}\n\n.ListItem-action {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  fill: rgba(0, 0, 0, 0.54);\n  height: 100%;\n  position: absolute;\n  right: 10px;\n  top: 0;\n}\n\n.ListItem-primary.ListItem-primaryText,\n.ListItem-secondary.ListItem-secondaryText {\n  -o-text-overflow: ellipsis;\n     text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n\n.ListItem-primary.ListItem-primaryText {\n  color: #000;\n}\n\n.ListItem-secondary.ListItem-secondaryText {\n  color: rgba(0, 0, 0, 0.54);\n}\n", ""]);
-
-// exports
-exports.locals = {
-	"root": "ListItem-root",
-	"button": "ListItem-button",
-	"avatar": "ListItem-avatar",
-	"text": "ListItem-text",
-	"textWithAvatarOrAction": "ListItem-textWithAvatarOrAction",
-	"action": "ListItem-action",
-	"primary": "ListItem-primary",
-	"primaryText": "ListItem-primaryText",
-	"secondary": "ListItem-secondary",
-	"secondaryText": "ListItem-secondaryText"
-};
-
-/***/ }),
-/* 400 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 
@@ -32480,7 +32439,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Typography = __webpack_require__(401);
+var _Typography = __webpack_require__(399);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -32513,13 +32472,13 @@ Typography.defaultProps = {
 exports.default = Typography;
 
 /***/ }),
-/* 401 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(402);
+var content = __webpack_require__(400);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -32544,7 +32503,7 @@ if(false) {
 }
 
 /***/ }),
-/* 402 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(undefined);
@@ -32567,6 +32526,62 @@ exports.locals = {
 	"body1": "Typography-body1",
 	"caption": "Typography-caption",
 	"button": "Typography-button"
+};
+
+/***/ }),
+/* 401 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(402);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(5)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js?modules&localIdentName=[name].[local]!../../node_modules/postcss-loader/lib/index.js!./ListItem.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js?modules&localIdentName=[name].[local]!../../node_modules/postcss-loader/lib/index.js!./ListItem.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 402 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".ListItem-root {\n  position: relative;\n}\n\n.ListItem-button {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border-radius: 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin: 0;\n  padding: 12px 16px;\n  text-align: left;\n  text-transform: none;\n  width: 100%;\n}\n\n.ListItem-avatar {\n  height: 40px;\n  width: 40px;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  fill: rgba(0, 0, 0, 0.54);\n}\n\n.ListItem-text {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  text-transform: none;\n  width: inherit;\n}\n\n.ListItem-textWithAvatarOrAction {\n  max-width: calc(100% - 100px);\n  overflow: hidden;\n  padding: 0 16px;\n}\n\n.ListItem-action {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  fill: rgba(0, 0, 0, 0.54);\n  height: 100%;\n  position: absolute;\n  right: 10px;\n  top: 0;\n}\n\n.ListItem-primary.ListItem-primaryText,\n.ListItem-secondary.ListItem-secondaryText {\n  -o-text-overflow: ellipsis;\n     text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n\n.ListItem-primary.ListItem-primaryText {\n  color: #000;\n}\n\n.ListItem-secondary.ListItem-secondaryText {\n  color: rgba(0, 0, 0, 0.54);\n}\n", ""]);
+
+// exports
+exports.locals = {
+	"root": "ListItem-root",
+	"button": "ListItem-button",
+	"avatar": "ListItem-avatar",
+	"text": "ListItem-text",
+	"textWithAvatarOrAction": "ListItem-textWithAvatarOrAction",
+	"action": "ListItem-action",
+	"primary": "ListItem-primary",
+	"primaryText": "ListItem-primaryText",
+	"secondary": "ListItem-secondary",
+	"secondaryText": "ListItem-secondaryText"
 };
 
 /***/ }),
@@ -33092,7 +33107,7 @@ var _AppBar = __webpack_require__(412);
 
 var _AppBar2 = _interopRequireDefault(_AppBar);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -37195,7 +37210,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -37289,7 +37304,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -38209,7 +38224,7 @@ var _TransitionGroup = __webpack_require__(83);
 
 var _TransitionGroup2 = _interopRequireDefault(_TransitionGroup);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -38681,7 +38696,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".SelectField-root {\n  cursor: pointer;\n  position: relative;\n  width: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-tap-highlight-color: transparent;\n}\n\n.SelectField-root.SelectField-disabled {\n  cursor: not-allowed;\n}\n\n.SelectField-shadow {\n  border: none;\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  position: absolute;\n  width: 1px;\n}\n\n.SelectField-label {\n  color: rgba(0, 0, 0, 0.54);\n  line-height: 30px;\n  padding-right: 30px;\n  pointer-events: none;\n  -webkit-transform-origin: left top 0;\n      -ms-transform-origin: left top 0;\n          transform-origin: left top 0;\n  position: absolute;\n  top: 35px;\n}\n\n.SelectField-inkbar {\n  border-bottom-width: 1px;\n  border-bottom-color: rgba(0, 0, 0, 0.42);\n  border-bottom-style: solid;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  height: 2px;\n}\n\n.SelectField-inkbarDisabled {\n  border-bottom-style: dashed;\n}\n\n.SelectField-icon {\n  position: absolute;\n  right: 0;\n  background: none;\n  border: none;\n  padding: 0;\n  top: 36px;\n}\n\n.SelectField-icon::-moz-focus-inner {\n  border: 0;\n}\n\n.SelectField-icon:focus {\n  outline: 0;\n}\n\n.SelectField-icon.SelectField-disabled {\n  fill: rgba(0, 0, 0, 0.42);\n}\n\n.SelectField-icon:not(.SelectField-disabled):focus::after {\n  content: '';\n  position: absolute;\n  border-radius: 50%;\n  background-color: rgba(0, 0, 0, 0.2);\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  -webkit-transform: scale(1.5);\n      -ms-transform: scale(1.5);\n          transform: scale(1.5);\n}\n\n.SelectField-icon:focus + .SelectField-label {\n  -webkit-transform: scale(0.75) translate(0, -25px);\n      -ms-transform: scale(0.75) translate(0, -25px);\n          transform: scale(0.75) translate(0, -25px);\n}\n\n.SelectField-icon:focus ~ .SelectField-inkbar:not(.SelectField-inkbarDisabled) {\n  -webkit-animation-name: SelectField-stretch;\n          animation-name: SelectField-stretch;\n  -webkit-animation-duration: 250ms;\n          animation-duration: 250ms;\n  -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n          animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n  border-bottom-width: 2px;\n  border-bottom-color: #2196f3;\n  max-width: 70%;\n}\n\n@-webkit-keyframes SelectField-stretch {\n  0% {\n    margin-left: 15%;\n    max-width: 70%;\n  }\n\n  100% {\n    max-width: 100%;\n    margin-left: 0%;\n  }\n}\n\n@keyframes SelectField-stretch {\n  0% {\n    margin-left: 15%;\n    max-width: 70%;\n  }\n\n  100% {\n    max-width: 100%;\n    margin-left: 0%;\n  }\n}\n\n.SelectField-helperText {\n  padding-top: 8px;\n}\n\n\n.SelectField-value {\n  padding-top: 40px;\n  padding-bottom: 8px;\n  min-height: 18px;\n  max-width: calc(100% - 30px);\n  overflow: hidden;\n  white-space: nowrap;\n  -o-text-overflow: ellipsis;\n     text-overflow: ellipsis;\n}\n\n.SelectField-value.SelectField-disabled {\n  color: rgba(0, 0, 0, 0.42);\n}\n\n.SelectField-value.SelectField-hasValue + .SelectField-label {\n  -webkit-transform: scale(0.75) translate(0, -25px);\n      -ms-transform: scale(0.75) translate(0, -25px);\n          transform: scale(0.75) translate(0, -25px);\n}\n\n.SelectField-value:hover ~ .SelectField-inkbar:not(.SelectField-inkbarDisabled) {\n  border-bottom-width: 2px;\n}\n\n\n", ""]);
+exports.push([module.i, ".SelectField-root {\n  cursor: pointer;\n  position: relative;\n  width: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-tap-highlight-color: transparent;\n}\n\n.SelectField-root.SelectField-disabled {\n  cursor: not-allowed;\n}\n\n.SelectField-shadow {\n  border: none;\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  position: absolute;\n  width: 1px;\n}\n\n.SelectField-label {\n  color: rgba(0, 0, 0, 0.54);\n  line-height: 30px;\n  padding-right: 30px;\n  pointer-events: none;\n  -webkit-transform-origin: left top 0;\n      -ms-transform-origin: left top 0;\n          transform-origin: left top 0;\n  position: absolute;\n  top: 35px;\n}\n\n.SelectField-inkbar {\n  border-bottom-width: 1px;\n  border-bottom-color: rgba(0, 0, 0, 0.42);\n  border-bottom-style: solid;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  height: 2px;\n}\n\n.SelectField-inkbarDisabled {\n  border-bottom-style: dashed;\n}\n\n.SelectField-icon {\n  position: absolute;\n  right: 0;\n  background: none;\n  border: none;\n  padding: 0;\n  top: 36px;\n}\n\n.SelectField-icon::-moz-focus-inner {\n  border: 0;\n}\n\n.SelectField-icon:focus {\n  outline: 0;\n}\n\n.SelectField-icon.SelectField-disabled {\n  fill: rgba(0, 0, 0, 0.42);\n}\n\n.SelectField-icon:not(.SelectField-disabled):focus::after {\n  content: '';\n  position: absolute;\n  border-radius: 50%;\n  background-color: rgba(0, 0, 0, 0.2);\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  -webkit-transform: scale(1.5);\n      -ms-transform: scale(1.5);\n          transform: scale(1.5);\n}\n\n.SelectField-icon:focus + .SelectField-label {\n  -webkit-transform: scale(0.75) translate(0, -25px);\n      -ms-transform: scale(0.75) translate(0, -25px);\n          transform: scale(0.75) translate(0, -25px);\n}\n\n.SelectField-icon:focus ~ .SelectField-inkbar:not(.SelectField-inkbarDisabled) {\n  -webkit-animation-name: SelectField-stretch;\n          animation-name: SelectField-stretch;\n  -webkit-animation-duration: 250ms;\n          animation-duration: 250ms;\n  -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n          animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n  border-bottom-width: 2px;\n  border-bottom-color: #2196f3;\n  max-width: 70%;\n}\n\n@-webkit-keyframes SelectField-stretch {\n  0% {\n    margin-left: 15%;\n    max-width: 70%;\n  }\n\n  100% {\n    max-width: 100%;\n    margin-left: 0%;\n  }\n}\n\n@keyframes SelectField-stretch {\n  0% {\n    margin-left: 15%;\n    max-width: 70%;\n  }\n\n  100% {\n    max-width: 100%;\n    margin-left: 0%;\n  }\n}\n\n.SelectField-helperText {\n  padding-top: 8px;\n}\n\n.SelectField-value {\n  padding-top: 40px;\n  padding-bottom: 8px;\n  min-height: 18px;\n  max-width: calc(100% - 30px);\n  overflow: hidden;\n  white-space: nowrap;\n  -o-text-overflow: ellipsis;\n     text-overflow: ellipsis;\n}\n\n.SelectField-value.SelectField-disabled {\n  color: rgba(0, 0, 0, 0.42);\n}\n\n.SelectField-value.SelectField-hasValue + .SelectField-label {\n  -webkit-transform: scale(0.75) translate(0, -25px);\n      -ms-transform: scale(0.75) translate(0, -25px);\n          transform: scale(0.75) translate(0, -25px);\n}\n\n.SelectField-value:hover ~ .SelectField-inkbar:not(.SelectField-inkbarDisabled) {\n  border-bottom-width: 2px;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -39025,7 +39040,7 @@ var _SnackBar = __webpack_require__(495);
 
 var _SnackBar2 = _interopRequireDefault(_SnackBar);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -39545,7 +39560,7 @@ var _TextField = __webpack_require__(19);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -42054,7 +42069,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".Tabs-tabs {\n  background-color: #2196f3;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  overflow: hidden;\n  position: relative;\n}\n\n.Tabs-inner {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.Tabs-scrollable {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  display: inline-block;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap;\n  overflow-x: scroll;\n  white-space: nowrap;\n}\n\n.Tabs-scrollable::-webkit-scrollbar {\n  display: none;\n}\n\n.Tabs-fixed {\n  width: 100%;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.Tabs-centered {\n  margin: 0 auto;\n  width: auto;\n}\n\n.Tabs-fullWidth {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.Tabs-inkbar {\n  position: relative;\n  height: 2px;\n  bottom: 0;\n  width: 0;\n  background-color: #ff4081;\n}\n", ""]);
+exports.push([module.i, ".Tabs-tabs {\n  background-color: #2196f3;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  overflow: hidden;\n  position: relative;\n}\n\n.Tabs-inner {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.Tabs-scrollable {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  display: inline-block;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap;\n  overflow-x: scroll;\n  white-space: nowrap;\n  -webkit-overflow-scrolling: touch;\n}\n\n.Tabs-scrollable::-webkit-scrollbar {\n  display: none;\n}\n\n.Tabs-fixed {\n  width: 100%;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.Tabs-centered {\n  margin: 0 auto;\n  width: auto;\n}\n\n.Tabs-fullWidth {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.Tabs-inkbar {\n  position: relative;\n  height: 2px;\n  bottom: 0;\n  width: 0;\n  background-color: #ff4081;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -42517,7 +42532,7 @@ var _TextField = __webpack_require__(19);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Typography = __webpack_require__(28);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
@@ -43255,7 +43270,7 @@ var create         = __webpack_require__(89)
   , IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-__webpack_require__(26)(IteratorPrototype, __webpack_require__(14)('iterator'), function(){ return this; });
+__webpack_require__(27)(IteratorPrototype, __webpack_require__(14)('iterator'), function(){ return this; });
 
 module.exports = function(Constructor, NAME, next){
   Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
@@ -44404,7 +44419,7 @@ $JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function(){
 });
 
 // 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(26)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
+$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(27)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
 // 19.4.3.5 Symbol.prototype[@@toStringTag]
 setToStringTag($Symbol, 'Symbol');
 // 20.2.1.9 Math[@@toStringTag]
@@ -45529,7 +45544,7 @@ $export($export.G + $export.B, {
 var $iterators    = __webpack_require__(168)
   , redefine      = __webpack_require__(41)
   , global        = __webpack_require__(8)
-  , hide          = __webpack_require__(26)
+  , hide          = __webpack_require__(27)
   , Iterators     = __webpack_require__(74)
   , wks           = __webpack_require__(14)
   , ITERATOR      = wks('iterator')
