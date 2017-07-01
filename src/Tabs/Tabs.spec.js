@@ -80,7 +80,9 @@ describe('Tabs', () => {
     event.initUIEvent('resize', true, false, window, 0);
     window.dispatchEvent(event);
 
-    const endLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
-    assert(parseInt(beginLeftOffset, 10) > parseInt(endLeftOffset, 10));
+    setTimeout(() => {
+      const endLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
+      assert(parseInt(beginLeftOffset, 10) > parseInt(endLeftOffset, 10));
+    }, 100);
   }));
 });
