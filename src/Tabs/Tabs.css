@@ -15,6 +15,7 @@
   flex-wrap: nowrap;
   overflow-x: scroll;
   white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
 .scrollable::-webkit-scrollbar {
