@@ -56,7 +56,7 @@ class Tabs extends React.Component {
       const {width, left} = currentTab.getBoundingClientRect();
       const scrollLeft = this.tabBar.scrollLeft;
       const tabBarLeft = this.tabBar.getBoundingClientRect().left;
-      const inkBarLeft = `${scrollLeft + left - tabBarLeft}px`;
+      const inkBarLeft = `${(scrollLeft + left) - tabBarLeft}px`;
       const inkBarWidth = `${width}px`;
       this.setState({
         inkBarLeft,
