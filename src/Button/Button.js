@@ -7,12 +7,14 @@ import Ripple from '../Ripple';
 import Styles from './Button.css';
 import tinycolor from 'tinycolor2';
 import variables from '../variables';
+import Typography from '../Typography';
 
 class Button extends React.Component {
 
   constructor(props) {
     super(props);
-    this.getButtonStyles = this.getButtonStyles.bind(this);
+    this.getTextColor = this.getTextColor.bind(this);
+    this.getBackgroundColor = this.getBackgroundColor.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
@@ -89,29 +91,32 @@ class Button extends React.Component {
     this.ripple.remove(e);
   }
 
-  getButtonStyles() {
-    const {buttonColor, icon, style, textColor} = this.props;
-    const {hover} = this.state;
-    let backgroundColor = buttonColor;
-    let color = variables.$black87;
+  getTextColor() {
+    const {buttonColor, textColor} = this.props;
 
     if (buttonColor && !textColor) {
-      color = this.readableTextColor();
+      return this.readableTextColor();
     } else if (textColor) {
-      color = textColor;
+      return textColor;
     }
+
+    return variables.$black87;
+  }
+
+  getBackgroundColor() {
+    const {buttonColor, icon, textColor} = this.props;
+    const {hover} = this.state;
 
     if (hover && !icon) {
       if (buttonColor) {
-        backgroundColor = tinycolor(buttonColor).darken(5).toString();
+        return tinycolor(buttonColor).darken(5).toString();
       } else if (textColor) {
-        backgroundColor = tinycolor(textColor).setAlpha(0.15).toString();
-      } else {
-        backgroundColor = tinycolor('rgba(0, 0, 0, 0.12)').toString();
+        return tinycolor(textColor).setAlpha(0.15).toString();
       }
+      return tinycolor('rgba(0, 0, 0, 0.12)').toString();
     }
 
-    return Object.assign({}, style, {backgroundColor, color});
+    return buttonColor;
   }
 
   readableTextColor() {
@@ -150,12 +155,19 @@ class Button extends React.Component {
         onTouchEnd={this.onTouchEnd}
         tabIndex={0}
         onFocus={this.onFocus}
-        style={this.getButtonStyles()}
+        style={{
+          backgroundColor: this.getBackgroundColor(),
+          ...style
+        }}
         ref={this.registerButton}
       >
-        <span className={makeClass(Styles.label)}>
+        <Typography
+          type="button"
+          className={makeClass(Styles.label)}
+          style={{color: this.getTextColor()}}
+        >
           {children}
-        </span>
+        </Typography>
         <Ripple
           color={icon ? variables.$black87 : textColor}
           ref={c => (this.ripple = c)}
