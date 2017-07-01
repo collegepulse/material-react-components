@@ -1,8 +1,16 @@
 .tab {
   border-radius: 0;
-  flex: 1;
   margin: 0;
   padding-top: 15px;
   padding-bottom: 15px;
   box-shadow: none;
+  margin-bottom: -2px;
+}
+
+.fixed {
+  flex: 1;
+}
+
+.scrollable {
+  flex: 0;
 }

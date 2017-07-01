@@ -1,13 +1,20 @@
 import Button from '../Button';
+import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Tab.css';
 
 class Tab extends React.Component {
   render() {
-    const {label, ...other} = this.props;
+    const {label, type, ...other} = this.props;
     return (
-      <Button {...other} className={Styles.tab}>
+      <Button
+        {...other}
+        className={makeClass(Styles.tab, {
+          [Styles.fixed]: type === 'fixed',
+          [Styles.scrollable]: type === 'scrollable'
+        })}
+      >
         {label}
       </Button>
     );
@@ -16,12 +23,14 @@ class Tab extends React.Component {
 
 Tab.defaultProps = {
   domRef: () => {},
-  label: null
+  label: null,
+  type: 'fixed'
 };
 
 Tab.propTypes = {
   domRef: PropTypes.func,
-  label: PropTypes.string
+  label: PropTypes.string,
+  type: PropTypes.oneOf(['fixed', 'scrollable', 'centered'])
 };
 
 export default Tab;

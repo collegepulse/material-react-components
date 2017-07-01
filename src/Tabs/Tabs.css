@@ -1,14 +1,45 @@
 .tabs {
+  background-color: $primary;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
   position: relative;
+}
+
+.inner {
+  display: flex;
+}
+
+.scrollable {
+  box-sizing: border-box;
+  display: inline-block;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.fixed {
   width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered {
+  margin: 0 auto;
+  width: auto;
+}
+
+.fullWidth {
+  display: flex;
 }
 
 .inkbar {
-  position: absolute;
+  position: relative;
   height: 2px;
   bottom: 0;
   width: 0;
+  background-color: $accent;
 }

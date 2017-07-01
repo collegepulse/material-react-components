@@ -58,8 +58,11 @@ describe('Tabs', () => {
     );
     const oldLeft = parseInt(wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left, 10);
     wrapper.setProps({index: 1});
-    const newLeft = parseInt(wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left, 10);
-    assert(oldLeft !== newLeft);
+
+    setTimeout(() => {
+      const newLeft = parseInt(wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left, 10);
+      assert(oldLeft !== newLeft);
+    }, 100);
   }));
 
   it('should repaint the inkbar on window resize', createTest(() => {
