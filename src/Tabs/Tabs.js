@@ -119,11 +119,11 @@ class Tabs extends React.Component {
           className={makeClass({
             [Styles.fixed]: isFixed,
             [Styles.centered]: isCentered,
-            [Styles.scrollable]: isScrollable
+            [Styles.scrollable]: isScrollable || isCentered
           })}
           ref={this.registerTabBar}
           style={{
-            marginBottom: isScrollable ? `${-1 * scrollbarHeight}px` : 0
+            marginBottom: (isScrollable || isCentered) ? `${-1 * scrollbarHeight}px` : 0
           }}
         >
           <ScrollbarSize
