@@ -119,7 +119,7 @@ describe('Button', () => {
     const wrapper = mount(<Button buttonColor={Variables.$primary}>Label</Button>);
     const actual = wrapper.getDOMNode().style.color;
     const actualFixed = tinycolor(actual).toString();
-    const expected = 'rgba(0, 0, 0, 0.87)';
+    const expected = '#000000';
     assert(actualFixed === expected);
   }));
 
