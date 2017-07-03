@@ -26,6 +26,7 @@ class Button extends React.Component {
     this.onTouchEnd = this.onTouchEnd.bind(this);
     this.readableTextColor = this.readableTextColor.bind(this);
     this.registerButton = this.registerButton.bind(this);
+    this.registerRipple = this.registerRipple.bind(this);
     this.state = {
       hover: false,
       mouseFocused: false
@@ -130,6 +131,10 @@ class Button extends React.Component {
     this.props.domRef(c);
   }
 
+  registerRipple(c) {
+    this.ripple = c;
+  }
+
   render() {
     const {buttonColor, children, className, component, domRef,
       icon, fab, style, textColor, ...other} = this.props;
@@ -163,14 +168,14 @@ class Button extends React.Component {
       >
         <Typography
           type="button"
-          className={makeClass(Styles.label)}
+          className={Styles.label}
           style={{color: this.getTextColor()}}
         >
           {children}
         </Typography>
         <Ripple
           color={icon ? variables.$black87 : textColor}
-          ref={c => (this.ripple = c)}
+          ref={this.registerRipple}
         />
       </Component>
     );
