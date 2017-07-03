@@ -21,7 +21,13 @@ function AppBar({backgroundColor, className, elevation, children, primary, secon
       )}
       <Typography
         component="span"
-        className={makeClass(Styles.header, {[Styles.headerNoPrimary]: !primary})}
+        className={makeClass(
+          Styles.header,
+          Styles.headerColor,
+          {
+            [Styles.headerNoPrimary]: !primary
+          }
+        )}
         type="title"
       >
         {children}

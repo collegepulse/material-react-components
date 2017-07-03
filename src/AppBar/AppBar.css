@@ -12,6 +12,14 @@
 .header {
   color: #fff;
   line-height: 64px;
+  flex: 0 1 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.header.headerColor {
+  color: inherit;
 }
 
 .headerNoPrimary {
