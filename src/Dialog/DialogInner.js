@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Dialog.css';
 
+function ontouchmove() {
+  return true;
+}
+
 class DialogInner extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +22,15 @@ class DialogInner extends React.Component {
     window.addEventListener('keydown', this.onKeyDown);
     this.lastFocusBeforeDialog = document.activeElement;
     this.root.focus();
+
+    this.lastOnTouchMove = document.ontouchmove || ontouchmove;
+    document.ontouchmove = (e) => {
+      e.preventDefault();
+    };
+  }
+
+  componentWillUnmount() {
+    document.ontouchmove = this.lastOnTouchMove;
   }
 
   onKeyDown(e) {
