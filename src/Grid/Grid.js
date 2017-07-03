@@ -21,14 +21,7 @@ class Grid extends React.Component {
     return (
       <div className={rootClasses}>
         <div className={gutterClasses} {...other}>
-          {React.Children.map(children, child => (
-            React.cloneElement(child, {
-              className: makeClass(
-                Styles.gutterChild,
-                child.props.className
-              )
-            })
-          ))}
+          {children}
         </div>
       </div>
     );
