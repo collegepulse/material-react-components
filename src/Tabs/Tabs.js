@@ -1,3 +1,4 @@
+import {findDOMNode} from 'react-dom';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -15,6 +16,7 @@ class Tabs extends React.Component {
     this.registerTabBar = this.registerTabBar.bind(this);
     this.scrollbarSizeLoad = this.scrollbarSizeLoad.bind(this);
     this.scrollbarSizeChange = this.scrollbarSizeChange.bind(this);
+    this.registerTab = this.registerTab.bind(this);
     this.tabs = {};
     this.state = {
       inkBarLeft: 0,
@@ -51,7 +53,7 @@ class Tabs extends React.Component {
 
   setInkbarStyles(nextIndex) {
     const index = typeof nextIndex === 'number' ? nextIndex : this.props.index;
-    const currentTab = this.tabs[index];
+    const currentTab = findDOMNode(this.tabs[index]);
     if (currentTab) {
       const {width, left} = currentTab.getBoundingClientRect();
       const scrollLeft = this.tabBar.scrollLeft;
@@ -75,21 +77,24 @@ class Tabs extends React.Component {
 
   makeTabs() {
     const {children, textColor, type} = this.props;
-    return React.Children.map(children, (tab, i) => {
-      const other = {};
-      return React.cloneElement(tab, {
+    return React.Children.map(children, (tab, i) => (
+      React.cloneElement(tab, {
+        index: i,
         onClick: e => (this.onClick(e, i)),
-        domRef: (c) => {
-          this.tabs[i] = c;
-        },
+        ref: this.registerTab,
         style: {
-          boxShadow: 'none',
-          ...other
+          boxShadow: 'none'
         },
         textColor,
         type
-      });
-    });
+      })
+    ));
+  }
+
+  registerTab(c) {
+    if (c) {
+      this.tabs[c.props.index] = c;
+    }
   }
 
   registerTabBar(c) {

@@ -6,7 +6,7 @@ import Styles from './Tab.css';
 
 class Tab extends React.Component {
   render() {
-    const {label, type, ...other} = this.props;
+    const {label, type, index, ...other} = this.props;
     return (
       <Button
         {...other}
@@ -22,12 +22,14 @@ class Tab extends React.Component {
 }
 
 Tab.defaultProps = {
+  index: null,
   domRef: () => {},
   label: null,
   type: 'fixed'
 };
 
 Tab.propTypes = {
+  index: PropTypes.number,
   domRef: PropTypes.func,
   label: PropTypes.string,
   type: PropTypes.oneOf(['fixed', 'scrollable', 'centered'])
