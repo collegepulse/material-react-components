@@ -7,12 +7,12 @@ import Typography from '../Typography';
 
 class ListItem extends React.Component {
   render() {
-    const {action, avatar, className, primary, secondary, ...other} = this.props;
+    const {action, buttonProps, avatar, className, primary, secondary, ...other} = this.props;
     return (
-      <div className={Styles.root}>
+      <div {...other} className={makeClass(Styles.root, className)}>
         <Button
-          {...other}
-          className={makeClass(Styles.button, className)}
+          {...buttonProps}
+          className={Styles.button}
           ref={c => (this.Button = c)}
         >
           {avatar && (
@@ -56,6 +56,7 @@ class ListItem extends React.Component {
 ListItem.defaultProps = {
   action: null,
   avatar: null,
+  buttonProps: {},
   className: null,
   primary: null,
   secondary: null
@@ -64,6 +65,7 @@ ListItem.defaultProps = {
 ListItem.propTypes = {
   action: PropTypes.node,
   avatar: PropTypes.node,
+  buttonProps: PropTypes.object,
   className: PropTypes.string,
   primary: PropTypes.node,
   secondary: PropTypes.node
