@@ -142,6 +142,7 @@ class Button extends React.Component {
     const readableTextColor = this.readableTextColor();
     return (
       <Component
+        tabIndex={0}
         {...other}
         className={makeClass(Styles.root, {
           [Styles.hasBackground]: buttonColor,
@@ -158,7 +159,6 @@ class Button extends React.Component {
         onMouseLeave={this.onMouseLeave}
         onTouchStart={this.onTouchStart}
         onTouchEnd={this.onTouchEnd}
-        tabIndex={0}
         onFocus={this.onFocus}
         style={{
           backgroundColor: this.getBackgroundColor(),
