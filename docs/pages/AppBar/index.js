@@ -17,7 +17,7 @@ class AppBarDocs extends React.Component {
       backgroundColor: Colors.$primary,
       children: 'AppBar',
       elevation: '2',
-      style: '{"fill": "#FFF"}',
+      style: '{"fill": "#FFF", "color": "#FFF"}',
       primary: true,
       secondary: true
     };
