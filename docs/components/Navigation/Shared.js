@@ -79,11 +79,13 @@ function Shared({onClick}) {
           {items.map(item => (
             <ListItem
               key={item.url}
-              component={NavLink}
-              activeClassName={Styles.active}
+              buttonProps={{
+                activeClassName: Styles.active,
+                component: NavLink,
+                to: item.url,
+                onClick
+              }}
               className={Styles.inactive}
-              to={item.url}
-              onClick={onClick}
               primary={(
                 <div className={Styles.primary}>
                   {item.label}
