@@ -87,7 +87,7 @@ class TextField extends React.Component {
       value, multiline, primaryColor, width, ...other} = this.props;
     const {focused, labelId} = this.state;
     const FormComponent = multiline ? 'textarea' : 'input';
-    const notEmpty = value.length > 0;
+    const notEmpty = value && value.length > 0;
     return (
       <div className={Styles.root} style={{width}}>
         {/* Shadow <textarea> is used to compute real textarea height. */}
@@ -146,7 +146,7 @@ TextField.defaultProps = {
 
 TextField.propTypes = {
   errorColor: PropTypes.string,
-  helperText: PropTypes.string,
+  helperText: PropTypes.node,
   label: PropTypes.string.isRequired,
   multiline: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
