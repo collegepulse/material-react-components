@@ -1,7 +1,10 @@
 {
   "env": {
     "production": {
-      "presets": ["react-optimize"]
+      "plugins": [
+        "transform-react-remove-prop-types",
+        "transform-runtime"
+      ]
     }
   },
   "plugins": [
