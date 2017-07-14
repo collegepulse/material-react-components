@@ -28,7 +28,7 @@ class Tabs extends React.Component {
   componentDidMount() {
     this.setInkbarStyles();
     this.timeout = setTimeout(() => (
-      this.inkbar.style.transition = 'all 250ms ease'
+      this.inkbar.style.transition = 'transform 250ms ease'
     ), 0);
     window.addEventListener('resize', this.setInkbarStyles);
   }
@@ -145,9 +145,9 @@ class Tabs extends React.Component {
           <div
             className={Styles.inkbar}
             style={{
-              left: this.state.inkBarLeft,
               width: this.state.inkBarWidth,
-              backgroundColor: this.props.inkBarColor
+              backgroundColor: this.props.inkBarColor,
+              transform: `translateX(${this.state.inkBarLeft})`
             }}
             ref={this.registerInkBar}
           />
