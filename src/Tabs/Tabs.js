@@ -82,6 +82,7 @@ class Tabs extends React.Component {
         index: i,
         onClick: e => (this.onClick(e, i)),
         ref: this.registerTab,
+        selected: i === this.props.index,
         style: {
           boxShadow: 'none'
         },
@@ -116,6 +117,7 @@ class Tabs extends React.Component {
       <div
         {...other}
         className={makeClass(Styles.tabs, className)}
+        role="tablist"
         style={Object.assign({}, {
           backgroundColor: barColor
         }, style)}
