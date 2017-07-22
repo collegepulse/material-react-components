@@ -18,7 +18,8 @@ class ListDocs extends React.Component {
       secondary: 'Secondary',
       avatar: true,
       action: true,
-      style: '{"width": "300px"}'
+      style: '{"width": "300px"}',
+      arrowNavigation: false
     };
   }
 
@@ -27,7 +28,7 @@ class ListDocs extends React.Component {
   }
 
   render() {
-    const {primary, secondary, avatar, action, style} = this.state;
+    const {primary, secondary, avatar, action, style, arrowNavigation} = this.state;
     let styleObj = {};
     try {
       styleObj = JSON.parse(style);
@@ -37,7 +38,7 @@ class ListDocs extends React.Component {
         componentName="List"
         buildYourOwn={
           <div style={{flex: 1, display: 'flex', justifyContent: 'center'}}>
-            <List style={styleObj}>
+            <List arrowNavigation={arrowNavigation} style={styleObj}>
               {[1, 2, 3].map(key => (
                 <ListItem
                   key={key}
@@ -78,6 +79,11 @@ class ListDocs extends React.Component {
             onChange={e => (this.onControlPanel('action', e.target.checked))}
             checked={action}
             label="action"
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('arrowNavigation', e.target.checked))}
+            checked={arrowNavigation}
+            label="arrowNavigation"
           />
         ]}
         examples={
