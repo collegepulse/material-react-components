@@ -17,7 +17,8 @@ class ButtonDocs extends React.Component {
       textColor: '#FFF',
       buttonColor: Variables.$primary,
       fab: false,
-      fill: '#FFF'
+      fill: '#FFF',
+      focusRippleDisabled: false
     };
   }
 
@@ -26,7 +27,7 @@ class ButtonDocs extends React.Component {
   }
 
   render() {
-    const {children, textColor, buttonColor, fill, fab} = this.state;
+    const {children, textColor, buttonColor, fill, fab, focusRippleDisabled} = this.state;
     return (
       <Page
         componentName="Button"
@@ -35,6 +36,7 @@ class ButtonDocs extends React.Component {
             textColor={textColor}
             buttonColor={buttonColor}
             fab={fab}
+            focusRippleDisabled={focusRippleDisabled}
           >
             {fab ? <Add fill={fill} focusable={false} /> : children}
           </Button>
@@ -68,6 +70,11 @@ class ButtonDocs extends React.Component {
             onChange={e => (this.onControlPanel('fab', e.target.checked))}
             checked={fab}
             label="fab"
+          />,
+          <Switch
+            onChange={e => (this.onControlPanel('focusRippleDisabled', e.target.checked))}
+            checked={focusRippleDisabled}
+            label="focusRippleDisabled"
           />
         ]}
         examples={

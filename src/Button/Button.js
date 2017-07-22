@@ -9,31 +9,26 @@ import tinycolor from 'tinycolor2';
 import variables from '../variables';
 import Typography from '../Typography';
 
+const touchEvents = ['mouseDown', 'mouseUp', 'touchStart', 'touchEnd'];
+
+function rippleMiddleware(instance, eventName, cb) {
+  return (e) => {
+    if (!instance.props.focusRippleDisabled ||
+      (instance.props.focusRippleDisabled && touchEvents.indexOf(eventName) > -1)) {
+      return cb.call(instance, e);
+    }
+
+    return true;
+  };
+}
+
 class Button extends React.Component {
+  state = {
+    hover: false,
+    mouseFocused: false
+  };
 
-  constructor(props) {
-    super(props);
-    this.getTextColor = this.getTextColor.bind(this);
-    this.getBackgroundColor = this.getBackgroundColor.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-    this.onMouseDown = this.onMouseDown.bind(this);
-    this.onMouseUp = this.onMouseUp.bind(this);
-    this.onMouseEnter = this.onMouseEnter.bind(this);
-    this.onMouseLeave = this.onMouseLeave.bind(this);
-    this.onBlur = this.onBlur.bind(this);
-    this.onFocus = this.onFocus.bind(this);
-    this.onTouchStart = this.onTouchStart.bind(this);
-    this.onTouchEnd = this.onTouchEnd.bind(this);
-    this.readableTextColor = this.readableTextColor.bind(this);
-    this.registerButton = this.registerButton.bind(this);
-    this.registerRipple = this.registerRipple.bind(this);
-    this.state = {
-      hover: false,
-      mouseFocused: false
-    };
-  }
-
-  onMouseDown(e) {
+  onMouseDown = rippleMiddleware(this, 'mouseDown', (e) => {
     e.persist();
     this.setState({mouseFocused: true});
     if (findDOMNode(this) === document.activeElement) {
@@ -43,24 +38,24 @@ class Button extends React.Component {
     } else {
       this.ripple.add(e, {centered: this.props.icon});
     }
-  }
+  });
 
-  onMouseUp(e) {
+  onMouseUp = rippleMiddleware(this, 'mouseUp', (e) => {
     this.ripple.remove(e);
-  }
+  });
 
-  onMouseEnter() {
+  onMouseEnter = rippleMiddleware(this, 'mouseEnter', () => {
     this.setState({hover: true});
-  }
+  });
 
-  onMouseLeave(e) {
+  onMouseLeave = rippleMiddleware(this, 'mouseLeave', (e) => {
     this.setState({hover: false});
     if (this.button !== document.activeElement) {
       this.ripple.remove(e);
     }
-  }
+  });
 
-  onKeyDown(e, ...args) {
+  onKeyDown = rippleMiddleware(this, 'keyDown', (e, ...args) => {
     this.setState({mouseFocused: false});
     const key = keycode(e.keyCode);
     const isAnchorTag = findDOMNode(this).tagName === 'A';
@@ -71,28 +66,28 @@ class Button extends React.Component {
       ));
     }
     this.props.onKeyDown(e, ...args);
-  }
+  });
 
-  onFocus(e) {
+  onFocus = rippleMiddleware(this, 'focus', (e) => {
     if (!this.state.mouseFocused) {
       this.ripple.add(e, {pulsate: !this.props.icon, centered: true});
     }
-  }
+  });
 
-  onBlur(e) {
+  onBlur = rippleMiddleware(this, 'blur', (e) => {
     this.ripple.remove(e);
     this.setState({mouseFocused: false});
-  }
+  });
 
-  onTouchStart(e) {
+  onTouchStart = rippleMiddleware(this, 'touchStart', (e) => {
     this.ripple.add(e, {centered: this.props.icon});
-  }
+  });
 
-  onTouchEnd(e) {
+  onTouchEnd = rippleMiddleware(this, 'touchEnd', (e) => {
     this.ripple.remove(e);
-  }
+  });
 
-  getTextColor() {
+  getTextColor = () => {
     const {buttonColor, textColor} = this.props;
 
     if (buttonColor && !textColor) {
@@ -102,9 +97,9 @@ class Button extends React.Component {
     }
 
     return variables.$black87;
-  }
+  };
 
-  getBackgroundColor() {
+  getBackgroundColor = () => {
     const {buttonColor, icon, textColor} = this.props;
     const {hover} = this.state;
 
@@ -118,26 +113,26 @@ class Button extends React.Component {
     }
 
     return buttonColor;
-  }
+  };
 
-  readableTextColor() {
+  readableTextColor = () => {
     const {buttonColor} = this.props;
     const colors = [variables.$white, variables.$black87];
     return tinycolor.mostReadable(buttonColor, colors).toString();
-  }
+  };
 
-  registerButton(c) {
+  registerButton = (c) => {
     this.button = c;
     this.props.domRef(c);
-  }
+  };
 
-  registerRipple(c) {
+  registerRipple = (c) => {
     this.ripple = c;
-  }
+  };
 
   render() {
     const {buttonColor, children, className, component, domRef,
-      icon, fab, style, textColor, ...other} = this.props;
+      focusRippleDisabled, icon, fab, style, textColor, ...other} = this.props;
     const Component = component;
     const readableTextColor = this.readableTextColor();
     return (
@@ -189,6 +184,7 @@ Button.defaultProps = {
   component: 'button',
   domRef: () => {},
   fab: false,
+  focusRippleDisabled: false,
   icon: false,
   onKeyDown: () => {},
   style: null,
@@ -202,6 +198,7 @@ Button.propTypes = {
   component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   domRef: PropTypes.func,
   fab: PropTypes.bool,
+  focusRippleDisabled: PropTypes.bool,
   icon: PropTypes.bool,
   onKeyDown: PropTypes.func,
   style: PropTypes.object,
