@@ -3,10 +3,11 @@ import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Tab.css';
+import Variables from '../variables';
 
 class Tab extends React.Component {
   render() {
-    const {label, selected, type, index, ...other} = this.props;
+    const {label, selected, type, index, indexChanged, inkBarColor, ...other} = this.props;
     return (
       <Button
         {...other}
@@ -18,6 +19,12 @@ class Tab extends React.Component {
         role="tab"
       >
         {label}
+        {selected && !indexChanged && (
+          <div
+            className={Styles.indicator}
+            style={{backgroundColor: inkBarColor}}
+          />
+        )}
       </Button>
     );
   }
@@ -25,6 +32,8 @@ class Tab extends React.Component {
 
 Tab.defaultProps = {
   index: null,
+  indexChanged: true,
+  inkBarColor: Variables.$accent,
   domRef: () => {},
   label: null,
   selected: false,
@@ -33,6 +42,8 @@ Tab.defaultProps = {
 
 Tab.propTypes = {
   index: PropTypes.number,
+  indexChanged: PropTypes.bool,
+  inkBarColor: PropTypes.string,
   domRef: PropTypes.func,
   label: PropTypes.string,
   selected: PropTypes.bool,

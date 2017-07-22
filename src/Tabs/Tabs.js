@@ -7,38 +7,29 @@ import Styles from './Tabs.css';
 import Variables from '../variables';
 
 class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
-    this.setInkbarStyles = this.setInkbarStyles.bind(this);
-    this.makeTabs = this.makeTabs.bind(this);
-    this.registerInkBar = this.registerInkBar.bind(this);
-    this.registerTabBar = this.registerTabBar.bind(this);
-    this.scrollbarSizeLoad = this.scrollbarSizeLoad.bind(this);
-    this.scrollbarSizeChange = this.scrollbarSizeChange.bind(this);
-    this.registerTab = this.registerTab.bind(this);
-    this.tabs = {};
-    this.state = {
-      inkBarLeft: 0,
-      inkBarWidth: 0,
-      scrollbarHeight: 0
-    };
-  }
+  state = {
+    inkBarLeft: 0,
+    inkBarWidth: 0,
+    scrollbarHeight: 0,
+    indexChanged: false
+  };
 
   componentDidMount() {
-    this.setInkbarStyles();
-    this.timeout = setTimeout(() => (
-      this.inkbar.style.transition = 'transform 250ms ease'
-    ), 0);
     window.addEventListener('resize', this.setInkbarStyles);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.index !== nextProps.index) {
+      this.setState({indexChanged: true});
+    }
+  }
+
   componentDidUpdate({index, type}) {
-    if (this.props.index !== index ||
-      this.props.type !== type) {
-      setTimeout(() => (
-        this.setInkbarStyles()
-      ), 0);
+    if (
+      this.props.index !== index ||
+      this.props.type !== type
+    ) {
+      this.setInkbarStyles();
     }
   }
 
@@ -47,19 +38,32 @@ class Tabs extends React.Component {
     clearTimeout(this.timeout);
   }
 
-  onClick(e, index) {
+  onClick = (e, index) => {
     this.props.onChange(e, index);
   }
 
-  setInkbarStyles(nextIndex) {
+  getMetadata = (nextIndex) => {
+    const meta = {};
+    if (this.tabBar) {
+      meta.tabsMeta = this.tabBar.getBoundingClientRect();
+      meta.tabsMeta.scrollLeft = this.tabBar.scrollLeft;
+    }
     const index = typeof nextIndex === 'number' ? nextIndex : this.props.index;
     const currentTab = findDOMNode(this.tabs[index]);
     if (currentTab) {
-      const {width, left} = currentTab.getBoundingClientRect();
-      const scrollLeft = this.tabBar.scrollLeft;
-      const tabBarLeft = this.tabBar.getBoundingClientRect().left;
-      const inkBarLeft = `${(scrollLeft + left) - tabBarLeft}px`;
-      const inkBarWidth = `${width}px`;
+      meta.tabMeta = currentTab.getBoundingClientRect();
+    }
+    return meta;
+  }
+
+  setInkbarStyles = (nextIndex) => {
+    const {tabsMeta, tabMeta} = this.getMetadata(nextIndex);
+    const inkBarLeft = `${tabMeta.left + (tabsMeta.scrollLeft - tabsMeta.left)}px`;
+    const inkBarWidth = `${tabMeta.width}px`;
+    if (
+      this.state.inkBarLeft !== inkBarLeft ||
+      this.state.inkBarWidth !== inkBarWidth
+    ) {
       this.setState({
         inkBarLeft,
         inkBarWidth
@@ -67,19 +71,24 @@ class Tabs extends React.Component {
     }
   }
 
-  scrollbarSizeLoad({scrollbarHeight}) {
+  tabs = {};
+
+  scrollbarSizeLoad = ({scrollbarHeight}) => {
     this.setState({scrollbarHeight});
   }
 
-  scrollbarSizeChange(scrollbarHeight) {
+  scrollbarSizeChange = (scrollbarHeight) => {
     this.setState({scrollbarHeight});
   }
 
-  makeTabs() {
-    const {children, textColor, type} = this.props;
+  makeTabs = () => {
+    const {children, inkBarColor, textColor, type} = this.props;
+    const {indexChanged} = this.state;
     return React.Children.map(children, (tab, i) => (
       React.cloneElement(tab, {
         index: i,
+        indexChanged,
+        inkBarColor,
         onClick: e => (this.onClick(e, i)),
         ref: this.registerTab,
         selected: i === this.props.index,
@@ -92,17 +101,17 @@ class Tabs extends React.Component {
     ));
   }
 
-  registerTab(c) {
+  registerTab = (c) => {
     if (c) {
       this.tabs[c.props.index] = c;
     }
   }
 
-  registerTabBar(c) {
+  registerTabBar = (c) => {
     this.tabBar = c;
   }
 
-  registerInkBar(c) {
+  registerInkBar = (c) => {
     this.inkbar = c;
   }
 

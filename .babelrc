@@ -8,8 +8,16 @@
     }
   },
   "plugins": [
+    "transform-class-properties",
     "transform-object-rest-spread",
-    "transform-object-assign"
+    "transform-object-assign",
+    [
+      "transform-runtime", {
+        helpers: false,
+        polyfill: false,
+        regenerator: true
+      }
+    ]
   ],
   "presets": [
     [

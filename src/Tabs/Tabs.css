@@ -43,4 +43,5 @@
   bottom: 0;
   width: 0;
   background-color: $accent;
+  transition: transform 250ms ease;
 }

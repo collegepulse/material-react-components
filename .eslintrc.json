@@ -2,11 +2,13 @@
   "extends": "airbnb",
   "globals": {
     "document": true,
+    "Element": true,
     "Event": true,
     "navigator": true,
     "window": true,
     "__TEST__": true
   },
+  "parser": "babel-eslint",
   "rules": {
     "comma-dangle": 0,
     "import/first": 0,
