@@ -15,6 +15,7 @@ class Tabs extends React.Component {
   };
 
   componentDidMount() {
+    this.setInkbarStyles();
     window.addEventListener('resize', this.setInkbarStyles);
   }
 
@@ -157,7 +158,7 @@ class Tabs extends React.Component {
             className={Styles.inkbar}
             style={{
               width: this.state.inkBarWidth,
-              backgroundColor: this.props.inkBarColor,
+              backgroundColor: this.state.indexChanged ? this.props.inkBarColor : 'transparent',
               transform: `translateX(${this.state.inkBarLeft})`
             }}
             ref={this.registerInkBar}
