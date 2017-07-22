@@ -27,7 +27,11 @@ describe('Tabs', () => {
   });
 
   it('should deep render', () => {
-    const wrapper = mount(<Tabs />);
+    const wrapper = mount(
+      <Tabs>
+        <Tab label="Foo" />
+      </Tabs>
+    );
     assert(wrapper);
   });
 
@@ -56,11 +60,14 @@ describe('Tabs', () => {
         <Tab label="baz" />
       </Tabs>
     );
-    const oldLeft = parseInt(wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left, 10);
-    wrapper.setProps({index: 1});
+
+    const numberPattern = /\d+/g;
+    const node = wrapper.find(`.${Styles.inkbar}`).getDOMNode();
+    const oldLeft = node.style.transform.match(numberPattern)[0];
+    wrapper.setProps({index: 2});
 
     setTimeout(() => {
-      const newLeft = parseInt(wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left, 10);
+      const newLeft = node.style.transform.match(numberPattern)[0];
       assert(oldLeft !== newLeft);
     }, 100);
   }));
@@ -73,7 +80,10 @@ describe('Tabs', () => {
         <Tab label="baz" />
       </Tabs>
     );
-    const beginLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
+
+    const numberPattern = /\d+/g;
+    const node = wrapper.find(`.${Styles.inkbar}`).getDOMNode();
+    const beginLeftOffset = node.style.transform.match(numberPattern)[0];
 
     setTimeout(() => {
       wrapper.getDOMNode().style.width = '200px';
@@ -86,8 +96,8 @@ describe('Tabs', () => {
     }, 700);
 
     setTimeout(() => {
-      const endLeftOffset = wrapper.find(`.${Styles.inkbar}`).getDOMNode().style.left;
+      const endLeftOffset = node.style.transform.match(numberPattern)[0];
       assert(parseInt(beginLeftOffset, 10) > parseInt(endLeftOffset, 10));
-    }, 1000);
+    }, 900);
   }));
 });

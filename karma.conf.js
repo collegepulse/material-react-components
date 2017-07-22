@@ -156,6 +156,7 @@ module.exports = function (config) {
               loader: 'babel-loader',
               options: {
                 plugins: [
+                  'transform-class-properties',
                   'empower-assert',
                   [
                     'espower', {
