@@ -7,17 +7,20 @@ import Styles from './SvgIcon.css';
 /* This wrapper is a necessary abstraction since IE11 makes
  * SVG's tab key focusable, even when tabindex = -1.
  */
-function SvgIcon({buttonProps, component, ...other}) {
-  const Component = component;
-  return (
-    <Button
-      icon
-      {...buttonProps}
-      className={makeClass(Styles.root, buttonProps.className)}
-    >
-      <Component focusable={false} {...other} />
-    </Button>
-  );
+class SvgIcon extends React.Component {
+  render() {
+    const {buttonProps, component, ...other} = this.props;
+    const Component = component;
+    return (
+      <Button
+        icon
+        {...buttonProps}
+        className={makeClass(Styles.root, buttonProps.className)}
+      >
+        <Component focusable={false} {...other} />
+      </Button>
+    );
+  }
 }
 
 SvgIcon.defaultProps = {
