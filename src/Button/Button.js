@@ -143,6 +143,7 @@ class Button extends React.Component {
           [Styles.hasBackground]: buttonColor,
           [Styles.isIcon]: icon,
           [Styles.fab]: fab,
+          [Styles.isNotFab]: !fab,
           [Styles.lightText]: readableTextColor === variables.$white,
           [Styles.darkText]: readableTextColor !== variables.$black87
         }, className)}
