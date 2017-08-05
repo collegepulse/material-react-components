@@ -6,6 +6,14 @@ import Styles from './Ripple.css';
 
 /* Usage note: the parent DOM element must have relative positioning. */
 class Ripple extends React.Component {
+  static defaultProps = {
+    color: 'rgba(0, 0, 0, 0.87)'
+  };
+
+  static propTypes = {
+    color: PropTypes.string
+  };
+
   constructor(props) {
     super(props);
     this.add = this.add.bind(this);
@@ -15,6 +23,14 @@ class Ripple extends React.Component {
       nextKey: 0,
       ripples: []
     };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      this.props.color !== nextProps.color ||
+      this.state.ripples.length !== nextState.ripples.length ||
+      this.state.nextKey !== nextState.nextKey
+    );
   }
 
   add(e, options, cb = () => {}) {
@@ -88,10 +104,3 @@ class Ripple extends React.Component {
 
 export default Ripple;
 
-Ripple.defaultProps = {
-  color: 'rgba(0, 0, 0, 0.87)'
-};
-
-Ripple.propTypes = {
-  color: PropTypes.string
-};
