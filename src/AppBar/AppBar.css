@@ -22,20 +22,29 @@
   color: inherit;
 }
 
-.headerNoPrimary {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
 .primary,
 .secondary {
   height: 64px;
   display: flex;
   align-items: center;
+}
+
+.primary,
+.headerNoPrimary {
   padding-left: 16px;
-  padding-right: 16px;
 }
 
 .secondary {
   margin-left: auto;
+  padding-right: 16px;
+}
+
+@media (min-width: 600px) {
+  .headerNoPrimary {
+    padding-right: 16px;
+  }
+
+  .secondary {
+    padding-left: 16px;
+  }
 }
