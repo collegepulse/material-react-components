@@ -7,22 +7,6 @@ import Variables from '../variables';
 
 class Tab extends React.Component {
 
-  renderButton = () => {
-    const {label, selected, type, index, indexChanged, indicatorColor, ...other} = this.props;
-    return (
-      <Button
-        {...other}
-        aria-selected={selected}
-        className={makeClass(Styles.button, {
-          [Styles.scrollable]: type === 'scrollable'
-        })}
-        role="tab"
-      >
-        {label}
-      </Button>
-    );
-  }
-
   renderIndicator = () => (
     <div
       aria-hidden
@@ -32,19 +16,25 @@ class Tab extends React.Component {
   )
 
   render() {
-    const {selected, indexChanged, type} = this.props;
+    const {label, selected, type, index, indexChanged,
+      indicatorColor, ...other} = this.props;
     const showInitialIndicator = selected && !indexChanged;
     const isFixed = type === 'fixed';
 
     return (
-      <li
-        className={makeClass(Styles.tab, {[Styles.tabFixed]: isFixed})}
+      <Button
+        {...other}
+        className={makeClass(Styles.button, {
+          [Styles.tabFixed]: isFixed
+        })}
         role="tab"
         aria-selected={selected}
       >
-        {this.renderButton()}
+        <div className={Styles.label}>
+          {label}
+        </div>
         {showInitialIndicator && this.renderIndicator()}
-      </li>
+      </Button>
     );
   }
 }

@@ -134,14 +134,14 @@ class Tabs extends React.Component {
             margin: `0 0 -${scrollbarHeight}px`
           }}
         >
-          <ul
-            role="tablist"
+          <div
             className={makeClass(Styles.tabList, {
               [Styles.tabListFixed]: isFixed
             })}
+            role="tablist"
           >
             {this.renderTabs()}
-          </ul>
+          </div>
           {this.state.indexChanged && (
             <div
               aria-hidden

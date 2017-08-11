@@ -9,18 +9,16 @@
 .button {
   border-radius: 0;
   margin: 0;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 0;
   box-shadow: none;
-  width: 100%;
 }
 
-.scrollable {
-  flex: 0;
+.label {
+  padding: 15px 16px;
 }
 
 .indicator {
-  position: relative;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
