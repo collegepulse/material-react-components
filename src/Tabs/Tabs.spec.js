@@ -5,7 +5,6 @@ import {createShallow, createMount, createTest} from '../../test/utils';
 import React from 'react';
 import sinon from 'sinon';
 import Styles from './Tabs.css';
-import TabStyles from './Tab.css';
 import Tabs, {Tab} from './index';
 
 describe('Tabs', () => {
