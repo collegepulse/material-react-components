@@ -82,7 +82,21 @@ class Tabs extends React.Component {
     this.setState({scrollbarHeight});
   }
 
-  makeTabs = () => {
+  registerTab = (c) => {
+    if (c) {
+      this.tabs[c.props.index] = c;
+    }
+  }
+
+  registerTabBar = (c) => {
+    this.tabBar = c;
+  }
+
+  registerInkBar = (c) => {
+    this.inkbar = c;
+  }
+
+  renderTabs = () => {
     const {children, inkBarColor, textColor, type} = this.props;
     const {indexChanged} = this.state;
     return React.Children.map(children, (tab, i) => (
@@ -102,69 +116,54 @@ class Tabs extends React.Component {
     ));
   }
 
-  registerTab = (c) => {
-    if (c) {
-      this.tabs[c.props.index] = c;
-    }
-  }
-
-  registerTabBar = (c) => {
-    this.tabBar = c;
-  }
-
-  registerInkBar = (c) => {
-    this.inkbar = c;
-  }
-
   render() {
     const {barColor, className, style, type,
      inkBarColor, textColor, index, ...other} = this.props;
     const isFixed = type === 'fixed';
-    const isScrollable = type === 'scrollable';
     const isCentered = type === 'centered';
     const {scrollbarHeight} = this.state;
     return (
       <div
         {...other}
-        className={makeClass(Styles.tabs, className)}
-        role="tablist"
-        style={Object.assign({}, {
+        className={Styles.tabs}
+        style={{
           backgroundColor: barColor
-        }, style)}
+        }}
       >
         <div
-          className={makeClass({
-            [Styles.fixed]: isFixed,
-            [Styles.centered]: isCentered,
-            [Styles.scrollable]: isScrollable || isCentered
-          })}
+          className={Styles.tabsInner}
+          ref={this.registerTabBar}
           style={{
-            marginBottom: `${-1 * (scrollbarHeight)}px`
+            textAlign: isCentered ? 'center' : 'left',
+            margin: `0 0 -${scrollbarHeight}px`
           }}
         >
+          <ul
+            role="tablist"
+            className={makeClass(Styles.tabList, {
+              [Styles.tabListFixed]: isFixed
+            })}
+          >
+            {this.renderTabs()}
+          </ul>
+          {this.state.indexChanged && (
+            <div
+              aria-hidden
+              className={Styles.indicator}
+              style={{
+                width: this.state.inkBarWidth,
+                backgroundColor: this.props.inkBarColor,
+                transform: `translateX(${this.state.inkBarLeft})`
+              }}
+              ref={this.registerInkBar}
+            />
+          )}
+        </div>
+        <div aria-hidden>
           <ScrollbarSize
             onLoad={this.scrollbarSizeLoad}
             onChange={this.scrollbarSizeChange}
           />
-          <div
-            className={makeClass({
-              [Styles.fullWidth]: isFixed,
-              [Styles.scrollableInner]: isScrollable || isCentered
-            })}
-            ref={this.registerTabBar}
-          >
-            {this.makeTabs()}
-            {this.state.indexChanged && (<div
-              className={Styles.inkbar}
-              style={{
-                width: this.state.inkBarWidth,
-                backgroundColor: this.props.inkBarColor,
-                transform: `translateX(${this.state.inkBarLeft})`,
-                transition: 'all 250ms ease'
-              }}
-              ref={this.registerInkBar}
-            />)}
-          </div>
         </div>
       </div>
     );

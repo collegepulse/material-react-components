@@ -13,8 +13,7 @@ class Tab extends React.Component {
       <Button
         {...other}
         aria-selected={selected}
-        className={makeClass(Styles.tab, {
-          [Styles.fixed]: type === 'fixed',
+        className={makeClass(Styles.button, {
           [Styles.scrollable]: type === 'scrollable'
         })}
         role="tab"
@@ -26,25 +25,27 @@ class Tab extends React.Component {
 
   renderIndicator = () => (
     <div
+      aria-hidden
       className={Styles.indicator}
       style={{backgroundColor: this.props.inkBarColor}}
     />
   )
 
   render() {
-    const {selected, indexChanged} = this.props;
+    const {selected, indexChanged, type} = this.props;
     const showInitialIndicator = selected && !indexChanged;
+    const isFixed = type === 'fixed';
 
-    if (showInitialIndicator) {
-      return (
-        <div style={{display: 'inline-block'}}>
-          {this.renderButton()}
-          {this.renderIndicator()}
-        </div>
-      );
-    }
-
-    return this.renderButton();
+    return (
+      <li
+        className={makeClass(Styles.tab, {[Styles.tabFixed]: isFixed})}
+        role="tab"
+        aria-selected={selected}
+      >
+        {this.renderButton()}
+        {showInitialIndicator && this.renderIndicator()}
+      </li>
+    );
   }
 }
 
