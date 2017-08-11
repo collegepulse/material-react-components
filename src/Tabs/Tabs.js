@@ -8,15 +8,15 @@ import Variables from '../variables';
 
 class Tabs extends React.Component {
   state = {
-    inkBarLeft: 0,
-    inkBarWidth: 0,
+    indicatorLeft: 0,
+    indicatorWidth: 0,
     scrollbarHeight: 0,
     indexChanged: false
   };
 
   componentDidMount() {
-    this.setInkbarStyles();
-    window.addEventListener('resize', this.setInkbarStyles);
+    this.setIndicatorStyles();
+    window.addEventListener('resize', this.setIndicatorStyles);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,12 +30,12 @@ class Tabs extends React.Component {
       this.props.index !== index ||
       this.props.type !== type
     ) {
-      this.setInkbarStyles();
+      this.setIndicatorStyles();
     }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.setInkbarStyles);
+    window.removeEventListener('resize', this.setIndicatorStyles);
     clearTimeout(this.timeout);
   }
 
@@ -45,9 +45,9 @@ class Tabs extends React.Component {
 
   getMetadata = (nextIndex) => {
     const meta = {};
-    if (this.tabBar) {
-      meta.tabsMeta = this.tabBar.getBoundingClientRect();
-      meta.tabsMeta.scrollLeft = this.tabBar.scrollLeft;
+    if (this.tabsInner) {
+      meta.tabsMeta = this.tabsInner.getBoundingClientRect();
+      meta.tabsMeta.scrollLeft = this.tabsInner.scrollLeft;
     }
     const index = typeof nextIndex === 'number' ? nextIndex : this.props.index;
     const currentTab = findDOMNode(this.tabs[index]);
@@ -57,17 +57,17 @@ class Tabs extends React.Component {
     return meta;
   }
 
-  setInkbarStyles = (nextIndex) => {
+  setIndicatorStyles = (nextIndex) => {
     const {tabsMeta, tabMeta} = this.getMetadata(nextIndex);
-    const inkBarLeft = `${tabMeta.left + (tabsMeta.scrollLeft - tabsMeta.left)}px`;
-    const inkBarWidth = `${tabMeta.width}px`;
+    const indicatorLeft = `${tabMeta.left + (tabsMeta.scrollLeft - tabsMeta.left)}px`;
+    const indicatorWidth = `${tabMeta.width}px`;
     if (
-      this.state.inkBarLeft !== inkBarLeft ||
-      this.state.inkBarWidth !== inkBarWidth
+      this.state.indicatorLeft !== indicatorLeft ||
+      this.state.indicatorWidth !== indicatorWidth
     ) {
       this.setState({
-        inkBarLeft,
-        inkBarWidth
+        indicatorLeft,
+        indicatorWidth
       });
     }
   }
@@ -88,22 +88,18 @@ class Tabs extends React.Component {
     }
   }
 
-  registerTabBar = (c) => {
-    this.tabBar = c;
-  }
-
-  registerInkBar = (c) => {
-    this.inkbar = c;
+  registerTabsInner = (c) => {
+    this.tabsInner = c;
   }
 
   renderTabs = () => {
-    const {children, inkBarColor, textColor, type} = this.props;
+    const {children, indicatorColor, textColor, type} = this.props;
     const {indexChanged} = this.state;
     return React.Children.map(children, (tab, i) => (
       React.cloneElement(tab, {
         index: i,
         indexChanged,
-        inkBarColor,
+        indicatorColor,
         onClick: e => (this.onClick(e, i)),
         ref: this.registerTab,
         selected: i === this.props.index,
@@ -118,7 +114,7 @@ class Tabs extends React.Component {
 
   render() {
     const {barColor, className, style, type,
-     inkBarColor, textColor, index, ...other} = this.props;
+     indicatorColor, textColor, index, ...other} = this.props;
     const isFixed = type === 'fixed';
     const isCentered = type === 'centered';
     const {scrollbarHeight} = this.state;
@@ -132,7 +128,7 @@ class Tabs extends React.Component {
       >
         <div
           className={Styles.tabsInner}
-          ref={this.registerTabBar}
+          ref={this.registerTabsInner}
           style={{
             textAlign: isCentered ? 'center' : 'left',
             margin: `0 0 -${scrollbarHeight}px`
@@ -151,11 +147,10 @@ class Tabs extends React.Component {
               aria-hidden
               className={Styles.indicator}
               style={{
-                width: this.state.inkBarWidth,
-                backgroundColor: this.props.inkBarColor,
-                transform: `translateX(${this.state.inkBarLeft})`
+                width: this.state.indicatorWidth,
+                backgroundColor: this.props.indicatorColor,
+                transform: `translateX(${this.state.indicatorLeft})`
               }}
-              ref={this.registerInkBar}
             />
           )}
         </div>
@@ -175,7 +170,7 @@ Tabs.defaultProps = {
   children: null,
   className: null,
   index: 0,
-  inkBarColor: Variables.$accent,
+  indicatorColor: Variables.$accent,
   onChange: () => {},
   style: {},
   textColor: '#fff',
@@ -187,7 +182,7 @@ Tabs.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   index: PropTypes.number,
-  inkBarColor: PropTypes.string,
+  indicatorColor: PropTypes.string,
   onChange: PropTypes.func,
   style: PropTypes.object,
   textColor: PropTypes.string,

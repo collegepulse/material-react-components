@@ -15,7 +15,7 @@ class TabsDocs extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.state = {
       barColor: Variables.$primary,
-      inkBarColor: Variables.$accent,
+      indicatorColor: Variables.$accent,
       textColor: '#FFF',
       type: {id: 'fixed', value: 'fixed'},
       index: 0,
@@ -43,7 +43,7 @@ class TabsDocs extends React.Component {
         buildYourOwn={
           <Tabs
             barColor={this.state.barColor}
-            inkBarColor={this.state.inkBarColor}
+            indicatorColor={this.state.indicatorColor}
             textColor={this.state.textColor}
             index={this.state.index}
             type={this.state.type.value}
@@ -62,9 +62,9 @@ class TabsDocs extends React.Component {
             value={this.state.barColor}
           />,
           <TextField
-            onChange={e => (this.onControlPanel('inkBarColor', e.target.value))}
-            label="inkBarColor"
-            value={this.state.inkBarColor}
+            onChange={e => (this.onControlPanel('indicatorColor', e.target.value))}
+            label="indicatorColor"
+            value={this.state.indicatorColor}
           />,
           <TextField
             onChange={e => (this.onControlPanel('textColor', e.target.value))}
@@ -146,7 +146,7 @@ class TabsDocs extends React.Component {
               <Paper elevation={3}>
                 <Tabs
                   barColor={'#f5f5f5'}
-                  inkBarColor={Variables.$orange700}
+                  indicatorColor={Variables.$orange700}
                   textColor={'rgba(0, 0, 0, 0.54)'}
                   index={this.state.tabsScrollable}
                   onChange={(e, index) => (this.onChange(e, index, 'tabsScrollable'))}
@@ -177,7 +177,7 @@ class TabsDocs extends React.Component {
               <Paper elevation={3}>
                 <Tabs
                   barColor={'#f5f5f5'}
-                  inkBarColor={Variables.$orange700}
+                  indicatorColor={Variables.$orange700}
                   textColor={'rgba(0, 0, 0, 0.54)'}
                   index={this.state.tabsCentered}
                   onChange={(e, index) => (this.onChange(e, index, 'tabsCentered'))}

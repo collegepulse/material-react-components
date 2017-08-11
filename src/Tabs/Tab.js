@@ -8,7 +8,7 @@ import Variables from '../variables';
 class Tab extends React.Component {
 
   renderButton = () => {
-    const {label, selected, type, index, indexChanged, inkBarColor, ...other} = this.props;
+    const {label, selected, type, index, indexChanged, indicatorColor, ...other} = this.props;
     return (
       <Button
         {...other}
@@ -27,7 +27,7 @@ class Tab extends React.Component {
     <div
       aria-hidden
       className={Styles.indicator}
-      style={{backgroundColor: this.props.inkBarColor}}
+      style={{backgroundColor: this.props.indicatorColor}}
     />
   )
 
@@ -52,7 +52,7 @@ class Tab extends React.Component {
 Tab.defaultProps = {
   index: null,
   indexChanged: true,
-  inkBarColor: Variables.$accent,
+  indicatorColor: Variables.$accent,
   domRef: () => {},
   label: null,
   selected: false,
@@ -62,7 +62,7 @@ Tab.defaultProps = {
 Tab.propTypes = {
   index: PropTypes.number,
   indexChanged: PropTypes.bool,
-  inkBarColor: PropTypes.string,
+  indicatorColor: PropTypes.string,
   domRef: PropTypes.func,
   label: PropTypes.string,
   selected: PropTypes.bool,

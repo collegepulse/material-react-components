@@ -5,6 +5,7 @@ import {createShallow, createMount, createTest} from '../../test/utils';
 import React from 'react';
 import sinon from 'sinon';
 import Styles from './Tabs.css';
+import TabStyles from './Tab.css';
 import Tabs, {Tab} from './index';
 
 describe('Tabs', () => {
@@ -52,7 +53,7 @@ describe('Tabs', () => {
     assert(onChange.args[0][1] === newIndex);
   }));
 
-  it('should repaint the inkbar when the index changes', createTest(() => {
+  it('should repaint the indicator when the index changes', createTest(() => {
     const wrapper = mount(
       <Tabs index={0} onChange={() => {}}>
         <Tab label="foo" />
@@ -62,17 +63,16 @@ describe('Tabs', () => {
     );
 
     const numberPattern = /\d+/g;
-    const node = wrapper.find(`.${Styles.inkbar}`).getDOMNode();
-    const oldLeft = node.style.transform.match(numberPattern)[0];
     wrapper.setProps({index: 2});
 
     setTimeout(() => {
-      const newLeft = node.style.transform.match(numberPattern)[0];
-      assert(oldLeft !== newLeft);
+      const node = wrapper.find(`.${Styles.indicator}`).getDOMNode();
+      const newTransform = node.style.transform.match(numberPattern)[0];
+      assert(newTransform !== 0);
     }, 100);
   }));
 
-  it('should repaint the inkbar on window resize', createTest(() => {
+  it('should repaint the indicator on window resize', createTest(() => {
     const wrapper = mount(
       <Tabs index={1} onChange={() => {}}>
         <Tab label="foo" />
@@ -82,8 +82,7 @@ describe('Tabs', () => {
     );
 
     const numberPattern = /\d+/g;
-    const node = wrapper.find(`.${Styles.inkbar}`).getDOMNode();
-    const beginLeftOffset = node.style.transform.match(numberPattern)[0];
+    wrapper.setProps({index: 2});
 
     setTimeout(() => {
       wrapper.getDOMNode().style.width = '200px';
@@ -96,8 +95,9 @@ describe('Tabs', () => {
     }, 700);
 
     setTimeout(() => {
+      const node = wrapper.find(`.${Styles.indicator}`).getDOMNode();
       const endLeftOffset = node.style.transform.match(numberPattern)[0];
-      assert(parseInt(beginLeftOffset, 10) > parseInt(endLeftOffset, 10));
+      assert(parseInt(endLeftOffset, 10) !== 0);
     }, 900);
   }));
 });
