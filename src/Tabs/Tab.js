@@ -6,7 +6,8 @@ import Styles from './Tab.css';
 import Variables from '../variables';
 
 class Tab extends React.Component {
-  render() {
+
+  renderButton = () => {
     const {label, selected, type, index, indexChanged, inkBarColor, ...other} = this.props;
     return (
       <Button
@@ -19,14 +20,31 @@ class Tab extends React.Component {
         role="tab"
       >
         {label}
-        {selected && !indexChanged && (
-          <div
-            className={Styles.indicator}
-            style={{backgroundColor: inkBarColor}}
-          />
-        )}
       </Button>
     );
+  }
+
+  renderIndicator = () => (
+    <div
+      className={Styles.indicator}
+      style={{backgroundColor: this.props.inkBarColor}}
+    />
+  )
+
+  render() {
+    const {selected, indexChanged} = this.props;
+    const showInitialIndicator = selected && !indexChanged;
+
+    if (showInitialIndicator) {
+      return (
+        <div style={{display: 'inline-block'}}>
+          {this.renderButton()}
+          {this.renderIndicator()}
+        </div>
+      );
+    }
+
+    return this.renderButton();
   }
 }
 

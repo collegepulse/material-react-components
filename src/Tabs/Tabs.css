@@ -34,14 +34,20 @@
 }
 
 .fullWidth {
-  display: flex;
+  display: block;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .inkbar {
   position: relative;
-  height: 2px;
   bottom: 0;
   width: 0;
-  background-color: $accent;
-  transition: transform 250ms ease;
+  margin-top: -2px;
+  height: 2px;
+}
+
+.scrollableInner {
+  overflow-x: scroll;
+  overflow-y: hidden;
 }

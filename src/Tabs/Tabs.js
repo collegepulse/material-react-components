@@ -138,9 +138,8 @@ class Tabs extends React.Component {
             [Styles.centered]: isCentered,
             [Styles.scrollable]: isScrollable || isCentered
           })}
-          ref={this.registerTabBar}
           style={{
-            marginBottom: (isScrollable || isCentered) ? `${-1 * scrollbarHeight}px` : 0
+            marginBottom: `${-1 * (scrollbarHeight)}px`
           }}
         >
           <ScrollbarSize
@@ -149,20 +148,23 @@ class Tabs extends React.Component {
           />
           <div
             className={makeClass({
-              [Styles.fullWidth]: isFixed
+              [Styles.fullWidth]: isFixed,
+              [Styles.scrollableInner]: isScrollable || isCentered
             })}
+            ref={this.registerTabBar}
           >
             {this.makeTabs()}
+            {this.state.indexChanged && (<div
+              className={Styles.inkbar}
+              style={{
+                width: this.state.inkBarWidth,
+                backgroundColor: this.props.inkBarColor,
+                transform: `translateX(${this.state.inkBarLeft})`,
+                transition: 'all 250ms ease'
+              }}
+              ref={this.registerInkBar}
+            />)}
           </div>
-          <div
-            className={Styles.inkbar}
-            style={{
-              width: this.state.inkBarWidth,
-              backgroundColor: this.state.indexChanged ? this.props.inkBarColor : 'transparent',
-              transform: `translateX(${this.state.inkBarLeft})`
-            }}
-            ref={this.registerInkBar}
-          />
         </div>
       </div>
     );

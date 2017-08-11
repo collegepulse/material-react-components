@@ -4,7 +4,6 @@
   padding-top: 15px;
   padding-bottom: 15px;
   box-shadow: none;
-  margin-bottom: -2px;
 }
 
 .fixed {
@@ -16,9 +15,11 @@
 }
 
 .indicator {
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
   height: 2px;
+  background-color: $accent;
+  margin-top: -2px;
 }
