@@ -82,9 +82,15 @@ class TextField extends React.Component {
     }
   }
 
+  registerShadowTextArea = (c) => { this.shadow = c; }
+  registerFormElement = (c) => { this.formElement = c; }
+  registerLabel = (c) => { this.label = c; }
+
   render() {
-    const {errorColor, helperText, label, placeholder,
-      value, multiline, primaryColor, width, ...other} = this.props;
+    const {
+      errorColor, helperText, label, placeholder,
+      value, multiline, primaryColor, width, ...other
+    } = this.props;
     const {focused, labelId} = this.state;
     const FormComponent = multiline ? 'textarea' : 'input';
     const notEmpty = value && value.length > 0;
@@ -95,7 +101,7 @@ class TextField extends React.Component {
           <textarea
             className={Styles.shadow}
             readOnly
-            ref={c => (this.shadow = c)}
+            ref={this.registerShadowTextArea}
             tabIndex={-1}
             value={value}
           />
@@ -113,12 +119,12 @@ class TextField extends React.Component {
           value={value}
           placeholder={placeholder}
           aria-labelledby={labelId}
-          ref={c => (this.formElement = c)}
+          ref={this.registerFormElement}
         />
         <label
           className={Styles.label}
           id={labelId}
-          ref={c => (this.label = c)}
+          ref={this.registerLabel}
           style={{
             color: errorColor || (focused && primaryColor)
           }}

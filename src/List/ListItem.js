@@ -6,14 +6,18 @@ import Styles from './ListItem.css';
 import Typography from '../Typography';
 
 class ListItem extends React.Component {
+  registerButton = (c) => { this.Button = c; }
+
   render() {
-    const {action, buttonProps, avatar, className, primary, secondary, ...other} = this.props;
+    const {
+      action, buttonProps, avatar, className, primary, secondary, ...other
+    } = this.props;
     return (
       <div {...other} className={makeClass(Styles.root, className)}>
         <Button
           {...buttonProps}
           className={Styles.button}
-          ref={c => (this.Button = c)}
+          ref={this.registerButton}
         >
           {avatar && (
             <div className={Styles.avatar}>

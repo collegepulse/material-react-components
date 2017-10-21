@@ -42,7 +42,7 @@ describe('Button', () => {
   });
 
   it('should set mouseFocused to true onMouseDown', () => {
-    const wrapper = mount(<Button label={'Label'} />);
+    const wrapper = mount(<Button label="Label" />);
     wrapper.simulate('mousedown', fakeEventProps);
     assert(wrapper.state('mouseFocused'));
   });

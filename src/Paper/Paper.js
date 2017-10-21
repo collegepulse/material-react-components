@@ -5,7 +5,9 @@ import Styles from './Paper.css';
 
 class Paper extends React.Component {
   render() {
-    const {backgroundColor, children, className, elevation, style, ...other} = this.props;
+    const {
+      backgroundColor, children, className, elevation, style, ...other
+    } = this.props;
     return (
       <div
         {...other}

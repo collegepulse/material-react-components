@@ -45,7 +45,9 @@ class Ripple extends React.Component {
 
     const centered = options && options.centered ? options.centered : false;
     const pulsate = options && options.pulsate ? options.pulsate : false;
-    const {left, top, bottom, right, height, width} = e.target.getBoundingClientRect();
+    const {
+      left, top, bottom, right, height, width
+    } = e.target.getBoundingClientRect();
 
     const props = {};
 
@@ -60,8 +62,8 @@ class Ripple extends React.Component {
     }
 
     const rippleSize = centered ?
-     Math.sqrt(((2 * Math.pow(width, 2)) + Math.pow(height, 2)) / 3) :
-     Math.sqrt(Math.pow(right - left, 2) + Math.pow(bottom - top, 2)) * 2;
+      Math.sqrt(((2 * Math.pow(width, 2)) + Math.pow(height, 2)) / 3) :
+      Math.sqrt(Math.pow(right - left, 2) + Math.pow(bottom - top, 2)) * 2;
 
     let {ripples} = this.state;
 

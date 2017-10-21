@@ -5,7 +5,9 @@ import Styles from './Grid.css';
 
 class Grid extends React.Component {
   render() {
-    const {children, className, margin, gutter, ...other} = this.props;
+    const {
+      children, className, margin, gutter, ...other
+    } = this.props;
 
     const rootClasses = makeClass(
       Styles.root,

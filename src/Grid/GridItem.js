@@ -6,7 +6,9 @@ import Styles from './GridItem.css';
 
 class GridItem extends React.Component {
   render() {
-    const {children, className, xs, sm, md, lg, ...other} = this.props;
+    const {
+      children, className, xs, sm, md, lg, ...other
+    } = this.props;
     const classes = makeClass(
       Styles.root,
       GridStyles.gutterChild,

@@ -6,7 +6,15 @@ import Styles from './AppBar.css';
 import Typography from '../Typography';
 import Variables from '../variables';
 
-function AppBar({backgroundColor, className, elevation, children, primary, secondary, ...other}) {
+function AppBar({
+  backgroundColor,
+  className,
+  elevation,
+  children,
+  primary,
+  secondary,
+  ...other
+}) {
   return (
     <Paper
       {...other}

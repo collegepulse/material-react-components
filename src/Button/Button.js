@@ -123,8 +123,10 @@ class Button extends React.Component {
   };
 
   render() {
-    const {buttonColor, children, className, component,
-      focusRippleDisabled, icon, fab, style, textColor, ...other} = this.props;
+    const {
+      buttonColor, children, className, component,
+      focusRippleDisabled, icon, fab, style, textColor, ...other
+    } = this.props;
     const Component = component;
     const readableTextColor = this.readableTextColor();
     return (

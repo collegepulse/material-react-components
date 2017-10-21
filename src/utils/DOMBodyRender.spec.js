@@ -18,23 +18,25 @@ describe('DOMBodyRender', () => {
 
   it('should deep render', () => {
     const text = 'Foo bar';
-    const wrapper = mount(
+    const component = (
       <DOMBodyRender>
         <div>{text}</div>
       </DOMBodyRender>
     );
-    const node = wrapper.instance().node;
+    const wrapper = mount(component);
+    const { node } = wrapper.instance();
     assert(node.innerHTML.indexOf(text) > -1);
   });
 
   it('should update DOM when children change', () => {
     const oldText = 'Hello, World!';
-    const wrapper = mount(
+    const component = (
       <DOMBodyRender>
         <div>{oldText}</div>
       </DOMBodyRender>
     );
-    const node = wrapper.instance().node;
+    const wrapper = mount(component);
+    const { node } = wrapper.instance();
     assert(node.innerHTML.indexOf(oldText) > -1);
     const newText = 'New content';
     wrapper.setProps({children: <div>{newText}</div>});

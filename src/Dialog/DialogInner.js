@@ -77,13 +77,18 @@ class DialogInner extends React.Component {
     }, 350);
   }
 
+  registerRoot = (c) => { this.root = c; }
+  registerActions = (c) => { this.actions = c; }
+
   render() {
-    const {actions, className, description, onClose, open, title, ...other} = this.props;
+    const {
+      actions, className, description, onClose, open, title, ...other
+    } = this.props;
     return (
       <div // eslint-disable-line jsx-a11y/no-noninteractive-element-interactions
         {...other}
         className={makeClass(Styles.root, {[Styles.open]: open}, className)}
-        ref={c => (this.root = c)}
+        ref={this.registerRoot}
         role="document"
         tabIndex={-1}
         onKeyDown={__TEST__ ? this.onKeyDown : ontouchmove}
@@ -104,7 +109,7 @@ class DialogInner extends React.Component {
           </div>
           <div
             className={Styles.actions}
-            ref={c => (this.actions = c)}
+            ref={this.registerActions}
           >
             {actions}
           </div>

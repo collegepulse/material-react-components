@@ -33,44 +33,36 @@ describe('ListItem', () => {
   });
 
   it('should render with just a primary label', createTest(() => {
-    const wrapper = mount(
-      <ListItem
-        primary="primary"
-      />
-    );
+    const wrapper = mount(<ListItem
+      primary="primary"
+    />);
     assert(wrapper.find(`.${Styles.text}`).length === 1);
   }));
 
   it('should render with a primary and secondary label', createTest(() => {
-    const wrapper = mount(
-      <ListItem
-        primary="primary"
-        secondary="secondary"
-      />
-    );
+    const wrapper = mount(<ListItem
+      primary="primary"
+      secondary="secondary"
+    />);
     assert(wrapper.find(`.${Styles.text}`).length === 1);
   }));
 
   it('should render with an avatar, primary + secondary label', createTest(() => {
-    const wrapper = mount(
-      <ListItem
-        avatar={<Folder />}
-        primary="primary"
-        secondary="secondary"
-      />
-    );
+    const wrapper = mount(<ListItem
+      avatar={<Folder />}
+      primary="primary"
+      secondary="secondary"
+    />);
     assert(wrapper.find(`.${Styles.avatar}`).length === 1);
   }));
 
   it('should render with an avatar, primary + secondary labels, + an action', createTest(() => {
-    const wrapper = mount(
-      <ListItem
-        avatar={<Folder />}
-        primary="primary"
-        secondary="secondary"
-        action={<MoreVert />}
-      />
-    );
+    const wrapper = mount(<ListItem
+      avatar={<Folder />}
+      primary="primary"
+      secondary="secondary"
+      action={<MoreVert />}
+    />);
     assert(wrapper.find(`.${Styles.action}`).length === 1);
   }));
 });

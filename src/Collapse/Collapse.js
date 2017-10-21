@@ -31,8 +31,13 @@ class Collapse extends React.Component {
     }
   }
 
+  registerRoot = (c) => { this.root = c; }
+  registerInner = (c) => { this.rootInner = c; }
+
   render() {
-    const {open, children, className, ...other} = this.props;
+    const {
+      open, children, className, ...other
+    } = this.props;
     return (
       <div
         {...other}
@@ -41,10 +46,10 @@ class Collapse extends React.Component {
           height: this.state.height,
           overflow: this.state.overflow
         }}
-        ref={c => (this.root = c)}
+        ref={this.registerRoot}
       >
         <div
-          ref={c => (this.rootInner = c)}
+          ref={this.registerInner}
         >
           {children}
         </div>

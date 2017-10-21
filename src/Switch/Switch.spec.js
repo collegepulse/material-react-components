@@ -56,7 +56,7 @@ describe('Switch', () => {
   }));
 
   it('should use custom color when checked', createTest(() => {
-    const wrapper = mount(<Switch checked readOnly primaryColor={'rgb(255, 255, 255)'} onChange={noop} />);
+    const wrapper = mount(<Switch checked readOnly primaryColor="rgb(255, 255, 255)" onChange={noop} />);
     assert(wrapper.find(`.${Styles.track}`).getDOMNode().style.backgroundColor === 'rgb(255, 255, 255)');
   }));
 });

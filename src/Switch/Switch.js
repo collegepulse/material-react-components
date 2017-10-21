@@ -34,8 +34,12 @@ class Switch extends React.Component {
     });
   }
 
+  registerInput = (c) => { this.input = c; }
+
   render() {
-    const {checked, disabled, label, onChange, primaryColor, style, ...props} = this.props;
+    const {
+      checked, disabled, label, onChange, primaryColor, style, ...props
+    } = this.props;
     const {keyboardFocused, labelId} = this.state;
     return (
       <div
@@ -51,12 +55,12 @@ class Switch extends React.Component {
             className={Styles.input}
             onBlur={this.onBlur}
             onKeyUp={this.onKeyUp}
-            type={'checkbox'}
+            type="checkbox"
             checked={checked}
             onChange={onChange}
             disabled={disabled}
             aria-labelledby={labelId}
-            ref={c => (this.input = c)}
+            ref={this.registerInput}
           />
           <div
             className={Styles.track}

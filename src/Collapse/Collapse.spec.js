@@ -44,11 +44,7 @@ describe('Collapse', () => {
   });
 
   it('should not animate on initial render if open is set to true', (done) => {
-    const wrapper = mount(
-      <Collapse open>
-        {longDiv}
-      </Collapse>,
-    );
+    const wrapper = mount(<Collapse open>{longDiv}</Collapse>);
     const initialHeight = wrapper.getDOMNode().style.height;
     assert(parseInt(initialHeight, 10) > '0');
     setTimeout(() => {
@@ -59,11 +55,7 @@ describe('Collapse', () => {
   });
 
   it('should animate when open changes from false to true', (done) => {
-    const wrapper = mount(
-      <Collapse open={false}>
-        {longDiv}
-      </Collapse>
-    );
+    const wrapper = mount(<Collapse open={false}>{longDiv}</Collapse>);
     const initialHeight = wrapper.getDOMNode().style.height;
     wrapper.setProps({open: true});
     setTimeout(() => {
@@ -74,11 +66,7 @@ describe('Collapse', () => {
   });
 
   it('should animate when open changes from true to false', (done) => {
-    const wrapper = mount(
-      <Collapse open>
-        {longDiv}
-      </Collapse>
-    );
+    const wrapper = mount(<Collapse open>{longDiv}</Collapse>);
     const initialHeight = wrapper.getDOMNode().style.height;
     setTimeout(() => {
       wrapper.setProps({open: false});

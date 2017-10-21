@@ -93,7 +93,9 @@ class Tabs extends React.Component {
   }
 
   renderTabs = () => {
-    const {children, indicatorColor, textColor, type} = this.props;
+    const {
+      children, indicatorColor, textColor, type
+    } = this.props;
     const {indexChanged} = this.state;
     return React.Children.map(children, (tab, i) => (
       React.cloneElement(tab, {
@@ -113,8 +115,10 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const {barColor, className, style, type,
-     indicatorColor, textColor, index, ...other} = this.props;
+    const {
+      barColor, className, style, type,
+      indicatorColor, textColor, index, ...other
+    } = this.props;
     const isFixed = type === 'fixed';
     const isCentered = type === 'centered';
     const {scrollbarHeight} = this.state;

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Typography.css';
 
-function Typography({children, className, component, type, ...other}) {
+function Typography({
+  children, className, component, type, ...other
+}) {
   const Component = component;
   return (
     <Component {...other} className={makeClass([Styles[type]], className)}>

@@ -6,7 +6,6 @@ import Styles from './Tab.css';
 import Variables from '../variables';
 
 class Tab extends React.Component {
-
   renderIndicator = () => (
     <div
       aria-hidden
@@ -16,8 +15,10 @@ class Tab extends React.Component {
   )
 
   render() {
-    const {label, selected, type, index, indexChanged,
-      indicatorColor, ...other} = this.props;
+    const {
+      label, selected, type, index, indexChanged,
+      indicatorColor, ...other
+    } = this.props;
     const showInitialIndicator = selected && !indexChanged;
     const isFixed = type === 'fixed';
 

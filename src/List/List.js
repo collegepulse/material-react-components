@@ -24,10 +24,14 @@ class List extends React.Component {
     this.props.onKeyDown(e, ...args);
   }
 
+  registerRoot = (c) => { this.root = c; }
+
   render() {
-    const {arrowNavigation, children, className, onKeyDown, ...other} = this.props;
+    const {
+      arrowNavigation, children, className, onKeyDown, ...other
+    } = this.props;
     return (
-      <div {...other} className={makeClass(Styles.root, className)} ref={c => (this.root = c)}>
+      <div {...other} className={makeClass(Styles.root, className)} ref={this.registerRoot}>
         {React.Children.map(children, (child) => {
           const props = {
             buttonProps: deepAssign({focusRippleDisabled: true}, child.props.buttonProps)

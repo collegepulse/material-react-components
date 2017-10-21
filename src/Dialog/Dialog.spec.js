@@ -44,20 +44,18 @@ describe('Dialog', () => {
   });
 
   it('should mount in an open state, then close', createTest(() => {
-    const wrapper = mount(
-      <Dialog
-        open
-        title="Title"
-        description="Description"
-        onClose={() => {
+    const wrapper = mount(<Dialog
+      open
+      title="Title"
+      description="Description"
+      onClose={() => {
           wrapper.setProps({open: false});
         }}
-        actions={[
-          <Button key={'one'}>Foo</Button>,
-          <Button key={'two'}>Bar</Button>
+      actions={[
+        <Button key="one">Foo</Button>,
+        <Button key="two">Bar</Button>
         ]}
-      />
-    );
+    />);
     assert(wrapper.find(`.${Styles.root}`).length === 1);
     setTimeout(() => {
       wrapper.find(`.${Styles.root}`).simulate('keydown', {keyCode: keycode('esc')});
@@ -69,20 +67,18 @@ describe('Dialog', () => {
 
 
   it('should focus the first action on tab key press when last button has current focus', createTest(() => {
-    const wrapper = mount(
-      <Dialog
-        open
-        title="Title"
-        description="Description"
-        onClose={() => {
+    const wrapper = mount(<Dialog
+      open
+      title="Title"
+      description="Description"
+      onClose={() => {
           wrapper.setProps({open: false});
         }}
-        actions={[
-          <Button key={'one'}>Foo</Button>,
-          <Button key={'two'}>Bar</Button>
+      actions={[
+        <Button key="one">Foo</Button>,
+        <Button key="two">Bar</Button>
         ]}
-      />
-    );
+    />);
     wrapper.find('button').last().instance().focus();
 
     setTimeout(() => {
@@ -95,17 +91,15 @@ describe('Dialog', () => {
   }));
 
   it('should focus the last action on shift+tab key press when first action has current focus', createTest(() => {
-    const wrapper = mount(
-      <Dialog
-        open
-        title="Title"
-        description="Description"
-        actions={[
-          <Button key={'one'}>Foo</Button>,
-          <Button key={'two'}>Bar</Button>
+    const wrapper = mount(<Dialog
+      open
+      title="Title"
+      description="Description"
+      actions={[
+        <Button key="one">Foo</Button>,
+        <Button key="two">Bar</Button>
         ]}
-      />
-    );
+    />);
     wrapper.find('button').first().instance().focus();
 
     setTimeout(() => {

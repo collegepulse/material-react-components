@@ -26,8 +26,7 @@ class SvgIcon extends React.Component {
 SvgIcon.defaultProps = {
   buttonProps: {
     className: null
-  },
-  component: null
+  }
 };
 
 SvgIcon.propTypes = {

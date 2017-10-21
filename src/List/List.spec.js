@@ -34,8 +34,8 @@ describe('List', () => {
   it('should support arrow key navigation with arrowNavigation prop', createTest(() => {
     const component = (
       <List arrowNavigation>
-        <ListItem id="first" primary={'First List Item'} />
-        <ListItem id="second" primary={'Second List Item'} />
+        <ListItem id="first" primary="First List Item" />
+        <ListItem id="second" primary="Second List Item" />
       </List>
     );
     const wrapper = mount(component);

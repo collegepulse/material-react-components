@@ -19,23 +19,25 @@ describe('Tabs', () => {
   });
 
   it('should deep render', () => {
-    const wrapper = mount(
+    const component = (
       <Tabs>
         <Tab label="Foo" />
       </Tabs>
     );
+    const wrapper = mount(component);
     assert(wrapper);
   });
 
   it('should call onChange function with new index when a tab is clicked', createTest(() => {
     const onChange = sinon.spy();
-    const wrapper = mount(
+    const component = (
       <Tabs index={0} onChange={onChange}>
         <Tab label="foo" />
         <Tab label="bar" />
         <Tab label="baz" />
       </Tabs>
     );
+    const wrapper = mount(component);
     assert(wrapper);
     const newIndex = 2;
     wrapper.find('button').at(newIndex).simulate('click');
@@ -45,13 +47,14 @@ describe('Tabs', () => {
   }));
 
   it('should repaint the indicator when the index changes', createTest(() => {
-    const wrapper = mount(
+    const component = (
       <Tabs index={0} onChange={() => {}}>
         <Tab label="foo" />
         <Tab label="bar" />
         <Tab label="baz" />
       </Tabs>
     );
+    const wrapper = mount(component);
 
     const numberPattern = /\d+/g;
     wrapper.setProps({index: 2});
@@ -64,13 +67,14 @@ describe('Tabs', () => {
   }));
 
   it('should repaint the indicator on window resize', createTest(() => {
-    const wrapper = mount(
+    const component = (
       <Tabs index={1} onChange={() => {}}>
         <Tab label="foo" />
         <Tab label="bar" />
         <Tab label="baz" />
       </Tabs>
     );
+    const wrapper = mount(component);
 
     const numberPattern = /\d+/g;
     wrapper.setProps({index: 2});

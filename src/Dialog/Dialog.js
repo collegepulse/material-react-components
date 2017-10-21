@@ -9,10 +9,12 @@ function FirstChild(props) {
 }
 
 class Dialog extends React.Component { // eslint-disable-line prefer-stateless-function
+  register = (c) => { this.inner = c; }
+
   render() {
     return (
       <TransitionGroup component={FirstChild}>
-        {this.props.open && <DialogInner {...this.props} ref={c => (this.inner = c)} />}
+        {this.props.open && <DialogInner {...this.props} ref={this.register} />}
       </TransitionGroup>
     );
   }

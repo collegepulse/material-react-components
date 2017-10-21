@@ -18,7 +18,7 @@ describe('GridItem', () => {
   });
 
   it('should render a GridItem', createTest(() => {
-    const wrapper = mount(
+    const component = (
       <GridItem xs={12}>
         <div
           style={{
@@ -34,6 +34,7 @@ describe('GridItem', () => {
         </div>
       </GridItem>
     );
+    const wrapper = mount(component);
     assert(wrapper);
   }));
 });

@@ -45,6 +45,7 @@ class SnackBarItem extends React.Component {
     }
   }
 
+
   makeAction() {
     const {action} = this.props;
     return React.cloneElement(action, {
@@ -58,9 +59,12 @@ class SnackBarItem extends React.Component {
           action.props.onClick(args);
         }
       },
-      ref: c => (this.action = c)
+      ref: this.registerAction
     });
   }
+
+  registerAction = (c) => { this.action = c; }
+  registerSnackbar = (c) => { this.snackbar = c; }
 
   render() {
     const {action, delay, message} = this.props;
@@ -76,9 +80,8 @@ class SnackBarItem extends React.Component {
               className={
                 makeClass(Styles.snackbar, {
                   [Styles.delay]: delay
-                }
-              )}
-              ref={c => (this.snackbar = c)}
+                })}
+              ref={this.registerSnackbar}
             >
               <Typography type="body1" className={Styles.message}>
                 {message}

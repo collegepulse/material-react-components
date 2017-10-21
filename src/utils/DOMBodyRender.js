@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {render, unmountComponentAtNode} from 'react-dom';
 
 class DOMBodyRender extends React.Component {
-
   constructor(props) {
     super(props);
     this.node = null;
