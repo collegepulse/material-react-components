@@ -17,7 +17,7 @@ class ListItem extends React.Component {
         >
           {avatar && (
             <div className={Styles.avatar}>
-              {React.cloneElement(avatar, {focusable: false})}
+              {React.cloneElement(avatar, {focusable: 'false'})}
             </div>
           )}
           <div

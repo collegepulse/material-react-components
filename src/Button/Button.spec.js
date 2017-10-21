@@ -77,23 +77,31 @@ describe('Button', () => {
     const wrapper = mount(<Button>Label</Button>);
     wrapper.simulate('focus', fakeEventProps);
     assert(wrapper.find(`.${Styles.container}`).length === 1);
-    wrapper.simulate('keydown', {keyCode: keycode('space'), ...fakeEventProps});
-    assert(wrapper.find(`.${Styles.container}`).length === 2);
+    setTimeout(() => {
+      wrapper.simulate('keydown', {keyCode: keycode('space'), ...fakeEventProps});
+      assert(wrapper.find(`.${Styles.container}`).length === 2);
+    }, 200);
     // sometime later, the space keypress ripple is removed
     setTimeout(() => {
-      assert(wrapper.find(`.${Styles.container}`).length === 1);
+      const DOM = wrapper.html();
+      const count = (DOM.match(Styles.container) || []).length;
+      assert(count === 1);
       done();
-    }, 1000);
+    }, 700);
   });
 
   it('should add and remove ripples through the click interaction lifecycle', (done) => {
     const wrapper = mount(<Button>Label</Button>);
-    wrapper.find('button').node.focus();
+    wrapper.find('button').instance().focus();
     wrapper.simulate('mousedown', fakeEventProps);
-    wrapper.simulate('mouseup', fakeEventProps);
+    setTimeout(() => {
+      wrapper.simulate('mouseup', fakeEventProps);
+    }, 200);
     // sometime later, the mouseup ripple is removed
     setTimeout(() => {
-      assert(wrapper.find(`.${Styles.container}`).length === 0);
+      const DOM = wrapper.html();
+      const count = (DOM.match(Styles.container) || []).length;
+      assert(count === 0);
       done();
     }, 1000);
   });
@@ -104,7 +112,9 @@ describe('Button', () => {
     wrapper.simulate('touchend', fakeEventProps);
     // sometime later, the mouseup ripple is removed
     setTimeout(() => {
-      assert(wrapper.find(`.${Styles.container}`).length === 0);
+      const DOM = wrapper.html();
+      const count = (DOM.match(Styles.container) || []).length;
+      assert(count === 0);
       done();
     }, 1000);
   });

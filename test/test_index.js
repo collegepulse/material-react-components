@@ -7,3 +7,8 @@ testsContext.keys().forEach(testsContext);
 // hide karma elements added to DOM
 parent.document.getElementById('banner').style.display = 'none';
 parent.document.getElementById('browsers').style.display = 'none';
+
+var configure = require('enzyme').configure;
+var Adapter = require('enzyme-adapter-react-16');
+
+configure({ adapter: new Adapter() });

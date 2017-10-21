@@ -38,7 +38,7 @@ class ButtonDocs extends React.Component {
             fab={fab}
             focusRippleDisabled={focusRippleDisabled}
           >
-            {fab ? <Add fill={fill} focusable={false} /> : children}
+            {fab ? <Add fill={fill} focusable="false" /> : children}
           </Button>
         }
         buildYourOwnControlPanel={[
@@ -87,10 +87,10 @@ class ButtonDocs extends React.Component {
             </div>
             <div className={Styles.flex}>
               <Button fab buttonColor={Variables.$primary} textColor="#FFF">
-                <Add fill="#FFF" focusable={false} />
+                <Add fill="#FFF" focusable="false" />
               </Button>
               <Button fab buttonColor={Variables.$accent} textColor="#FFF">
-                <Edit fill="#FFF" focusable={false} />
+                <Edit fill="#FFF" focusable="false" />
               </Button>
             </div>
           </div>

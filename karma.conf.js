@@ -93,10 +93,10 @@ module.exports = function (config) {
     browsers: [
       'PhantomJSWithArgs'
     ],
-    browserNoActivityTimeout: 300e3,
-    browserDisconnectTimeout: 300e3,
+    browserNoActivityTimeout: 60e3,
+    browserDisconnectTimeout: 60e3,
     browserDisconnectTolerance: 3,
-    captureTimeout: 300e3,
+    captureTimeout: 60e3,
     client: {
       captureConsole: true,
       mocha: {
@@ -125,6 +125,7 @@ module.exports = function (config) {
       }
     },
     files: [
+      './node_modules/core-js/client/core.js',
       './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
       'test/test_index.js'
     ],
@@ -205,7 +206,7 @@ module.exports = function (config) {
         new webpack.DefinePlugin({
           __TEST__: true,
           'process.env': {
-            NODE_ENV: JSON.stringify('production')
+            NODE_ENV: JSON.stringify('development')
           }
         })
       ]

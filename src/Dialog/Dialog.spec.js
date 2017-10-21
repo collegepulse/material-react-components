@@ -63,7 +63,7 @@ describe('Dialog', () => {
       wrapper.find(`.${Styles.root}`).simulate('keydown', {keyCode: keycode('esc')});
     }, 500);
     setTimeout(() => {
-      assert(wrapper.find(`.${Styles.root}`).length === 0);
+      assert(wrapper.html() === null);
     }, 1000);
   }, 2000));
 
@@ -83,14 +83,14 @@ describe('Dialog', () => {
         ]}
       />
     );
-    wrapper.find('button').nodes[1].focus();
+    wrapper.find('button').last().instance().focus();
 
     setTimeout(() => {
       wrapper.find(`.${Styles.root}`).simulate('keydown', {keyCode: keycode('tab')});
     }, 500);
 
     setTimeout(() => {
-      assert(document.activeElement === wrapper.find('button').nodes[0]);
+      assert(document.activeElement === wrapper.find('button').first().instance());
     }, 750);
   }));
 
@@ -106,14 +106,14 @@ describe('Dialog', () => {
         ]}
       />
     );
-    wrapper.find('button').nodes[0].focus();
+    wrapper.find('button').first().instance().focus();
 
     setTimeout(() => {
       wrapper.find(`.${Styles.root}`).simulate('keydown', {keyCode: keycode('tab'), shiftKey: true});
     }, 500);
 
     setTimeout(() => {
-      assert(document.activeElement === wrapper.find('button').nodes[1]);
+      assert(document.activeElement === wrapper.find('button').last().instance());
     }, 750);
   }));
 });

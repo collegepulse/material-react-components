@@ -17,7 +17,7 @@ class SvgIcon extends React.Component {
         {...buttonProps}
         className={makeClass(Styles.root, buttonProps.className)}
       >
-        <Component focusable={false} {...other} />
+        <Component focusable="false" {...other} />
       </Button>
     );
   }

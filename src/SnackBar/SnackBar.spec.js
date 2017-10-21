@@ -39,7 +39,7 @@ describe('Snackbar', () => {
       />
     );
     const wrapper = mount(<SnackBar />);
-    wrapper.find('SnackBar').node.queue(snackbaritem);
+    wrapper.find('SnackBar').instance().queue(snackbaritem);
     setTimeout(() => {
       assert(document.body.innerHTML.indexOf('Hello World') > -1);
     }, 550);
@@ -74,8 +74,8 @@ describe('Snackbar', () => {
         }
       />
     );
-    wrapper.find('SnackBar').node.queue(first);
-    wrapper.find('SnackBar').node.queue(second);
+    wrapper.find('SnackBar').instance().queue(first);
+    wrapper.find('SnackBar').instance().queue(second);
 
     setTimeout(() => {
       assert(wrapper.state('SnackBarItems').length === 2);

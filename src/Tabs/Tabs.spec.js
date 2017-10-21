@@ -1,29 +1,21 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createShallow, createMount, createTest} from '../../test/utils';
+import {createMount, createTest} from '../../test/utils';
 import React from 'react';
 import sinon from 'sinon';
 import Styles from './Tabs.css';
 import Tabs, {Tab} from './index';
 
 describe('Tabs', () => {
-  let shallow;
   let mount;
 
   beforeEach(() => {
-    shallow = createShallow();
     mount = createMount();
   });
 
   afterEach(() => {
-    shallow.cleanUp();
     mount.cleanUp();
-  });
-
-  it('should shallow render', () => {
-    const wrapper = shallow(<Tabs />);
-    assert(wrapper);
   });
 
   it('should deep render', () => {

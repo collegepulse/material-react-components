@@ -48,11 +48,8 @@ class Button extends React.Component {
     this.setState({hover: true});
   });
 
-  onMouseLeave = rippleMiddleware(this, 'mouseLeave', (e) => {
+  onMouseLeave = rippleMiddleware(this, 'mouseLeave', () => {
     this.setState({hover: false});
-    if (this.button !== document.activeElement) {
-      this.ripple.remove(e);
-    }
   });
 
   onKeyDown = rippleMiddleware(this, 'keyDown', (e, ...args) => {
@@ -121,17 +118,12 @@ class Button extends React.Component {
     return tinycolor.mostReadable(buttonColor, colors).toString();
   };
 
-  registerButton = (c) => {
-    this.button = c;
-    this.props.domRef(c);
-  };
-
   registerRipple = (c) => {
     this.ripple = c;
   };
 
   render() {
-    const {buttonColor, children, className, component, domRef,
+    const {buttonColor, children, className, component,
       focusRippleDisabled, icon, fab, style, textColor, ...other} = this.props;
     const Component = component;
     const readableTextColor = this.readableTextColor();
@@ -160,7 +152,6 @@ class Button extends React.Component {
           backgroundColor: this.getBackgroundColor(),
           ...style
         }}
-        ref={this.registerButton}
       >
         <Typography
           type="button"
@@ -183,7 +174,6 @@ Button.defaultProps = {
   children: null,
   className: null,
   component: 'button',
-  domRef: () => {},
   fab: false,
   focusRippleDisabled: false,
   icon: false,
@@ -197,7 +187,6 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  domRef: PropTypes.func,
   fab: PropTypes.bool,
   focusRippleDisabled: PropTypes.bool,
   icon: PropTypes.bool,

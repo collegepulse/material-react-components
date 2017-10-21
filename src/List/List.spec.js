@@ -40,16 +40,16 @@ describe('List', () => {
     );
     const wrapper = mount(component);
 
-    wrapper.find('#first button').node.focus();
+    wrapper.find('#first button').instance().focus();
 
     setTimeout(() => {
       wrapper.find('#first button').simulate('keyDown', {keyCode: keycode('down')});
-      assert(document.activeElement === wrapper.find('#second button').node);
+      assert(document.activeElement === wrapper.find('#second button').instance());
     }, 250);
 
     setTimeout(() => {
       wrapper.find('#second button').simulate('keyDown', {keyCode: keycode('up')});
-      assert(document.activeElement === wrapper.find('#first button').node);
+      assert(document.activeElement === wrapper.find('#first button').instance());
     }, 750);
   }));
 });

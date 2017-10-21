@@ -21,6 +21,6 @@ describe('SvgIcon', () => {
   it('should accept an SVG as a component', createTest(() => {
     const wrapper = mount(<SvgIcon component={Add} />);
     assert(wrapper.find(Add).length === 1);
-    assert(!wrapper.find(Add).props().focusable);
+    assert(wrapper.find(Add).props().focusable === "false");
   }));
 });

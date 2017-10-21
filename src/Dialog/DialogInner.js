@@ -86,7 +86,7 @@ class DialogInner extends React.Component {
         ref={c => (this.root = c)}
         role="document"
         tabIndex={-1}
-        onKeyDown={__TEST__ && this.onKeyDown}
+        onKeyDown={__TEST__ ? this.onKeyDown : ontouchmove}
       >
         <div
           onClick={this.props.onClose}

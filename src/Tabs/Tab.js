@@ -43,7 +43,6 @@ Tab.defaultProps = {
   index: null,
   indexChanged: true,
   indicatorColor: Variables.$accent,
-  domRef: () => {},
   label: null,
   selected: false,
   type: 'fixed'
@@ -53,7 +52,6 @@ Tab.propTypes = {
   index: PropTypes.number,
   indexChanged: PropTypes.bool,
   indicatorColor: PropTypes.string,
-  domRef: PropTypes.func,
   label: PropTypes.string,
   selected: PropTypes.bool,
   type: PropTypes.oneOf(['fixed', 'scrollable', 'centered'])
