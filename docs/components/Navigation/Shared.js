@@ -54,6 +54,10 @@ const items = [
     url: makeURL('/Switch')
   },
   {
+    label: 'Table',
+    url: makeURL('/Table')
+  },
+  {
     label: 'Tabs',
     url: makeURL('/Tabs')
   },

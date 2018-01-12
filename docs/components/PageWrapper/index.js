@@ -14,18 +14,17 @@ import {makeURL} from '../../utils/globals';
 import Paper from '../../pages/Paper';
 import React from 'react';
 import {Route} from 'react-router-dom';
-import Scrollable from '../../../src/Scrollable';
 import SelectField from '../../pages/SelectField';
 import SnackBar from '../../pages/SnackBar';
 import Styles from './PageWrapper.css';
 import Switch from '../../pages/Switch';
 import SvgIcon from '../../../src/SvgIcon';
+import Table from '../../pages/Table';
 import Tabs from '../../pages/Tabs';
 import TextField from '../../pages/TextField';
 import TypographyDocs from '../../pages/Typography';
 
 class PageWrapper extends React.Component {
-
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
@@ -87,6 +86,7 @@ class PageWrapper extends React.Component {
           <Route path={makeURL('/SelectField')} component={SelectField} />
           <Route path={makeURL('/SnackBar')} component={SnackBar} />
           <Route path={makeURL('/Switch')} component={Switch} />
+          <Route path={makeURL('/Table')} component={Table} />
           <Route path={makeURL('/Tabs')} component={Tabs} />
           <Route path={makeURL('/TextField')} component={TextField} />
           <Route path={makeURL('/Typography')} component={TypographyDocs} />
