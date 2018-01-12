@@ -11,6 +11,7 @@ export { default as Scrollable } from './Scrollable';
 export { default as SnackBar, SnackBarItem } from './SnackBar';
 export { default as SvgIcon } from './SvgIcon';
 export { default as Switch } from './Switch';
+export { default as Table, TableBody, TableCell, TableHead, TableRow } from './Table';
 export { default as Tabs, Tab } from './Tabs';
 export { default as TextField } from './TextField';
 export { default as Typography } from './Typography';
