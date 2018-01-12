@@ -40,15 +40,15 @@
   border-bottom-style: dashed;
 }
 
-.input:focus ~ .inkbar,
-.input:hover:not(:disabled) ~ .inkbar {
-  border-bottom-width: 2px;
-}
-
 .input:focus ~ .inkbar {
   animation-name: stretch;
   border-bottom-color: $primary;
   max-width: 70%;
+}
+
+.input:focus ~ .inkbar,
+.input:hover:not(:disabled) ~ .inkbar {
+  border-bottom-width: 2px;
 }
 
 @keyframes stretch {
