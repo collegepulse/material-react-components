@@ -1,6 +1,6 @@
 {
   "name": "material-react-components",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A collection of React components that implement Google's material design specification.",
   "main": "./dist/index.js",
   "module": "./es/index.js",
