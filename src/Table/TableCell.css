@@ -1,0 +1,24 @@
+.cell {
+  border-bottom: 1px solid rgb(235, 235, 235);
+  color: $black87;
+  font-size: 13px;
+  height: 48px;
+  padding-left: 24px;
+  padding-right: 56px;
+  white-space: nowrap;
+}
+
+.cell:first-child {
+  text-align: left;
+}
+
+.cell:not(:first-child) {
+  text-align: right;
+}
+
+.head {
+  color: $black54;
+  font-size: 12px;
+  font-weight: 500;
+  height: 56px;
+}
