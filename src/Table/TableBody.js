@@ -3,9 +3,10 @@ import React from 'react';
 
 class TableBody extends React.Component {
   render() {
+    const {children, ...other} = this.props;
     return (
-      <tbody>
-        {this.props.children}
+      <tbody {...other}>
+        {children}
       </tbody>
     );
   }

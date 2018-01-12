@@ -10,8 +10,9 @@ class TableHead extends React.Component {
   }
 
   render() {
+    const {children, ...other} = this.props;
     return (
-      <thead>
+      <thead {...other}>
         {this.renderChildren()}
       </thead>
     );

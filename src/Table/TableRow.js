@@ -10,8 +10,9 @@ class TableRow extends React.Component {
   }
 
   render() {
+    const {children, head, ...other} = this.props;
     return (
-      <tr>
+      <tr {...other}>
         {this.renderChildren()}
       </tr>
     );

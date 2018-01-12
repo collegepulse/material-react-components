@@ -5,14 +5,19 @@ import Styles from './TableCell.css';
 
 class TableCell extends React.Component {
   render() {
-    const {children, head} = this.props;
+    const {
+      children,
+      className,
+      head,
+      ...other
+    } = this.props;
     const Component = head ? 'th' : 'td';
     const classnames = makeClass(Styles.cell, {
       [Styles.head]: head
-    });
+    }, className);
 
     return (
-      <Component className={classnames}>
+      <Component className={classnames} {...other}>
         {children}
       </Component>
     );
@@ -21,11 +26,13 @@ class TableCell extends React.Component {
 
 TableCell.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   head: PropTypes.bool
 };
 
 TableCell.defaultProps = {
   children: null,
+  className: '',
   head: false
 };
 

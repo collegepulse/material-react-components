@@ -1,13 +1,15 @@
+import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './Table.css';
 
 class Table extends React.Component {
   render() {
+    const {children, className, ...other} = this.props;
     return (
-      <div className={Styles.container}>
-        <table className={Styles.table}>
-          {this.props.children}
+      <div className={makeClass(Styles.container, className)}>
+        <table className={Styles.table} {...other}>
+          {children}
         </table>
       </div>
     );
@@ -15,11 +17,13 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 Table.defaultProps = {
-  children: null
+  children: null,
+  className: ''
 };
 
 export default Table;
