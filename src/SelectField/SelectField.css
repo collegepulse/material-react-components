@@ -1,0 +1,128 @@
+.root {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  flex: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.root.disabled {
+  cursor: not-allowed;
+}
+
+.shadow {
+  border: none;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  position: absolute;
+  width: 1px;
+}
+
+.label {
+  color: rgba(0, 0, 0, 0.54);
+  line-height: 30px;
+  padding-right: 30px;
+  pointer-events: none;
+  transform-origin: left top 0;
+  position: absolute;
+  top: 35px;
+}
+
+.inkbar {
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(0, 0, 0, 0.42);
+  border-bottom-style: solid;
+  box-sizing: border-box;
+  height: 2px;
+}
+
+.inkbarDisabled {
+  border-bottom-style: dashed;
+}
+
+.icon {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  top: 36px;
+}
+
+.icon::-moz-focus-inner {
+  border: 0;
+}
+
+.icon:focus {
+  outline: 0;
+}
+
+.icon.disabled {
+  fill: rgba(0, 0, 0, 0.42);
+}
+
+.icon:not(.disabled):focus::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(1.5);
+}
+
+.icon:focus + .label {
+  transform: $textFieldLabelFloatTransform;
+}
+
+.icon:focus ~ .inkbar:not(.inkbarDisabled) {
+  animation-name: stretch;
+  animation-duration: 250ms;
+  animation-timing-function: $easeOutFunction;
+  animation-fill-mode: forwards;
+  border-bottom-width: 2px;
+  border-bottom-color: $primary;
+  max-width: 70%;
+}
+
+@keyframes stretch {
+  0% {
+    margin-left: 15%;
+    max-width: 70%;
+  }
+
+  100% {
+    max-width: 100%;
+    margin-left: 0%;
+  }
+}
+
+.helperText {
+  padding-top: 8px;
+}
+
+.value {
+  padding-top: 40px;
+  padding-bottom: 8px;
+  min-height: 18px;
+  max-width: calc(100% - 30px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.value.disabled {
+  color: rgba(0, 0, 0, 0.42);
+}
+
+.value.hasValue + .label {
+  transform: $textFieldLabelFloatTransform;
+}
+
+.value:hover ~ .inkbar:not(.inkbarDisabled) {
+  border-bottom-width: 2px;
+}
