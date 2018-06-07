@@ -8,11 +8,6 @@ import Styles from './SelectField.css';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import Typography from '../Typography';
 
-function FirstChild(props) {
-  const childrenArray = React.Children.toArray(props.children);
-  return childrenArray[0] || null;
-}
-
 class SelectField extends React.Component {
   constructor(props) {
     super(props);
