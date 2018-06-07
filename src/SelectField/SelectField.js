@@ -1,11 +1,8 @@
 import DropDownIcon from 'material-design-icons/navigation/svg/production/ic_arrow_drop_down_24px.svg';
-import keycode from 'keycode';
 import makeClass from 'classnames';
-import makeUuid from 'uuid/v4';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Styles from './SelectField.css';
-import TransitionGroup from 'react-transition-group/TransitionGroup';
 import Typography from '../Typography';
 
 class SelectField extends React.Component {
@@ -47,7 +44,6 @@ class SelectField extends React.Component {
           id={id}
           onChange={this.onChange}
           value={value}
-          
           {...other}
         >
           {children}
@@ -73,20 +69,23 @@ class SelectField extends React.Component {
 }
 
 SelectField.defaultProps = {
+  children: null,
   disabled: false,
   errorColor: null,
   helperText: null,
+  id: null,
   label: null,
   onChange: () => {},
   value: {}
 };
 
 SelectField.propTypes = {
+  children: PropTypes.node,
   disabled: PropTypes.bool,
   errorColor: PropTypes.string,
   helperText: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.any
 };

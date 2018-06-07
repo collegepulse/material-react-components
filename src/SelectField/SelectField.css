@@ -60,18 +60,27 @@ select::-ms-expand {
   display: none;
 }
 
-select:focus::-ms-value {
-  background-color: transparent;
-  color: #000;
-}
-
 select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
+select:focus::-ms-value {
+  background-color: transparent;
+  color: #000;
+}
+
 .select:focus {
   outline: none;
+}
+
+.select:disabled {
+  color: rgba(0, 0, 0, 0.42);
+  cursor: not-allowed;
+}
+
+.select:disabled ~ .inkbar {
+  border-bottom-style: dashed;
 }
 
 .select:focus:not(:disabled) ~ .inkbar {
@@ -86,15 +95,6 @@ select:-moz-focusring {
 
 .select:hover:not(:disabled) ~ .inkbar {
   border-bottom-width: 2px;
-}
-
-.select:disabled {
-  color: rgba(0, 0, 0, 0.42);
-  cursor: not-allowed;
-}
-
-.select:disabled ~ .inkbar {
-  border-bottom-style: dashed;
 }
 
 @keyframes stretch {
