@@ -11,7 +11,7 @@ class TypographyDocs extends React.Component {
     this.onControlPanel = this.onControlPanel.bind(this);
     this.state = {
       component: 'div',
-      type: {id: 'body1', value: 'body1'},
+      type: 'body1',
       children: 'Hello World'
     };
   }
@@ -28,7 +28,7 @@ class TypographyDocs extends React.Component {
         buildYourOwn={
           <Typography
             component={component}
-            type={type.value}
+            type={type}
           >
             {children}
           </Typography>
@@ -40,56 +40,22 @@ class TypographyDocs extends React.Component {
             value={component}
           />,
           <SelectField
-            data={[
-              {
-                id: 'display4',
-                value: 'display4'
-              },
-              {
-                id: 'display3',
-                value: 'display3'
-              },
-              {
-                id: 'display2',
-                value: 'display2'
-              },
-              {
-                id: 'display1',
-                value: 'display1'
-              },
-              {
-                id: 'headline',
-                value: 'headline'
-              },
-              {
-                id: 'title',
-                value: 'title'
-              },
-              {
-                id: 'subheading',
-                value: 'subheading'
-              },
-              {
-                id: 'body2',
-                value: 'body2'
-              },
-              {
-                id: 'body1',
-                value: 'body1'
-              },
-              {
-                id: 'caption',
-                value: 'caption'
-              },
-              {
-                id: 'button',
-                value: 'button'
-              }
-            ]}
             label="type"
             value={type}
-            onChange={(e, index, obj) => (this.onControlPanel('type', obj))}
-          />,
+            onChange={(e) => (this.onControlPanel('type', e.target.value))}
+          >
+            <option key="1" value="display4">display4</option>
+            <option key="2" value="display3">display3</option>
+            <option key="3" value="display2">display2</option>
+            <option key="4" value="display1">display1</option>
+            <option key="5" value="headline">headline</option>
+            <option key="6" value="title">title</option>
+            <option key="7" value="subheading">subheading</option>
+            <option key="8" value="body2">body2</option>
+            <option key="9" value="body1">body1</option>
+            <option key="10" value="caption">caption</option>
+            <option key="11" value="button">button</option>
+          </SelectField>,
           <TextField
             onChange={e => (this.onControlPanel('children', e.target.value))}
             label="children"

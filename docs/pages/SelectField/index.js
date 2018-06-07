@@ -13,19 +13,10 @@ class SelectFieldDocs extends React.Component {
       disabled: false,
       errorColor: '',
       helperText: 'Pick your favorite color',
+      id: 'id',
       label: 'Color',
-      value: '{"id": 2, "value": "orange"}',
+      value: '',
       style: '{}',
-      data: `[
-        {"id": 1, "value": "red"},
-        {"id": 2, "value": "orange"},
-        {"id": 3, "value": "yellow"},
-        {"id": 4, "value": "green"},
-        {"id": 5, "value": "blue"},
-        {"id": 6, "value": "indigo"},
-        {"id": 7, "value": "violet"}
-      ]`.replace(/ +/g, ' '),
-      iterator: 'function iterator(obj) { return {key: obj.id, value: obj.value}; }',
     };
   }
 
@@ -34,16 +25,21 @@ class SelectFieldDocs extends React.Component {
   }
 
   render() {
-    const {disabled, errorColor, helperText, label, value, style, data, iterator} = this.state;
-    let dataObj = {};
+    const {disabled, errorColor, helperText, id, label, value, style} = this.state;
     let styleObj = {};
-    let valueObj = {};
     try {
-      window.eval(iterator); // eslint-disable-line no-eval
-      dataObj = JSON.parse(data);
       styleObj = JSON.parse(style);
-      valueObj = JSON.parse(value);
     } catch (e) { }
+
+    const selectOptions = [
+      'red',
+      'orange',
+      'yellow',
+      'green',
+      'blue',
+      'indigo',
+      'violet'
+    ];
     return (
       <Page
         componentName="SelectField"
@@ -54,15 +50,24 @@ class SelectFieldDocs extends React.Component {
                 disabled={disabled}
                 errorColor={errorColor}
                 helperText={helperText}
+                id={id}
                 label={label}
                 style={styleObj}
-                data={dataObj}
-                iterator={window.iterator}
-                value={valueObj}
-                onChange={(e, index, datum) => (
-                  this.setState({value: JSON.stringify(datum)})
-                )}
-              />
+                value={value}
+                onChange={(e) => {
+                  this.setState({value: e.target.value})
+                }}
+              >
+                <option value="" />
+                {selectOptions.map(value => (
+                  <option
+                    key={value}
+                    value={value}
+                  >
+                    {value.charAt(0).toUpperCase() + value.substr(1)}
+                  </option>
+                ))}
+              </SelectField>
             </GridItem>
           </Grid>
         }
@@ -70,39 +75,38 @@ class SelectFieldDocs extends React.Component {
           <TextField
             onChange={e => (this.onControlPanel('errorColor', e.target.value))}
             label="errorColor"
+            helperText="If present, sets aria-invalid to true"
             value={errorColor}
           />,
           <TextField
             onChange={e => (this.onControlPanel('helperText', e.target.value))}
             label="helperText"
+            helperText="Overflows onto a second line"
             value={helperText}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('id', e.target.value))}
+            label="id"
+            helperText="Binds label and select elements for a11y"
+            value={id}
           />,
           <TextField
             onChange={e => (this.onControlPanel('label', e.target.value))}
             label="label"
+            helperText="Truncated to a single line"
             value={label}
           />,
           <TextField
             onChange={e => (this.onControlPanel('value', e.target.value))}
             label="value"
+            helperText="Value of selected option"
             value={value}
           />,
           <TextField
             onChange={e => (this.onControlPanel('style', e.target.value))}
             label="style"
+            helperText="Applied to the select element"
             value={style}
-          />,
-          <TextField
-            onChange={e => (this.onControlPanel('data', e.target.value))}
-            label="data"
-            value={data}
-            helperText="Will be parsed using JSON.parse(...)"
-          />,
-          <TextField
-            onChange={e => (this.onControlPanel('iterator', e.target.value))}
-            label="iterator"
-            value={iterator}
-            helperText="Used to extract key/value pair from data objects"
           />,
           <Switch
             onChange={e => (this.onControlPanel('disabled', e.target.checked))}
