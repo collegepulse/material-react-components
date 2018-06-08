@@ -17,7 +17,7 @@ class TabsDocs extends React.Component {
       barColor: Variables.$primary,
       indicatorColor: Variables.$accent,
       textColor: '#FFF',
-      type: {id: 'fixed', value: 'fixed'},
+      type: 'fixed',
       index: 0,
       tabsBaseline: 0,
       tabsFullWidth: 0,
@@ -46,7 +46,7 @@ class TabsDocs extends React.Component {
             indicatorColor={this.state.indicatorColor}
             textColor={this.state.textColor}
             index={this.state.index}
-            type={this.state.type.value}
+            type={this.state.type}
             onChange={(e, index) => (this.onChange(e, index, 'index'))}
             style={{width: '100%'}}
           >
@@ -78,24 +78,14 @@ class TabsDocs extends React.Component {
             value={String(this.state.index)}
           />,
           <SelectField
-            data={[
-              {
-                id: 'fixed',
-                value: 'fixed'
-              },
-              {
-                id: 'scrollable',
-                value: 'scrollable'
-              },
-              {
-                id: 'centered',
-                value: 'centered'
-              }
-            ]}
             label="type"
             value={this.state.type}
-            onChange={(e, index, obj) => (this.onControlPanel('type', obj))}
-          />
+            onChange={(e) => (this.onControlPanel('type', e.target.value))}
+          >
+            <option key="1" value="fixed">fixed</option>
+            <option key="2" value="scrollable">scrollable</option>
+            <option key="3" value="centered">centered</option>
+          </SelectField>
         ]}
         examples={
           <Grid gutter={16}>

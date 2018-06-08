@@ -3,7 +3,12 @@
     "production": {
       "plugins": [
         "transform-react-remove-prop-types",
-        "transform-runtime"
+        "transform-runtime",
+        [
+          "transform-define", {
+            "__TEST__": false
+          }
+        ]
       ]
     }
   },
