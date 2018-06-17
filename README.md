@@ -1,3 +1,5 @@
+
+### ✨[Demo Site](https://collegepulse.github.io/material-react-components/): live component demos, code samples & more. ✨
 material-react-components
 =========================
 
@@ -10,10 +12,6 @@ This is a collection of React components that implement Google's [material desig
 - Minimal to zero configuration to consume components through carefully-crafted, lightweight implementations.
 - Be fit for enterprise consumption: components are to be performant, accessible, unit tested, cross-browser supported, support server-side rendering, etc.
 
-Demo
-----
-
-[View the components](https://collegepulse.github.io/material-react-components/).
 
 Examples
 --------
