@@ -5,6 +5,12 @@
   "main": "./dist/index.js",
   "module": "./es/index.js",
   "jsnext:main": "./es/index.js",
+  "keywords": [
+    "react",
+    "react-component",
+    "material design",
+    "material-ui"
+  ],
   "scripts": {
     "build": "npm-run-all build:dist:* build:es:*",
     "build:dist:js": "webpack --config webpack.config.dist.js -p",
