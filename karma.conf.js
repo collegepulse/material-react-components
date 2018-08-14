@@ -54,12 +54,12 @@ function getBrowserStackConfig(config) {
       os: 'Windows',
       os_version: '10'
     },
-    bs_iphone_8: {
+    bs_iphone_7: {
       base: 'BrowserStack',
       real_mobile: true,
-      device: 'iPhone 8',
+      device: 'iPhone 7',
       os: 'ios',
-      os_version: '11.0',
+      os_version: '10.3',
       browser_version: null,
       browser: 'Mobile Safari'
     },
