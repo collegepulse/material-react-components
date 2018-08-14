@@ -75,13 +75,13 @@ function getBrowserStackConfig(config) {
   return {
     browserStack: {
       username,
-      accessKey
+      accessKey,
+      // values below is only to be set in CI env
+      startTunnel: Boolean(process.env.BROWSERSTACK_LOCAL_IDENTIFIER),
+      tunnelIdentifier: process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
     },
     customLaunchers,
-    browsers: Object.keys(customLaunchers),
-    // value below is only to be set in CI env
-    localIdentifier: process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
-    tunnelIdentifier: Boolean(process.env.BROWSERSTACK_LOCAL_IDENTIFIER)
+    browsers: Object.keys(customLaunchers)
   };
 }
 
