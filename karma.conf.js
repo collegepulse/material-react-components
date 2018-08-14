@@ -56,20 +56,21 @@ function getBrowserStackConfig(config) {
     },
     bs_iphone_5s: {
       base: 'BrowserStack',
-      device: 'iPhone 6',
+      real_mobile: true,
+      device: 'iPhone 7',
       os: 'ios',
-      os_version: '8.3',
+      os_version: '10.0',
       browser_version: null,
       browser: 'Mobile Safari'
     },
     bs_android_galaxy_s5_mini: {
       base: 'BrowserStack',
-      realMobile: true,
+      real_mobile: true,
       os: 'android',
-      os_version: '4.4',
+      os_version: '5.0',
       browser: 'Android Browser',
       browser_version: null,
-      device: 'Samsung Galaxy S5 Mini'
+      device: 'Samsung Galaxy S6'
     }
   };
 
@@ -126,7 +127,6 @@ module.exports = function (config) {
     },
     files: [
       './node_modules/core-js/client/core.js',
-      './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
       'test/test_index.js'
     ],
     frameworks: [
@@ -140,14 +140,14 @@ module.exports = function (config) {
     ],
     singleRun: true,
     webpack: {
-      devtool: 'cheap-module-inline-source-map',
+      devtool: 'source-map',
       externals: {
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': 'window',
         'react/addons': true
       },
+      mode: 'development',
       module: {
-        exprContextCritical: false,
         rules: [
           // Run regular source code through babel
           {
@@ -157,15 +157,9 @@ module.exports = function (config) {
               loader: 'babel-loader',
               options: {
                 plugins: [
-                  'transform-class-properties',
-                  'empower-assert',
+                  '@babel/plugin-proposal-class-properties',
                   [
-                    'espower', {
-                      embedAst: true
-                    }
-                  ],
-                  [
-                    'istanbul', {
+                    'babel-plugin-istanbul', {
                       exclude: [
                         '**/index.js',
                         '**/*.spec.js',
@@ -176,11 +170,22 @@ module.exports = function (config) {
                 ],
                 presets: [
                   [
-                    'es2015',
+                    '@babel/preset-env',
                     {
-                      modules: false
+                      targets: {
+                        browsers: [
+                          'Firefox >= 45',
+                          'Chrome >= 49',
+                          'Safari >= 8',
+                          'IE >= 11',
+                          'Edge >= 14',
+                          'iOS >= 10',
+                          'Android >= 5'
+                        ]
+                      }
                     }
-                  ]
+                  ],
+                  '@babel/preset-react'
                 ]
               }
             }

@@ -2,10 +2,9 @@
   "env": {
     "production": {
       "plugins": [
-        "transform-react-remove-prop-types",
-        "transform-runtime",
+        "babel-plugin-transform-react-remove-prop-types",
         [
-          "transform-define", {
+          "babel-plugin-transform-define", {
             "__TEST__": false
           }
         ]
@@ -13,29 +12,19 @@
     }
   },
   "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    "transform-object-assign",
-    [
-      "transform-runtime", {
-        helpers: false,
-        polyfill: false,
-        regenerator: true
-      }
-    ]
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
   ],
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "modules": false,
         "targets": {
           "browsers": ["last 2 versions"]
         },
-        "useBuiltIns": true
       }
     ],
-    "es2015",
-    "react"
+    "@babel/preset-react"
   ]
 }

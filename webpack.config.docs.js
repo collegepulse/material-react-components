@@ -56,6 +56,7 @@ module.exports = function config(env = {}) {
       publicPath: '/',
       filename: '[name].js'
     },
+    mode: 'development',
     module: {
       rules: [
         {
