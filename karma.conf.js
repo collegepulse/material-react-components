@@ -186,7 +186,6 @@ module.exports = function (config) {
           // Run regular source code through babel
           {
             test: /\.js$/,
-            exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
               options: babelOptions
@@ -219,7 +218,8 @@ module.exports = function (config) {
             NODE_ENV: JSON.stringify('development')
           }
         })
-      ]
+      ],
+      target: 'web'
     },
     webpackServer: {
       noInfo: true
