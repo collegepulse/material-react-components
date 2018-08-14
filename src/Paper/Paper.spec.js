@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
+import React from 'react';
 import {createShallow, createMount, createTest} from '../../test/utils';
 import Paper from './Paper';
-import React from 'react';
 
 describe('Paper', () => {
   let shallow;
@@ -20,7 +20,7 @@ describe('Paper', () => {
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<Paper />);
+    const wrapper = shallow(<Paper/>);
     assert(wrapper);
   });
 

@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
-import AppBar from './AppBar';
-import {createShallow, createMount, createTest} from '../../test/utils';
 import assert from 'assert';
 import React from 'react';
+import {createShallow, createMount, createTest} from '../../test/utils';
+import AppBar from './AppBar';
 
 describe('Appbar', () => {
   let shallow;
@@ -20,12 +20,12 @@ describe('Appbar', () => {
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<AppBar />);
+    const wrapper = shallow(<AppBar/>);
     assert(wrapper);
   });
 
   it('should deep render primary', createTest(() => {
-    const wrapper = mount(<AppBar primary="X" />);
+    const wrapper = mount(<AppBar primary="X"/>);
     assert(wrapper);
   }));
 

@@ -1,13 +1,13 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import Button from './Button';
-import {createShallow, createMount, createTest} from '../../test/utils';
 import keycode from 'keycode';
 import React from 'react';
-import Styles from '../Ripple/RippleItem.css';
 import tinycolor from 'tinycolor2';
-import Variables from '../../src/variables';
+import {createShallow, createMount, createTest} from '../../test/utils';
+import Styles from '../Ripple/RippleItem.css';
+import Variables from '../variables';
+import Button from './Button';
 
 const fakeEventProps = {
   clientX: 1,
@@ -37,43 +37,43 @@ describe('Button', () => {
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<Button />);
+    const wrapper = shallow(<Button/>);
     assert(wrapper);
   });
 
   it('should set mouseFocused to true onMouseDown', () => {
-    const wrapper = mount(<Button label="Label" />);
+    const wrapper = mount(<Button label="Label"/>);
     wrapper.simulate('mousedown', fakeEventProps);
     assert(wrapper.state('mouseFocused'));
   });
 
   it('should set the hover state to true onMouseEnter', () => {
-    const wrapper = mount(<Button />);
+    const wrapper = mount(<Button/>);
     wrapper.simulate('mouseenter');
     assert(wrapper.state('hover'));
   });
 
   it('should remove ripples onMouseLeave when the button is not the active element', () => {
-    const wrapper = mount(<Button />);
+    const wrapper = mount(<Button/>);
     wrapper.simulate('keydown', {keyCode: keycode('tab')});
     wrapper.simulate('mouseleave');
     assert(wrapper.find(`.${Styles.container}`).length === 0);
   });
 
   it('should add a ripple onFocus if not focused by mouse', () => {
-    const wrapper = mount(<Button />);
+    const wrapper = mount(<Button/>);
     wrapper.simulate('keydown', {keyCode: keycode('tab')});
     wrapper.simulate('focus');
     assert(wrapper.find(`.${Styles.container}`).length > 0);
   });
 
   it('should not add a ripple onFocus if focused by mouse', () => {
-    const wrapper = mount(<Button />);
+    const wrapper = mount(<Button/>);
     wrapper.simulate('click');
     assert(wrapper.find(`.${Styles.container}`).length === 0);
   });
 
-  it('should add and remove ripples through the keyboard interaction lifecyle', (done) => {
+  it('should add and remove ripples through the keyboard interaction lifecyle', done => {
     const wrapper = mount(<Button>Label</Button>);
     wrapper.simulate('focus', fakeEventProps);
     assert(wrapper.find(`.${Styles.container}`).length === 1);
@@ -81,7 +81,7 @@ describe('Button', () => {
       wrapper.simulate('keydown', {keyCode: keycode('space'), ...fakeEventProps});
       assert(wrapper.find(`.${Styles.container}`).length === 2);
     }, 200);
-    // sometime later, the space keypress ripple is removed
+    // Sometime later, the space keypress ripple is removed
     setTimeout(() => {
       const DOM = wrapper.html();
       const count = (DOM.match(Styles.container) || []).length;
@@ -90,14 +90,14 @@ describe('Button', () => {
     }, 700);
   });
 
-  it('should add and remove ripples through the click interaction lifecycle', (done) => {
+  it('should add and remove ripples through the click interaction lifecycle', done => {
     const wrapper = mount(<Button>Label</Button>);
     wrapper.find('button').instance().focus();
     wrapper.simulate('mousedown', fakeEventProps);
     setTimeout(() => {
       wrapper.simulate('mouseup', fakeEventProps);
     }, 200);
-    // sometime later, the mouseup ripple is removed
+    // Sometime later, the mouseup ripple is removed
     setTimeout(() => {
       const DOM = wrapper.html();
       const count = (DOM.match(Styles.container) || []).length;
@@ -106,11 +106,11 @@ describe('Button', () => {
     }, 1000);
   });
 
-  it('should add and remove ripples through the touch interaction lifecycle', (done) => {
+  it('should add and remove ripples through the touch interaction lifecycle', done => {
     const wrapper = mount(<Button>Label</Button>);
     wrapper.simulate('touchstart', fakeEventProps);
     wrapper.simulate('touchend', fakeEventProps);
-    // sometime later, the mouseup ripple is removed
+    // Sometime later, the mouseup ripple is removed
     setTimeout(() => {
       const DOM = wrapper.html();
       const count = (DOM.match(Styles.container) || []).length;
@@ -120,7 +120,7 @@ describe('Button', () => {
   });
 
   it('should set mouseFocused to false onBlur', () => {
-    const wrapper = mount(<Button />);
+    const wrapper = mount(<Button/>);
     wrapper.simulate('blur');
     assert(!wrapper.state('mouseFocused'));
   });

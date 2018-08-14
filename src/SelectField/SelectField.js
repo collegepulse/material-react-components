@@ -2,8 +2,8 @@ import DropDownIcon from 'material-design-icons/navigation/svg/production/ic_arr
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Styles from './SelectField.css';
 import Typography from '../Typography';
+import Styles from './SelectField.css';
 
 class SelectField extends React.Component {
   constructor(props) {

@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createShallow, createMount} from '../../test/utils';
 import React from 'react';
+import {createShallow, createMount} from '../../test/utils';
 import Tab from './Tab';
 
 describe('Tab', () => {
@@ -20,12 +20,12 @@ describe('Tab', () => {
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<Tab />);
+    const wrapper = shallow(<Tab/>);
     assert(wrapper);
   });
 
   it('should deep render', () => {
-    const wrapper = mount(<Tab />);
+    const wrapper = mount(<Tab/>);
     assert(wrapper);
   });
 });

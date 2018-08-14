@@ -1,7 +1,7 @@
-import Button from '../Button';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Button from '../Button';
 import Styles from './SvgIcon.css';
 
 /* This wrapper is a necessary abstraction since IE11 makes
@@ -17,7 +17,7 @@ class SvgIcon extends React.Component {
         {...buttonProps}
         className={makeClass(Styles.root, buttonProps.className)}
       >
-        <Component focusable="false" {...other} />
+        <Component focusable="false" {...other}/>
       </Button>
     );
   }

@@ -1,9 +1,11 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createMount} from '../../test/utils';
 import React from 'react';
-import Table, {TableBody, TableCell, TableHead, TableRow} from './index';
+import {createMount} from '../../test/utils';
+import Table, {
+  TableBody, TableCell, TableHead, TableRow
+} from '.';
 
 describe('Tabs', () => {
   let mount;

@@ -13,7 +13,7 @@ import SvgIcon from '../src/SvgIcon';
 describe('Server Side Rendering', () => {
   it('should render SVG', () => {
     const render = ReactDOMServer.renderToString(
-      <SvgIcon component={Edit} fill="#FFF" />
+      <SvgIcon component={Edit} fill="#FFF"/>
     );
     assert(render.indexOf('svg') > -1);
   });

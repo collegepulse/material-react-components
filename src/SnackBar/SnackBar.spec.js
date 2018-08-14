@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
+import React from 'react';
 import Button from '../Button';
 import {createShallow, createMount, createTest} from '../../test/utils';
-import React from 'react';
-import SnackBar, {SnackBarItem} from './index';
 import Styles from './SnackBar.css';
+import SnackBar, {SnackBarItem} from '.';
 
 describe('Snackbar', () => {
   let shallow;
@@ -22,12 +22,12 @@ describe('Snackbar', () => {
   });
 
   it('should shallow render a SnackBar', () => {
-    const wrapper = shallow(<SnackBar />);
+    const wrapper = shallow(<SnackBar/>);
     assert(wrapper);
   });
 
   it('should deep render a SnackBar', () => {
-    const wrapper = mount(<SnackBar />);
+    const wrapper = mount(<SnackBar/>);
     assert(wrapper);
   });
 
@@ -38,7 +38,7 @@ describe('Snackbar', () => {
         action={<Button textColor="#FFF">Test</Button>}
       />
     );
-    const wrapper = mount(<SnackBar />);
+    const wrapper = mount(<SnackBar/>);
     wrapper.find('SnackBar').instance().queue(snackbaritem);
     setTimeout(() => {
       assert(document.body.innerHTML.indexOf('Hello World') > -1);
@@ -46,11 +46,11 @@ describe('Snackbar', () => {
   }));
 
   it('should queue multiple SnackBarItem', createTest(() => {
-    const wrapper = mount(<SnackBar />);
+    const wrapper = mount(<SnackBar/>);
     const first = (
       <SnackBarItem
         message="First"
-        action={
+        action={(
           <Button
             id="firstBtn"
             textColor="#FFF"
@@ -58,20 +58,20 @@ describe('Snackbar', () => {
           >
             First
           </Button>
-        }
+        )}
       />
     );
     const second = (
       <SnackBarItem
         message="Second"
-        action={
+        action={(
           <Button
             textColor="#FFF"
             onClick={() => {}}
           >
             Second
           </Button>
-        }
+        )}
       />
     );
     wrapper.find('SnackBar').instance().queue(first);

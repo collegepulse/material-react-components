@@ -1,21 +1,37 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import Collapse from './Collapse';
-import {createShallow, createMount} from '../../test/utils';
 import React from 'react';
-import variables from '../../src/variables';
+import {createShallow, createMount} from '../../test/utils';
+import variables from '../variables';
+import Collapse from './Collapse';
 
 const longDiv = (
   <div style={{backgroundColor: variables.$black54, padding: 10}}>
-    Foo<br />
-    Bar<br />
-    Foo<br />
-    Bar<br />
-    Foo<br />
-    Bar<br />
-    Foo<br />
-    Bar<br />
+    Foo
+    {' '}
+    <br/>
+    Bar
+    {' '}
+    <br/>
+    Foo
+    {' '}
+    <br/>
+    Bar
+    {' '}
+    <br/>
+    Foo
+    {' '}
+    <br/>
+    Bar
+    {' '}
+    <br/>
+    Foo
+    {' '}
+    <br/>
+    Bar
+    {' '}
+    <br/>
   </div>
 );
 
@@ -34,16 +50,16 @@ describe('Collapse', () => {
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<Collapse />);
+    const wrapper = shallow(<Collapse/>);
     assert(wrapper);
   });
 
   it('should deep render', () => {
-    const wrapper = mount(<Collapse />);
+    const wrapper = mount(<Collapse/>);
     assert(wrapper);
   });
 
-  it('should not animate on initial render if open is set to true', (done) => {
+  it('should not animate on initial render if open is set to true', done => {
     const wrapper = mount(<Collapse open>{longDiv}</Collapse>);
     const initialHeight = wrapper.getDOMNode().style.height;
     assert(parseInt(initialHeight, 10) > '0');
@@ -54,7 +70,7 @@ describe('Collapse', () => {
     }, 1000);
   });
 
-  it('should animate when open changes from false to true', (done) => {
+  it('should animate when open changes from false to true', done => {
     const wrapper = mount(<Collapse open={false}>{longDiv}</Collapse>);
     const initialHeight = wrapper.getDOMNode().style.height;
     wrapper.setProps({open: true});
@@ -65,7 +81,7 @@ describe('Collapse', () => {
     }, 1000);
   });
 
-  it('should animate when open changes from true to false', (done) => {
+  it('should animate when open changes from true to false', done => {
     const wrapper = mount(<Collapse open>{longDiv}</Collapse>);
     const initialHeight = wrapper.getDOMNode().style.height;
     setTimeout(() => {

@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createMount, createTest} from '../../test/utils';
 import React from 'react';
-import GridItem from './GridItem';
+import {createMount, createTest} from '../../test/utils';
 import variables from '../variables';
+import GridItem from './GridItem';
 
 describe('GridItem', () => {
   let mount;

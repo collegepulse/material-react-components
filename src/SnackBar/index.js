@@ -1,2 +1,2 @@
-export { default } from './SnackBar';
-export { default as SnackBarItem } from './SnackBarItem';
+export {default} from './SnackBar';
+export {default as SnackBarItem} from './SnackBarItem';

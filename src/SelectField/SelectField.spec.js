@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createShallow} from '../../test/utils';
 import React from 'react';
+import {createShallow} from '../../test/utils';
 import SelectField from './SelectField';
 
 describe('SelectField', () => {
@@ -17,7 +17,7 @@ describe('SelectField', () => {
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<SelectField label="test" />);
+    const wrapper = shallow(<SelectField label="test"/>);
     assert(wrapper);
   });
 });

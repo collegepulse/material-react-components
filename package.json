@@ -24,7 +24,7 @@
     "coverage:open": "open .coverage/lcov-report/index.html",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint src/**/*.css",
-    "lint:js": "eslint src/**/*.js",
+    "lint:js": "xo src/**/*.js",
     "start": "webpack-dev-server --config webpack.config.docs.js --env.dev --content-base docs",
     "test": "npm run test:unit && npm run build:ssr && npm run test:ssr",
     "test:ssr": "mocha .tmp/main.js",
@@ -68,10 +68,8 @@
     "css-loader": "1.0.0",
     "enzyme": "3.4.1",
     "enzyme-adapter-react-16": "1.2.0",
-    "eslint": "5.3.0",
-    "eslint-config-airbnb": "17.1.0",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-config-xo": "0.24.1",
+    "eslint-config-xo-react": "0.17.0",
     "eslint-plugin-react": "7.11.0",
     "html-webpack-plugin": "3.2.0",
     "isomorphic-style-loader": "4.0.0",
@@ -108,6 +106,28 @@
     "webpack": "4.16.5",
     "webpack-cli": "3.1.0",
     "webpack-dev-server": "3.1.5",
-    "webpack-node-externals": "1.7.2"
+    "webpack-node-externals": "1.7.2",
+    "xo": "0.22.0"
+  },
+  "xo": {
+    "envs": [
+      "browser",
+      "mocha"
+    ],
+    "extends": [
+      "xo",
+      "xo-react/space"
+    ],
+    "globals": [
+      "__TEST__"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "react/jsx-sort-props": false,
+      "react/no-deprecated": false,
+      "react/no-find-dom-node": false,
+      "unicorn/filename-case": 0
+    },
+    "space": true
   }
 }

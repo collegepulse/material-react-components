@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createShallow} from '../../test/utils';
 import React from 'react';
+import {createShallow} from '../../test/utils';
 import Styles from './Typography.css';
 import Typography from './Typography';
 
@@ -18,17 +18,17 @@ describe('Typography', () => {
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<Typography />);
+    const wrapper = shallow(<Typography/>);
     assert(wrapper);
   });
 
   it('should use custom component', () => {
-    const wrapper = shallow(<Typography component="span" />);
+    const wrapper = shallow(<Typography component="span"/>);
     assert(wrapper.find('span').length === 1);
   });
 
   it('should apply custom typestyle class name', () => {
-    const wrapper = shallow(<Typography type="display4" />);
+    const wrapper = shallow(<Typography type="display4"/>);
     assert(wrapper.find(`.${Styles.display4}`).length === 1);
   });
 });

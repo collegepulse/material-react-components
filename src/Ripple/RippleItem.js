@@ -50,7 +50,7 @@ class RippleItem extends React.Component {
       width: rippleSize,
       height: rippleSize,
       top: -(rippleSize / 2) + rippleY,
-      left: -(rippleSize / 2) + rippleX,
+      left: -(rippleSize / 2) + rippleX
     };
     return rippleStyles;
   }
@@ -71,7 +71,7 @@ class RippleItem extends React.Component {
 
     return (
       <span className={containerClasses}>
-        <span className={rippleClasses} style={this.rippleStyles()} />
+        <span className={rippleClasses} style={this.rippleStyles()}/>
       </span>
     );
   }
