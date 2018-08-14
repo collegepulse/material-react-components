@@ -84,6 +84,40 @@ function getBrowserStackConfig(config) {
   };
 }
 
+const babelOptions = {
+  plugins: [
+    '@babel/plugin-proposal-class-properties',
+    [
+      'babel-plugin-istanbul', {
+        exclude: [
+          '**/index.js',
+          '**/*.spec.js',
+          'test/test_index.js'
+        ]
+      }
+    ]
+  ],
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        targets: {
+          browsers: [
+            'Firefox >= 45',
+            'Chrome >= 49',
+            'Safari >= 8',
+            'IE >= 11',
+            'Edge >= 14',
+            'iOS >= 10',
+            'Android >= 5'
+          ]
+        }
+      }
+    ],
+    '@babel/preset-react'
+  ]
+};
+
 module.exports = function (config) {
   const initialConfig = {
     browserConsoleLogOptions: {
@@ -155,39 +189,7 @@ module.exports = function (config) {
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
-              options: {
-                plugins: [
-                  '@babel/plugin-proposal-class-properties',
-                  [
-                    'babel-plugin-istanbul', {
-                      exclude: [
-                        '**/index.js',
-                        '**/*.spec.js',
-                        'test/test_index.js'
-                      ]
-                    }
-                  ]
-                ],
-                presets: [
-                  [
-                    '@babel/preset-env',
-                    {
-                      targets: {
-                        browsers: [
-                          'Firefox >= 45',
-                          'Chrome >= 49',
-                          'Safari >= 8',
-                          'IE >= 11',
-                          'Edge >= 14',
-                          'iOS >= 10',
-                          'Android >= 5'
-                        ]
-                      }
-                    }
-                  ],
-                  '@babel/preset-react'
-                ]
-              }
+              options: babelOptions
             }
           },
           {
@@ -201,7 +203,10 @@ module.exports = function (config) {
           {
             test: /\.svg$/,
             use: [
-              'babel-loader',
+              {
+                loader: 'babel-loader',
+                options: babelOptions
+              },
               'react-svg-loader'
             ]
           }
