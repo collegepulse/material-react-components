@@ -19,59 +19,59 @@ function getBrowserStackConfig(config) {
   }
 
   const customLaunchers = {
-    bs_firefox_mac: {
-      base: 'BrowserStack',
-      browser: 'firefox',
-      browser_version: '45',
-      os: 'OS X',
-      os_version: 'Yosemite'
-    },
-    bs_chrome_mac: {
-      base: 'BrowserStack',
-      browser: 'chrome',
-      browser_version: '49',
-      os: 'OS X',
-      os_version: 'Yosemite'
-    },
-    bs_safari_mac: {
-      base: 'BrowserStack',
-      browser: 'safari',
-      browser_version: '8',
-      os: 'OS X',
-      os_version: 'Yosemite'
-    },
-    bs_ie_windows: {
-      base: 'BrowserStack',
-      browser: 'ie',
-      browser_version: '11',
-      os: 'Windows',
-      os_version: '8.1'
-    },
-    bs_edge_windows: {
-      base: 'BrowserStack',
-      browser: 'edge',
-      browser_version: '14',
-      os: 'Windows',
-      os_version: '10'
-    },
-    bs_iphone_7: {
+    // bs_firefox_mac: {
+    //   base: 'BrowserStack',
+    //   browser: 'firefox',
+    //   browser_version: '45',
+    //   os: 'OS X',
+    //   os_version: 'Yosemite'
+    // },
+    // bs_chrome_mac: {
+    //   base: 'BrowserStack',
+    //   browser: 'chrome',
+    //   browser_version: '49',
+    //   os: 'OS X',
+    //   os_version: 'Yosemite'
+    // },
+    // bs_safari_mac: {
+    //   base: 'BrowserStack',
+    //   browser: 'safari',
+    //   browser_version: '8',
+    //   os: 'OS X',
+    //   os_version: 'Yosemite'
+    // },
+    // bs_ie_windows: {
+    //   base: 'BrowserStack',
+    //   browser: 'ie',
+    //   browser_version: '11',
+    //   os: 'Windows',
+    //   os_version: '8.1'
+    // },
+    // bs_edge_windows: {
+    //   base: 'BrowserStack',
+    //   browser: 'edge',
+    //   browser_version: '14',
+    //   os: 'Windows',
+    //   os_version: '10'
+    // },
+    bs_iphone_X: {
       base: 'BrowserStack',
       real_mobile: true,
-      device: 'iPhone 7',
+      device: 'iPhone X',
       os: 'ios',
-      os_version: '10.3',
+      os_version: '11.0',
       browser_version: null,
       browser: 'Mobile Safari'
-    },
-    bs_android_galaxy_s6: {
-      base: 'BrowserStack',
-      real_mobile: true,
-      os: 'android',
-      os_version: '5.0',
-      browser: 'Android Browser',
-      browser_version: null,
-      device: 'Samsung Galaxy S6'
-    }
+    }//,
+    // bs_android_galaxy_s6: {
+    //   base: 'BrowserStack',
+    //   real_mobile: true,
+    //   os: 'android',
+    //   os_version: '5.0',
+    //   browser: 'Android Browser',
+    //   browser_version: null,
+    //   device: 'Samsung Galaxy S6'
+    // }
   };
 
   return {
@@ -166,6 +166,7 @@ module.exports = function (config) {
     frameworks: [
       'mocha'
     ],
+    hostname: '0.0.0.0',
     preprocessors: getPreprocessors(),
     reporters: [
       'mocha',
