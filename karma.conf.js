@@ -80,7 +80,9 @@ function getBrowserStackConfig(config) {
       accessKey
     },
     customLaunchers,
-    browsers: Object.keys(customLaunchers)
+    browsers: Object.keys(customLaunchers),
+    // value below is only to be set in CI env
+    localIdentifier: process.env.BROWSERSTACK_LOCAL_IDENTIFIER
   };
 }
 
@@ -166,7 +168,6 @@ module.exports = function (config) {
     frameworks: [
       'mocha'
     ],
-    hostname: '0.0.0.0',
     preprocessors: getPreprocessors(),
     reporters: [
       'mocha',
