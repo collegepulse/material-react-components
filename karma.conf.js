@@ -54,13 +54,13 @@ function getBrowserStackConfig(config) {
       os: 'Windows',
       os_version: '10'
     },
-    // bs_iphone_X: {
-    //   base: 'BrowserStack',
-    //   device: 'iPhone X',
-    //   os: 'iOS',
-    //   os_version: '11.0',
-    //   real_mobile: true
-    // },
+    bs_iphone_X: {
+      base: 'BrowserStack',
+      device: 'iPhone X',
+      os: 'iOS',
+      os_version: '11.0',
+      real_mobile: true
+    },
     bs_android_galaxy_s6: {
       base: 'BrowserStack',
       real_mobile: true,
