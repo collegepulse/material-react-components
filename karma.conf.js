@@ -19,59 +19,57 @@ function getBrowserStackConfig(config) {
   }
 
   const customLaunchers = {
-    // bs_firefox_mac: {
+    bs_firefox_mac: {
+      base: 'BrowserStack',
+      browser: 'firefox',
+      browser_version: '45',
+      os: 'OS X',
+      os_version: 'Yosemite'
+    },
+    bs_chrome_mac: {
+      base: 'BrowserStack',
+      browser: 'chrome',
+      browser_version: '49',
+      os: 'OS X',
+      os_version: 'Yosemite'
+    },
+    bs_safari_mac: {
+      base: 'BrowserStack',
+      os: 'OS X',
+      os_version: 'Sierra',
+      browser: 'Safari',
+      browser_version: '10.1',
+    },
+    bs_ie_windows: {
+      base: 'BrowserStack',
+      browser: 'ie',
+      browser_version: '11',
+      os: 'Windows',
+      os_version: '8.1'
+    },
+    bs_edge_windows: {
+      base: 'BrowserStack',
+      browser: 'edge',
+      browser_version: '14',
+      os: 'Windows',
+      os_version: '10'
+    },
+    // bs_iphone_X: {
     //   base: 'BrowserStack',
-    //   browser: 'firefox',
-    //   browser_version: '45',
-    //   os: 'OS X',
-    //   os_version: 'Yosemite'
+    //   device: 'iPhone X',
+    //   os: 'iOS',
+    //   os_version: '11.0',
+    //   real_mobile: true
     // },
-    // bs_chrome_mac: {
-    //   base: 'BrowserStack',
-    //   browser: 'chrome',
-    //   browser_version: '49',
-    //   os: 'OS X',
-    //   os_version: 'Yosemite'
-    // },
-    // bs_safari_mac: {
-    //   base: 'BrowserStack',
-    //   browser: 'safari',
-    //   browser_version: '8',
-    //   os: 'OS X',
-    //   os_version: 'Yosemite'
-    // },
-    // bs_ie_windows: {
-    //   base: 'BrowserStack',
-    //   browser: 'ie',
-    //   browser_version: '11',
-    //   os: 'Windows',
-    //   os_version: '8.1'
-    // },
-    // bs_edge_windows: {
-    //   base: 'BrowserStack',
-    //   browser: 'edge',
-    //   browser_version: '14',
-    //   os: 'Windows',
-    //   os_version: '10'
-    // },
-    bs_iphone_X: {
+    bs_android_galaxy_s6: {
       base: 'BrowserStack',
       real_mobile: true,
-      device: 'iPhone X',
-      os: 'ios',
-      os_version: '11.0',
+      os: 'android',
+      os_version: '5.0',
+      browser: 'Android Browser',
       browser_version: null,
-      browser: 'Mobile Safari'
-    }//,
-    // bs_android_galaxy_s6: {
-    //   base: 'BrowserStack',
-    //   real_mobile: true,
-    //   os: 'android',
-    //   os_version: '5.0',
-    //   browser: 'Android Browser',
-    //   browser_version: null,
-    //   device: 'Samsung Galaxy S6'
-    // }
+      device: 'Samsung Galaxy S6'
+    }
   };
 
   return {
@@ -82,7 +80,8 @@ function getBrowserStackConfig(config) {
     customLaunchers,
     browsers: Object.keys(customLaunchers),
     // value below is only to be set in CI env
-    localIdentifier: process.env.BROWSERSTACK_LOCAL_IDENTIFIER
+    localIdentifier: process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
+    tunnelIdentifier: Boolean(process.env.BROWSERSTACK_LOCAL_IDENTIFIER)
   };
 }
 
