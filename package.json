@@ -39,6 +39,7 @@
     "react-dom": "^15.5.4 || ^16.0.0"
   },
   "dependencies": {
+    "@babel/runtime": "7.0.0-rc.1",
     "classnames": "2.2.6",
     "deep-assign": "2.0.0",
     "keycode": "2.2.0",
@@ -53,6 +54,7 @@
     "@babel/core": "7.0.0-rc.1",
     "@babel/plugin-proposal-class-properties": "7.0.0-rc.1",
     "@babel/plugin-proposal-object-rest-spread": "7.0.0-rc.1",
+    "@babel/plugin-transform-runtime": "7.0.0-rc.1",
     "@babel/preset-env": "7.0.0-rc.1",
     "@babel/preset-react": "7.0.0-rc.1",
     "autoprefixer": "9.1.1",
