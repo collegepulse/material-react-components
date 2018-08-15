@@ -33,7 +33,6 @@
       "plugins": [
         "babel-plugin-transform-react-remove-prop-types",
         [
-<<<<<<< HEAD
           "babel-plugin-css-modules-transform",
           {
             "generateScopedName": "[name].[local]",
@@ -44,10 +43,6 @@
               "relativeRoot": "./src/",
               "filename": "[path]/[name].css"
             }
-=======
-          "babel-plugin-transform-define", {
-            "__TEST__": false
->>>>>>> master
           }
         ]
       ]
@@ -56,16 +51,12 @@
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
-<<<<<<< HEAD
     "@babel/plugin-transform-runtime",
     [
       "babel-plugin-transform-define", {
         "__TEST__": false
       }
     ]
-=======
-    "@babel/plugin-transform-runtime"
->>>>>>> master
   ],
   "presets": [
     [
