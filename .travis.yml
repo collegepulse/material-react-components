@@ -6,8 +6,3 @@ before_script:
   - npm run build
 install:
   - npm install
-addons:
-  browserstack:
-    username: "petermikitsh1"
-    access_key:
-      secure: "KxabzY4DGYQchcx6fQ9LX6BQ6G4+XU/GtxwUZ4RDaAPJgC2H8J24O9WSz7WummHcCN36F7xVWs5mbkrAG7dURlOsSRL3kgn8VNHb50jPCiaRDRyHyKCLcIJbxKk1suiMpIpOvz+ZvEIBeGX4Os4TG+Nxee110GUYpVg27cU+4MfVSHHqTxa4nhJ4GKKbLbpTOq0wtRvukKypzItx+NsU8UGyXCt7PIfVE+D59bzH6kfHcauyv9UJ0lERvbAgxADzg+Ie2uuVb93pzku9L6LfTTcy+cNMH61etQ29IEAa+c2P9Diqe1JyY4sGCqR3kb0lTALZPzsceuH6qLKKKL2f9ekGHkL7W0bbxfk/YYUMK5tDdahQ/773lfX6u7xJtzI1J4CuUfFhvTu8jX+JY0EOxPkTQa4meCPzkRvflGdcMOofnKw04CCxF/GYW/lwMHVvcq5PuEOeD96YUQC/3lEYBGk+GdG6cpgnz9ec1LBqeH66FnLKFUqhhphv/+X1cN/2Kk0gW1pnjRdptzNac5KVOuER6+v5sjvyJsXJaBi3kOEvZjhJymON+a8zMpUpzsRJ/2uO9vCq9hPwbCdPYMyk65clb6PjQHRa/B0k+or1wITYdLsL9myvpqUFXLoheHXFXpcsFzrkA1niqiUT4LwHhFHeAUNpCRmeZEEb2oBYQ9s="
