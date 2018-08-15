@@ -12,7 +12,7 @@ class Paper extends React.Component {
       <div
         {...other}
         className={makeClass(className, Styles.root, Styles[`elevation${elevation}`])}
-        style={Object.assign({}, style, {backgroundColor})}
+        style={{...style, backgroundColor}}
       >
         {children}
       </div>

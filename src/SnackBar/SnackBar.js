@@ -27,30 +27,37 @@ class SnackBar extends React.Component {
 
   queue(SnackBarItem) {
     this.timeout = setTimeout(() => {
-      const newElement = React.cloneElement(SnackBarItem, {
-        key: this.state.index
-      });
-      this.setState({
-        delay: this.state.SnackBarItems.length !== 0,
-        index: this.state.index + 1,
-        SnackBarItems: [
-          ...this.state.SnackBarItems,
-          newElement
-        ]
+      this.setState(prevState => {
+        const newElement = React.cloneElement(SnackBarItem, {
+          key: prevState.index
+        });
+
+        return {
+          delay: prevState.SnackBarItems.length !== 0,
+          index: prevState.index + 1,
+          SnackBarItems: [
+            ...prevState.SnackBarItems,
+            newElement
+          ]
+        };
       });
     });
   }
 
   dequeue() {
-    const newitems = this.state.SnackBarItems.slice(1);
-    this.setState({
-      delay: !newitems.length !== 0,
-      SnackBarItems: newitems
+    this.setState(prevState => {
+      const newitems = prevState.SnackBarItems.slice(1);
+      return {
+        delay: !newitems.length !== 0,
+        SnackBarItems: newitems
+      };
     });
   }
 
   handleTransition() {
-    this.setState({transitioning: !this.state.transitioning});
+    this.setState(prevState => ({
+      transitioning: !prevState.transitioning
+    }));
   }
 
   render() {

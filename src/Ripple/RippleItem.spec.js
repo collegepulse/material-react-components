@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createShallow} from '../../test/utils';
 import React from 'react';
+import {createShallow} from '../../test/utils';
 import RippleItem from './RippleItem';
 
 describe('RippleItem', () => {
@@ -17,7 +17,7 @@ describe('RippleItem', () => {
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<RippleItem />);
+    const wrapper = shallow(<RippleItem/>);
     assert(wrapper);
   });
 });

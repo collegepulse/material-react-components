@@ -1,5 +1,5 @@
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const path = require('path');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const webpack = require('webpack');
 
 function entry(env) {
@@ -56,6 +56,7 @@ module.exports = function config(env = {}) {
       publicPath: '/',
       filename: '[name].js'
     },
+    mode: 'development',
     module: {
       rules: [
         {

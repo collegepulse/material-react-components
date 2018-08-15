@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
-import BottomNavigationItem from './BottomNavigationItem';
-import {createShallow} from '../../test/utils';
 import assert from 'assert';
 import React from 'react';
+import {createShallow} from '../../test/utils';
+import BottomNavigationItem from './BottomNavigationItem';
 
 describe('BottomNavigationItem', () => {
   let shallow;
@@ -17,7 +17,7 @@ describe('BottomNavigationItem', () => {
   });
 
   it('should shallow render', () => {
-    const wrapper = shallow(<BottomNavigationItem />);
+    const wrapper = shallow(<BottomNavigationItem/>);
     assert(wrapper);
   });
 });

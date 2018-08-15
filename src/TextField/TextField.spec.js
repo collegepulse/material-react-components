@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createShallow, createMount, createTest} from '../../test/utils';
 import {noop} from 'lodash';
 import React from 'react';
+import {createShallow, createMount, createTest} from '../../test/utils';
 import Styles from './TextField.css';
 import TextField from './TextField';
 import TextFieldAnimations from './TextFieldAnimations.css';

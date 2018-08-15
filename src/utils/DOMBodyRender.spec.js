@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
+import React from 'react';
 import {createMount} from '../../test/utils';
 import DOMBodyRender from './DOMBodyRender';
-import React from 'react';
 
 describe('DOMBodyRender', () => {
   let mount;
@@ -24,7 +24,7 @@ describe('DOMBodyRender', () => {
       </DOMBodyRender>
     );
     const wrapper = mount(component);
-    const { node } = wrapper.instance();
+    const {node} = wrapper.instance();
     assert(node.innerHTML.indexOf(text) > -1);
   });
 
@@ -36,7 +36,7 @@ describe('DOMBodyRender', () => {
       </DOMBodyRender>
     );
     const wrapper = mount(component);
-    const { node } = wrapper.instance();
+    const {node} = wrapper.instance();
     assert(node.innerHTML.indexOf(oldText) > -1);
     const newText = 'New content';
     wrapper.setProps({children: <div>{newText}</div>});

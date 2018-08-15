@@ -1,10 +1,10 @@
-import DOMBodyRender from '../utils/DOMBodyRender';
 import {findDOMNode} from 'react-dom';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Styles from './SnackBar.css';
+import DOMBodyRender from '../utils/DOMBodyRender';
 import Typography from '../Typography';
+import Styles from './SnackBar.css';
 
 class SnackBarItem extends React.Component {
   constructor(props) {
@@ -45,7 +45,6 @@ class SnackBarItem extends React.Component {
     }
   }
 
-
   makeAction() {
     const {action} = this.props;
     return React.cloneElement(action, {
@@ -63,8 +62,13 @@ class SnackBarItem extends React.Component {
     });
   }
 
-  registerAction = (c) => { this.action = c; }
-  registerSnackbar = (c) => { this.snackbar = c; }
+  registerAction = c => {
+    this.action = c;
+  }
+
+  registerSnackbar = c => {
+    this.snackbar = c;
+  }
 
   render() {
     const {action, delay, message} = this.props;
@@ -77,11 +81,11 @@ class SnackBarItem extends React.Component {
           />
           <div className={Styles.snackbarWrapper}>
             <div
+              ref={this.registerSnackbar}
               className={
                 makeClass(Styles.snackbar, {
                   [Styles.delay]: delay
                 })}
-              ref={this.registerSnackbar}
             >
               <Typography type="body1" className={Styles.message}>
                 {message}

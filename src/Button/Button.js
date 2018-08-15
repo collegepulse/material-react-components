@@ -3,16 +3,16 @@ import keycode from 'keycode';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Ripple from '../Ripple';
-import Styles from './Button.css';
 import tinycolor from 'tinycolor2';
+import Ripple from '../Ripple';
 import variables from '../variables';
 import Typography from '../Typography';
+import Styles from './Button.css';
 
 const touchEvents = ['mouseDown', 'mouseUp', 'touchStart', 'touchEnd'];
 
 function rippleMiddleware(instance, eventName, cb) {
-  return (e) => {
+  return e => {
     if (!instance.props.focusRippleDisabled ||
       (instance.props.focusRippleDisabled && touchEvents.indexOf(eventName) > -1)) {
       return cb.call(instance, e);
@@ -28,7 +28,7 @@ class Button extends React.Component {
     mouseFocused: false
   };
 
-  onMouseDown = rippleMiddleware(this, 'mouseDown', (e) => {
+  onMouseDown = rippleMiddleware(this, 'mouseDown', e => {
     e.persist();
     this.setState({mouseFocused: true});
     if (findDOMNode(this) === document.activeElement) {
@@ -40,7 +40,7 @@ class Button extends React.Component {
     }
   });
 
-  onMouseUp = rippleMiddleware(this, 'mouseUp', (e) => {
+  onMouseUp = rippleMiddleware(this, 'mouseUp', e => {
     this.ripple.remove(e);
   });
 
@@ -65,22 +65,22 @@ class Button extends React.Component {
     this.props.onKeyDown(e, ...args);
   });
 
-  onFocus = rippleMiddleware(this, 'focus', (e) => {
+  onFocus = rippleMiddleware(this, 'focus', e => {
     if (!this.state.mouseFocused) {
       this.ripple.add(e, {pulsate: !this.props.icon, centered: true});
     }
   });
 
-  onBlur = rippleMiddleware(this, 'blur', (e) => {
+  onBlur = rippleMiddleware(this, 'blur', e => {
     this.ripple.remove(e);
     this.setState({mouseFocused: false});
   });
 
-  onTouchStart = rippleMiddleware(this, 'touchStart', (e) => {
+  onTouchStart = rippleMiddleware(this, 'touchStart', e => {
     this.ripple.add(e, {centered: this.props.icon});
   });
 
-  onTouchEnd = rippleMiddleware(this, 'touchEnd', (e) => {
+  onTouchEnd = rippleMiddleware(this, 'touchEnd', e => {
     this.ripple.remove(e);
   });
 
@@ -89,7 +89,9 @@ class Button extends React.Component {
 
     if (buttonColor && !textColor) {
       return this.readableTextColor();
-    } else if (textColor) {
+    }
+
+    if (textColor) {
       return textColor;
     }
 
@@ -103,7 +105,8 @@ class Button extends React.Component {
     if (hover && !icon) {
       if (buttonColor) {
         return tinycolor(buttonColor).darken(5).toString();
-      } else if (textColor) {
+      }
+      if (textColor) {
         return tinycolor(textColor).setAlpha(0.15).toString();
       }
       return tinycolor('rgba(0, 0, 0, 0.12)').toString();
@@ -118,7 +121,7 @@ class Button extends React.Component {
     return tinycolor.mostReadable(buttonColor, colors).toString();
   };
 
-  registerRipple = (c) => {
+  registerRipple = c => {
     this.ripple = c;
   };
 
@@ -163,8 +166,8 @@ class Button extends React.Component {
           {children}
         </Typography>
         <Ripple
-          color={icon ? variables.$black87 : textColor}
           ref={this.registerRipple}
+          color={icon ? variables.$black87 : textColor}
         />
       </Component>
     );

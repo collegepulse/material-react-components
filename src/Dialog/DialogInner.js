@@ -1,8 +1,8 @@
 import keycode from 'keycode';
 import makeClass from 'classnames';
-import Paper from '../Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Paper from '../Paper';
 import Styles from './Dialog.css';
 
 function ontouchmove() {
@@ -24,7 +24,7 @@ class DialogInner extends React.Component {
     this.root.focus();
 
     this.lastOnTouchMove = document.ontouchmove || ontouchmove;
-    document.ontouchmove = (e) => {
+    document.ontouchmove = e => {
       e.preventDefault();
     };
   }
@@ -77,8 +77,13 @@ class DialogInner extends React.Component {
     }, 350);
   }
 
-  registerRoot = (c) => { this.root = c; }
-  registerActions = (c) => { this.actions = c; }
+  registerRoot = c => {
+    this.root = c;
+  }
+
+  registerActions = c => {
+    this.actions = c;
+  }
 
   render() {
     const {
@@ -87,11 +92,11 @@ class DialogInner extends React.Component {
     return (
       <div // eslint-disable-line jsx-a11y/no-noninteractive-element-interactions
         {...other}
-        className={makeClass(Styles.root, {[Styles.open]: open}, className)}
         ref={this.registerRoot}
+        className={makeClass(Styles.root, {[Styles.open]: open}, className)}
+        onKeyDown={__TEST__ ? this.onKeyDown : ontouchmove}
         role="document"
         tabIndex={-1}
-        onKeyDown={__TEST__ ? this.onKeyDown : ontouchmove}
       >
         <div
           onClick={this.props.onClose}
@@ -108,8 +113,8 @@ class DialogInner extends React.Component {
             {description}
           </div>
           <div
-            className={Styles.actions}
             ref={this.registerActions}
+            className={Styles.actions}
           >
             {actions}
           </div>
@@ -125,7 +130,7 @@ DialogInner.defaultProps = {
   description: null,
   onClose: () => {},
   open: false,
-  title: null,
+  title: null
 };
 
 DialogInner.propTypes = {

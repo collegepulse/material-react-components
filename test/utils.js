@@ -8,7 +8,7 @@ export function createWrapper(fn) {
   window.document.body.insertBefore(attachTo, firstChild);
 
   const wrapper = function enzymeWrapper(node) {
-    return fn(node, { attachTo });
+    return fn(node, {attachTo});
   };
 
   wrapper.cleanUp = () => {

@@ -1,1 +1,1 @@
-export { default } from './Scrollable';
+export {default} from './Scrollable';

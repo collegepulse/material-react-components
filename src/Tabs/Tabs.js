@@ -3,8 +3,8 @@ import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ScrollbarSize from 'react-scrollbar-size';
-import Styles from './Tabs.css';
 import Variables from '../variables';
+import Styles from './Tabs.css';
 
 class Tabs extends React.Component {
   state = {
@@ -43,7 +43,7 @@ class Tabs extends React.Component {
     this.props.onChange(e, index);
   }
 
-  getMetadata = (nextIndex) => {
+  getMetadata = nextIndex => {
     const meta = {};
     if (this.tabsInner) {
       meta.tabsMeta = this.tabsInner.getBoundingClientRect();
@@ -57,7 +57,7 @@ class Tabs extends React.Component {
     return meta;
   }
 
-  setIndicatorStyles = (nextIndex) => {
+  setIndicatorStyles = nextIndex => {
     const {tabsMeta, tabMeta} = this.getMetadata(nextIndex);
     const indicatorLeft = `${tabMeta.left + (tabsMeta.scrollLeft - tabsMeta.left)}px`;
     const indicatorWidth = `${tabMeta.width}px`;
@@ -78,17 +78,17 @@ class Tabs extends React.Component {
     this.setState({scrollbarHeight});
   }
 
-  scrollbarSizeChange = (scrollbarHeight) => {
+  scrollbarSizeChange = scrollbarHeight => {
     this.setState({scrollbarHeight});
   }
 
-  registerTab = (c) => {
+  registerTab = c => {
     if (c) {
       this.tabs[c.props.index] = c;
     }
   }
 
-  registerTabsInner = (c) => {
+  registerTabsInner = c => {
     this.tabsInner = c;
   }
 
@@ -131,8 +131,8 @@ class Tabs extends React.Component {
         }}
       >
         <div
-          className={Styles.tabsInner}
           ref={this.registerTabsInner}
+          className={Styles.tabsInner}
           style={{
             textAlign: isCentered ? 'center' : 'left',
             margin: `0 0 -${scrollbarHeight}px`

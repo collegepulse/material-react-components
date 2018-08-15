@@ -69,18 +69,18 @@ class Ripple extends React.Component {
 
     ripples = [...ripples, (
       <RippleItem
-        color={this.props.color}
         key={this.state.nextKey}
-        rippleSize={rippleSize}
+        color={this.props.color}
         pulsate={pulsate}
+        rippleSize={rippleSize}
         {...props}
       />
     )];
 
-    this.setState({
-      nextKey: this.state.nextKey + 1,
+    this.setState(prevState => ({
+      nextKey: prevState.nextKey + 1,
       ripples
-    }, cb);
+    }), cb);
   }
 
   remove(e, opts, cb = () => {}) {
@@ -105,4 +105,3 @@ class Ripple extends React.Component {
 }
 
 export default Ripple;
-

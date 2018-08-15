@@ -1,7 +1,7 @@
-import Button from '../Button';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Button from '../Button';
 import Styles from './BottomNavigationItem.css';
 
 function BottomNavigationItem({children, className, ...other}) {

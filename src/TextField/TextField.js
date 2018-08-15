@@ -1,8 +1,8 @@
-import Animations from './TextFieldAnimations.css';
 import makeClass from 'classnames';
 import makeUuid from 'uuid/v4';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Animations from './TextFieldAnimations.css';
 import Styles from './TextField.css';
 
 class TextField extends React.Component {
@@ -72,7 +72,7 @@ class TextField extends React.Component {
   }
 
   fixHeight(e) {
-    /* reset height to auto to ensure textfield height decreases when text is removed */
+    /* Reset height to auto to ensure textfield height decreases when text is removed */
     if (this.props.multiline) {
       if (e && e.target && e.target.value) {
         this.shadow.value = e.target.value;
@@ -82,9 +82,17 @@ class TextField extends React.Component {
     }
   }
 
-  registerShadowTextArea = (c) => { this.shadow = c; }
-  registerFormElement = (c) => { this.formElement = c; }
-  registerLabel = (c) => { this.label = c; }
+  registerShadowTextArea = c => {
+    this.shadow = c;
+  }
+
+  registerFormElement = c => {
+    this.formElement = c;
+  }
+
+  registerLabel = c => {
+    this.label = c;
+  }
 
   render() {
     const {
@@ -99,32 +107,32 @@ class TextField extends React.Component {
         {/* Shadow <textarea> is used to compute real textarea height. */}
         {multiline && (
           <textarea
+            ref={this.registerShadowTextArea}
             className={Styles.shadow}
             readOnly
-            ref={this.registerShadowTextArea}
             tabIndex={-1}
             value={value}
           />
         )}
         <FormComponent
           {...other}
+          ref={this.registerFormElement}
+          aria-labelledby={labelId}
           className={makeClass(Styles.input, {
             [Styles.textarea]: multiline,
             [Styles.hasPlaceholder]: placeholder,
             [Styles.hasValue]: notEmpty
           })}
+          onBlur={this.onBlur}
           onChange={this.onChange}
           onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          value={value}
           placeholder={placeholder}
-          aria-labelledby={labelId}
-          ref={this.registerFormElement}
+          value={value}
         />
         <label
+          ref={this.registerLabel}
           className={Styles.label}
           id={labelId}
-          ref={this.registerLabel}
           style={{
             color: errorColor || (focused && primaryColor)
           }}

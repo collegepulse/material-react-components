@@ -1,12 +1,14 @@
-import Button from '../Button';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Styles from './ListItem.css';
+import Button from '../Button';
 import Typography from '../Typography';
+import Styles from './ListItem.css';
 
 class ListItem extends React.Component {
-  registerButton = (c) => { this.Button = c; }
+  registerButton = c => {
+    this.Button = c;
+  }
 
   render() {
     const {
@@ -16,8 +18,8 @@ class ListItem extends React.Component {
       <div {...other} className={makeClass(Styles.root, className)}>
         <Button
           {...buttonProps}
-          className={Styles.button}
           ref={this.registerButton}
+          className={Styles.button}
         >
           {avatar && (
             <div className={Styles.avatar}>

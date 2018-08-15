@@ -1,9 +1,9 @@
-import Button from '../Button';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Styles from './Tab.css';
+import Button from '../Button';
 import Variables from '../variables';
+import Styles from './Tab.css';
 
 class Tab extends React.Component {
   renderIndicator = () => (

@@ -28,6 +28,7 @@ module.exports = {
     publicPath: '/',
     filename: '[name].js'
   },
+  mode: 'development',
   module: {
     rules: [
       {

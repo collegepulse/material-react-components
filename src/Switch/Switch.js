@@ -2,8 +2,8 @@ import keycode from 'keycode';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Styles from './Switch.css';
 import makeUuid from 'uuid/v4';
+import Styles from './Switch.css';
 
 class Switch extends React.Component {
   constructor(props) {
@@ -34,7 +34,9 @@ class Switch extends React.Component {
     });
   }
 
-  registerInput = (c) => { this.input = c; }
+  registerInput = c => {
+    this.input = c;
+  }
 
   render() {
     const {
@@ -52,15 +54,15 @@ class Switch extends React.Component {
         <div className={Styles.switchWrapper}>
           <input
             {...props}
+            ref={this.registerInput}
+            aria-labelledby={labelId}
+            checked={checked}
             className={Styles.input}
+            disabled={disabled}
             onBlur={this.onBlur}
+            onChange={onChange}
             onKeyUp={this.onKeyUp}
             type="checkbox"
-            checked={checked}
-            onChange={onChange}
-            disabled={disabled}
-            aria-labelledby={labelId}
-            ref={this.registerInput}
           />
           <div
             className={Styles.track}

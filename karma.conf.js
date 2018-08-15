@@ -35,10 +35,10 @@ function getBrowserStackConfig(config) {
     },
     bs_safari_mac: {
       base: 'BrowserStack',
-      browser: 'safari',
-      browser_version: '8',
       os: 'OS X',
-      os_version: 'Yosemite'
+      os_version: 'Sierra',
+      browser: 'Safari',
+      browser_version: '10.1',
     },
     bs_ie_windows: {
       base: 'BrowserStack',
@@ -54,22 +54,14 @@ function getBrowserStackConfig(config) {
       os: 'Windows',
       os_version: '10'
     },
-    bs_iphone_5s: {
+    bs_android_galaxy_s6: {
       base: 'BrowserStack',
-      device: 'iPhone 6',
-      os: 'ios',
-      os_version: '8.3',
-      browser_version: null,
-      browser: 'Mobile Safari'
-    },
-    bs_android_galaxy_s5_mini: {
-      base: 'BrowserStack',
-      realMobile: true,
+      real_mobile: true,
       os: 'android',
-      os_version: '4.4',
+      os_version: '5.0',
       browser: 'Android Browser',
       browser_version: null,
-      device: 'Samsung Galaxy S5 Mini'
+      device: 'Samsung Galaxy S6'
     }
   };
 
@@ -82,6 +74,40 @@ function getBrowserStackConfig(config) {
     browsers: Object.keys(customLaunchers)
   };
 }
+
+const babelOptions = {
+  plugins: [
+    '@babel/plugin-proposal-class-properties',
+    [
+      'babel-plugin-istanbul', {
+        exclude: [
+          '**/index.js',
+          '**/*.spec.js',
+          'test/test_index.js'
+        ]
+      }
+    ]
+  ],
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        targets: {
+          browsers: [
+            'Firefox >= 45',
+            'Chrome >= 49',
+            'Safari >= 8',
+            'IE >= 11',
+            'Edge >= 14',
+            'iOS >= 10',
+            'Android >= 5'
+          ]
+        }
+      }
+    ],
+    '@babel/preset-react'
+  ]
+};
 
 module.exports = function (config) {
   const initialConfig = {
@@ -126,7 +152,6 @@ module.exports = function (config) {
     },
     files: [
       './node_modules/core-js/client/core.js',
-      './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
       'test/test_index.js'
     ],
     frameworks: [
@@ -140,49 +165,21 @@ module.exports = function (config) {
     ],
     singleRun: true,
     webpack: {
-      devtool: 'cheap-module-inline-source-map',
+      devtool: 'source-map',
       externals: {
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': 'window',
         'react/addons': true
       },
+      mode: 'development',
       module: {
-        exprContextCritical: false,
         rules: [
           // Run regular source code through babel
           {
             test: /\.js$/,
-            exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
-              options: {
-                plugins: [
-                  'transform-class-properties',
-                  'empower-assert',
-                  [
-                    'espower', {
-                      embedAst: true
-                    }
-                  ],
-                  [
-                    'istanbul', {
-                      exclude: [
-                        '**/index.js',
-                        '**/*.spec.js',
-                        'test/test_index.js'
-                      ]
-                    }
-                  ]
-                ],
-                presets: [
-                  [
-                    'es2015',
-                    {
-                      modules: false
-                    }
-                  ]
-                ]
-              }
+              options: babelOptions
             }
           },
           {
@@ -196,7 +193,10 @@ module.exports = function (config) {
           {
             test: /\.svg$/,
             use: [
-              'babel-loader',
+              {
+                loader: 'babel-loader',
+                options: babelOptions
+              },
               'react-svg-loader'
             ]
           }
@@ -209,7 +209,8 @@ module.exports = function (config) {
             NODE_ENV: JSON.stringify('development')
           }
         })
-      ]
+      ],
+      target: 'web'
     },
     webpackServer: {
       noInfo: true

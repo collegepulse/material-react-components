@@ -1,10 +1,10 @@
 import makeClass from 'classnames';
-import Paper from '../Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Styles from './AppBar.css';
+import Paper from '../Paper';
 import Typography from '../Typography';
 import Variables from '../variables';
+import Styles from './AppBar.css';
 
 function AppBar({
   backgroundColor,
@@ -66,6 +66,5 @@ AppBar.propTypes = {
   primary: PropTypes.node,
   secondary: PropTypes.node
 };
-
 
 export default AppBar;

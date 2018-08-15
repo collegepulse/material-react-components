@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import {createMount, createTest} from '../../test/utils';
 import React from 'react';
 import sinon from 'sinon';
+import {createMount, createTest} from '../../test/utils';
 import Styles from './Tabs.css';
-import Tabs, {Tab} from './index';
+import Tabs, {Tab} from '.';
 
 describe('Tabs', () => {
   let mount;
@@ -21,7 +21,7 @@ describe('Tabs', () => {
   it('should deep render', () => {
     const component = (
       <Tabs>
-        <Tab label="Foo" />
+        <Tab label="Foo"/>
       </Tabs>
     );
     const wrapper = mount(component);
@@ -32,9 +32,9 @@ describe('Tabs', () => {
     const onChange = sinon.spy();
     const component = (
       <Tabs index={0} onChange={onChange}>
-        <Tab label="foo" />
-        <Tab label="bar" />
-        <Tab label="baz" />
+        <Tab label="foo"/>
+        <Tab label="bar"/>
+        <Tab label="baz"/>
       </Tabs>
     );
     const wrapper = mount(component);
@@ -42,16 +42,16 @@ describe('Tabs', () => {
     const newIndex = 2;
     wrapper.find('button').at(newIndex).simulate('click');
     assert(onChange.calledOnce);
-    // second parameter should be index
+    // Second parameter should be index
     assert(onChange.args[0][1] === newIndex);
   }));
 
   it('should repaint the indicator when the index changes', createTest(() => {
     const component = (
       <Tabs index={0} onChange={() => {}}>
-        <Tab label="foo" />
-        <Tab label="bar" />
-        <Tab label="baz" />
+        <Tab label="foo"/>
+        <Tab label="bar"/>
+        <Tab label="baz"/>
       </Tabs>
     );
     const wrapper = mount(component);
@@ -69,9 +69,9 @@ describe('Tabs', () => {
   it('should repaint the indicator on window resize', createTest(() => {
     const component = (
       <Tabs index={1} onChange={() => {}}>
-        <Tab label="foo" />
-        <Tab label="bar" />
-        <Tab label="baz" />
+        <Tab label="foo"/>
+        <Tab label="bar"/>
+        <Tab label="baz"/>
       </Tabs>
     );
     const wrapper = mount(component);
