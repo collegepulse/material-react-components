@@ -44,8 +44,7 @@
     "material-design-icons": "3.0.1",
     "react-scrollbar-size": "2.1.0",
     "react-transition-group": "1.2.1",
-    "tinycolor2": "1.4.1",
-    "uuid": "3.3.2"
+    "tinycolor2": "1.4.1"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0-rc.1",
