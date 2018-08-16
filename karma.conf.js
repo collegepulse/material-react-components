@@ -78,6 +78,12 @@ function getBrowserStackConfig(config) {
 const babelOptions = {
   plugins: [
     '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-proposal-object-rest-spread',
+    [
+      "babel-plugin-transform-define", {
+        "__TEST__": true
+      }
+    ],
     [
       'babel-plugin-istanbul', {
         exclude: [
@@ -177,6 +183,7 @@ module.exports = function (config) {
           // Run regular source code through babel
           {
             test: /\.js$/,
+            exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
               options: babelOptions
@@ -204,7 +211,6 @@ module.exports = function (config) {
       },
       plugins: [
         new webpack.DefinePlugin({
-          __TEST__: true,
           'process.env': {
             NODE_ENV: JSON.stringify('development')
           }
