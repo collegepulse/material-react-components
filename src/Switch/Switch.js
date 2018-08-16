@@ -1,4 +1,3 @@
-import keycode from 'keycode';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -27,10 +26,12 @@ class Switch extends React.Component {
     this.input.click();
   }
 
-  onKeyUp(e) {
-    const key = keycode(e.keyCode);
+  onKeyUp({ keyCode }) {
+    const isTab = (keyCode === 9);
+    const isSpace = (keyCode === 32);
+
     this.setState({
-      keyboardFocused: (key === 'tab' || key === 'space')
+      keyboardFocused: (isTab || isSpace)
     });
   }
 

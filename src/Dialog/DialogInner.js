@@ -1,4 +1,3 @@
-import keycode from 'keycode';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -35,8 +34,11 @@ class DialogInner extends React.Component {
 
   onKeyDown(e) {
     if (this.props.open) {
-      const key = keycode(e.keyCode);
-      if (key === 'tab') {
+      const { keyCode } = e;
+      const isTab = (keyCode === 9);
+      const isEsc = (keyCode === 27);
+      
+      if (isTab) {
         if (this.actions.children.length <= 1) {
           e.preventDefault();
         } else if (e.shiftKey) {
@@ -45,7 +47,7 @@ class DialogInner extends React.Component {
           this.onForwardTab(e);
         }
       }
-      if (key === 'esc') {
+      if (isEsc) {
         this.props.onClose();
       }
     }
