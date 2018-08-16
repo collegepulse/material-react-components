@@ -28,7 +28,7 @@ describe('Switch', () => {
   });
 
   it('should add aria attribute', () => {
-    const labelId = "foo-bar-baz";
+    const labelId = 'foo-bar-baz';
     const wrapper = mount(<Switch onChange={noop} labelId={labelId}/>);
     assert(wrapper.find('input').getDOMNode().getAttribute('aria-labelledby') === labelId);
     assert(wrapper.find('label').getDOMNode().getAttribute('id') === labelId);

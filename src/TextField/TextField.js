@@ -158,6 +158,7 @@ class TextField extends React.Component {
 TextField.defaultProps = {
   errorColor: null,
   helperText: null,
+  labelId: null,
   placeholder: null,
   primaryColor: null,
   multiline: false,
@@ -168,6 +169,7 @@ TextField.propTypes = {
   errorColor: PropTypes.string,
   helperText: PropTypes.node,
   label: PropTypes.string.isRequired,
+  labelId: PropTypes.string,
   multiline: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,

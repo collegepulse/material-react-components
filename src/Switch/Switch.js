@@ -10,7 +10,7 @@ class Switch extends React.Component {
     this.onMouseUp = this.onMouseUp.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
     this.state = {
-      keyboardFocused: false,
+      keyboardFocused: false
     };
   }
 
@@ -95,6 +95,7 @@ Switch.defaultProps = {
   checked: false,
   disabled: false,
   label: null,
+  labelId: null,
   primaryColor: null,
   style: {}
 };
