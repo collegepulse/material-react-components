@@ -37,11 +37,13 @@ describe('Dialog', () => {
     assert(wrapper);
   });
 
-  it('should mount in an open state, then close', () => {
+  it('should mount in an open state, then close', createTest(() => {
     const wrapper = mount(<Dialog open/>);
     wrapper.setProps({open: false});
-    assert(wrapper);
-  });
+    setTimeout(() => {
+      assert(wrapper);
+    }, 500);
+  }));
 
   it('should mount in an open state, then close', createTest(() => {
     const wrapper = mount(<Dialog
