@@ -19,7 +19,6 @@
           {
             "generateScopedName": "[name].[local]",
             "prepend": [ "./postcss.config.js" ],
-            "keepImport": true,
             "extractCss": {
               "dir": "./dist/",
               "relativeRoot": "./src/",
