@@ -1,5 +1,4 @@
 import makeClass from 'classnames';
-import makeUuid from 'uuid/v4';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Animations from './TextFieldAnimations.css';
@@ -13,8 +12,7 @@ class TextField extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onFocus = this.onFocus.bind(this);
     this.state = {
-      focused: false,
-      labelId: makeUuid()
+      focused: false
     };
   }
 
@@ -96,10 +94,18 @@ class TextField extends React.Component {
 
   render() {
     const {
-      errorColor, helperText, label, placeholder,
-      value, multiline, primaryColor, width, ...other
+      errorColor,
+      helperText,
+      label,
+      labelId,
+      placeholder,
+      value,
+      multiline,
+      primaryColor,
+      width,
+      ...other
     } = this.props;
-    const {focused, labelId} = this.state;
+    const {focused} = this.state;
     const FormComponent = multiline ? 'textarea' : 'input';
     const notEmpty = value && value.length > 0;
     return (
@@ -152,6 +158,7 @@ class TextField extends React.Component {
 TextField.defaultProps = {
   errorColor: null,
   helperText: null,
+  labelId: null,
   placeholder: null,
   primaryColor: null,
   multiline: false,
@@ -162,6 +169,7 @@ TextField.propTypes = {
   errorColor: PropTypes.string,
   helperText: PropTypes.node,
   label: PropTypes.string.isRequired,
+  labelId: PropTypes.string,
   multiline: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,

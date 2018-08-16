@@ -34,6 +34,18 @@ describe('TextField', () => {
     assert(wrapper);
   });
 
+  it('should add aria attribute', createTest(() => {
+    const labelId = 'foo-bar';
+    const wrapper = mount(<TextField
+      label="label"
+      labelId={labelId}
+      onChange={noop}
+      value="value"
+    />);
+    assert(wrapper.find('input').getDOMNode().getAttribute('aria-labelledby') === labelId);
+    assert(wrapper.find('label').getDOMNode().getAttribute('id') === labelId);
+  }));
+
   it('should render a TextArea if multiline', createTest(() => {
     const wrapper = mount(<TextField
       label="label"

@@ -1,11 +1,48 @@
 {
   "env": {
-    "production": {
+    "commonjs": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": "commonjs",
+            "targets": {
+              "browsers": ["last 2 versions"]
+            }
+          }
+        ]
+      ],
       "plugins": [
         "babel-plugin-transform-react-remove-prop-types",
         [
-          "babel-plugin-transform-define", {
-            "__TEST__": false
+          "babel-plugin-css-modules-transform",
+          {
+            "generateScopedName": "[name].[local]",
+            "prepend": [ "./postcss.config.js" ],
+            "keepImport": true,
+            "extractCss": {
+              "dir": "./dist/",
+              "relativeRoot": "./src/",
+              "filename": "[path]/[name].css"
+            }
+          }
+        ]
+      ]
+    },
+    "module": {
+      "plugins": [
+        "babel-plugin-transform-react-remove-prop-types",
+        [
+          "babel-plugin-css-modules-transform",
+          {
+            "generateScopedName": "[name].[local]",
+            "prepend": [ "./postcss.config.js" ],
+            "keepImport": true,
+            "extractCss": {
+              "dir": "./es/",
+              "relativeRoot": "./src/",
+              "filename": "[path]/[name].css"
+            }
           }
         ]
       ]
@@ -14,7 +51,12 @@
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-transform-runtime"
+    "@babel/plugin-transform-runtime",
+    [
+      "babel-plugin-transform-define", {
+        "__TEST__": false
+      }
+    ]
   ],
   "presets": [
     [
@@ -23,7 +65,7 @@
         "modules": false,
         "targets": {
           "browsers": ["last 2 versions"]
-        },
+        }
       }
     ],
     "@babel/preset-react"

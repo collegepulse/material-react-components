@@ -1,7 +1,6 @@
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import makeUuid from 'uuid/v4';
 import Styles from './Switch.css';
 
 class Switch extends React.Component {
@@ -11,8 +10,7 @@ class Switch extends React.Component {
     this.onMouseUp = this.onMouseUp.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
     this.state = {
-      keyboardFocused: false,
-      labelId: makeUuid()
+      keyboardFocused: false
     };
   }
 
@@ -41,9 +39,16 @@ class Switch extends React.Component {
 
   render() {
     const {
-      checked, disabled, label, onChange, primaryColor, style, ...props
+      checked,
+      disabled,
+      label,
+      labelId,
+      onChange,
+      primaryColor,
+      style,
+      ...props
     } = this.props;
-    const {keyboardFocused, labelId} = this.state;
+    const {keyboardFocused} = this.state;
     return (
       <div
         className={makeClass(Styles.root, {
@@ -90,6 +95,7 @@ Switch.defaultProps = {
   checked: false,
   disabled: false,
   label: null,
+  labelId: null,
   primaryColor: null,
   style: {}
 };
@@ -98,6 +104,7 @@ Switch.propTypes = {
   checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   disabled: PropTypes.bool,
   label: PropTypes.node,
+  labelId: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   primaryColor: PropTypes.string,
   style: PropTypes.object

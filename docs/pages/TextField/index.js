@@ -12,6 +12,7 @@ class TextFieldDocs extends React.Component {
     this.onControlPanel = this.onControlPanel.bind(this);
     this.state = {
       label: 'Label',
+      labelId: 'foobar',
       value: '',
       disabled: false,
       placeholder: 'Placeholder',
@@ -39,7 +40,7 @@ class TextFieldDocs extends React.Component {
   }
 
   render() {
-    const {label, helperText, placeholder, primaryColor,
+    const {label, labelId, helperText, placeholder, primaryColor,
       errorColor, value, disabled, multiline, width} = this.state;
     return (
       <Page
@@ -48,6 +49,7 @@ class TextFieldDocs extends React.Component {
           <TextField
             onChange={e => (this.onControlPanel('value', e.target.value))}
             label={label}
+            labelId={labelId}
             value={value}
             disabled={disabled}
             placeholder={placeholder}
@@ -63,6 +65,11 @@ class TextFieldDocs extends React.Component {
             onChange={e => (this.onControlPanel('label', e.target.value))}
             label="label"
             value={label}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('labelId', e.target.value))}
+            label="labelId"
+            value={labelId}
           />,
           <TextField
             onChange={e => (this.onControlPanel('helperText', e.target.value))}

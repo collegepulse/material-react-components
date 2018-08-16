@@ -1,13 +1,13 @@
 const cssvariables = require('./src/variables');
 
 module.exports = () => ({
-  plugins: {
-    'postcss-simple-vars': {
+  plugins: [
+    require('postcss-simple-vars')({
       variables: () => (
         cssvariables
       )
-    },
-    autoprefixer: {
+    }),
+    require('autoprefixer')({
       browsers: [
         'last 4 versions',
         'Android >= 4.4',
@@ -18,6 +18,6 @@ module.exports = () => ({
         'iOS >= 8.4',
         'Safari >= 8'
       ]
-    }
-  }
+    })
+  ]
 });

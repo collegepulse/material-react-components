@@ -1,5 +1,5 @@
 export {default as AppBar} from './AppBar';
-export {default as BottomNavigation, BottomNavigationButton} from './BottomNavigation';
+export {default as BottomNavigation, BottomNavigationItem} from './BottomNavigation';
 export {default as Button} from './Button';
 export {default as Collapse} from './Collapse';
 export {default as Dialog} from './Dialog';
