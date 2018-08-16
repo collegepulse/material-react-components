@@ -1,5 +1,4 @@
 import {findDOMNode} from 'react-dom';
-import keycode from 'keycode';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -54,9 +53,11 @@ class Button extends React.Component {
 
   onKeyDown = rippleMiddleware(this, 'keyDown', (e, ...args) => {
     this.setState({mouseFocused: false});
-    const key = keycode(e.keyCode);
+    const {keyCode} = e;
+    const isEnter = (keyCode === 13);
+    const isSpace = (keyCode === 32);
     const isAnchorTag = findDOMNode(this).tagName === 'A';
-    if (key === 'enter' || (!isAnchorTag && key === 'space')) {
+    if (isEnter || (!isAnchorTag && isSpace)) {
       e.persist();
       this.ripple.remove(e, {}, () => (
         this.ripple.add(e, {pulsate: true, centered: true})

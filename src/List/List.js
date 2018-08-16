@@ -1,5 +1,3 @@
-import deepAssign from 'deep-assign';
-import keycode from 'keycode';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -12,10 +10,13 @@ class List extends React.Component {
   }
 
   onKeyDown(e, ...args) {
-    const key = e.keyCode;
-    if (key === keycode('down') || key === keycode('up')) {
+    const {keyCode} = e;
+    const isDown = (keyCode === 40);
+    const isUp = (keyCode === 38);
+
+    if (isDown || isUp) {
       e.preventDefault();
-      const nodeOfInterest = key === keycode('up') ? 'previousElementSibling' : 'nextElementSibling';
+      const nodeOfInterest = isUp ? 'previousElementSibling' : 'nextElementSibling';
       const nextListItem = e.target.parentElement;
       if (nextListItem && nextListItem[nodeOfInterest]) {
         nextListItem[nodeOfInterest].firstChild.focus();
@@ -36,7 +37,7 @@ class List extends React.Component {
       <div {...other} ref={this.registerRoot} className={makeClass(Styles.root, className)}>
         {React.Children.map(children, child => {
           const props = {
-            buttonProps: deepAssign({focusRippleDisabled: true}, child.props.buttonProps)
+            buttonProps: {...child.props.buttonProps, focusRippleDisabled: true}
           };
           if (arrowNavigation) {
             props.onKeyDown = this.onKeyDown;
