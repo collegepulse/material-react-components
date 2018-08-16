@@ -1,4 +1,3 @@
-import deepAssign from 'deep-assign';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -38,7 +37,7 @@ class List extends React.Component {
       <div {...other} ref={this.registerRoot} className={makeClass(Styles.root, className)}>
         {React.Children.map(children, child => {
           const props = {
-            buttonProps: deepAssign({focusRippleDisabled: true}, child.props.buttonProps)
+            buttonProps: {...child.props.buttonProps, focusRippleDisabled: true}
           };
           if (arrowNavigation) {
             props.onKeyDown = this.onKeyDown;
