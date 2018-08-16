@@ -183,7 +183,6 @@ module.exports = function (config) {
           // Run regular source code through babel
           {
             test: /\.js$/,
-            exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
               options: babelOptions
