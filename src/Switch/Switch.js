@@ -26,7 +26,7 @@ class Switch extends React.Component {
     this.input.click();
   }
 
-  onKeyUp({ keyCode }) {
+  onKeyUp({keyCode}) {
     const isTab = (keyCode === 9);
     const isSpace = (keyCode === 32);
 

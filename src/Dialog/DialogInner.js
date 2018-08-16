@@ -34,10 +34,10 @@ class DialogInner extends React.Component {
 
   onKeyDown(e) {
     if (this.props.open) {
-      const { keyCode } = e;
+      const {keyCode} = e;
       const isTab = (keyCode === 9);
       const isEsc = (keyCode === 27);
-      
+
       if (isTab) {
         if (this.actions.children.length <= 1) {
           e.preventDefault();
