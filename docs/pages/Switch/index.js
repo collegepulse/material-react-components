@@ -13,6 +13,7 @@ class SwitchDocs extends React.Component {
       checked: true,
       disabled: false,
       label: 'Switch Label',
+      labelId: 'foobar',
       primaryColor: Colors.$primary,
       switch1: false,
       switch2: true,
@@ -27,7 +28,7 @@ class SwitchDocs extends React.Component {
   }
 
   render() {
-    const {checked, disabled, label, primaryColor} = this.state;
+    const {checked, disabled, label, labelId, primaryColor} = this.state;
     return (
       <Page
         componentName="Switch"
@@ -37,6 +38,7 @@ class SwitchDocs extends React.Component {
               onChange={e => (this.onControlPanel('checked', e.target.checked))}
               disabled={disabled}
               label={label}
+              labelId={labelId}
               checked={checked}
               primaryColor={primaryColor}
               style={{justifyContent: 'center'}}
@@ -58,6 +60,11 @@ class SwitchDocs extends React.Component {
             onChange={e => (this.onControlPanel('label', e.target.value))}
             label="label"
             value={label}
+          />,
+          <TextField
+            onChange={e => (this.onControlPanel('labelId', e.target.value))}
+            label="labelId"
+            value={labelId}
           />,
           <TextField
             onChange={e => (this.onControlPanel('primaryColor', e.target.value))}
