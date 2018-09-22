@@ -125,6 +125,11 @@
       "react/no-find-dom-node": false,
       "unicorn/filename-case": 0
     },
+    "settings": {
+      "react": {
+        "version": "16.0"
+      }
+    },
     "space": true
   }
 }
