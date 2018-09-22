@@ -62,7 +62,7 @@ class Ripple extends React.Component {
     }
 
     const rippleSize = centered ?
-      Math.sqrt((2 * width ** 2 + height ** 2) / 3) :
+      Math.sqrt((((2 * (width ** 2)) + (height ** 2))) / 3) :
       Math.sqrt(((right - left) ** 2) + ((bottom - top) ** 2)) * 2;
 
     let {ripples} = this.state;
