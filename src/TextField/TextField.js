@@ -46,6 +46,7 @@ class TextField extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.fixHeight);
+    this.label.style.animationName = '';
   }
 
   onBlur() {
@@ -92,6 +93,19 @@ class TextField extends React.Component {
     this.label = c;
   }
 
+  getColor = () => {
+    const fallback = 'rgba(0,0,0,.54)';
+    const {errorColor, primaryColor} = this.props;
+    const {focused} = this.state;
+    if (errorColor) {
+      return errorColor;
+    }
+    if (focused) {
+      return primaryColor || fallback;
+    }
+    return fallback;
+  }
+
   render() {
     const {
       errorColor,
@@ -105,7 +119,6 @@ class TextField extends React.Component {
       width,
       ...other
     } = this.props;
-    const {focused} = this.state;
     const FormComponent = multiline ? 'textarea' : 'input';
     const notEmpty = value && value.length > 0;
     return (
@@ -139,17 +152,20 @@ class TextField extends React.Component {
           ref={this.registerLabel}
           className={Styles.label}
           id={labelId}
-          style={{
-            color: errorColor || (focused && primaryColor)
-          }}
+          style={{color: this.getColor()}}
         >
           {label}
         </label>
         <div
           className={Styles.inkbar}
-          style={{borderBottomColor: errorColor || (focused && primaryColor)}}
+          style={{borderBottomColor: this.getColor()}}
         />
-        <div className={Styles.helper} style={{color: errorColor}}>{helperText}</div>
+        <div
+          className={Styles.helper}
+          style={{color: errorColor || 'rgba(0,0,0,.54)'}}
+        >
+          {helperText}
+        </div>
       </div>
     );
   }
