@@ -9,6 +9,8 @@ class Switch extends React.Component {
     this.onBlur = this.onBlur.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
+    this.getTrackColor = this.getTrackColor.bind(this);
+    this.getThumbColor = this.getThumbColor.bind(this);
     this.state = {
       keyboardFocused: false
     };
@@ -35,6 +37,28 @@ class Switch extends React.Component {
 
   registerInput = c => {
     this.input = c;
+  }
+
+  getTrackColor = () => {
+    const {checked, disabled, primaryColor} = this.props;
+    if (disabled) {
+      return '#bdbdbd';
+    }
+    if (checked) {
+      return primaryColor || '#2196f3';
+    }
+    return '#000';
+  }
+
+  getThumbColor = () => {
+    const {checked, disabled, primaryColor} = this.props;
+    if (disabled && checked) {
+      return '#bdbdbd';
+    }
+    if (checked) {
+      return primaryColor || '#2196f3';
+    }
+    return '#FFF';
   }
 
   render() {
@@ -72,17 +96,13 @@ class Switch extends React.Component {
           />
           <div
             className={Styles.track}
-            style={{
-              backgroundColor: checked && !disabled && primaryColor
-            }}
+            style={{backgroundColor: this.getTrackColor()}}
           />
           <div
             className={makeClass(Styles.thumb, {
               [Styles.thumbKeyboardFocus]: keyboardFocused
             })}
-            style={{
-              backgroundColor: checked && !disabled && primaryColor
-            }}
+            style={{backgroundColor: this.getThumbColor()}}
           />
         </div>
         <label id={labelId} className={Styles.label}>{label}</label>
