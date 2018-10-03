@@ -2,7 +2,7 @@ import {findDOMNode} from 'react-dom';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ScrollbarSize from 'react-scrollbar-size';
+import ScrollbarSize from './ScrollbarSize';
 import Variables from '../variables';
 import Styles from './Tabs.css';
 
