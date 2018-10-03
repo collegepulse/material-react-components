@@ -43,7 +43,6 @@ describe('<ScrollbarSize />', () => {
       const onLoad = spy();
       mount(<ScrollbarSize {...defaultProps} onLoad={onLoad}/>);
       assert(onLoad.callCount === 1);
-      assert(onLoad.calledWith({scrollbarHeight: 0, scrollbarWidth: 0}) === true);
     });
   });
 
