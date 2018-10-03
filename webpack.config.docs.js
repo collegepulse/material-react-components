@@ -49,7 +49,7 @@ module.exports = function config(env = {}) {
       hot: true,
       publicPath: '/material-react-components'
     },
-    devtool: env.docs ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
+    devtool: env.docs ? 'cheap-module-source-map' : 'eval-source-map',
     entry: entry(env),
     output: {
       path: path.resolve(__dirname, env.docs ? '.' : './dist'),
@@ -76,7 +76,22 @@ module.exports = function config(env = {}) {
         {
           test: /\.svg$/,
           use: [
-            'babel-loader',
+            {
+              loader: 'babel-loader',
+              options: {
+                presets: [
+                  [
+                    '@babel/preset-env',
+                    {
+                      modules: false,
+                      targets: {
+                        browsers: ['last 2 versions']
+                      }
+                    }
+                  ]
+                ]
+              }
+            },
             'react-svg-loader'
           ]
         }

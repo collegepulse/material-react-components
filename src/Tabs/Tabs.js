@@ -2,8 +2,8 @@ import {findDOMNode} from 'react-dom';
 import makeClass from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ScrollbarSize from 'react-scrollbar-size';
 import Variables from '../variables';
+import ScrollbarSize from './ScrollbarSize';
 import Styles from './Tabs.css';
 
 class Tabs extends React.Component {
