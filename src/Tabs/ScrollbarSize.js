@@ -9,7 +9,7 @@ const styles = {
   position: 'absolute',
   top: -10000,
   overflow: 'scroll',
-  msOverflowStyle: 'scrollbar',
+  msOverflowStyle: 'scrollbar'
 };
 
 /**
@@ -19,13 +19,13 @@ const styles = {
  */
 class ScrollbarSize extends React.Component {
   handleResize = debounce(() => {
-    const { onChange } = this.props;
+    const {onChange} = this.props;
 
     const prevHeight = this.scrollbarHeight;
     const prevWidth = this.scrollbarWidth;
     this.setMeasurements();
     if (prevHeight !== this.scrollbarHeight || prevWidth !== this.scrollbarWidth) {
-      onChange({ scrollbarHeight: this.scrollbarHeight, scrollbarWidth: this.scrollbarWidth });
+      onChange({scrollbarHeight: this.scrollbarHeight, scrollbarWidth: this.scrollbarWidth});
     }
   }, 166); // Corresponds to 10 frames at 60 Hz.
 
@@ -33,7 +33,7 @@ class ScrollbarSize extends React.Component {
     this.setMeasurements();
     this.props.onLoad({
       scrollbarHeight: this.scrollbarHeight,
-      scrollbarWidth: this.scrollbarWidth,
+      scrollbarWidth: this.scrollbarWidth
     });
   }
 
@@ -42,7 +42,7 @@ class ScrollbarSize extends React.Component {
   }
 
   setMeasurements = () => {
-    const nodeRef = this.nodeRef;
+    const {nodeRef} = this;
 
     if (!nodeRef) {
       return;
@@ -53,11 +53,11 @@ class ScrollbarSize extends React.Component {
   };
 
   render() {
-    const { onChange } = this.props;
+    const {onChange} = this.props;
 
     return (
       <div>
-        {onChange ? <EventListener target="window" onResize={this.handleResize} /> : null}
+        {onChange ? <EventListener target="window" onResize={this.handleResize}/> : null}
         <div
           style={styles}
           ref={ref => {
@@ -71,7 +71,7 @@ class ScrollbarSize extends React.Component {
 
 ScrollbarSize.propTypes = {
   onChange: PropTypes.func.isRequired,
-  onLoad: PropTypes.func.isRequired,
+  onLoad: PropTypes.func.isRequired
 };
 
 export default ScrollbarSize;

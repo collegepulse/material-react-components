@@ -1,14 +1,14 @@
-import React from 'react';
 import assert from 'assert';
-import {createMount, createShallow} from '../../test/utils';
 import EventListener from 'react-event-listener';
-import { spy, useFakeTimers } from 'sinon';
+import React from 'react';
+import {spy, useFakeTimers} from 'sinon';
+import {createMount, createShallow} from '../../test/utils';
 import ScrollbarSize from './ScrollbarSize';
 
 describe('<ScrollbarSize />', () => {
   const defaultProps = {
     onLoad: () => {},
-    onChange: () => {},
+    onChange: () => {}
   };
   let clock;
   let mount;
@@ -33,18 +33,17 @@ describe('<ScrollbarSize />', () => {
   });
 
   describe('prop: onLoad', () => {
-
     it('should not call on initial load', () => {
       const onLoad = spy();
-      const wrapper = mount(<ScrollbarSize {...defaultProps} />);
+      mount(<ScrollbarSize {...defaultProps}/>);
       assert(onLoad.callCount === 0);
     });
 
     it('should call on initial load', () => {
       const onLoad = spy();
-      const wrapper = mount(<ScrollbarSize {...defaultProps} onLoad={onLoad} />);
+      mount(<ScrollbarSize {...defaultProps} onLoad={onLoad}/>);
       assert(onLoad.callCount === 1);
-      assert(onLoad.calledWith({ scrollbarHeight: 0, scrollbarWidth: 0 }) === true);
+      assert(onLoad.calledWith({scrollbarHeight: 0, scrollbarWidth: 0}) === true);
     });
   });
 
@@ -54,13 +53,13 @@ describe('<ScrollbarSize />', () => {
 
     beforeEach(() => {
       onChange = spy();
-      wrapper = shallow(<ScrollbarSize {...defaultProps} onChange={onChange} />);
+      wrapper = shallow(<ScrollbarSize {...defaultProps} onChange={onChange}/>);
       const instance = wrapper.instance();
       instance.nodeRef = {
         offsetHeight: 17,
         clientHeight: 0,
         offsetWidth: 17,
-        clientWidth: 0,
+        clientWidth: 0
       };
     });
 
@@ -68,7 +67,7 @@ describe('<ScrollbarSize />', () => {
       wrapper.find(EventListener).simulate('resize');
       clock.tick(166);
       assert(onChange.callCount === 1);
-      assert(onChange.calledWith({ scrollbarHeight: 17, scrollbarWidth: 17 }) === true);
+      assert(onChange.calledWith({scrollbarHeight: 17, scrollbarWidth: 17}) === true);
     });
 
     it('should not call on second resize event', () => {
