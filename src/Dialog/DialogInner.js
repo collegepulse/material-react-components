@@ -72,6 +72,7 @@ class DialogInner extends React.Component {
       this.lastFocusBeforeDialog.focus();
     }
     setTimeout(() => {
+      this.root.style.animationName = '';
       document.body.style.overflow = '';
       callback();
     }, 350);
