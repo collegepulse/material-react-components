@@ -22,7 +22,7 @@ class DialogInner extends React.Component {
     document.ontouchmove = this.onTouchMove;
   }
 
-  onTouchMove = (e) => {
+  onTouchMove = e => {
     e.preventDefault();
   }
 
