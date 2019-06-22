@@ -4,10 +4,6 @@ import React from 'react';
 import Paper from '../Paper';
 import Styles from './Dialog.css';
 
-function ontouchmove() {
-  return true;
-}
-
 class DialogInner extends React.Component {
   constructor(props) {
     super(props);
@@ -22,10 +18,12 @@ class DialogInner extends React.Component {
     this.lastFocusBeforeDialog = document.activeElement;
     this.root.focus();
 
-    this.lastOnTouchMove = document.ontouchmove || ontouchmove;
-    document.ontouchmove = e => {
-      e.preventDefault();
-    };
+    this.lastOnTouchMove = document.ontouchmove || null;
+    document.ontouchmove = this.onTouchMove;
+  }
+
+  onTouchMove = e => {
+    e.preventDefault();
   }
 
   componentWillUnmount() {
@@ -97,7 +95,7 @@ class DialogInner extends React.Component {
         {...other}
         ref={this.registerRoot}
         className={makeClass(Styles.root, {[Styles.open]: open}, className)}
-        onKeyDown={__TEST__ ? this.onKeyDown : ontouchmove}
+        onKeyDown={__TEST__ ? this.onKeyDown : this.ontouchmove}
         role="document"
         tabIndex={-1}
       >
