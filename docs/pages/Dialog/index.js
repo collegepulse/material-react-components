@@ -4,6 +4,7 @@ import Page from '../Page';
 import React from 'react';
 import Styles from './Dialog.css';
 import TextField from '../../../src/TextField';
+import content from './content';
 
 class DialogDocs extends React.Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class DialogDocs extends React.Component {
       buildYourOwnDialogOpen: false,
       title: 'Title',
       description: 'Description',
-      dialog1Open: false
+      dialog1Open: false,
+      dialog2Open: false,
     };
   }
 
@@ -59,6 +61,7 @@ class DialogDocs extends React.Component {
         examples={
           <div style={{display: 'flex'}}>
             <Button onClick={() => (this.onControlPanel('dialog1Open'))}>Open Dialog</Button>
+            <Button onClick={() => (this.onControlPanel('dialog2Open'))}>Open Dialog (Overflow)</Button>
             <Dialog
               open={this.state.dialog1Open}
               onClose={() => (this.onControlPanel('dialog1Open'))}
@@ -67,6 +70,16 @@ class DialogDocs extends React.Component {
               actions={[
                 <Button key={'btn1'} onClick={() => (this.onControlPanel('dialog1Open'))}>Disagree</Button>,
                 <Button key={'btn2'} onClick={() => (this.onControlPanel('dialog1Open'))}>Agree</Button>
+              ]}
+            />
+            <Dialog
+              open={this.state.dialog2Open}
+              onClose={() => (this.onControlPanel('dialog2Open'))}
+              title={'Overflow Example'}
+              description={content}
+              actions={[
+                <Button key={'btn1'} onClick={() => (this.onControlPanel('dialog2Open'))}>Disagree</Button>,
+                <Button key={'btn2'} onClick={() => (this.onControlPanel('dialog2Open'))}>Agree</Button>
               ]}
             />
           </div>

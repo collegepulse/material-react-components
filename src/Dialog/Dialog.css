@@ -37,10 +37,13 @@
 .dialog {
   width: 75%;
   max-width: 600px;
-  max-height: 90vh;
+  max-height: calc(100% - 90px);
   pointer-events: auto;
   z-index: 2500;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
 .title {
@@ -49,6 +52,7 @@
   line-height: 1;
   padding: 24px;
   color: rgba(0, 0, 0, 0.87);
+  flex: 0 0 auto;
 }
 
 .description {
@@ -57,12 +61,16 @@
   color: rgba(0, 0, 0, 0.54);
   padding: 0 24px 24px;
   -webkit-font-smoothing: antialiased;
+  flex-grow: 1;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
 }
 
 .actions {
   display: flex;
   justify-content: flex-end;
   margin: 8px 4px;
+  flex: 0 0 auto;
 }
 
 @keyframes fadein {
