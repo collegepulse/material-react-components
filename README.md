@@ -3,9 +3,10 @@
 material-react-components
 =========================
 
-[![Build Status](https://travis-ci.org/collegepulse/material-react-components.svg?branch=master)](https://travis-ci.org/collegepulse/material-react-components/)
-[![Coverage Status](https://coveralls.io/repos/github/collegepulse/material-react-components/badge.svg?branch=master)](https://coveralls.io/github/collegepulse/material-react-components?branch=master)
-[![Dependency Status](https://david-dm.org/collegepulse/material-react-components.svg)](https://david-dm.org/collegepulse/material-react-components)
+[![npm package][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
+[![Dependencies Status][david-image]][david-url]
 
 This is a collection of React components that implement Google's [material design specification](https://material.io/guidelines). The goals of this project include:
 
@@ -26,3 +27,12 @@ Acknowlegements
 [BrowserStack](https://www.browserstack.com/) has provided us with the tools and infrastructure necessary to build a high quality component library by testing our components on an array of browsers. Thank you.
 
 [material-ui](https://github.com/callemall/material-ui) has been an influence in some of our component implementations. We are appreciative of the effort and contributions happening over there.
+
+[npm-image]:https://img.shields.io/npm/v/material-react-components.svg
+[npm-url]:https://www.npmjs.com/package/material-react-components
+[travis-image]:https://travis-ci.org/collegepulse/material-react-components.svg?branch=master
+[travis-url]:https://travis-ci.org/collegepulse/material-react-components
+[coveralls-image]:https://coveralls.io/repos/github/collegepulse/material-react-components/badge.svg?branch=master
+[coveralls-url]:https://coveralls.io/github/collegepulse/material-react-components?branch=master
+[david-image]:https://david-dm.org/collegepulse/material-react-components/status.svg
+[david-url]:https://david-dm.org/collegepulse/material-react-components
