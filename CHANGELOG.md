@@ -1,3 +1,12 @@
+## [2.0.6](https://github.com/collegepulse/material-react-components/compare/v2.0.5...v2.0.6) (2019-09-03)
+
+
+### Bug Fixes
+
+* Docs updates ([#21](https://github.com/collegepulse/material-react-components/issues/21)) ([c1439d6](https://github.com/collegepulse/material-react-components/commit/c1439d6))
+
+
+
 ## v2.0.5
 
 - [Tabs] Implementation detail changes to reduce bundle size

@@ -1,6 +1,6 @@
 {
   "name": "material-react-components",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "A collection of React components that implement Google's material design specification.",
   "homepage": "https://collegepulse.app/material-react-components",
   "main": "dist/index.js",
