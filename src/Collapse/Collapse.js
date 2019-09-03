@@ -13,7 +13,7 @@ class Collapse extends React.Component {
 
   componentDidMount() {
     if (this.props.open) {
-      this.setState({ // eslint-disable-line react/no-did-mount-set-state
+      this.setState({
         height: `${this.rootInner.offsetHeight}px`
       });
     }

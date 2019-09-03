@@ -126,7 +126,9 @@
       "react/jsx-sort-props": false,
       "react/no-deprecated": false,
       "react/no-find-dom-node": false,
-      "unicorn/filename-case": 0
+      "unicorn/filename-case": 0,
+      "unicorn/prefer-node-append": 0,
+      "unicorn/prefer-query-selector": 0
     },
     "settings": {
       "react": {

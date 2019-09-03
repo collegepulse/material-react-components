@@ -8,7 +8,7 @@ function FirstChild(props) {
   return childrenArray[0] || null;
 }
 
-class Dialog extends React.Component { // eslint-disable-line prefer-stateless-function
+class Dialog extends React.Component {
   register = c => {
     this.inner = c;
   }

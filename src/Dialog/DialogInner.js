@@ -93,7 +93,7 @@ class DialogInner extends React.Component {
       actions, className, description, onClose, open, title, ...other
     } = this.props;
     return (
-      <div // eslint-disable-line jsx-a11y/no-noninteractive-element-interactions
+      <div
         {...other}
         ref={this.registerRoot}
         className={makeClass(Styles.root, {[Styles.open]: open}, className)}
