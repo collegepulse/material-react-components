@@ -27,7 +27,8 @@
     "test:ssr": "mocha .tmp/main.js",
     "test:unit": "karma start",
     "test:unit:chrome": "SOURCEMAPS=false karma start --browsers Chrome --no-single-run",
-    "test:unit:safari": "SOURCEMAPS=false karma start --browsers Safari --no-single-run"
+    "test:unit:safari": "SOURCEMAPS=false karma start --browsers Safari --no-single-run",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "author": "Peter Mikitsh",
   "license": "MIT",
@@ -62,6 +63,7 @@
     "babel-plugin-transform-react-remove-prop-types": "0.4.18",
     "babel-polyfill": "6.26.0",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
+    "conventional-changelog": "3.1.10",
     "core-js": "2.5.7",
     "css-loader": "1.0.0",
     "enzyme": "3.6.0",
